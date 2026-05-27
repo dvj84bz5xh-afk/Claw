@@ -1,0 +1,32 @@
+<!--pages/assistants/assistants.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">我的助手</text>
+    <text class="count">共 {{assistants.length}} 位专家</text>
+  </view>
+
+  <scroll-view scroll-y class="assistant-list">
+    <view 
+      class="assistant-item" 
+      wx:for="{{assistants}}" 
+      wx:key="id"
+      bindtap="selectAssistant"
+      data-assistant="{{item}}"
+    >
+      <view class="assistant-avatar">
+        <text class="avatar-text">{{item.name.charAt(0)}}</text>
+      </view>
+      <view class="assistant-info">
+        <view class="assistant-name">{{item.name}}</view>
+        <view class="assistant-desc">{{item.description}}</view>
+      </view>
+      <view class="chat-count">
+        <text>{{item.chatCount || 0}} 条对话</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="add-btn" bindtap="addAssistant">
+    <text>+ 添加新助手</text>
+  </view>
+</view>

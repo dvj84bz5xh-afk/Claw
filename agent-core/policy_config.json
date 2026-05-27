@@ -1,0 +1,21 @@
+{
+  "default_mode": "workspace-write",
+  "dangerous_commands": [
+    "rm -rf",
+    "format",
+    "del /f",
+    "rd /s"
+  ],
+  "protected_paths": [
+    "C:\\Users\\10127",
+    "C:\\Windows",
+    "/etc",
+    "/usr"
+  ],
+  "auto_approve_patterns": [
+    "read_*",
+    "search_*",
+    "list_*"
+  ],
+  "version": "2.0.0"
+}

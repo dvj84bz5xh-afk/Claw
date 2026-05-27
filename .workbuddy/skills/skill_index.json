@@ -1,0 +1,41 @@
+{
+  "skills": [
+    {
+      "name": "git冲突解决助手-rule_based",
+      "metadata": {
+        "description": "基于解决方案生成: Git冲突解决助手 - 自动化解决Git合并冲突，提供智能解决建议...",
+        "tags": [
+          "automation",
+          "conflict",
+          "git",
+          "resource-light",
+          "risk-conservative",
+          "rule-based",
+          "solution-rule_based",
+          "strategy-git_conflict_resolution",
+          "tech-difflib",
+          "tech-gitpython",
+          "tech-json"
+        ],
+        "requires_toolsets": [
+          "web"
+        ],
+        "version": "1.0.0",
+        "created_at": "2026-04-17T16:35:44.819601"
+      },
+      "solution_info": {
+        "id": "test-001",
+        "title": "Git冲突解决助手",
+        "type": "rule_based",
+        "risk_level": "conservative",
+        "resource_intensity": "light",
+        "technical_feasibility": 0.9,
+        "success_probability": 0.85
+      },
+      "skill_file": "git冲突解决助手-rule_based/SKILL.md",
+      "solution_backup": "git冲突解决助手-rule_based/solution_backup.json"
+    }
+  ],
+  "last_updated": "2026-04-17T16:35:44.819606",
+  "total_skills": 1
+}

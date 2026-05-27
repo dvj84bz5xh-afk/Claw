@@ -1,0 +1,63 @@
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="ISBN-9781804296929" version="2.0">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:title>Scam</dc:title>
+    <dc:creator>Ivan Franceschini</dc:creator>
+    <dc:identifier id="ISBN-9781804296929" opf:scheme="URI">ISBN-9781804296929</dc:identifier>
+    <dc:publisher>Verso Books</dc:publisher>
+    <dc:language>en</dc:language>
+    <dc:date>2025-05-20</dc:date>
+    <dc:rights>Ivan Franceschini, Ling Li, and Mark Bo 2025</dc:rights>
+    <meta content="cover-image" name="cover"/>
+    <meta content="2.1.0" name="Sigil version"/>
+    <dc:date opf:event="modification">2025-05-27</dc:date>
+  <description xmlns="http://purl.org/dc/elements/1.1/">&lt;b&gt;A probing investigation of Southeast Asia&amp;rsquo;s online scam industry &amp;ndash; told through the voices of survivors&lt;/b&gt;&lt;br&gt;Running the gamut from the infamous &amp;lsquo;pig butchering&amp;rsquo; romance con to sophisticated online extortion and investment fraud, Southeast Asia has emerged as the global hub for cybercrime. Based on years of field research, &lt;i&gt;Scam &lt;/i&gt;takes an in-depth look at the history and inner dynamics of the region&amp;rsquo;s online scam industry. Revealed are the appalling working conditions &amp;mdash; akin to modern slavery &amp;mdash; in the hundreds of prisonlike compounds that have mushroomed throughout multiple countries. The result is a shocking expos&amp;eacute; of victims forced to be perpetrators, a tragic modern tale.</description>
+</metadata>
+  <manifest>
+    <item href="stylesheet.css" id="stylesheet" media-type="text/css"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+    <item href="01_Cover.xhtml" id="t01_Cover" media-type="application/xhtml+xml"/>
+    <item href="02_FM01.xhtml" id="t02_FM01" media-type="application/xhtml+xml"/>
+    <item href="03_Title.xhtml" id="t03_Title" media-type="application/xhtml+xml"/>
+    <item href="04_Copyright.xhtml" id="t04_Copyright" media-type="application/xhtml+xml"/>
+    <item href="05_Contents.xhtml" id="t05_Contents" media-type="application/xhtml+xml"/>
+    <item href="06_Introduction.xhtml" id="t06_Introduction" media-type="application/xhtml+xml"/>
+    <item href="07_Chapter01.xhtml" id="t07_Chapter01" media-type="application/xhtml+xml"/>
+    <item href="08_Chapter02.xhtml" id="t08_Chapter02" media-type="application/xhtml+xml"/>
+    <item href="09_Chapter03.xhtml" id="t09_Chapter03" media-type="application/xhtml+xml"/>
+    <item href="10_Chapter04.xhtml" id="t10_Chapter04" media-type="application/xhtml+xml"/>
+    <item href="11_Chapter05.xhtml" id="t11_Chapter05" media-type="application/xhtml+xml"/>
+    <item href="12_Conclusion.xhtml" id="t12_Conclusion" media-type="application/xhtml+xml"/>
+    <item href="13_Acknowledgements.xhtml" id="t13_Acknowledgements" media-type="application/xhtml+xml"/>
+    <item href="14_Notes.xhtml" id="t14_Notes" media-type="application/xhtml+xml"/>
+    <item href="15_Index.xhtml" id="t15_Index" media-type="application/xhtml+xml"/>
+    <item href="fonts/mmrtext.ttf" id="font1" media-type="application/vnd.ms-opentype"/>
+    <item href="fonts/msyhl.ttc" id="font2" media-type="application/vnd.ms-opentype"/>
+    <item href="images/cover.jpg" id="cover-image" media-type="image/jpeg"/>
+    <item href="images/title.jpg" id="title-image" media-type="image/jpeg"/>
+    <item href="images/fig_1.jpg" id="img_fig_1" media-type="image/jpeg"/>
+    <item href="images/fig_2.jpg" id="img_fig_2" media-type="image/jpeg"/>
+    <item href="images/logo.jpg" id="img_logo" media-type="image/jpeg"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="t01_Cover" linear="yes"/>
+    <itemref idref="t02_FM01" linear="yes"/>
+    <itemref idref="t03_Title" linear="yes"/>
+    <itemref idref="t04_Copyright" linear="yes"/>
+    <itemref idref="t05_Contents" linear="yes"/>
+    <itemref idref="t06_Introduction" linear="yes"/>
+    <itemref idref="t07_Chapter01" linear="yes"/>
+    <itemref idref="t08_Chapter02" linear="yes"/>
+    <itemref idref="t09_Chapter03" linear="yes"/>
+    <itemref idref="t10_Chapter04" linear="yes"/>
+    <itemref idref="t11_Chapter05" linear="yes"/>
+    <itemref idref="t12_Conclusion" linear="yes"/>
+    <itemref idref="t13_Acknowledgements" linear="yes"/>
+    <itemref idref="t14_Notes" linear="yes"/>
+    <itemref idref="t15_Index" linear="yes"/>
+  </spine>
+  <guide>
+    <reference href="01_Cover.xhtml" title="Cover Page" type="cover"/>
+    <reference href="05_Contents.xhtml" title="Contents" type="toc"/>
+    <reference href="06_Introduction.xhtml" title="Startup Page" type="text"/>
+  </guide>
+</package>

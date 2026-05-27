@@ -1,0 +1,322 @@
+body {
+margin: 5%;
+font-size: 100%;
+}
+a:link {color: #0000FF; font-size: 100%; text-decoration: none;}
+a:active {color: #0000FF; font-size: 100%; text-decoration: none;}
+img { max-width: 100%; max-height: 100%; }
+sup {font-size: 70%; line-height: 0.65em;}
+sub {font-size: 70%; line-height: 0.65em;}
+small {font-size: 70%;}
+section p { font-size: 100%; margin: 0em 0em 0em 0em; padding: 0em 0em 0em 0em; text-indent: 0em; orphans: 2; widows: 2; text-align: left; }
+ol, ul, li { margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; background: transparent; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-style:normal; }
+@font-face {font-family: msyhl;src: url("fonts/msyhl.ttc");}
+@font-face {font-family: mmrtext;src: url("fonts/mmrtext.ttf");}
+
+/* ------------------ FRONT MATTER ------------------ */
+.fm-para1 {
+font-size: 90%;
+margin-top: 1.5em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: justify;
+}
+.fm-para2 {
+font-size: 90%;
+margin-top: 0.2em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: right;
+}
+.title {
+font-family: sans-serif;
+font-size: 250%;
+margin-top: 10%;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.subtitle {
+font-family: sans-serif;
+font-size: 140%;
+margin-top: 0.5em;
+margin-bottom: 0em;
+margin-left: 2em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.author {
+font-family: sans-serif;
+font-size: 120%;
+margin-top: 3em;
+margin-bottom: 0em;
+margin-left: 2.4em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.pub {
+margin-top: 15em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: right;
+}
+.copy {
+font-size: 85%;
+margin-top: 10%;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.copy1 {
+font-size: 85%;
+margin-top: 1.25em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.fm-title {
+font-family: sans-serif;
+font-size: 160%;
+margin-top: 10%;
+margin-bottom: 7em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.bd {border-bottom: solid #BBBDC0 1px; padding-bottom: 0.6em;}
+ol.nonetoc {
+display: block;
+list-style-type: none;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+padding: 0em;
+}
+ol.nonetoc li p.toc1 {
+font-size: 100%;
+margin-top: 0.2em;
+margin-bottom: 0em;
+margin-right: 0em;
+margin-left: 0em;
+text-indent: 0em;
+text-align: left;
+}
+ol.nonetoc li p.toc1a {
+font-size: 100%;
+margin-top: 2em;
+margin-bottom: 0em;
+margin-right: 0em;
+margin-left: 0em;
+text-indent: 0em;
+text-align: left;
+}
+ol.nonetoc li p.toc1b {
+font-size: 100%;
+margin-top: 0.85em;
+margin-bottom: 0em;
+margin-right: 0em;
+margin-left: 0em;
+text-indent: 0em;
+text-align: left;
+}
+
+/* ------------------ BODY ------------------ */
+.chapter {
+font-size: 100%;
+margin-top: 10%;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+}
+.ch-num {
+font-family: sans-serif;
+font-size: 270%;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0.5em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+color: #BBBDC0;
+}
+.ch-title {
+display: block;
+font-family: sans-serif;
+font-size: 160%;
+margin-top: 0.5em;
+margin-bottom: 7em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.h1 {
+font-family: sans-serif;
+font-size: 110%;
+margin-top: 2em;
+margin-bottom: 1em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.h2 {
+font-family: sans-serif;
+font-size: 105%;
+margin-top: 1.5em;
+margin-bottom: 0.1em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+.noindent1 {
+font-size: 100%;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: justify;
+}
+.para {
+font-size: 100%;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 1em;
+text-align: justify;
+}
+.right {
+font-size: 100%;
+margin-top: 1em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: right;
+}
+.blockquote1 {
+display: block;
+font-size: 95%;
+margin-top: 1.25em;
+margin-bottom: 1.25em;
+margin-left: 1.15em;
+margin-right: 1.15em;
+}
+ul.endnote-list {
+display: block;
+list-style-type: none;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+padding: 0em;
+}
+ul.endnote-list li p.fn {
+font-size: 85%;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-right: 0em;
+margin-left: 0em;
+text-indent: 1.25em;
+text-align: justify;
+}
+.n-sp {
+margin-left: 1em;
+}
+
+/* ------------------ FIGURE ------------------ */
+.fig {
+margin-top: 1.25em;
+margin-bottom: 1.25em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: center;
+}
+.fig-img {
+margin-top: 0em;
+margin-bottom: 1em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: center;
+}
+.fig-caption {
+font-family: sans-serif;
+font-size: 70%;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+
+/* ------------------ BACK MATTER ------------------ */
+.ind-para {
+font-size: 80%;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+text-align: left;
+}
+ul.index {
+display: block;
+list-style-type: none;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-left: 0em;
+margin-right: 0em;
+text-indent: 0em;
+padding: 0em;
+}
+ul.index li.ind1 {
+font-size: 80%;
+margin-top: 0em;
+margin-bottom: 0em;
+margin-right: 0em;
+margin-left: 1.5em;
+text-indent: -1.5em;
+text-align: left;
+}
+ul.index li.ind1a {
+font-size: 80%;
+margin-top: 1.25em;
+margin-bottom: 0em;
+margin-right: 0em;
+margin-left: 1.5em;
+text-indent: -1.5em;
+text-align: left;
+}
+
+.font1 {
+font-family: msyhl;
+}
+.font2 {
+font-family: mmrtext;
+}

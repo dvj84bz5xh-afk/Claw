@@ -1,0 +1,91 @@
+<!--pages/chat/chat.wxml-->
+<view class="container">
+  <!-- 顶部助手信息 -->
+  <view class="chat-header">
+    <view class="assistant-info">
+      <view class="assistant-avatar">
+        <text class="avatar-text">{{currentAssistant.name.charAt(0)}}</text>
+      </view>
+      <view class="assistant-details">
+        <text class="assistant-name">{{currentAssistant.name}}</text>
+        <text class="assistant-status">在线</text>
+      </view>
+    </view>
+    <view class="header-actions">
+      <view class="action-btn" bindtap="clearHistory">清除</view>
+    </view>
+  </view>
+
+  <!-- 聊天消息区域 -->
+  <scroll-view 
+    scroll-y 
+    class="chat-messages"
+    scroll-into-view="{{scrollToView}}"
+    scroll-with-animation
+  >
+    <view class="message-list">
+      <!-- 欢迎消息 -->
+      <view class="message assistant-message" id="welcome">
+        <view class="message-avatar assistant-avatar">
+          <text class="avatar-text">{{currentAssistant.name.charAt(0)}}</text>
+        </view>
+        <view class="message-content">
+          <view class="message-text">{{welcomeMessage}}</view>
+          <view class="message-time">刚刚</view>
+        </view>
+      </view>
+
+      <!-- 用户和AI的消息 -->
+      <view 
+        class="message {{item.role === 'user' ? 'user-message' : 'assistant-message'}}" 
+        wx:for="{{messages}}" 
+        wx:key="index"
+        id="msg-{{index}}"
+      >
+        <view class="message-avatar {{item.role === 'user' ? 'user-avatar' : 'assistant-avatar'}}" wx:if="{{item.role === 'assistant'}}">
+          <text class="avatar-text">{{currentAssistant.name.charAt(0)}}</text>
+        </view>
+        <view class="message-content">
+          <view class="message-text">{{item.content}}</view>
+          <view class="message-time">{{item.time}}</view>
+        </view>
+        <view class="message-avatar user-avatar" wx:if="{{item.role === 'user'}}">
+          <text class="avatar-text">我</text>
+        </view>
+      </view>
+
+      <!-- 加载中 -->
+      <view class="message assistant-message loading-message" wx:if="{{loading}}">
+        <view class="message-avatar assistant-avatar">
+          <text class="avatar-text">{{currentAssistant.name.charAt(0)}}</text>
+        </view>
+        <view class="message-content">
+          <view class="typing-indicator">
+            <view class="dot"></view>
+            <view class="dot"></view>
+            <view class="dot"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 输入区域 -->
+  <view class="chat-input-area">
+    <view class="input-container">
+      <textarea 
+        class="input-box" 
+        placeholder="输入您的问题..." 
+        value="{{inputText}}"
+        bindinput="onInput"
+        bindconfirm="sendMessage"
+        adjust-position
+        show-confirm-bar="{{false}}"
+        maxlength="500"
+      ></textarea>
+      <view class="send-btn {{inputText.trim() ? 'active' : ''}}" bindtap="sendMessage">
+        <text>发送</text>
+      </view>
+    </view>
+  </view>
+</view>

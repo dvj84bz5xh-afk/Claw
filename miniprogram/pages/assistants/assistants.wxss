@@ -1,0 +1,100 @@
+/* pages/assistants/assistants.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 120rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40rpx 30rpx 60rpx;
+  color: #fff;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.count {
+  font-size: 24rpx;
+  opacity: 0.8;
+  display: block;
+}
+
+.assistant-list {
+  height: calc(100vh - 300rpx);
+  padding: 30rpx;
+  margin-top: -40rpx;
+}
+
+.assistant-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.assistant-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.avatar-text {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.assistant-info {
+  flex: 1;
+}
+
+.assistant-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.assistant-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.chat-count {
+  font-size: 24rpx;
+  color: #1890ff;
+  background: rgba(24, 144, 255, 0.1);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 24rpx 60rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.4);
+}
+
+.add-btn:active {
+  transform: translateX(-50%) scale(0.98);
+}

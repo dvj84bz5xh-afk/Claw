@@ -1,0 +1,74 @@
+{
+  "enabled": true,
+  "server_config": {
+    "port": 18765,
+    "host": "localhost",
+    "auto_start": true,
+    "start_on_boot": false
+  },
+  "provider_configs": {
+    "groq": {
+      "enabled": true,
+      "priority": 1,
+      "api_key": "",
+      "endpoint": "https://api.groq.com/openai/v1",
+      "free_quota": "30 RPM, 14,400 requests/day"
+    },
+    "deepseek": {
+      "enabled": true,
+      "priority": 2,
+      "api_key": "",
+      "endpoint": "https://api.deepseek.com",
+      "free_quota": "5M tokens signup credit"
+    },
+    "kiro": {
+      "enabled": true,
+      "priority": 3,
+      "auto_extract": true,
+      "free_quota": "50 credits/month + 500 new user"
+    },
+    "claude_desktop": {
+      "enabled": true,
+      "priority": 4,
+      "auto_extract": true,
+      "requires_desktop_app": true
+    }
+  },
+  "model_groups": {
+    "fast_group": {
+      "providers": ["groq", "cerebras", "sambanova"],
+      "strategy": "round_robin",
+      "failover": true
+    },
+    "coding_group": {
+      "providers": ["deepseek", "github_models", "hunyuan"],
+      "strategy": "priority",
+      "failover": true
+    }
+  },
+  "integration": {
+    "workbuddy": {
+      "auto_configure": true,
+      "env_vars": {
+        "ANTHROPIC_BASE_URL": "http://localhost:18765",
+        "ANTHROPIC_API_KEY": "unused",
+        "OPENAI_BASE_URL": "http://localhost:18765",
+        "OPENAI_API_KEY": "unused"
+      }
+    },
+    "claude_code": {
+      "route_to": "kiro",
+      "auto_setup": true
+    },
+    "aider": {
+      "route_to": "groq",
+      "auto_setup": true
+    }
+  },
+  "monitoring": {
+    "log_requests": false,
+    "log_errors": true,
+    "collect_metrics": true,
+    "stats_retention_days": 7
+  }
+}

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en">
+<head>
+<meta name="dtb:uid" content="ISBN-9781804296929"/>
+<meta name="dtb:depth" content="1"/>
+<meta name="dtb:totalPageCount" content="224"/>
+<meta name="dtb:maxPageNumber" content="224"/>
+</head>
+<docTitle><text>Scam: Inside Southeast Asia&#x2019;s Cybercrime Compounds</text></docTitle>
+<docAuthor><text>Ivan Franceschini, Ling Li, and Mark Bo</text></docAuthor>
+<navMap>
+<navPoint id="navPoint-1" playOrder="1"><navLabel><text>Cover&#160;</text></navLabel><content src="01_Cover.xhtml"/></navPoint>
+<navPoint id="navPoint-2" playOrder="2"><navLabel><text>Title Page</text></navLabel><content src="03_Title.xhtml"/></navPoint>
+<navPoint id="navPoint-3" playOrder="3"><navLabel><text>Copyright Page</text></navLabel><content src="04_Copyright.xhtml"/></navPoint>
+<navPoint id="navPoint-4" playOrder="4"><navLabel><text>Contents&#160;</text></navLabel><content src="05_Contents.xhtml"/></navPoint>
+<navPoint id="navPoint-5" playOrder="5"><navLabel><text>Introduction</text></navLabel><content src="06_Introduction.xhtml"/></navPoint>
+<navPoint id="navPoint-6" playOrder="6"><navLabel><text>Chapter 1. Rise of an Industry</text></navLabel><content src="07_Chapter01.xhtml"/></navPoint>
+<navPoint id="navPoint-7" playOrder="7"><navLabel><text>Chapter 2. Getting In</text></navLabel><content src="08_Chapter02.xhtml"/></navPoint>
+<navPoint id="navPoint-8" playOrder="8"><navLabel><text>Chapter 3. Inside the Scam Compounds</text></navLabel><content src="09_Chapter03.xhtml"/></navPoint>
+<navPoint id="navPoint-9" playOrder="9"><navLabel><text>Chapter 4. Players and Enablers</text></navLabel><content src="10_Chapter04.xhtml"/></navPoint>
+<navPoint id="navPoint-10" playOrder="10"><navLabel><text>Chapter 5. Getting Out</text></navLabel><content src="11_Chapter05.xhtml"/></navPoint>
+<navPoint id="navPoint-11" playOrder="11"><navLabel><text>Conclusion</text></navLabel><content src="12_Conclusion.xhtml"/></navPoint>
+<navPoint id="navPoint-12" playOrder="12"><navLabel><text>Acknowledgements</text></navLabel><content src="13_Acknowledgements.xhtml"/></navPoint>
+<navPoint id="navPoint-13" playOrder="13"><navLabel><text>Index</text></navLabel><content src="15_Index.xhtml"/></navPoint>
+</navMap>
+<pageList>
+<pageTarget id="navPoint-14" playOrder="14" type="normal" value="i"><navLabel><text>i</text></navLabel><content src="02_FM01.xhtml#page_i"/></pageTarget>
+<pageTarget id="navPoint-15" playOrder="15" type="normal" value="ii"><navLabel><text>ii</text></navLabel><content src="02_FM01.xhtml#page_ii"/></pageTarget>
+<pageTarget id="navPoint-16" playOrder="16" type="normal" value="iii"><navLabel><text>iii</text></navLabel><content src="03_Title.xhtml#page_iii"/></pageTarget>
+<pageTarget id="navPoint-17" playOrder="17" type="normal" value="iv"><navLabel><text>iv</text></navLabel><content src="04_Copyright.xhtml#page_iv"/></pageTarget>
+<pageTarget id="navPoint-18" playOrder="18" type="normal" value="v"><navLabel><text>v</text></navLabel><content src="05_Contents.xhtml#page_v"/></pageTarget>
+<pageTarget id="navPoint-19" playOrder="19" type="normal" value="vi"><navLabel><text>vi</text></navLabel><content src="06_Introduction.xhtml#page_vi"/></pageTarget>
+<pageTarget id="navPoint-20" playOrder="20" type="normal" value="1"><navLabel><text>1</text></navLabel><content src="06_Introduction.xhtml#page_1"/></pageTarget>
+<pageTarget id="navPoint-21" playOrder="21" type="normal" value="2"><navLabel><text>2</text></navLabel><content src="06_Introduction.xhtml#page_2"/></pageTarget>
+<pageTarget id="navPoint-22" playOrder="22" type="normal" value="3"><navLabel><text>3</text></navLabel><content src="06_Introduction.xhtml#page_3"/></pageTarget>
+<pageTarget id="navPoint-23" playOrder="23" type="normal" value="4"><navLabel><text>4</text></navLabel><content src="06_Introduction.xhtml#page_4"/></pageTarget>
+<pageTarget id="navPoint-24" playOrder="24" type="normal" value="5"><navLabel><text>5</text></navLabel><content src="06_Introduction.xhtml#page_5"/></pageTarget>
+<pageTarget id="navPoint-25" playOrder="25" type="normal" value="6"><navLabel><text>6</text></navLabel><content src="06_Introduction.xhtml#page_6"/></pageTarget>
+<pageTarget id="navPoint-26" playOrder="26" type="normal" value="7"><navLabel><text>7</text></navLabel><content src="06_Introduction.xhtml#page_7"/></pageTarget>
+<pageTarget id="navPoint-27" playOrder="27" type="normal" value="8"><navLabel><text>8</text></navLabel><content src="06_Introduction.xhtml#page_8"/></pageTarget>
+<pageTarget id="navPoint-28" playOrder="28" type="normal" value="9"><navLabel><text>9</text></navLabel><content src="06_Introduction.xhtml#page_9"/></pageTarget>
+<pageTarget id="navPoint-29" playOrder="29" type="normal" value="10"><navLabel><text>10</text></navLabel><content src="06_Introduction.xhtml#page_10"/></pageTarget>
+<pageTarget id="navPoint-30" playOrder="30" type="normal" value="11"><navLabel><text>11</text></navLabel><content src="06_Introduction.xhtml#page_11"/></pageTarget>
+<pageTarget id="navPoint-31" playOrder="31" type="normal" value="12"><navLabel><text>12</text></navLabel><content src="06_Introduction.xhtml#page_12"/></pageTarget>
+<pageTarget id="navPoint-32" playOrder="32" type="normal" value="13"><navLabel><text>13</text></navLabel><content src="06_Introduction.xhtml#page_13"/></pageTarget>
+<pageTarget id="navPoint-33" playOrder="33" type="normal" value="14"><navLabel><text>14</text></navLabel><content src="06_Introduction.xhtml#page_14"/></pageTarget>
+<pageTarget id="navPoint-34" playOrder="34" type="normal" value="15"><navLabel><text>15</text></navLabel><content src="06_Introduction.xhtml#page_15"/></pageTarget>
+<pageTarget id="navPoint-35" playOrder="35" type="normal" value="16"><navLabel><text>16</text></navLabel><content src="06_Introduction.xhtml#page_16"/></pageTarget>
+<pageTarget id="navPoint-36" playOrder="36" type="normal" value="17"><navLabel><text>17</text></navLabel><content src="06_Introduction.xhtml#page_17"/></pageTarget>
+<pageTarget id="navPoint-37" playOrder="37" type="normal" value="18"><navLabel><text>18</text></navLabel><content src="06_Introduction.xhtml#page_18"/></pageTarget>
+<pageTarget id="navPoint-38" playOrder="38" type="normal" value="19"><navLabel><text>19</text></navLabel><content src="06_Introduction.xhtml#page_19"/></pageTarget>
+<pageTarget id="navPoint-39" playOrder="39" type="normal" value="20"><navLabel><text>20</text></navLabel><content src="06_Introduction.xhtml#page_20"/></pageTarget>
+<pageTarget id="navPoint-40" playOrder="40" type="normal" value="21"><navLabel><text>21</text></navLabel><content src="06_Introduction.xhtml#page_21"/></pageTarget>
+<pageTarget id="navPoint-41" playOrder="41" type="normal" value="22"><navLabel><text>22</text></navLabel><content src="06_Introduction.xhtml#page_22"/></pageTarget>
+<pageTarget id="navPoint-42" playOrder="42" type="normal" value="23"><navLabel><text>23</text></navLabel><content src="06_Introduction.xhtml#page_23"/></pageTarget>
+<pageTarget id="navPoint-43" playOrder="43" type="normal" value="24"><navLabel><text>24</text></navLabel><content src="06_Introduction.xhtml#page_24"/></pageTarget>
+<pageTarget id="navPoint-44" playOrder="44" type="normal" value="25"><navLabel><text>25</text></navLabel><content src="06_Introduction.xhtml#page_25"/></pageTarget>
+<pageTarget id="navPoint-45" playOrder="45" type="normal" value="26"><navLabel><text>26</text></navLabel><content src="06_Introduction.xhtml#page_26"/></pageTarget>
+<pageTarget id="navPoint-46" playOrder="46" type="normal" value="27"><navLabel><text>27</text></navLabel><content src="06_Introduction.xhtml#page_27"/></pageTarget>
+<pageTarget id="navPoint-47" playOrder="47" type="normal" value="28"><navLabel><text>28</text></navLabel><content src="06_Introduction.xhtml#page_28"/></pageTarget>
+<pageTarget id="navPoint-48" playOrder="48" type="normal" value="29"><navLabel><text>29</text></navLabel><content src="06_Introduction.xhtml#page_29"/></pageTarget>
+<pageTarget id="navPoint-49" playOrder="49" type="normal" value="30"><navLabel><text>30</text></navLabel><content src="06_Introduction.xhtml#page_30"/></pageTarget>
+<pageTarget id="navPoint-50" playOrder="50" type="normal" value="31"><navLabel><text>31</text></navLabel><content src="06_Introduction.xhtml#page_31"/></pageTarget>
+<pageTarget id="navPoint-51" playOrder="51" type="normal" value="32"><navLabel><text>32</text></navLabel><content src="06_Introduction.xhtml#page_32"/></pageTarget>
+<pageTarget id="navPoint-52" playOrder="52" type="normal" value="33"><navLabel><text>33</text></navLabel><content src="07_Chapter01.xhtml#page_33"/></pageTarget>
+<pageTarget id="navPoint-53" playOrder="53" type="normal" value="34"><navLabel><text>34</text></navLabel><content src="07_Chapter01.xhtml#page_34"/></pageTarget>
+<pageTarget id="navPoint-54" playOrder="54" type="normal" value="35"><navLabel><text>35</text></navLabel><content src="07_Chapter01.xhtml#page_35"/></pageTarget>
+<pageTarget id="navPoint-55" playOrder="55" type="normal" value="36"><navLabel><text>36</text></navLabel><content src="07_Chapter01.xhtml#page_36"/></pageTarget>
+<pageTarget id="navPoint-56" playOrder="56" type="normal" value="37"><navLabel><text>37</text></navLabel><content src="07_Chapter01.xhtml#page_37"/></pageTarget>
+<pageTarget id="navPoint-57" playOrder="57" type="normal" value="38"><navLabel><text>38</text></navLabel><content src="07_Chapter01.xhtml#page_38"/></pageTarget>
+<pageTarget id="navPoint-58" playOrder="58" type="normal" value="39"><navLabel><text>39</text></navLabel><content src="07_Chapter01.xhtml#page_39"/></pageTarget>
+<pageTarget id="navPoint-59" playOrder="59" type="normal" value="40"><navLabel><text>40</text></navLabel><content src="07_Chapter01.xhtml#page_40"/></pageTarget>
+<pageTarget id="navPoint-60" playOrder="60" type="normal" value="41"><navLabel><text>41</text></navLabel><content src="07_Chapter01.xhtml#page_41"/></pageTarget>
+<pageTarget id="navPoint-61" playOrder="61" type="normal" value="42"><navLabel><text>42</text></navLabel><content src="07_Chapter01.xhtml#page_42"/></pageTarget>
+<pageTarget id="navPoint-62" playOrder="62" type="normal" value="43"><navLabel><text>43</text></navLabel><content src="07_Chapter01.xhtml#page_43"/></pageTarget>
+<pageTarget id="navPoint-63" playOrder="63" type="normal" value="44"><navLabel><text>44</text></navLabel><content src="07_Chapter01.xhtml#page_44"/></pageTarget>
+<pageTarget id="navPoint-64" playOrder="64" type="normal" value="45"><navLabel><text>45</text></navLabel><content src="07_Chapter01.xhtml#page_45"/></pageTarget>
+<pageTarget id="navPoint-65" playOrder="65" type="normal" value="46"><navLabel><text>46</text></navLabel><content src="07_Chapter01.xhtml#page_46"/></pageTarget>
+<pageTarget id="navPoint-66" playOrder="66" type="normal" value="47"><navLabel><text>47</text></navLabel><content src="07_Chapter01.xhtml#page_47"/></pageTarget>
+<pageTarget id="navPoint-67" playOrder="67" type="normal" value="48"><navLabel><text>48</text></navLabel><content src="07_Chapter01.xhtml#page_48"/></pageTarget>
+<pageTarget id="navPoint-68" playOrder="68" type="normal" value="49"><navLabel><text>49</text></navLabel><content src="07_Chapter01.xhtml#page_49"/></pageTarget>
+<pageTarget id="navPoint-69" playOrder="69" type="normal" value="50"><navLabel><text>50</text></navLabel><content src="07_Chapter01.xhtml#page_50"/></pageTarget>
+<pageTarget id="navPoint-70" playOrder="70" type="normal" value="51"><navLabel><text>51</text></navLabel><content src="07_Chapter01.xhtml#page_51"/></pageTarget>
+<pageTarget id="navPoint-71" playOrder="71" type="normal" value="52"><navLabel><text>52</text></navLabel><content src="07_Chapter01.xhtml#page_52"/></pageTarget>
+<pageTarget id="navPoint-72" playOrder="72" type="normal" value="53"><navLabel><text>53</text></navLabel><content src="07_Chapter01.xhtml#page_53"/></pageTarget>
+<pageTarget id="navPoint-73" playOrder="73" type="normal" value="54"><navLabel><text>54</text></navLabel><content src="07_Chapter01.xhtml#page_54"/></pageTarget>
+<pageTarget id="navPoint-74" playOrder="74" type="normal" value="55"><navLabel><text>55</text></navLabel><content src="07_Chapter01.xhtml#page_55"/></pageTarget>
+<pageTarget id="navPoint-75" playOrder="75" type="normal" value="56"><navLabel><text>56</text></navLabel><content src="07_Chapter01.xhtml#page_56"/></pageTarget>
+<pageTarget id="navPoint-76" playOrder="76" type="normal" value="57"><navLabel><text>57</text></navLabel><content src="07_Chapter01.xhtml#page_57"/></pageTarget>
+<pageTarget id="navPoint-77" playOrder="77" type="normal" value="58"><navLabel><text>58</text></navLabel><content src="07_Chapter01.xhtml#page_58"/></pageTarget>
+<pageTarget id="navPoint-78" playOrder="78" type="normal" value="59"><navLabel><text>59</text></navLabel><content src="07_Chapter01.xhtml#page_59"/></pageTarget>
+<pageTarget id="navPoint-79" playOrder="79" type="normal" value="60"><navLabel><text>60</text></navLabel><content src="07_Chapter01.xhtml#page_60"/></pageTarget>
+<pageTarget id="navPoint-80" playOrder="80" type="normal" value="61"><navLabel><text>61</text></navLabel><content src="07_Chapter01.xhtml#page_61"/></pageTarget>
+<pageTarget id="navPoint-81" playOrder="81" type="normal" value="62"><navLabel><text>62</text></navLabel><content src="07_Chapter01.xhtml#page_62"/></pageTarget>
+<pageTarget id="navPoint-82" playOrder="82" type="normal" value="63"><navLabel><text>63</text></navLabel><content src="07_Chapter01.xhtml#page_63"/></pageTarget>
+<pageTarget id="navPoint-83" playOrder="83" type="normal" value="64"><navLabel><text>64</text></navLabel><content src="07_Chapter01.xhtml#page_64"/></pageTarget>
+<pageTarget id="navPoint-84" playOrder="84" type="normal" value="65"><navLabel><text>65</text></navLabel><content src="07_Chapter01.xhtml#page_65"/></pageTarget>
+<pageTarget id="navPoint-85" playOrder="85" type="normal" value="66"><navLabel><text>66</text></navLabel><content src="07_Chapter01.xhtml#page_66"/></pageTarget>
+<pageTarget id="navPoint-86" playOrder="86" type="normal" value="67"><navLabel><text>67</text></navLabel><content src="07_Chapter01.xhtml#page_67"/></pageTarget>
+<pageTarget id="navPoint-87" playOrder="87" type="normal" value="68"><navLabel><text>68</text></navLabel><content src="07_Chapter01.xhtml#page_68"/></pageTarget>
+<pageTarget id="navPoint-88" playOrder="88" type="normal" value="69"><navLabel><text>69</text></navLabel><content src="07_Chapter01.xhtml#page_69"/></pageTarget>
+<pageTarget id="navPoint-89" playOrder="89" type="normal" value="70"><navLabel><text>70</text></navLabel><content src="07_Chapter01.xhtml#page_70"/></pageTarget>
+<pageTarget id="navPoint-90" playOrder="90" type="normal" value="71"><navLabel><text>71</text></navLabel><content src="07_Chapter01.xhtml#page_71"/></pageTarget>
+<pageTarget id="navPoint-91" playOrder="91" type="normal" value="72"><navLabel><text>72</text></navLabel><content src="07_Chapter01.xhtml#page_72"/></pageTarget>
+<pageTarget id="navPoint-92" playOrder="92" type="normal" value="73"><navLabel><text>73</text></navLabel><content src="07_Chapter01.xhtml#page_73"/></pageTarget>
+<pageTarget id="navPoint-93" playOrder="93" type="normal" value="74"><navLabel><text>74</text></navLabel><content src="08_Chapter02.xhtml#page_74"/></pageTarget>
+<pageTarget id="navPoint-94" playOrder="94" type="normal" value="75"><navLabel><text>75</text></navLabel><content src="08_Chapter02.xhtml#page_75"/></pageTarget>
+<pageTarget id="navPoint-95" playOrder="95" type="normal" value="76"><navLabel><text>76</text></navLabel><content src="08_Chapter02.xhtml#page_76"/></pageTarget>
+<pageTarget id="navPoint-96" playOrder="96" type="normal" value="77"><navLabel><text>77</text></navLabel><content src="08_Chapter02.xhtml#page_77"/></pageTarget>
+<pageTarget id="navPoint-97" playOrder="97" type="normal" value="78"><navLabel><text>78</text></navLabel><content src="08_Chapter02.xhtml#page_78"/></pageTarget>
+<pageTarget id="navPoint-98" playOrder="98" type="normal" value="79"><navLabel><text>79</text></navLabel><content src="08_Chapter02.xhtml#page_79"/></pageTarget>
+<pageTarget id="navPoint-99" playOrder="99" type="normal" value="80"><navLabel><text>80</text></navLabel><content src="08_Chapter02.xhtml#page_80"/></pageTarget>
+<pageTarget id="navPoint-100" playOrder="100" type="normal" value="81"><navLabel><text>81</text></navLabel><content src="08_Chapter02.xhtml#page_81"/></pageTarget>
+<pageTarget id="navPoint-101" playOrder="101" type="normal" value="82"><navLabel><text>82</text></navLabel><content src="08_Chapter02.xhtml#page_82"/></pageTarget>
+<pageTarget id="navPoint-102" playOrder="102" type="normal" value="83"><navLabel><text>83</text></navLabel><content src="08_Chapter02.xhtml#page_83"/></pageTarget>
+<pageTarget id="navPoint-103" playOrder="103" type="normal" value="84"><navLabel><text>84</text></navLabel><content src="08_Chapter02.xhtml#page_84"/></pageTarget>
+<pageTarget id="navPoint-104" playOrder="104" type="normal" value="85"><navLabel><text>85</text></navLabel><content src="08_Chapter02.xhtml#page_85"/></pageTarget>
+<pageTarget id="navPoint-105" playOrder="105" type="normal" value="86"><navLabel><text>86</text></navLabel><content src="08_Chapter02.xhtml#page_86"/></pageTarget>
+<pageTarget id="navPoint-106" playOrder="106" type="normal" value="87"><navLabel><text>87</text></navLabel><content src="08_Chapter02.xhtml#page_87"/></pageTarget>
+<pageTarget id="navPoint-107" playOrder="107" type="normal" value="88"><navLabel><text>88</text></navLabel><content src="08_Chapter02.xhtml#page_88"/></pageTarget>
+<pageTarget id="navPoint-108" playOrder="108" type="normal" value="89"><navLabel><text>89</text></navLabel><content src="08_Chapter02.xhtml#page_89"/></pageTarget>
+<pageTarget id="navPoint-109" playOrder="109" type="normal" value="90"><navLabel><text>90</text></navLabel><content src="08_Chapter02.xhtml#page_90"/></pageTarget>
+<pageTarget id="navPoint-110" playOrder="110" type="normal" value="91"><navLabel><text>91</text></navLabel><content src="08_Chapter02.xhtml#page_91"/></pageTarget>
+<pageTarget id="navPoint-111" playOrder="111" type="normal" value="92"><navLabel><text>92</text></navLabel><content src="08_Chapter02.xhtml#page_92"/></pageTarget>
+<pageTarget id="navPoint-112" playOrder="112" type="normal" value="93"><navLabel><text>93</text></navLabel><content src="08_Chapter02.xhtml#page_93"/></pageTarget>
+<pageTarget id="navPoint-113" playOrder="113" type="normal" value="94"><navLabel><text>94</text></navLabel><content src="08_Chapter02.xhtml#page_94"/></pageTarget>
+<pageTarget id="navPoint-114" playOrder="114" type="normal" value="95"><navLabel><text>95</text></navLabel><content src="08_Chapter02.xhtml#page_95"/></pageTarget>
+<pageTarget id="navPoint-115" playOrder="115" type="normal" value="96"><navLabel><text>96</text></navLabel><content src="08_Chapter02.xhtml#page_96"/></pageTarget>
+<pageTarget id="navPoint-116" playOrder="116" type="normal" value="97"><navLabel><text>97</text></navLabel><content src="08_Chapter02.xhtml#page_97"/></pageTarget>
+<pageTarget id="navPoint-117" playOrder="117" type="normal" value="98"><navLabel><text>98</text></navLabel><content src="08_Chapter02.xhtml#page_98"/></pageTarget>
+<pageTarget id="navPoint-118" playOrder="118" type="normal" value="99"><navLabel><text>99</text></navLabel><content src="08_Chapter02.xhtml#page_99"/></pageTarget>
+<pageTarget id="navPoint-119" playOrder="119" type="normal" value="100"><navLabel><text>100</text></navLabel><content src="08_Chapter02.xhtml#page_100"/></pageTarget>
+<pageTarget id="navPoint-120" playOrder="120" type="normal" value="101"><navLabel><text>101</text></navLabel><content src="08_Chapter02.xhtml#page_101"/></pageTarget>
+<pageTarget id="navPoint-121" playOrder="121" type="normal" value="102"><navLabel><text>102</text></navLabel><content src="08_Chapter02.xhtml#page_102"/></pageTarget>
+<pageTarget id="navPoint-122" playOrder="122" type="normal" value="103"><navLabel><text>103</text></navLabel><content src="08_Chapter02.xhtml#page_103"/></pageTarget>
+<pageTarget id="navPoint-123" playOrder="123" type="normal" value="104"><navLabel><text>104</text></navLabel><content src="08_Chapter02.xhtml#page_104"/></pageTarget>
+<pageTarget id="navPoint-124" playOrder="124" type="normal" value="105"><navLabel><text>105</text></navLabel><content src="08_Chapter02.xhtml#page_105"/></pageTarget>
+<pageTarget id="navPoint-125" playOrder="125" type="normal" value="106"><navLabel><text>106</text></navLabel><content src="08_Chapter02.xhtml#page_106"/></pageTarget>
+<pageTarget id="navPoint-126" playOrder="126" type="normal" value="107"><navLabel><text>107</text></navLabel><content src="08_Chapter02.xhtml#page_107"/></pageTarget>
+<pageTarget id="navPoint-127" playOrder="127" type="normal" value="108"><navLabel><text>108</text></navLabel><content src="08_Chapter02.xhtml#page_108"/></pageTarget>
+<pageTarget id="navPoint-128" playOrder="128" type="normal" value="109"><navLabel><text>109</text></navLabel><content src="09_Chapter03.xhtml#page_109"/></pageTarget>
+<pageTarget id="navPoint-129" playOrder="129" type="normal" value="110"><navLabel><text>110</text></navLabel><content src="09_Chapter03.xhtml#page_110"/></pageTarget>
+<pageTarget id="navPoint-130" playOrder="130" type="normal" value="111"><navLabel><text>111</text></navLabel><content src="09_Chapter03.xhtml#page_111"/></pageTarget>
+<pageTarget id="navPoint-131" playOrder="131" type="normal" value="112"><navLabel><text>112</text></navLabel><content src="09_Chapter03.xhtml#page_112"/></pageTarget>
+<pageTarget id="navPoint-132" playOrder="132" type="normal" value="113"><navLabel><text>113</text></navLabel><content src="09_Chapter03.xhtml#page_113"/></pageTarget>
+<pageTarget id="navPoint-133" playOrder="133" type="normal" value="114"><navLabel><text>114</text></navLabel><content src="09_Chapter03.xhtml#page_114"/></pageTarget>
+<pageTarget id="navPoint-134" playOrder="134" type="normal" value="115"><navLabel><text>115</text></navLabel><content src="09_Chapter03.xhtml#page_115"/></pageTarget>
+<pageTarget id="navPoint-135" playOrder="135" type="normal" value="116"><navLabel><text>116</text></navLabel><content src="09_Chapter03.xhtml#page_116"/></pageTarget>
+<pageTarget id="navPoint-136" playOrder="136" type="normal" value="117"><navLabel><text>117</text></navLabel><content src="09_Chapter03.xhtml#page_117"/></pageTarget>
+<pageTarget id="navPoint-137" playOrder="137" type="normal" value="118"><navLabel><text>118</text></navLabel><content src="09_Chapter03.xhtml#page_118"/></pageTarget>
+<pageTarget id="navPoint-138" playOrder="138" type="normal" value="119"><navLabel><text>119</text></navLabel><content src="09_Chapter03.xhtml#page_119"/></pageTarget>
+<pageTarget id="navPoint-139" playOrder="139" type="normal" value="120"><navLabel><text>120</text></navLabel><content src="09_Chapter03.xhtml#page_120"/></pageTarget>
+<pageTarget id="navPoint-140" playOrder="140" type="normal" value="121"><navLabel><text>121</text></navLabel><content src="09_Chapter03.xhtml#page_121"/></pageTarget>
+<pageTarget id="navPoint-141" playOrder="141" type="normal" value="122"><navLabel><text>122</text></navLabel><content src="09_Chapter03.xhtml#page_122"/></pageTarget>
+<pageTarget id="navPoint-142" playOrder="142" type="normal" value="123"><navLabel><text>123</text></navLabel><content src="09_Chapter03.xhtml#page_123"/></pageTarget>
+<pageTarget id="navPoint-143" playOrder="143" type="normal" value="124"><navLabel><text>124</text></navLabel><content src="09_Chapter03.xhtml#page_124"/></pageTarget>
+<pageTarget id="navPoint-144" playOrder="144" type="normal" value="125"><navLabel><text>125</text></navLabel><content src="09_Chapter03.xhtml#page_125"/></pageTarget>
+<pageTarget id="navPoint-145" playOrder="145" type="normal" value="126"><navLabel><text>126</text></navLabel><content src="09_Chapter03.xhtml#page_126"/></pageTarget>
+<pageTarget id="navPoint-146" playOrder="146" type="normal" value="127"><navLabel><text>127</text></navLabel><content src="09_Chapter03.xhtml#page_127"/></pageTarget>
+<pageTarget id="navPoint-147" playOrder="147" type="normal" value="128"><navLabel><text>128</text></navLabel><content src="09_Chapter03.xhtml#page_128"/></pageTarget>
+<pageTarget id="navPoint-148" playOrder="148" type="normal" value="129"><navLabel><text>129</text></navLabel><content src="09_Chapter03.xhtml#page_129"/></pageTarget>
+<pageTarget id="navPoint-149" playOrder="149" type="normal" value="130"><navLabel><text>130</text></navLabel><content src="09_Chapter03.xhtml#page_130"/></pageTarget>
+<pageTarget id="navPoint-150" playOrder="150" type="normal" value="131"><navLabel><text>131</text></navLabel><content src="09_Chapter03.xhtml#page_131"/></pageTarget>
+<pageTarget id="navPoint-151" playOrder="151" type="normal" value="132"><navLabel><text>132</text></navLabel><content src="09_Chapter03.xhtml#page_132"/></pageTarget>
+<pageTarget id="navPoint-152" playOrder="152" type="normal" value="133"><navLabel><text>133</text></navLabel><content src="09_Chapter03.xhtml#page_133"/></pageTarget>
+<pageTarget id="navPoint-153" playOrder="153" type="normal" value="134"><navLabel><text>134</text></navLabel><content src="09_Chapter03.xhtml#page_134"/></pageTarget>
+<pageTarget id="navPoint-154" playOrder="154" type="normal" value="135"><navLabel><text>135</text></navLabel><content src="09_Chapter03.xhtml#page_135"/></pageTarget>
+<pageTarget id="navPoint-155" playOrder="155" type="normal" value="136"><navLabel><text>136</text></navLabel><content src="09_Chapter03.xhtml#page_136"/></pageTarget>
+<pageTarget id="navPoint-156" playOrder="156" type="normal" value="137"><navLabel><text>137</text></navLabel><content src="10_Chapter04.xhtml#page_137"/></pageTarget>
+<pageTarget id="navPoint-157" playOrder="157" type="normal" value="138"><navLabel><text>138</text></navLabel><content src="10_Chapter04.xhtml#page_138"/></pageTarget>
+<pageTarget id="navPoint-158" playOrder="158" type="normal" value="139"><navLabel><text>139</text></navLabel><content src="10_Chapter04.xhtml#page_139"/></pageTarget>
+<pageTarget id="navPoint-159" playOrder="159" type="normal" value="140"><navLabel><text>140</text></navLabel><content src="10_Chapter04.xhtml#page_140"/></pageTarget>
+<pageTarget id="navPoint-160" playOrder="160" type="normal" value="141"><navLabel><text>141</text></navLabel><content src="10_Chapter04.xhtml#page_141"/></pageTarget>
+<pageTarget id="navPoint-161" playOrder="161" type="normal" value="142"><navLabel><text>142</text></navLabel><content src="10_Chapter04.xhtml#page_142"/></pageTarget>
+<pageTarget id="navPoint-162" playOrder="162" type="normal" value="143"><navLabel><text>143</text></navLabel><content src="10_Chapter04.xhtml#page_143"/></pageTarget>
+<pageTarget id="navPoint-163" playOrder="163" type="normal" value="144"><navLabel><text>144</text></navLabel><content src="10_Chapter04.xhtml#page_144"/></pageTarget>
+<pageTarget id="navPoint-164" playOrder="164" type="normal" value="145"><navLabel><text>145</text></navLabel><content src="10_Chapter04.xhtml#page_145"/></pageTarget>
+<pageTarget id="navPoint-165" playOrder="165" type="normal" value="146"><navLabel><text>146</text></navLabel><content src="10_Chapter04.xhtml#page_146"/></pageTarget>
+<pageTarget id="navPoint-166" playOrder="166" type="normal" value="147"><navLabel><text>147</text></navLabel><content src="10_Chapter04.xhtml#page_147"/></pageTarget>
+<pageTarget id="navPoint-167" playOrder="167" type="normal" value="148"><navLabel><text>148</text></navLabel><content src="10_Chapter04.xhtml#page_148"/></pageTarget>
+<pageTarget id="navPoint-168" playOrder="168" type="normal" value="149"><navLabel><text>149</text></navLabel><content src="10_Chapter04.xhtml#page_149"/></pageTarget>
+<pageTarget id="navPoint-169" playOrder="169" type="normal" value="150"><navLabel><text>150</text></navLabel><content src="10_Chapter04.xhtml#page_150"/></pageTarget>
+<pageTarget id="navPoint-170" playOrder="170" type="normal" value="151"><navLabel><text>151</text></navLabel><content src="10_Chapter04.xhtml#page_151"/></pageTarget>
+<pageTarget id="navPoint-171" playOrder="171" type="normal" value="152"><navLabel><text>152</text></navLabel><content src="10_Chapter04.xhtml#page_152"/></pageTarget>
+<pageTarget id="navPoint-172" playOrder="172" type="normal" value="153"><navLabel><text>153</text></navLabel><content src="10_Chapter04.xhtml#page_153"/></pageTarget>
+<pageTarget id="navPoint-173" playOrder="173" type="normal" value="154"><navLabel><text>154</text></navLabel><content src="10_Chapter04.xhtml#page_154"/></pageTarget>
+<pageTarget id="navPoint-174" playOrder="174" type="normal" value="155"><navLabel><text>155</text></navLabel><content src="10_Chapter04.xhtml#page_155"/></pageTarget>
+<pageTarget id="navPoint-175" playOrder="175" type="normal" value="156"><navLabel><text>156</text></navLabel><content src="10_Chapter04.xhtml#page_156"/></pageTarget>
+<pageTarget id="navPoint-176" playOrder="176" type="normal" value="157"><navLabel><text>157</text></navLabel><content src="10_Chapter04.xhtml#page_157"/></pageTarget>
+<pageTarget id="navPoint-177" playOrder="177" type="normal" value="158"><navLabel><text>158</text></navLabel><content src="10_Chapter04.xhtml#page_158"/></pageTarget>
+<pageTarget id="navPoint-178" playOrder="178" type="normal" value="159"><navLabel><text>159</text></navLabel><content src="10_Chapter04.xhtml#page_159"/></pageTarget>
+<pageTarget id="navPoint-179" playOrder="179" type="normal" value="160"><navLabel><text>160</text></navLabel><content src="11_Chapter05.xhtml#page_160"/></pageTarget>
+<pageTarget id="navPoint-180" playOrder="180" type="normal" value="161"><navLabel><text>161</text></navLabel><content src="11_Chapter05.xhtml#page_161"/></pageTarget>
+<pageTarget id="navPoint-181" playOrder="181" type="normal" value="162"><navLabel><text>162</text></navLabel><content src="11_Chapter05.xhtml#page_162"/></pageTarget>
+<pageTarget id="navPoint-182" playOrder="182" type="normal" value="163"><navLabel><text>163</text></navLabel><content src="11_Chapter05.xhtml#page_163"/></pageTarget>
+<pageTarget id="navPoint-183" playOrder="183" type="normal" value="164"><navLabel><text>164</text></navLabel><content src="11_Chapter05.xhtml#page_164"/></pageTarget>
+<pageTarget id="navPoint-184" playOrder="184" type="normal" value="165"><navLabel><text>165</text></navLabel><content src="11_Chapter05.xhtml#page_165"/></pageTarget>
+<pageTarget id="navPoint-185" playOrder="185" type="normal" value="166"><navLabel><text>166</text></navLabel><content src="11_Chapter05.xhtml#page_166"/></pageTarget>
+<pageTarget id="navPoint-186" playOrder="186" type="normal" value="167"><navLabel><text>167</text></navLabel><content src="11_Chapter05.xhtml#page_167"/></pageTarget>
+<pageTarget id="navPoint-187" playOrder="187" type="normal" value="168"><navLabel><text>168</text></navLabel><content src="11_Chapter05.xhtml#page_168"/></pageTarget>
+<pageTarget id="navPoint-188" playOrder="188" type="normal" value="169"><navLabel><text>169</text></navLabel><content src="11_Chapter05.xhtml#page_169"/></pageTarget>
+<pageTarget id="navPoint-189" playOrder="189" type="normal" value="170"><navLabel><text>170</text></navLabel><content src="11_Chapter05.xhtml#page_170"/></pageTarget>
+<pageTarget id="navPoint-190" playOrder="190" type="normal" value="171"><navLabel><text>171</text></navLabel><content src="11_Chapter05.xhtml#page_171"/></pageTarget>
+<pageTarget id="navPoint-191" playOrder="191" type="normal" value="172"><navLabel><text>172</text></navLabel><content src="11_Chapter05.xhtml#page_172"/></pageTarget>
+<pageTarget id="navPoint-192" playOrder="192" type="normal" value="173"><navLabel><text>173</text></navLabel><content src="11_Chapter05.xhtml#page_173"/></pageTarget>
+<pageTarget id="navPoint-193" playOrder="193" type="normal" value="174"><navLabel><text>174</text></navLabel><content src="11_Chapter05.xhtml#page_174"/></pageTarget>
+<pageTarget id="navPoint-194" playOrder="194" type="normal" value="175"><navLabel><text>175</text></navLabel><content src="11_Chapter05.xhtml#page_175"/></pageTarget>
+<pageTarget id="navPoint-195" playOrder="195" type="normal" value="176"><navLabel><text>176</text></navLabel><content src="11_Chapter05.xhtml#page_176"/></pageTarget>
+<pageTarget id="navPoint-196" playOrder="196" type="normal" value="177"><navLabel><text>177</text></navLabel><content src="11_Chapter05.xhtml#page_177"/></pageTarget>
+<pageTarget id="navPoint-197" playOrder="197" type="normal" value="178"><navLabel><text>178</text></navLabel><content src="11_Chapter05.xhtml#page_178"/></pageTarget>
+<pageTarget id="navPoint-198" playOrder="198" type="normal" value="179"><navLabel><text>179</text></navLabel><content src="11_Chapter05.xhtml#page_179"/></pageTarget>
+<pageTarget id="navPoint-199" playOrder="199" type="normal" value="180"><navLabel><text>180</text></navLabel><content src="11_Chapter05.xhtml#page_180"/></pageTarget>
+<pageTarget id="navPoint-200" playOrder="200" type="normal" value="181"><navLabel><text>181</text></navLabel><content src="11_Chapter05.xhtml#page_181"/></pageTarget>
+<pageTarget id="navPoint-201" playOrder="201" type="normal" value="182"><navLabel><text>182</text></navLabel><content src="11_Chapter05.xhtml#page_182"/></pageTarget>
+<pageTarget id="navPoint-202" playOrder="202" type="normal" value="183"><navLabel><text>183</text></navLabel><content src="11_Chapter05.xhtml#page_183"/></pageTarget>
+<pageTarget id="navPoint-203" playOrder="203" type="normal" value="184"><navLabel><text>184</text></navLabel><content src="11_Chapter05.xhtml#page_184"/></pageTarget>
+<pageTarget id="navPoint-204" playOrder="204" type="normal" value="185"><navLabel><text>185</text></navLabel><content src="11_Chapter05.xhtml#page_185"/></pageTarget>
+<pageTarget id="navPoint-205" playOrder="205" type="normal" value="186"><navLabel><text>186</text></navLabel><content src="11_Chapter05.xhtml#page_186"/></pageTarget>
+<pageTarget id="navPoint-206" playOrder="206" type="normal" value="187"><navLabel><text>187</text></navLabel><content src="11_Chapter05.xhtml#page_187"/></pageTarget>
+<pageTarget id="navPoint-207" playOrder="207" type="normal" value="188"><navLabel><text>188</text></navLabel><content src="11_Chapter05.xhtml#page_188"/></pageTarget>
+<pageTarget id="navPoint-208" playOrder="208" type="normal" value="189"><navLabel><text>189</text></navLabel><content src="11_Chapter05.xhtml#page_189"/></pageTarget>
+<pageTarget id="navPoint-209" playOrder="209" type="normal" value="190"><navLabel><text>190</text></navLabel><content src="11_Chapter05.xhtml#page_190"/></pageTarget>
+<pageTarget id="navPoint-210" playOrder="210" type="normal" value="191"><navLabel><text>191</text></navLabel><content src="11_Chapter05.xhtml#page_191"/></pageTarget>
+<pageTarget id="navPoint-211" playOrder="211" type="normal" value="192"><navLabel><text>192</text></navLabel><content src="11_Chapter05.xhtml#page_192"/></pageTarget>
+<pageTarget id="navPoint-212" playOrder="212" type="normal" value="193"><navLabel><text>193</text></navLabel><content src="11_Chapter05.xhtml#page_193"/></pageTarget>
+<pageTarget id="navPoint-213" playOrder="213" type="normal" value="194"><navLabel><text>194</text></navLabel><content src="11_Chapter05.xhtml#page_194"/></pageTarget>
+<pageTarget id="navPoint-214" playOrder="214" type="normal" value="195"><navLabel><text>195</text></navLabel><content src="11_Chapter05.xhtml#page_195"/></pageTarget>
+<pageTarget id="navPoint-215" playOrder="215" type="normal" value="196"><navLabel><text>196</text></navLabel><content src="11_Chapter05.xhtml#page_196"/></pageTarget>
+<pageTarget id="navPoint-216" playOrder="216" type="normal" value="197"><navLabel><text>197</text></navLabel><content src="12_Conclusion.xhtml#page_197"/></pageTarget>
+<pageTarget id="navPoint-217" playOrder="217" type="normal" value="198"><navLabel><text>198</text></navLabel><content src="12_Conclusion.xhtml#page_198"/></pageTarget>
+<pageTarget id="navPoint-218" playOrder="218" type="normal" value="199"><navLabel><text>199</text></navLabel><content src="12_Conclusion.xhtml#page_199"/></pageTarget>
+<pageTarget id="navPoint-219" playOrder="219" type="normal" value="200"><navLabel><text>200</text></navLabel><content src="12_Conclusion.xhtml#page_200"/></pageTarget>
+<pageTarget id="navPoint-220" playOrder="220" type="normal" value="201"><navLabel><text>201</text></navLabel><content src="12_Conclusion.xhtml#page_201"/></pageTarget>
+<pageTarget id="navPoint-221" playOrder="221" type="normal" value="202"><navLabel><text>202</text></navLabel><content src="12_Conclusion.xhtml#page_202"/></pageTarget>
+<pageTarget id="navPoint-222" playOrder="222" type="normal" value="203"><navLabel><text>203</text></navLabel><content src="12_Conclusion.xhtml#page_203"/></pageTarget>
+<pageTarget id="navPoint-223" playOrder="223" type="normal" value="204"><navLabel><text>204</text></navLabel><content src="12_Conclusion.xhtml#page_204"/></pageTarget>
+<pageTarget id="navPoint-224" playOrder="224" type="normal" value="205"><navLabel><text>205</text></navLabel><content src="12_Conclusion.xhtml#page_205"/></pageTarget>
+<pageTarget id="navPoint-225" playOrder="225" type="normal" value="206"><navLabel><text>206</text></navLabel><content src="12_Conclusion.xhtml#page_206"/></pageTarget>
+<pageTarget id="navPoint-226" playOrder="226" type="normal" value="207"><navLabel><text>207</text></navLabel><content src="13_Acknowledgements.xhtml#page_207"/></pageTarget>
+<pageTarget id="navPoint-227" playOrder="227" type="normal" value="208"><navLabel><text>208</text></navLabel><content src="15_Index.xhtml#page_208"/></pageTarget>
+<pageTarget id="navPoint-228" playOrder="228" type="normal" value="209"><navLabel><text>209</text></navLabel><content src="15_Index.xhtml#page_209"/></pageTarget>
+<pageTarget id="navPoint-229" playOrder="229" type="normal" value="210"><navLabel><text>210</text></navLabel><content src="15_Index.xhtml#page_210"/></pageTarget>
+<pageTarget id="navPoint-230" playOrder="230" type="normal" value="211"><navLabel><text>211</text></navLabel><content src="15_Index.xhtml#page_211"/></pageTarget>
+<pageTarget id="navPoint-231" playOrder="231" type="normal" value="212"><navLabel><text>212</text></navLabel><content src="15_Index.xhtml#page_212"/></pageTarget>
+<pageTarget id="navPoint-232" playOrder="232" type="normal" value="213"><navLabel><text>213</text></navLabel><content src="15_Index.xhtml#page_213"/></pageTarget>
+<pageTarget id="navPoint-233" playOrder="233" type="normal" value="214"><navLabel><text>214</text></navLabel><content src="15_Index.xhtml#page_214"/></pageTarget>
+<pageTarget id="navPoint-234" playOrder="234" type="normal" value="215"><navLabel><text>215</text></navLabel><content src="15_Index.xhtml#page_215"/></pageTarget>
+</pageList>
+</ncx>

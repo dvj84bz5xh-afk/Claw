@@ -1,82 +1,109 @@
-# Claw - 智能代码助手项目
+# Claw - AI Agent 学习进化系统
 
-## 项目概述
-Claw 是一个基于AI的智能代码助手项目，专注于提升开发效率、代码质量和自动化协作能力。项目集成了Git上下文增强、多方案并行生成、自动学习优化等先进特性。
+> 基于GitHub高星项目的自动化AI Agent能力进化平台
 
-## 核心功能
+## 项目简介
 
-### ✅ 已完成
-1. **Git上下文增强系统**（2026-04-17）
-   - Git状态检测与上下文注入
-   - 不确定性分析和任务Patching增强
-   - 三层架构设计（数据获取层、智能分析层、应用集成层）
+Claw 是一个自驱动的 AI Agent 进化系统，通过**夜间进化引擎**自动扫描 GitHub 高星 AI/Agent 项目，学习先进架构和设计思想，持续迭代自身能力。
 
-2. **多方案并行生成系统**（2026-04-17）
-   - 借鉴TimesFM思想，生成多个分位数预测
-   - 多维度评估和智能方案排序
-   - 集成报告生成功能
+## 核心能力
 
-3. **Git上下文与多方案集成**（2026-04-17）
-   - 基于Git状态的智能策略选择
-   - Git兼容性、实施风险、回滚复杂度等多维度评估
-   - 上下文感知的方案生成机制
+### 🧬 夜间进化引擎
+- **自动化扫描**: 每2小时扫描 GitHub Trending AI 项目
+- **智能分析**: 自动评估项目相关性、识别关键创新点
+- **跨轮去重**: 已学习项目自动跳过，只分析新项目
+- **改进项生成**: 自动生成 P0/P1 改进建议
+- **学习追踪**: 完整记录学习历史和改进状态
 
-### 🔄 进行中
-1. **CL4R1T4S学习应用**（2026-04-19）
-   - 从AI透明度项目学习优秀实践
-   - 优化技能系统和验证机制
-   - 增强系统工作透明度
+### 📊 学习数据
+- **已扫描项目**: 50+ 个高星 AI/Agent 项目
+- **改进项**: 62 个（P0: 13, P1: 49）
+- **进化日志**: 700+ 条记录
 
-## 项目架构
+### 🔧 技术栈
+- **Python 3.13**: 核心运行时
+- **GitHub REST API**: 项目搜索和数据获取
+- **JSON**: 数据存储格式
+- **Markdown**: 文档生成
+
+## 目录结构
 
 ```
-agent-core/
-├── git_context_enhanced.py      # Git上下文增强核心
-├── git_context_integration.py   # Git上下文集成模块
-├── multi_solution_generator.py  # 多方案生成器
-├── git_multi_solution_integration.py # Git与多方案集成
-├── uncertainty_quantifier.py    # 不确定性量化
-├── task_patcher.py             # 任务Patching
-└── learning_integration.py     # 学习优化集成
+Claw/
+├── .workbuddy/                 # 核心配置和记忆系统
+│   ├── night_evolution_engine.py  # 夜间进化引擎
+│   ├── learning_tracking.json     # 学习追踪数据
+│   ├── evolution_log.jsonl        # 进化日志
+│   ├── memory/                    # 工作记忆（按日期）
+│   └── mimo.py                    # 小米MiMo API工具
+├── docs/                       # 生成的文档
+│   └── learning-projects.md    # 学习项目追踪
+├── CLAUDE.md                   # 项目配置和规则
+├── README.md                   # 本文件
+└── ...                         # 其他项目文件
 ```
 
-## 学习收获
+## 快速开始
 
-### 来自CL4R1T4S项目（AI系统透明度项目）
-1. **透明度设计**：系统应该向用户清晰展示工作流程和约束条件
-2. **模块化技能系统**：技能应该模块化、可组合、可扩展
-3. **自动化验证机制**：集成自动化质量保证系统
-4. **用户为中心的设计**：明确的工作流程和用户指导
-
-## 使用方式
-
+### 1. 配置环境
 ```bash
-# 运行Git上下文增强演示
-python agent-core/git_context_enhanced.py
+# 确保 Python 3.13+ 已安装
+python --version
 
-# 运行多方案生成演示  
-python agent-core/multi_solution_generator.py
-
-# 运行集成演示
-python agent-core/git_multi_solution_integration.py
+# 配置 pip 镜像（中国用户）
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 ```
 
-## 环境要求
-- Python 3.8+
-- Git 2.0+
-- WorkBuddy集成环境
+### 2. 运行进化引擎
+```bash
+# 手动运行一次
+python .workbuddy/night_evolution_engine.py
 
-## 项目状态
-- **核心功能**：开发完成 ✅
-- **集成测试**：部分完成 🔄
-- **文档完善**：进行中 🔄
-- **生产就绪**：评估中 ⚠️
+# 查看学习数据
+cat .workbuddy/learning_tracking.json | python -m json.tool
+```
 
-## 未来计划
-1. 应用CL4R1T4S学习收获，优化系统架构
-2. 增强技能模块化和自动化验证
-3. 完善用户指导和透明度设计
-4. 部署到生产环境
+### 3. 查看学习成果
+```bash
+# 查看项目追踪文档
+cat docs/learning-projects.md
+
+# 查看进化日志
+tail -20 .workbuddy/evolution_log.jsonl
+```
+
+## 学习项目追踪
+
+详见 [docs/learning-projects.md](docs/learning-projects.md)
+
+### Top 5 高相关项目
+
+| 项目 | Stars | 相关度 | 亮点 |
+|------|-------|--------|------|
+| langchain4j/langchain4j | 12,114 | 26 | Java LLM库，RAG+MCP |
+| ruvnet/ruflo | 55,458 | 21 | Claude原生编排平台 |
+| nanobrowser/nanobrowser | 13,048 | 21 | 浏览器多Agent工作流 |
+| liyupi/ai-guide | 14,576 | 21 | AI资源大全+MCP |
+| open-multi-agent | ~6,240 | 19 | DAG自动编排 |
+
+## P0改进项（待实施）
+
+1. **Agent编排系统** - 参考 ruvnet/ruflo 的编排模式
+2. **多智能体协作** - 参考 nanobrowser/nanobrowser 的工作流
+3. **MCP集成** - 参考 microsoft/mcp-for-beginners 的课程
+
+## 贡献指南
+
+本项目为个人学习进化系统，欢迎：
+- 提 Issue 讨论改进方向
+- 提交 PR 增加新能力
+- 分享你的学习发现
 
 ## 许可证
-本项目仅供学习和研究使用。
+
+MIT License
+
+---
+
+*最后更新: 2026-05-27*
+*进化引擎已运行 22+ 轮，持续学习中...*

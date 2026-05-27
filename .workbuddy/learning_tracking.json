@@ -1,0 +1,1118 @@
+{
+  "projects": [
+    {
+      "name": "trigaten/Learn_Prompting",
+      "url": "https://github.com/trigaten/Learn_Prompting",
+      "stars": 4696,
+      "relevance": 8,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T08:32:37.756435"
+    },
+    {
+      "name": "infiniflow/ragflow",
+      "url": "https://github.com/infiniflow/ragflow",
+      "stars": 81304,
+      "relevance": 14,
+      "key_innovations": [
+        "检索增强生成(RAG)"
+      ],
+      "analyzed_at": "2026-05-27T08:32:41.857763"
+    },
+    {
+      "name": "SciPhi-AI/R2R",
+      "url": "https://github.com/SciPhi-AI/R2R",
+      "stars": 7855,
+      "relevance": 9,
+      "key_innovations": [
+        "检索增强生成(RAG)"
+      ],
+      "analyzed_at": "2026-05-27T08:32:41.857879"
+    },
+    {
+      "name": "THUDM/AgentBench",
+      "url": "https://github.com/THUDM/AgentBench",
+      "stars": 3452,
+      "relevance": 10,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T08:32:45.914298"
+    },
+    {
+      "name": "IBM/AssetOpsBench",
+      "url": "https://github.com/IBM/AssetOpsBench",
+      "stars": 1633,
+      "relevance": 19,
+      "key_innovations": [
+        "多智能体协作架构",
+        "Model Context Protocol集成",
+        "智能体编排"
+      ],
+      "analyzed_at": "2026-05-27T08:32:45.914363"
+    },
+    {
+      "name": "Barca0412/Introduction-to-Quantitative-Finance",
+      "url": "https://github.com/Barca0412/Introduction-to-Quantitative-Finance",
+      "stars": 1415,
+      "relevance": 10,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T08:32:45.914410"
+    },
+    {
+      "name": "langchain4j/langchain4j",
+      "url": "https://github.com/langchain4j/langchain4j",
+      "stars": 12114,
+      "relevance": 26,
+      "key_innovations": [
+        "检索增强生成(RAG)",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T08:32:49.877284"
+    },
+    {
+      "name": "aipotheosis-labs/aci",
+      "url": "https://github.com/aipotheosis-labs/aci",
+      "stars": 4785,
+      "relevance": 14,
+      "key_innovations": [
+        "工具调用/函数调用能力",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T08:32:49.877347"
+    },
+    {
+      "name": "yasasbanukaofficial/claude-code",
+      "url": "https://github.com/yasasbanukaofficial/claude-code",
+      "stars": 3333,
+      "relevance": 17,
+      "key_innovations": [
+        "工具调用/函数调用能力",
+        "工作流编排"
+      ],
+      "analyzed_at": "2026-05-27T08:32:49.877381"
+    },
+    {
+      "name": "TanStack/ai",
+      "url": "https://github.com/TanStack/ai",
+      "stars": 2691,
+      "relevance": 9,
+      "key_innovations": [
+        "检索增强生成(RAG)"
+      ],
+      "analyzed_at": "2026-05-27T08:32:49.877440"
+    },
+    {
+      "name": "antoinezambelli/forge",
+      "url": "https://github.com/antoinezambelli/forge",
+      "stars": 1843,
+      "relevance": 17,
+      "key_innovations": [
+        "工具调用/函数调用能力",
+        "工作流编排"
+      ],
+      "analyzed_at": "2026-05-27T08:32:49.877483"
+    },
+    {
+      "name": "FoundationAgents/MetaGPT",
+      "url": "https://github.com/FoundationAgents/MetaGPT",
+      "stars": 68306,
+      "relevance": 10,
+      "key_innovations": [
+        "多智能体协作架构"
+      ],
+      "analyzed_at": "2026-05-27T08:32:53.954494"
+    },
+    {
+      "name": "AstrBotDevs/AstrBot",
+      "url": "https://github.com/AstrBotDevs/AstrBot",
+      "stars": 33169,
+      "relevance": 13,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T08:32:53.954596"
+    },
+    {
+      "name": "vercel-labs/agent-browser",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "stars": 34391,
+      "relevance": 8,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T10:42:08.212994"
+    },
+    {
+      "name": "nanobrowser/nanobrowser",
+      "url": "https://github.com/nanobrowser/nanobrowser",
+      "stars": 13048,
+      "relevance": 21,
+      "key_innovations": [
+        "多智能体协作架构",
+        "工作流编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:08.213022"
+    },
+    {
+      "name": "ntegrals/openbrowser",
+      "url": "https://github.com/ntegrals/openbrowser",
+      "stars": 9457,
+      "relevance": 9,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T10:42:08.213037"
+    },
+    {
+      "name": "rohitg00/agentmemory",
+      "url": "https://github.com/rohitg00/agentmemory",
+      "stars": 18281,
+      "relevance": 9,
+      "key_innovations": [
+        "记忆/状态持久化机制"
+      ],
+      "analyzed_at": "2026-05-27T10:42:12.180028"
+    },
+    {
+      "name": "MemoriLabs/Memori",
+      "url": "https://github.com/MemoriLabs/Memori",
+      "stars": 14940,
+      "relevance": 14,
+      "key_innovations": [
+        "记忆/状态持久化机制"
+      ],
+      "analyzed_at": "2026-05-27T10:42:12.180077"
+    },
+    {
+      "name": "MemTensor/MemOS",
+      "url": "https://github.com/MemTensor/MemOS",
+      "stars": 9396,
+      "relevance": 18,
+      "key_innovations": [
+        "记忆/状态持久化机制"
+      ],
+      "analyzed_at": "2026-05-27T10:42:12.180113"
+    },
+    {
+      "name": "osaurus-ai/osaurus",
+      "url": "https://github.com/osaurus-ai/osaurus",
+      "stars": 5513,
+      "relevance": 9,
+      "key_innovations": [
+        "记忆/状态持久化机制"
+      ],
+      "analyzed_at": "2026-05-27T10:42:12.180142"
+    },
+    {
+      "name": "Gentleman-Programming/engram",
+      "url": "https://github.com/Gentleman-Programming/engram",
+      "stars": 3784,
+      "relevance": 14,
+      "key_innovations": [
+        "记忆/状态持久化机制",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T10:42:12.180171"
+    },
+    {
+      "name": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "stars": 138320,
+      "relevance": 12,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T10:42:16.302559"
+    },
+    {
+      "name": "infiniflow/ragflow",
+      "url": "https://github.com/infiniflow/ragflow",
+      "stars": 81314,
+      "relevance": 14,
+      "key_innovations": [
+        "检索增强生成(RAG)"
+      ],
+      "analyzed_at": "2026-05-27T10:42:16.302594"
+    },
+    {
+      "name": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "stars": 69683,
+      "relevance": 17,
+      "key_innovations": [
+        "检索增强生成(RAG)"
+      ],
+      "analyzed_at": "2026-05-27T10:42:16.302606"
+    },
+    {
+      "name": "aaif-goose/goose",
+      "url": "https://github.com/aaif-goose/goose",
+      "stars": 45919,
+      "relevance": 10,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T10:42:16.302618"
+    },
+    {
+      "name": "ruvnet/ruflo",
+      "url": "https://github.com/ruvnet/ruflo",
+      "stars": 55499,
+      "relevance": 21,
+      "key_innovations": [
+        "多智能体协作架构",
+        "检索增强生成(RAG)",
+        "工作流编排",
+        "智能体编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:20.265349"
+    },
+    {
+      "name": "wshobson/agents",
+      "url": "https://github.com/wshobson/agents",
+      "stars": 35993,
+      "relevance": 8,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T10:42:20.265436"
+    },
+    {
+      "name": "Yeachan-Heo/oh-my-claudecode",
+      "url": "https://github.com/Yeachan-Heo/oh-my-claudecode",
+      "stars": 34948,
+      "relevance": 14,
+      "key_innovations": [
+        "多智能体协作架构",
+        "智能体编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:20.265464"
+    },
+    {
+      "name": "openai/swarm",
+      "url": "https://github.com/openai/swarm",
+      "stars": 21529,
+      "relevance": 14,
+      "key_innovations": [
+        "多智能体协作架构",
+        "智能体编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:20.265489"
+    },
+    {
+      "name": "cft0808/edict",
+      "url": "https://github.com/cft0808/edict",
+      "stars": 15879,
+      "relevance": 14,
+      "key_innovations": [
+        "多智能体协作架构",
+        "智能体编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:20.265514"
+    },
+    {
+      "name": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ECC",
+      "stars": 194561,
+      "relevance": 13,
+      "key_innovations": [
+        "记忆/状态持久化机制"
+      ],
+      "analyzed_at": "2026-05-27T10:42:24.259649"
+    },
+    {
+      "name": "volcengine/OpenViking",
+      "url": "https://github.com/volcengine/OpenViking",
+      "stars": 24731,
+      "relevance": 13,
+      "key_innovations": [
+        "记忆/状态持久化机制"
+      ],
+      "analyzed_at": "2026-05-27T10:42:24.259715"
+    },
+    {
+      "name": "Donchitos/Claude-Code-Game-Studios",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "stars": 20089,
+      "relevance": 12,
+      "key_innovations": [
+        "工作流编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:24.259762"
+    },
+    {
+      "name": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "stars": 16045,
+      "relevance": 14,
+      "key_innovations": [
+        "多智能体协作架构"
+      ],
+      "analyzed_at": "2026-05-27T10:42:24.259826"
+    },
+    {
+      "name": "lsdefine/GenericAgent",
+      "url": "https://github.com/lsdefine/GenericAgent",
+      "stars": 12161,
+      "relevance": 9,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T10:42:24.259874"
+    },
+    {
+      "name": "SciPhi-AI/R2R",
+      "url": "https://github.com/SciPhi-AI/R2R",
+      "stars": 7855,
+      "relevance": 9,
+      "key_innovations": [
+        "检索增强生成(RAG)"
+      ],
+      "analyzed_at": "2026-05-27T10:42:28.227830"
+    },
+    {
+      "name": "langgenius/dify",
+      "url": "https://github.com/langgenius/dify",
+      "stars": 142763,
+      "relevance": 8,
+      "key_innovations": [
+        "工作流编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:32.269946"
+    },
+    {
+      "name": "enescingoz/awesome-n8n-templates",
+      "url": "https://github.com/enescingoz/awesome-n8n-templates",
+      "stars": 22499,
+      "relevance": 15,
+      "key_innovations": [
+        "检索增强生成(RAG)",
+        "工作流编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:32.269963"
+    },
+    {
+      "name": "activepieces/activepieces",
+      "url": "https://github.com/activepieces/activepieces",
+      "stars": 22425,
+      "relevance": 16,
+      "key_innovations": [
+        "工作流编排",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T10:42:32.269987"
+    },
+    {
+      "name": "triggerdotdev/trigger.dev",
+      "url": "https://github.com/triggerdotdev/trigger.dev",
+      "stars": 15113,
+      "relevance": 8,
+      "key_innovations": [
+        "工作流编排"
+      ],
+      "analyzed_at": "2026-05-27T10:42:32.269999"
+    },
+    {
+      "name": "AgriciDaniel/claude-ads",
+      "url": "https://github.com/AgriciDaniel/claude-ads",
+      "stars": 5263,
+      "relevance": 9,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T11:19:58.983506"
+    },
+    {
+      "name": "the-open-agent/openagent",
+      "url": "https://github.com/the-open-agent/openagent",
+      "stars": 4977,
+      "relevance": 14,
+      "key_innovations": [
+        "检索增强生成(RAG)"
+      ],
+      "analyzed_at": "2026-05-27T11:19:58.983549"
+    },
+    {
+      "name": "SamurAIGPT/Generative-Media-Skills",
+      "url": "https://github.com/SamurAIGPT/Generative-Media-Skills",
+      "stars": 3329,
+      "relevance": 9,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T11:19:58.983596"
+    },
+    {
+      "name": "markdown-viewer/skills",
+      "url": "https://github.com/markdown-viewer/skills",
+      "stars": 2842,
+      "relevance": 9,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T11:19:58.983616"
+    },
+    {
+      "name": "zubair-trabzada/ai-legal-claude",
+      "url": "https://github.com/zubair-trabzada/ai-legal-claude",
+      "stars": 1383,
+      "relevance": 9,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T11:19:58.983636"
+    },
+    {
+      "name": "microsoft/mcp-for-beginners",
+      "url": "https://github.com/microsoft/mcp-for-beginners",
+      "stars": 16202,
+      "relevance": 12,
+      "key_innovations": [
+        "工作流编排",
+        "Model Context Protocol集成",
+        "智能体编排"
+      ],
+      "analyzed_at": "2026-05-27T11:20:18.988660"
+    },
+    {
+      "name": "tadata-org/fastapi_mcp",
+      "url": "https://github.com/tadata-org/fastapi_mcp",
+      "stars": 11883,
+      "relevance": 9,
+      "key_innovations": [
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T11:20:18.988749"
+    },
+    {
+      "name": "hangwin/mcp-chrome",
+      "url": "https://github.com/hangwin/mcp-chrome",
+      "stars": 11725,
+      "relevance": 8,
+      "key_innovations": [
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T11:20:18.988781"
+    },
+    {
+      "name": "mark3labs/mcp-go",
+      "url": "https://github.com/mark3labs/mcp-go",
+      "stars": 8746,
+      "relevance": 14,
+      "key_innovations": [
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T11:20:18.988820"
+    },
+    {
+      "name": "lastmile-ai/mcp-agent",
+      "url": "https://github.com/lastmile-ai/mcp-agent",
+      "stars": 8342,
+      "relevance": 13,
+      "key_innovations": [
+        "工作流编排",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T11:20:18.988852"
+    }
+  ],
+  "improvements": [
+    {
+      "id": "5c385476",
+      "source": "burne-di/llm-agent-tool-calling",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 burne-di/llm-agent-tool-calling 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:39.287741"
+    },
+    {
+      "id": "3302a3f9",
+      "source": "valuecodes/cli-agent-sandbox",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 valuecodes/cli-agent-sandbox 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:39.287765"
+    },
+    {
+      "id": "df5f82d2",
+      "source": "seshukalyanam/Agentic-AI",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 seshukalyanam/Agentic-AI 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:39.287778"
+    },
+    {
+      "id": "9a55c968",
+      "source": "muthukumar-sde/ai-chatbot",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 muthukumar-sde/ai-chatbot 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:39.287788"
+    },
+    {
+      "id": "f7dc3c74",
+      "source": "muthukumar-sde/ai-chatbot",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 muthukumar-sde/ai-chatbot 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:39.287788"
+    },
+    {
+      "id": "8a6b2a99",
+      "source": "amazadfar/llm-client",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 amazadfar/llm-client 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:39.287799"
+    },
+    {
+      "id": "bf09e014",
+      "source": "Agent-Mem-Tools/agent-eval-ts",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 Agent-Mem-Tools/agent-eval-ts 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:52.305784"
+    },
+    {
+      "id": "6ad1999c",
+      "source": "aaronlab/agent-bench-lite",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 aaronlab/agent-bench-lite 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-20T17:41:52.305840"
+    },
+    {
+      "id": "f65f2c00",
+      "source": "wshobson/agents",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 wshobson/agents 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-22T15:06:45.609325"
+    },
+    {
+      "id": "a071f6d5",
+      "source": "kyegomez/swarms",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 kyegomez/swarms 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-25T09:53:32.467246"
+    },
+    {
+      "id": "60862661",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 open-multi-agent/open-multi-agent 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-25T09:53:32.467268"
+    },
+    {
+      "id": "899895b1",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 open-multi-agent/open-multi-agent 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-25T09:53:32.467268"
+    },
+    {
+      "id": "485957ce",
+      "source": "modelcontextprotocol/registry",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 modelcontextprotocol/registry 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-25T21:27:33.345877"
+    },
+    {
+      "id": "4eb7b13b",
+      "source": "jerry-ai-dev/MODULAR-RAG-MCP-SERVER",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 jerry-ai-dev/MODULAR-RAG-MCP-SERVER 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-25T21:27:42.410096"
+    },
+    {
+      "id": "ef5532f0",
+      "source": "jerry-ai-dev/MODULAR-RAG-MCP-SERVER",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 jerry-ai-dev/MODULAR-RAG-MCP-SERVER 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-25T21:27:42.410096"
+    },
+    {
+      "id": "241f7290",
+      "source": "HKUDS/nanobot",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 HKUDS/nanobot 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-25T21:27:55.214281"
+    },
+    {
+      "id": "b1de71ac",
+      "source": "TransformerOptimus/SuperAGI",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 TransformerOptimus/SuperAGI 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-25T21:27:59.834720"
+    },
+    {
+      "id": "e0f1e085",
+      "source": "crewAIInc/crewAI",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 crewAIInc/crewAI 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:33.716800"
+    },
+    {
+      "id": "2172fdb6",
+      "source": "zhayujie/CowAgent",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 zhayujie/CowAgent 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:33.716822"
+    },
+    {
+      "id": "e16b9cee",
+      "source": "zhayujie/CowAgent",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 zhayujie/CowAgent 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:33.716822"
+    },
+    {
+      "id": "84a49e5b",
+      "source": "liyupi/ai-guide",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 liyupi/ai-guide 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:37.756266"
+    },
+    {
+      "id": "75649147",
+      "source": "liyupi/ai-guide",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 liyupi/ai-guide 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:37.756266"
+    },
+    {
+      "id": "40d76ea4",
+      "source": "NirDiamant/Prompt_Engineering",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 NirDiamant/Prompt_Engineering 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:37.756402"
+    },
+    {
+      "id": "ea29325f",
+      "source": "IBM/AssetOpsBench",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 IBM/AssetOpsBench 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:45.914363"
+    },
+    {
+      "id": "12dd3a08",
+      "source": "IBM/AssetOpsBench",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 IBM/AssetOpsBench 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:45.914363"
+    },
+    {
+      "id": "0ac72418",
+      "source": "langchain4j/langchain4j",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 langchain4j/langchain4j 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:49.877284"
+    },
+    {
+      "id": "368a4bac",
+      "source": "langchain4j/langchain4j",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 langchain4j/langchain4j 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:49.877284"
+    },
+    {
+      "id": "f6330f00",
+      "source": "aipotheosis-labs/aci",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 aipotheosis-labs/aci 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:49.877347"
+    },
+    {
+      "id": "942b0e35",
+      "source": "yasasbanukaofficial/claude-code",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 yasasbanukaofficial/claude-code 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:49.877381"
+    },
+    {
+      "id": "84c0dfff",
+      "source": "TanStack/ai",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 TanStack/ai 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:49.877440"
+    },
+    {
+      "id": "f8163c99",
+      "source": "antoinezambelli/forge",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 antoinezambelli/forge 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:49.877483"
+    },
+    {
+      "id": "463828cd",
+      "source": "FoundationAgents/MetaGPT",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 FoundationAgents/MetaGPT 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T08:32:53.954494"
+    },
+    {
+      "id": "f8c0f2a8",
+      "source": "nanobrowser/nanobrowser",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 nanobrowser/nanobrowser 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:08.213022"
+    },
+    {
+      "id": "5be219d1",
+      "source": "ntegrals/openbrowser",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 ntegrals/openbrowser 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:08.213037"
+    },
+    {
+      "id": "820ca890",
+      "source": "rohitg00/agentmemory",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 rohitg00/agentmemory 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:12.180028"
+    },
+    {
+      "id": "d28c0a54",
+      "source": "MemoriLabs/Memori",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 MemoriLabs/Memori 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:12.180077"
+    },
+    {
+      "id": "51016871",
+      "source": "MemTensor/MemOS",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 MemTensor/MemOS 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:12.180113"
+    },
+    {
+      "id": "a5d93a92",
+      "source": "osaurus-ai/osaurus",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 osaurus-ai/osaurus 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:12.180142"
+    },
+    {
+      "id": "7143922c",
+      "source": "Gentleman-Programming/engram",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 Gentleman-Programming/engram 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:12.180171"
+    },
+    {
+      "id": "74804cc3",
+      "source": "Gentleman-Programming/engram",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 Gentleman-Programming/engram 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:12.180171"
+    },
+    {
+      "id": "0beb8f7a",
+      "source": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 x1xhlol/system-prompts-and-models-of-ai-tools 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:16.302559"
+    },
+    {
+      "id": "d060e01e",
+      "source": "infiniflow/ragflow",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 infiniflow/ragflow 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:16.302594"
+    },
+    {
+      "id": "c06040ec",
+      "source": "bytedance/deer-flow",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 bytedance/deer-flow 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:16.302606"
+    },
+    {
+      "id": "e951eaac",
+      "source": "bytedance/deer-flow",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 bytedance/deer-flow 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:16.302606"
+    },
+    {
+      "id": "84871d9b",
+      "source": "ruvnet/ruflo",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 ruvnet/ruflo 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:20.265349"
+    },
+    {
+      "id": "5653c4ae",
+      "source": "ruvnet/ruflo",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 ruvnet/ruflo 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:20.265349"
+    },
+    {
+      "id": "2611e4d8",
+      "source": "Yeachan-Heo/oh-my-claudecode",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 Yeachan-Heo/oh-my-claudecode 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:20.265464"
+    },
+    {
+      "id": "6299b19c",
+      "source": "openai/swarm",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 openai/swarm 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:20.265489"
+    },
+    {
+      "id": "16205054",
+      "source": "cft0808/edict",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 cft0808/edict 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:20.265514"
+    },
+    {
+      "id": "15bf5f35",
+      "source": "affaan-m/ECC",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 affaan-m/ECC 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:24.259649"
+    },
+    {
+      "id": "4aacd3cc",
+      "source": "volcengine/OpenViking",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 volcengine/OpenViking 的记忆管理方案优化现有memory系统",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:24.259715"
+    },
+    {
+      "id": "8719a13a",
+      "source": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 muratcankoylan/Agent-Skills-for-Context-Engineering 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:24.259826"
+    },
+    {
+      "id": "c3adf6e0",
+      "source": "SciPhi-AI/R2R",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 SciPhi-AI/R2R 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:28.227830"
+    },
+    {
+      "id": "64008480",
+      "source": "enescingoz/awesome-n8n-templates",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 enescingoz/awesome-n8n-templates 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:32.269963"
+    },
+    {
+      "id": "80083a93",
+      "source": "activepieces/activepieces",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 activepieces/activepieces 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T10:42:32.269987"
+    },
+    {
+      "id": "d98e1cd8",
+      "source": "the-open-agent/openagent",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 the-open-agent/openagent 的检索增强方案",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T11:19:58.983549"
+    },
+    {
+      "id": "b939ab4e",
+      "source": "microsoft/mcp-for-beginners",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 microsoft/mcp-for-beginners 的编排模式增强Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T11:20:18.988660"
+    },
+    {
+      "id": "7bf76d79",
+      "source": "microsoft/mcp-for-beginners",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 microsoft/mcp-for-beginners 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T11:20:18.988660"
+    },
+    {
+      "id": "8408c7f3",
+      "source": "tadata-org/fastapi_mcp",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 tadata-org/fastapi_mcp 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T11:20:18.988749"
+    },
+    {
+      "id": "73108b70",
+      "source": "hangwin/mcp-chrome",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 hangwin/mcp-chrome 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T11:20:18.988781"
+    },
+    {
+      "id": "97e9f320",
+      "source": "mark3labs/mcp-go",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 mark3labs/mcp-go 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T11:20:18.988820"
+    },
+    {
+      "id": "71cec68f",
+      "source": "lastmile-ai/mcp-agent",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 lastmile-ai/mcp-agent 的工具注册/发现机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T11:20:18.988852"
+    }
+  ],
+  "last_updated": "2026-05-27T11:20:25.919680"
+}

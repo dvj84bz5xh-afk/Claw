@@ -1,0 +1,100 @@
+# ================
+# WorkBuddy Claw 项目 .gitignore
+# ================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 打包/压缩文件
+*.tar
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# OS 文件
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
+
+# 项目特定
+*.pptx
+*.docx
+*.xlsx
+# 课程资料目录不跟踪二进制文件
+课程资料/**/*.pptx
+课程资料/**/*.doc
+课程资料/**/*.docx
+
+# 输出文件（由脚本生成，不需要跟踪）
+output/
+dist/
+build/
+
+# 环境变量/密钥（安全！）
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*_key*
+*secret*
+
+# 测试/健康检查产生的临时文件
+health_check_*.txt
+
+# WorkBuddy 内部临时文件
+.workbuddy/_*.py
+.workbuddy/email_body_tmp.txt
+.workbuddy/automations/

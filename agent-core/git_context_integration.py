@@ -78,6 +78,39 @@ class GitCommit:
 
 
 @dataclass
+class GitStatus:
+    """Git状态详情"""
+    is_git_repo: bool = False
+    git_root: Optional[str] = None
+    current_branch: Optional[str] = None
+    is_clean: bool = True
+    has_conflicts: bool = False
+    modified_files: List[str] = field(default_factory=list)
+    staged_files: List[str] = field(default_factory=list)
+    untracked_files: List[str] = field(default_factory=list)
+    ahead_count: int = 0
+    behind_count: int = 0
+    is_detached: bool = False
+    has_uncommitted_changes: bool = False
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "is_git_repo": self.is_git_repo,
+            "git_root": self.git_root,
+            "current_branch": self.current_branch,
+            "is_clean": self.is_clean,
+            "has_conflicts": self.has_conflicts,
+            "modified_files": self.modified_files,
+            "staged_files": self.staged_files,
+            "untracked_files": self.untracked_files,
+            "ahead_count": self.ahead_count,
+            "behind_count": self.behind_count,
+            "is_detached": self.is_detached,
+            "has_uncommitted_changes": self.has_uncommitted_changes
+        }
+
+
+@dataclass
 class GitContext:
     """Git上下文完整信息"""
     is_git_repo: bool = False
@@ -139,6 +172,8 @@ class GitContextProvider:
                 ['git'] + args,
                 capture_output=True,
                 text=True,
+                encoding='utf-8',
+                errors='ignore',
                 cwd=self.workspace_path,
                 timeout=10
             )
@@ -236,6 +271,84 @@ class GitContextProvider:
         self._cache_time = datetime.now()
         
         return context
+    
+    def get_detailed_status(self) -> GitStatus:
+        """获取详细的Git状态"""
+        # 获取基础上下文
+        context = self.get_context()
+        
+        # 初始化状态对象
+        status = GitStatus()
+        status.is_git_repo = context.is_git_repo
+        status.git_root = context.repo_root
+        status.current_branch = context.current_branch
+        status.is_clean = context.is_clean
+        
+        # 设置文件列表
+        status.modified_files = [c.path for c in context.file_changes if c.change_type == GitChangeType.MODIFIED]
+        status.staged_files = [c.path for c in context.file_changes if c.staged]
+        status.untracked_files = [c.path for c in context.file_changes if c.change_type == GitChangeType.UNTRACKED]
+        
+        # 检测冲突
+        status.has_conflicts = self._detect_conflicts()
+        
+        # 获取分支领先/落后计数
+        status.ahead_count, status.behind_count = self._get_ahead_behind_count()
+        
+        # 检测是否处于分离头指针状态
+        status.is_detached = context.current_branch == 'detached'
+        
+        # 是否有未提交的更改
+        status.has_uncommitted_changes = not context.is_clean
+        
+        return status
+    
+    def _detect_conflicts(self) -> bool:
+        """检测是否存在合并冲突"""
+        merge_head = Path(self.workspace_path) / '.git' / 'MERGE_HEAD'
+        rebase_apply = Path(self.workspace_path) / '.git' / 'rebase-apply'
+        rebase_merge = Path(self.workspace_path) / '.git' / 'rebase-merge'
+        
+        return merge_head.exists() or rebase_apply.exists() or rebase_merge.exists()
+    
+    def _get_ahead_behind_count(self) -> Tuple[int, int]:
+        """获取领先和落后计数"""
+        if not self._is_git_repo():
+            return 0, 0
+        
+        current_branch = self._get_current_branch()
+        if not current_branch:
+            return 0, 0
+        
+        try:
+            # 获取上游分支
+            stdout, _, code = self._run_git(['rev-parse', '--abbrev-ref', f'{current_branch}@{{upstream}}'])
+            if code != 0:
+                return 0, 0
+            
+            upstream = stdout.strip()
+            # 获取计数
+            stdout, _, code = self._run_git(['rev-list', '--left-right', '--count', f'{current_branch}...{upstream}'])
+            if code == 0 and stdout:
+                parts = stdout.strip().split('\t')
+                if len(parts) == 2:
+                    return int(parts[0]), int(parts[1])
+        except Exception:
+            pass
+        
+        return 0, 0
+    
+    def _is_git_repo(self) -> bool:
+        """检查是否为Git仓库"""
+        stdout, _, code = self._run_git(['rev-parse', '--is-inside-work-tree'])
+        return code == 0 and stdout.strip() == 'true'
+    
+    def _get_current_branch(self) -> Optional[str]:
+        """获取当前分支"""
+        stdout, _, code = self._run_git(['branch', '--show-current'])
+        if code == 0 and stdout.strip():
+            return stdout.strip()
+        return None
     
     def get_file_content(self, filepath: str) -> Optional[str]:
         """获取文件内容（优先获取暂存版本）"""

@@ -1,0 +1,24 @@
+{
+  "name": "Claw Workspace",
+  "version": "2.0.0",
+  "created_at": "2026-04-16T23:08:06.346359",
+  "features": {
+    "permission_system": "enhanced",
+    "session_compaction": true,
+    "health_check": true,
+    "git_integration": true
+  },
+  "paths": {
+    "agent_core": "agent-core",
+    "memory": ".workbuddy/memory",
+    "sessions": ".claw/sessions",
+    "logs": "logs"
+  },
+  "session": {
+    "retention_days": null,
+    "auto_cleanup": false,
+    "max_sessions": null,
+    "compression_enabled": true,
+    "persistence_enabled": true
+  }
+}

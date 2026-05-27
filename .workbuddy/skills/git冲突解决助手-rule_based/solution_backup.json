@@ -1,0 +1,35 @@
+{
+  "id": "test-001",
+  "title": "Git冲突解决助手",
+  "description": "自动化解决Git合并冲突，提供智能解决建议",
+  "type": "rule_based",
+  "risk_level": "conservative",
+  "resource_intensity": "light",
+  "technical_approach": "基于规则的冲突检测和解决算法",
+  "key_technologies": [
+    "GitPython",
+    "difflib",
+    "json"
+  ],
+  "implementation_steps": [
+    "分析Git状态和冲突文件",
+    "识别冲突模式和类型",
+    "应用预设的解决规则",
+    "生成解决建议和代码补丁",
+    "验证解决方案的有效性"
+  ],
+  "estimated_time": 2,
+  "estimated_cost": 3,
+  "success_probability": 0.85,
+  "technical_feasibility": 0.9,
+  "business_value": 0.8,
+  "user_experience": 0.85,
+  "created_at": "2026-04-17T16:35:44.815093",
+  "tags": [
+    "git",
+    "conflict",
+    "automation",
+    "rule-based"
+  ],
+  "source_strategy": "git_conflict_resolution"
+}

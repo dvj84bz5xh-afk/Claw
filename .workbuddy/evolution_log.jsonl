@@ -1,0 +1,801 @@
+{"timestamp": "2026-05-20T17:38:27.038684", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:38:27.039737", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-20T17:38:27.040281", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:38:27.040647", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-20T17:38:27.041069", "level": "INFO", "message": "搜索GitHub: AI agent framework (stars:>100)"}
+{"timestamp": "2026-05-20T17:38:29.113060", "level": "INFO", "message": "搜索GitHub: LLM tool calling (stars:>50)"}
+{"timestamp": "2026-05-20T17:38:31.187974", "level": "INFO", "message": "搜索GitHub: multi-agent system (stars:>50)"}
+{"timestamp": "2026-05-20T17:38:33.258031", "level": "INFO", "message": "搜索GitHub: AI workflow automation (stars:>50)"}
+{"timestamp": "2026-05-20T17:38:35.336288", "level": "INFO", "message": "搜索GitHub: prompt engineering (stars:>100)"}
+{"timestamp": "2026-05-20T17:38:37.424386", "level": "INFO", "message": "搜索GitHub: RAG retrieval (stars:>50)"}
+{"timestamp": "2026-05-20T17:38:39.498077", "level": "INFO", "message": "搜索GitHub: model context protocol (stars:>20)"}
+{"timestamp": "2026-05-20T17:38:41.579017", "level": "INFO", "message": "搜索GitHub: AI code generation (stars:>100)"}
+{"timestamp": "2026-05-20T17:38:43.664537", "level": "INFO", "message": "搜索GitHub: agent memory system (stars:>20)"}
+{"timestamp": "2026-05-20T17:38:45.742066", "level": "INFO", "message": "搜索GitHub: autonomous agent (stars:>50)"}
+{"timestamp": "2026-05-20T17:38:47.810159", "level": "INFO", "message": "Phase 1 完成: 0 个相关项目"}
+{"timestamp": "2026-05-20T17:38:47.810628", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-20T17:38:47.811016", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-20T17:38:47.814774", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-20T17:38:47.843204", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-20T17:38:47.844905", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-20T17:38:47.845183", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-20T17:38:47.845373", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:38:47.845677", "level": "INFO", "message": "进化完成: 0 项目, 0 P0改进"}
+{"timestamp": "2026-05-20T17:38:47.845872", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-20T17:38:47.846041", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:40:28.830851", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:40:28.831304", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-20T17:40:28.831544", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:40:28.831741", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-20T17:40:28.834103", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-20T17:40:28.894525", "level": "WARN", "message": "搜索返回空: Unknown JSON field: \"topics\"\nAvailable fields:\n  createdAt\n  defaultBranch\n  description\n  forksCoun"}
+{"timestamp": "2026-05-20T17:40:31.895079", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-20T17:40:31.963555", "level": "WARN", "message": "搜索返回空: Unknown JSON field: \"topics\"\nAvailable fields:\n  createdAt\n  defaultBranch\n  description\n  forksCoun"}
+{"timestamp": "2026-05-20T17:40:34.964474", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-20T17:40:35.043566", "level": "WARN", "message": "搜索返回空: Unknown JSON field: \"topics\"\nAvailable fields:\n  createdAt\n  defaultBranch\n  description\n  forksCoun"}
+{"timestamp": "2026-05-20T17:40:38.044465", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-20T17:40:38.122755", "level": "WARN", "message": "搜索返回空: Unknown JSON field: \"topics\"\nAvailable fields:\n  createdAt\n  defaultBranch\n  description\n  forksCoun"}
+{"timestamp": "2026-05-20T17:40:41.123803", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-20T17:40:41.189354", "level": "WARN", "message": "搜索返回空: Unknown JSON field: \"topics\"\nAvailable fields:\n  createdAt\n  defaultBranch\n  description\n  forksCoun"}
+{"timestamp": "2026-05-20T17:40:44.189989", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-20T17:40:44.257040", "level": "WARN", "message": "搜索返回空: Unknown JSON field: \"topics\"\nAvailable fields:\n  createdAt\n  defaultBranch\n  description\n  forksCoun"}
+{"timestamp": "2026-05-20T17:40:47.258183", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-20T17:40:47.335267", "level": "WARN", "message": "搜索返回空: Unknown JSON field: \"topics\"\nAvailable fields:\n  createdAt\n  defaultBranch\n  description\n  forksCoun"}
+{"timestamp": "2026-05-20T17:40:50.336286", "level": "INFO", "message": "Phase 1 完成: 0 个相关项目"}
+{"timestamp": "2026-05-20T17:40:50.336934", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-20T17:40:50.337909", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-20T17:40:50.347210", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-20T17:40:50.369866", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-20T17:40:50.370505", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-20T17:40:50.370711", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-20T17:40:50.370880", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:40:50.371039", "level": "INFO", "message": "进化完成: 0 项目, 0 P0改进"}
+{"timestamp": "2026-05-20T17:40:50.371205", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-20T17:40:50.371426", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:41:37.924810", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:41:37.925308", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-20T17:41:37.925551", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:41:37.925745", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-20T17:41:37.927366", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-20T17:41:39.287373", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-20T17:41:42.288126", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-20T17:41:43.602638", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-20T17:41:46.603864", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-20T17:41:47.835089", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-20T17:41:50.837731", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-20T17:41:52.305338", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-20T17:41:55.306063", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-20T17:41:56.608245", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-20T17:41:59.609571", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-20T17:42:01.372614", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-20T17:42:04.373302", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-20T17:42:05.687266", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-20T17:42:08.688200", "level": "INFO", "message": "Phase 1 完成: 34 个相关项目"}
+{"timestamp": "2026-05-20T17:42:08.688606", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-20T17:42:08.688943", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-20T17:42:08.728681", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-20T17:42:08.752135", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-20T17:42:08.753844", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-20T17:42:08.754104", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-20T17:42:08.754325", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-20T17:42:08.754573", "level": "INFO", "message": "进化完成: 34 项目, 7 P0改进"}
+{"timestamp": "2026-05-20T17:42:08.754904", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-20T17:42:08.755136", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T15:06:23.028296", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T15:06:23.029710", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-22T15:06:23.030225", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T15:06:23.030594", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-22T15:06:23.034198", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-22T15:06:24.576362", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T15:06:27.577636", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-22T15:06:28.956352", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T15:06:31.957607", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-22T15:06:33.257870", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T15:06:36.259194", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-22T15:06:37.213242", "level": "INFO", "message": "找到 0 个仓库"}
+{"timestamp": "2026-05-22T15:06:40.214825", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-22T15:06:41.472765", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T15:06:44.474344", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-22T15:06:45.608803", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T15:06:48.610136", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-22T15:06:49.784412", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T15:06:52.785288", "level": "INFO", "message": "Phase 1 完成: 19 个相关项目"}
+{"timestamp": "2026-05-22T15:06:52.785727", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-22T15:06:52.786004", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-22T15:06:52.803068", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-22T15:06:52.810848", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-22T15:06:52.811718", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-22T15:06:52.811997", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-22T15:06:52.812373", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T15:06:52.812772", "level": "INFO", "message": "进化完成: 19 项目, 6 P0改进"}
+{"timestamp": "2026-05-22T15:06:52.813014", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-22T15:06:52.813250", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T18:36:21.044835", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T18:36:21.045717", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-22T18:36:21.046029", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T18:36:21.046288", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-22T18:36:21.047864", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-22T18:36:22.691073", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T18:36:25.692039", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-22T18:36:27.066734", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T18:36:30.067631", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-22T18:36:31.292342", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T18:36:34.293654", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-22T18:36:35.586076", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T18:36:38.587705", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-22T18:36:39.707152", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T18:36:42.708046", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-22T18:36:44.149017", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T18:36:47.150836", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-22T18:36:48.392898", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T18:36:51.393958", "level": "INFO", "message": "Phase 1 完成: 14 个相关项目"}
+{"timestamp": "2026-05-22T18:36:51.394398", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-22T18:36:51.394667", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-22T18:36:51.428432", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-22T18:36:51.455235", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-22T18:36:51.457072", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-22T18:36:51.457713", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-22T18:36:51.458642", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T18:36:51.459275", "level": "INFO", "message": "进化完成: 14 项目, 0 P0改进"}
+{"timestamp": "2026-05-22T18:36:51.459911", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-22T18:36:51.460562", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T20:38:51.957776", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T20:38:51.958459", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-22T20:38:51.958843", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T20:38:51.959192", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-22T20:38:51.960967", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-22T20:38:53.306212", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T20:38:56.307226", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-22T20:38:57.572766", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T20:39:00.574291", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-22T20:39:01.923033", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T20:39:04.924003", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-22T20:39:06.141499", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T20:39:09.142411", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-22T20:39:10.589692", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T20:39:13.590262", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-22T20:39:14.809306", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T20:39:17.811694", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-22T20:39:19.046340", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-22T20:39:22.047634", "level": "INFO", "message": "Phase 1 完成: 16 个相关项目"}
+{"timestamp": "2026-05-22T20:39:22.048538", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-22T20:39:22.049290", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-22T20:39:22.084385", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-22T20:39:22.108871", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-22T20:39:22.109549", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-22T20:39:22.109785", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-22T20:39:22.110165", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-22T20:39:22.110418", "level": "INFO", "message": "进化完成: 16 项目, 6 P0改进"}
+{"timestamp": "2026-05-22T20:39:22.110608", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-22T20:39:22.110767", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T09:25:35.181826", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T09:25:35.182831", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T09:25:35.183116", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T09:25:35.183495", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T09:25:35.185531", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-24T09:25:36.642734", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T09:25:39.644143", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-24T09:25:41.291305", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T09:25:44.292213", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-24T09:25:45.401302", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T09:25:48.402123", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-24T09:25:49.530327", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T09:25:52.531498", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-24T09:25:53.648154", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T09:25:56.650826", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-24T09:25:57.734917", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T09:26:00.736447", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-24T09:26:01.836926", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T09:26:04.840824", "level": "INFO", "message": "Phase 1 完成: 14 个相关项目"}
+{"timestamp": "2026-05-24T09:26:04.842057", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T09:26:04.843456", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T09:26:04.883193", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T09:26:04.912603", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T09:26:04.914343", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T09:26:04.914964", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T09:26:04.915610", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T09:26:04.916144", "level": "INFO", "message": "进化完成: 14 项目, 0 P0改进"}
+{"timestamp": "2026-05-24T09:26:04.916672", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T09:26:04.917207", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T11:27:33.992916", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T11:27:33.993426", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T11:27:33.993638", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T11:27:33.993992", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T11:27:33.995304", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-24T11:27:36.377639", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T11:27:39.379663", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-24T11:27:41.317900", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T11:27:44.323065", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-24T11:27:46.334379", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T11:27:49.339375", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-24T11:27:51.572538", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T11:27:54.573950", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-24T11:27:56.372736", "level": "INFO", "message": "找到 0 个仓库"}
+{"timestamp": "2026-05-24T11:27:59.381468", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-24T11:28:01.701356", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T11:28:04.704756", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-24T11:28:06.612819", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T11:28:09.614300", "level": "INFO", "message": "Phase 1 完成: 16 个相关项目"}
+{"timestamp": "2026-05-24T11:28:09.615660", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T11:28:09.617200", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T11:28:09.621205", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T11:28:09.647329", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T11:28:09.648986", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T11:28:09.649927", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T11:28:09.650720", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T11:28:09.651342", "level": "INFO", "message": "进化完成: 16 项目, 6 P0改进"}
+{"timestamp": "2026-05-24T11:28:09.651973", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T11:28:09.652585", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T13:29:40.295013", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T13:29:40.295794", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T13:29:40.296046", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T13:29:40.296238", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T13:29:40.298782", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-24T13:29:42.441160", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T13:29:45.442048", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-24T13:29:46.892270", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T13:29:49.893390", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-24T13:29:51.794142", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T13:29:54.795983", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-24T13:29:56.857193", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T13:29:59.858562", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-24T13:30:01.910729", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T13:30:04.911824", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-24T13:30:06.978304", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T13:30:09.979504", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-24T13:30:11.419016", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T13:30:14.420261", "level": "INFO", "message": "Phase 1 完成: 16 个相关项目"}
+{"timestamp": "2026-05-24T13:30:14.421335", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T13:30:14.422064", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T13:30:14.460711", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T13:30:14.485499", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T13:30:14.486864", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T13:30:14.487416", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T13:30:14.488231", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T13:30:14.488779", "level": "INFO", "message": "进化完成: 16 项目, 5 P0改进"}
+{"timestamp": "2026-05-24T13:30:14.489282", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T13:30:14.489837", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T15:31:38.773635", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T15:31:38.774187", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T15:31:38.774411", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T15:31:38.774593", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T15:31:38.775903", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-24T15:31:40.820741", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T15:31:43.822944", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-24T15:31:45.758137", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T15:31:48.759110", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-24T15:31:50.703286", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T15:31:53.705061", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-24T15:31:55.651299", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T15:31:58.656335", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-24T15:32:00.692226", "level": "INFO", "message": "找到 0 个仓库"}
+{"timestamp": "2026-05-24T15:32:03.693214", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-24T15:32:05.660118", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T15:32:08.661482", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-24T15:32:10.083097", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T15:32:13.084534", "level": "INFO", "message": "Phase 1 完成: 19 个相关项目"}
+{"timestamp": "2026-05-24T15:32:13.085900", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T15:32:13.087122", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T15:32:13.123424", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T15:32:13.149603", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T15:32:13.151382", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T15:32:13.152273", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T15:32:13.153161", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T15:32:13.154208", "level": "INFO", "message": "进化完成: 19 项目, 6 P0改进"}
+{"timestamp": "2026-05-24T15:32:13.155344", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T15:32:13.156701", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T17:33:41.759268", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T17:33:41.759809", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T17:33:41.760035", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T17:33:41.760218", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T17:33:41.761670", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-24T17:33:44.157277", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T17:33:47.158864", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-24T17:33:48.382889", "level": "INFO", "message": "找到 0 个仓库"}
+{"timestamp": "2026-05-24T17:33:51.384243", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-24T17:33:53.386068", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T17:33:56.387234", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-24T17:33:58.464597", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T17:34:01.465357", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-24T17:34:03.573494", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T17:34:06.575351", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-24T17:34:08.567311", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T17:34:11.568874", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-24T17:34:13.319020", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T17:34:16.320338", "level": "INFO", "message": "Phase 1 完成: 16 个相关项目"}
+{"timestamp": "2026-05-24T17:34:16.322669", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T17:34:16.323998", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T17:34:16.366674", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T17:34:16.388772", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T17:34:16.389802", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T17:34:16.390421", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T17:34:16.391561", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T17:34:16.392563", "level": "INFO", "message": "进化完成: 16 项目, 1 P0改进"}
+{"timestamp": "2026-05-24T17:34:16.393414", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T17:34:16.394462", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T19:37:13.769966", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T19:37:13.770478", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T19:37:13.770709", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T19:37:13.770948", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T19:37:13.772327", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-24T19:37:15.893171", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T19:37:18.893781", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-24T19:37:20.912892", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T19:37:23.914269", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-24T19:37:26.354409", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T19:37:29.355793", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-24T19:37:30.775244", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T19:37:33.776558", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-24T19:37:35.745078", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T19:37:38.747711", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-24T19:37:40.103656", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T19:37:43.104783", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-24T19:37:45.110616", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T19:37:48.112360", "level": "INFO", "message": "Phase 1 完成: 11 个相关项目"}
+{"timestamp": "2026-05-24T19:37:48.113150", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T19:37:48.113733", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T19:37:48.116669", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T19:37:48.136694", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T19:37:48.137985", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T19:37:48.138540", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T19:37:48.139045", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T19:37:48.139953", "level": "INFO", "message": "进化完成: 11 项目, 1 P0改进"}
+{"timestamp": "2026-05-24T19:37:48.140548", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T19:37:48.141066", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T21:40:25.636058", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T21:40:25.636686", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T21:40:25.637022", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T21:40:25.637249", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T21:40:25.638546", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-24T21:40:27.396425", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T21:40:30.397800", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-24T21:40:32.608578", "level": "INFO", "message": "找到 0 个仓库"}
+{"timestamp": "2026-05-24T21:40:35.609710", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-24T21:40:37.533987", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T21:40:40.535179", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-24T21:40:42.660927", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T21:40:45.662452", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-24T21:40:47.749354", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T21:40:50.750247", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-24T21:40:53.300864", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T21:40:56.302388", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-24T21:40:58.697310", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T21:41:01.698738", "level": "INFO", "message": "Phase 1 完成: 14 个相关项目"}
+{"timestamp": "2026-05-24T21:41:01.699686", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T21:41:01.700964", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T21:41:01.738567", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T21:41:01.768240", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T21:41:01.770234", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T21:41:01.770939", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T21:41:01.771532", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T21:41:01.772500", "level": "INFO", "message": "进化完成: 14 项目, 6 P0改进"}
+{"timestamp": "2026-05-24T21:41:01.773245", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T21:41:01.774340", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T23:42:49.692788", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T23:42:49.693457", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-24T23:42:49.693696", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T23:42:49.693878", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-24T23:42:49.695703", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-24T23:42:52.769729", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T23:42:55.771165", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-24T23:42:58.001202", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T23:43:01.003075", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-24T23:43:03.345360", "level": "INFO", "message": "找到 0 个仓库"}
+{"timestamp": "2026-05-24T23:43:06.347836", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-24T23:43:08.953176", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T23:43:11.954234", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-24T23:43:13.964264", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T23:43:16.965724", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-24T23:43:19.021262", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T23:43:22.023445", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-24T23:43:23.447863", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-24T23:43:26.450076", "level": "INFO", "message": "Phase 1 完成: 14 个相关项目"}
+{"timestamp": "2026-05-24T23:43:26.450795", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-24T23:43:26.451250", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-24T23:43:26.489356", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-24T23:43:26.510344", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-24T23:43:26.511446", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-24T23:43:26.511860", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-24T23:43:26.512193", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-24T23:43:26.512846", "level": "INFO", "message": "进化完成: 14 项目, 6 P0改进"}
+{"timestamp": "2026-05-24T23:43:26.513235", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-24T23:43:26.513584", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T03:46:53.891735", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T03:46:53.892351", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-25T03:46:53.892589", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T03:46:53.892819", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-25T03:46:53.894494", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-25T03:46:55.842161", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T03:46:58.845613", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-25T03:47:00.289792", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T03:47:03.291661", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-25T03:47:04.657942", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T03:47:07.659222", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-25T03:47:09.692580", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T03:47:12.693871", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-25T03:47:14.701468", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T03:47:17.702720", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-25T03:47:19.137201", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T03:47:22.138567", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-25T03:47:24.080680", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T03:47:27.082146", "level": "INFO", "message": "Phase 1 完成: 11 个相关项目"}
+{"timestamp": "2026-05-25T03:47:27.083677", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-25T03:47:27.084961", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-25T03:47:27.127709", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-25T03:47:27.160219", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-25T03:47:27.161836", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-25T03:47:27.162414", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-25T03:47:27.162917", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T03:47:27.163400", "level": "INFO", "message": "进化完成: 11 项目, 0 P0改进"}
+{"timestamp": "2026-05-25T03:47:27.163854", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-25T03:47:27.165091", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T05:48:55.365629", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T05:48:55.366155", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-25T05:48:55.366398", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T05:48:55.366578", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-25T05:48:55.367854", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-25T05:48:57.312719", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T05:49:00.313884", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-25T05:49:01.771404", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T05:49:04.772915", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-25T05:49:06.744192", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T05:49:09.745397", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-25T05:49:11.760607", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T05:49:14.762202", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-25T05:49:16.869098", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T05:49:19.870369", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-25T05:49:21.350345", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T05:49:24.351879", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-25T05:49:26.626374", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T05:49:29.634475", "level": "INFO", "message": "Phase 1 完成: 17 个相关项目"}
+{"timestamp": "2026-05-25T05:49:29.635216", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-25T05:49:29.635766", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-25T05:49:29.638048", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-25T05:49:29.666152", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-25T05:49:29.668435", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-25T05:49:29.669028", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-25T05:49:29.669610", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T05:49:29.670498", "level": "INFO", "message": "进化完成: 17 项目, 6 P0改进"}
+{"timestamp": "2026-05-25T05:49:29.671319", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-25T05:49:29.672023", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T07:50:27.390006", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T07:50:27.390543", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-25T07:50:27.390767", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T07:50:27.391018", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-25T07:50:27.392303", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-25T07:50:28.868809", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T07:50:31.870049", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-25T07:50:33.897199", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T07:50:36.898797", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-25T07:50:38.236560", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T07:50:41.237837", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-25T07:50:43.233051", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T07:50:46.234300", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-25T07:50:48.273527", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T07:50:51.275582", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-25T07:50:53.786938", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T07:50:56.788026", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-25T07:50:58.790813", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T07:51:01.792610", "level": "INFO", "message": "Phase 1 完成: 16 个相关项目"}
+{"timestamp": "2026-05-25T07:51:01.793238", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-25T07:51:01.793656", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-25T07:51:01.829605", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-25T07:51:01.856777", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-25T07:51:01.859373", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-25T07:51:01.860113", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-25T07:51:01.860634", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T07:51:01.861148", "level": "INFO", "message": "进化完成: 16 项目, 2 P0改进"}
+{"timestamp": "2026-05-25T07:51:01.861676", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-25T07:51:01.862147", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T09:53:05.658208", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T09:53:05.659611", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-25T09:53:05.659941", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T09:53:05.660338", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-25T09:53:05.662641", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-25T09:53:07.212019", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T09:53:10.213736", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-25T09:53:11.354164", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T09:53:14.355556", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-25T09:53:15.439538", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T09:53:18.440898", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-25T09:53:19.629763", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T09:53:22.631566", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-25T09:53:23.748287", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T09:53:26.749684", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-25T09:53:28.331474", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T09:53:31.333222", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-25T09:53:32.466229", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T09:53:35.469632", "level": "INFO", "message": "Phase 1 完成: 19 个相关项目"}
+{"timestamp": "2026-05-25T09:53:35.470682", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-25T09:53:35.472212", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-25T09:53:35.502814", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-25T09:53:35.533342", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-25T09:53:35.536069", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-25T09:53:35.536852", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-25T09:53:35.537684", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T09:53:35.538391", "level": "INFO", "message": "进化完成: 19 项目, 6 P0改进"}
+{"timestamp": "2026-05-25T09:53:35.539354", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-25T09:53:35.540116", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T21:27:31.505367", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T21:27:31.506347", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-25T21:27:31.506790", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T21:27:31.507179", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-25T21:27:31.509591", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-25T21:27:33.345351", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T21:27:36.346240", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-25T21:27:37.395719", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T21:27:40.396808", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-25T21:27:42.409680", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T21:27:45.410490", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-25T21:27:46.553727", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T21:27:49.554298", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-25T21:27:50.792644", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T21:27:53.793266", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-25T21:27:55.213812", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T21:27:58.215346", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-25T21:27:59.834317", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-25T21:28:02.835116", "level": "INFO", "message": "Phase 1 完成: 19 个相关项目"}
+{"timestamp": "2026-05-25T21:28:02.835584", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-25T21:28:02.836020", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-25T21:28:02.874254", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-25T21:28:02.897585", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-25T21:28:02.898861", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-25T21:28:02.899101", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-25T21:28:02.899331", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-25T21:28:02.899509", "level": "INFO", "message": "进化完成: 19 项目, 2 P0改进"}
+{"timestamp": "2026-05-25T21:28:02.899660", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-25T21:28:02.899804", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:30:20.099579", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:30:20.100957", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-26T14:30:20.101339", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:30:20.101654", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-26T14:30:20.102929", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-26T14:30:20.106141", "level": "WARN", "message": "gh CLI搜索失败: [WinError 2] 系统找不到指定的文件。"}
+{"timestamp": "2026-05-26T14:30:23.106723", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-26T14:30:23.112951", "level": "WARN", "message": "gh CLI搜索失败: [WinError 2] 系统找不到指定的文件。"}
+{"timestamp": "2026-05-26T14:30:26.113978", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-26T14:30:26.118587", "level": "WARN", "message": "gh CLI搜索失败: [WinError 2] 系统找不到指定的文件。"}
+{"timestamp": "2026-05-26T14:30:29.119900", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-26T14:30:29.125720", "level": "WARN", "message": "gh CLI搜索失败: [WinError 2] 系统找不到指定的文件。"}
+{"timestamp": "2026-05-26T14:30:32.126655", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-26T14:30:32.131284", "level": "WARN", "message": "gh CLI搜索失败: [WinError 2] 系统找不到指定的文件。"}
+{"timestamp": "2026-05-26T14:30:35.132546", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-26T14:30:35.137203", "level": "WARN", "message": "gh CLI搜索失败: [WinError 2] 系统找不到指定的文件。"}
+{"timestamp": "2026-05-26T14:30:38.138424", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-26T14:30:38.141989", "level": "WARN", "message": "gh CLI搜索失败: [WinError 2] 系统找不到指定的文件。"}
+{"timestamp": "2026-05-26T14:30:41.142701", "level": "INFO", "message": "Phase 1 完成: 0 个相关项目"}
+{"timestamp": "2026-05-26T14:30:41.143332", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-26T14:30:41.144534", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-26T14:30:41.147927", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-26T14:30:41.149334", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-26T14:30:41.150899", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-26T14:30:41.151556", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-26T14:30:41.151933", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:30:41.152278", "level": "INFO", "message": "进化完成: 0 项目, 0 P0改进"}
+{"timestamp": "2026-05-26T14:30:41.152605", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-26T14:30:41.152923", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:41:49.283965", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:41:49.284801", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-26T14:41:49.285209", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:41:49.285565", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-26T14:41:49.286029", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-26T14:41:52.594198", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T14:41:55.595361", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-26T14:41:56.651198", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T14:41:59.653475", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-26T14:42:00.789154", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T14:42:03.791311", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-26T14:42:04.871539", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T14:42:07.875383", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-26T14:42:08.907063", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T14:42:11.908510", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-26T14:42:13.032954", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T14:42:16.034878", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-26T14:42:16.993233", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T14:42:19.996496", "level": "INFO", "message": "Phase 1 完成: 33 个相关项目"}
+{"timestamp": "2026-05-26T14:42:19.997555", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-26T14:42:19.998212", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-26T14:42:20.000278", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-26T14:42:20.001099", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-26T14:42:20.001826", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-26T14:42:20.002335", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-26T14:42:20.002629", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T14:42:20.002931", "level": "INFO", "message": "进化完成: 33 项目, 8 P0改进"}
+{"timestamp": "2026-05-26T14:42:20.003234", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-26T14:42:20.003506", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T16:58:00.552384", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T16:58:00.553010", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-26T16:58:00.553350", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T16:58:00.553647", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-26T16:58:00.554007", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-26T16:58:01.695850", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T16:58:04.698521", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-26T16:58:05.807975", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T16:58:08.809902", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-26T16:58:10.212028", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T16:58:13.213216", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-26T16:58:14.453905", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T16:58:17.454983", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-26T16:58:18.494433", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T16:58:21.496295", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-26T16:58:22.630840", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T16:58:25.632764", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-26T16:58:26.776370", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T16:58:29.778149", "level": "INFO", "message": "Phase 1 完成: 33 个相关项目"}
+{"timestamp": "2026-05-26T16:58:29.779465", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-26T16:58:29.781106", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-26T16:58:29.789978", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-26T16:58:29.793366", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-26T16:58:29.796834", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-26T16:58:29.798289", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-26T16:58:29.799828", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T16:58:29.802017", "level": "INFO", "message": "进化完成: 33 项目, 5 P0改进"}
+{"timestamp": "2026-05-26T16:58:29.804259", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-26T16:58:29.806382", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T19:07:00.367554", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T19:07:00.368243", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-26T19:07:00.368563", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T19:07:00.368830", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-26T19:07:00.369257", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-26T19:07:01.389278", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T19:07:04.391185", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-26T19:07:05.332445", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T19:07:08.334508", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-26T19:07:09.306555", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T19:07:12.308354", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-26T19:07:13.287591", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T19:07:16.288881", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-26T19:07:17.286092", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T19:07:20.287839", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-26T19:07:21.363317", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T19:07:24.364183", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-26T19:07:25.326651", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-26T19:07:28.329258", "level": "INFO", "message": "Phase 1 完成: 30 个相关项目"}
+{"timestamp": "2026-05-26T19:07:28.330930", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-26T19:07:28.331579", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-26T19:07:28.333957", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-26T19:07:28.335340", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-26T19:07:28.336299", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-26T19:07:28.336608", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-26T19:07:28.337068", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-26T19:07:28.337349", "level": "INFO", "message": "进化完成: 30 项目, 7 P0改进"}
+{"timestamp": "2026-05-26T19:07:28.337712", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-26T19:07:28.338039", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T03:03:43.116129", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T03:03:43.116688", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-27T03:03:43.117010", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T03:03:43.117260", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-27T03:03:43.117513", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-27T03:03:44.135046", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T03:03:47.136948", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-27T03:03:48.191315", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T03:03:51.192822", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-27T03:03:52.194452", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T03:03:55.195583", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-27T03:03:56.239178", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T03:03:59.240963", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-27T03:04:00.315458", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T03:04:03.317563", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-27T03:04:04.272247", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T03:04:07.274346", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-27T03:04:08.379804", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T03:04:11.381457", "level": "INFO", "message": "Phase 1 完成: 31 个相关项目"}
+{"timestamp": "2026-05-27T03:04:11.382856", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-27T03:04:11.383872", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-27T03:04:11.387808", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-27T03:04:11.388610", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-27T03:04:11.389543", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-27T03:04:11.389892", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-27T03:04:11.390171", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T03:04:11.390429", "level": "INFO", "message": "进化完成: 31 项目, 3 P0改进"}
+{"timestamp": "2026-05-27T03:04:11.390673", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-27T03:04:11.390908", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T08:32:28.674812", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T08:32:28.675443", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-27T08:32:28.675753", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T08:32:28.676037", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-27T08:32:28.676294", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-27T08:32:29.691937", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T08:32:32.692869", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-27T08:32:33.716210", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T08:32:36.717541", "level": "INFO", "message": "搜索GitHub: prompt engineering LLM"}
+{"timestamp": "2026-05-27T08:32:37.755101", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T08:32:40.756791", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-27T08:32:41.856925", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T08:32:44.858217", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-27T08:32:45.913086", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T08:32:48.914922", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-27T08:32:49.876313", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T08:32:52.877717", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-27T08:32:53.953452", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T08:32:56.955354", "level": "INFO", "message": "Phase 1 完成: 30 个相关项目"}
+{"timestamp": "2026-05-27T08:32:56.956604", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-27T08:32:56.957523", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-27T08:32:56.961615", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-27T08:32:56.963377", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-27T08:32:56.964554", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-27T08:32:56.964994", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-27T08:32:56.965372", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T08:32:56.965735", "level": "INFO", "message": "进化完成: 30 项目, 5 P0改进"}
+{"timestamp": "2026-05-27T08:32:56.966035", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-27T08:32:56.966485", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T10:42:07.133154", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T10:42:07.133789", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-27T10:42:07.134081", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T10:42:07.134273", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-27T10:42:07.134496", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-27T10:42:08.212349", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T10:42:11.213855", "level": "INFO", "message": "搜索GitHub: agent memory persistent"}
+{"timestamp": "2026-05-27T10:42:12.178855", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T10:42:15.180490", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-27T10:42:16.302012", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T10:42:19.303004", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-27T10:42:20.264325", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T10:42:23.265667", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-27T10:42:24.258335", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T10:42:27.260474", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-27T10:42:28.226803", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T10:42:31.228469", "level": "INFO", "message": "搜索GitHub: AI workflow automation agent"}
+{"timestamp": "2026-05-27T10:42:32.269452", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T10:42:35.270637", "level": "INFO", "message": "Phase 1 完成: 30 个相关项目"}
+{"timestamp": "2026-05-27T10:42:35.271129", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-27T10:42:35.271424", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-27T10:42:35.272844", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-27T10:42:35.273751", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-27T10:42:35.274360", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-27T10:42:35.274604", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-27T10:42:35.274851", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T10:42:35.275102", "level": "INFO", "message": "进化完成: 30 项目, 6 P0改进"}
+{"timestamp": "2026-05-27T10:42:35.275308", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-27T10:42:35.275525", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T11:19:57.966807", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T11:19:57.967762", "level": "INFO", "message": "小龙虾夜间进化引擎启动"}
+{"timestamp": "2026-05-27T11:19:57.968136", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T11:19:57.968902", "level": "INFO", "message": "已学习项目数: 44，将跳过重复项目"}
+{"timestamp": "2026-05-27T11:19:57.969170", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-27T11:19:57.969558", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-27T11:19:58.982433", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T11:20:01.983948", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-27T11:20:03.062563", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T11:20:03.063234", "level": "INFO", "message": "跳过已学习: x1xhlol/system-prompts-and-models-of-ai-tools"}
+{"timestamp": "2026-05-27T11:20:03.063645", "level": "INFO", "message": "跳过已学习: infiniflow/ragflow"}
+{"timestamp": "2026-05-27T11:20:03.064028", "level": "INFO", "message": "跳过已学习: bytedance/deer-flow"}
+{"timestamp": "2026-05-27T11:20:03.064428", "level": "INFO", "message": "跳过已学习: aaif-goose/goose"}
+{"timestamp": "2026-05-27T11:20:06.065090", "level": "INFO", "message": "搜索GitHub: multi-agent orchestration"}
+{"timestamp": "2026-05-27T11:20:07.076336", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T11:20:07.076932", "level": "INFO", "message": "跳过已学习: ruvnet/ruflo"}
+{"timestamp": "2026-05-27T11:20:07.077306", "level": "INFO", "message": "跳过已学习: wshobson/agents"}
+{"timestamp": "2026-05-27T11:20:07.077551", "level": "INFO", "message": "跳过已学习: yeachan-heo/oh-my-claudecode"}
+{"timestamp": "2026-05-27T11:20:07.077786", "level": "INFO", "message": "跳过已学习: openai/swarm"}
+{"timestamp": "2026-05-27T11:20:07.077996", "level": "INFO", "message": "跳过已学习: cft0808/edict"}
+{"timestamp": "2026-05-27T11:20:10.078511", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-05-27T11:20:11.024763", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T11:20:11.025774", "level": "INFO", "message": "跳过已学习: affaan-m/ecc"}
+{"timestamp": "2026-05-27T11:20:11.026236", "level": "INFO", "message": "跳过已学习: volcengine/openviking"}
+{"timestamp": "2026-05-27T11:20:11.026655", "level": "INFO", "message": "跳过已学习: donchitos/claude-code-game-studios"}
+{"timestamp": "2026-05-27T11:20:11.027016", "level": "INFO", "message": "跳过已学习: muratcankoylan/agent-skills-for-context-engineering"}
+{"timestamp": "2026-05-27T11:20:11.027479", "level": "INFO", "message": "跳过已学习: lsdefine/genericagent"}
+{"timestamp": "2026-05-27T11:20:14.027928", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-27T11:20:14.988099", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T11:20:14.989409", "level": "INFO", "message": "跳过已学习: ruvnet/ruflo"}
+{"timestamp": "2026-05-27T11:20:14.990171", "level": "INFO", "message": "跳过已学习: crewaiinc/crewai"}
+{"timestamp": "2026-05-27T11:20:14.990782", "level": "INFO", "message": "跳过已学习: cherryhq/cherry-studio"}
+{"timestamp": "2026-05-27T11:20:14.991565", "level": "INFO", "message": "跳过已学习: zhayujie/cowagent"}
+{"timestamp": "2026-05-27T11:20:17.992298", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-27T11:20:18.987441", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T11:20:21.989021", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-05-27T11:20:22.915993", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T11:20:22.916595", "level": "INFO", "message": "跳过已学习: vercel-labs/agent-browser"}
+{"timestamp": "2026-05-27T11:20:22.916966", "level": "INFO", "message": "跳过已学习: nanobrowser/nanobrowser"}
+{"timestamp": "2026-05-27T11:20:22.917292", "level": "INFO", "message": "跳过已学习: ntegrals/openbrowser"}
+{"timestamp": "2026-05-27T11:20:25.917850", "level": "INFO", "message": "Phase 1 完成: 14 个新项目，跳过 21 个已学习项目"}
+{"timestamp": "2026-05-27T11:20:25.918462", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-27T11:20:25.918860", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-27T11:20:25.920249", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-27T11:20:25.922097", "level": "INFO", "message": "Phase 5: 写入记忆文件"}
+{"timestamp": "2026-05-27T11:20:25.922935", "level": "INFO", "message": "Phase 6: 发送进化通知"}
+{"timestamp": "2026-05-27T11:20:25.923271", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-27T11:20:25.923620", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T11:20:25.923920", "level": "INFO", "message": "进化完成: 14 项目, 1 P0改进"}
+{"timestamp": "2026-05-27T11:20:25.924208", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
+{"timestamp": "2026-05-27T11:20:25.924528", "level": "INFO", "message": "========================================"}
