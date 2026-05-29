@@ -490,6 +490,177 @@
         "Model Context Protocol集成"
       ],
       "analyzed_at": "2026-05-27T11:20:18.988852"
+    },
+    {
+      "name": "crewAIInc/crewAI",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "stars": 52243,
+      "relevance": 9,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T12:02:03.504177",
+      "language": "Python",
+      "mimo_summary": ""
+    },
+    {
+      "name": "CherryHQ/cherry-studio",
+      "url": "https://github.com/CherryHQ/cherry-studio",
+      "stars": 46370,
+      "relevance": 10,
+      "key_innovations": [],
+      "analyzed_at": "2026-05-27T12:02:16.186730",
+      "language": "TypeScript",
+      "mimo_summary": ""
+    },
+    {
+      "name": "zhayujie/CowAgent",
+      "url": "https://github.com/zhayujie/CowAgent",
+      "stars": 44875,
+      "relevance": 17,
+      "key_innovations": [
+        "记忆/状态持久化机制"
+      ],
+      "analyzed_at": "2026-05-27T12:02:28.555357",
+      "language": "Python",
+      "mimo_summary": ""
+    },
+    {
+      "name": "trycua/cua",
+      "url": "https://github.com/trycua/cua",
+      "stars": 17121,
+      "relevance": 8,
+      "key_innovations": [
+        "评估基准测试"
+      ],
+      "analyzed_at": "2026-05-27T12:02:59.043188",
+      "language": "HTML",
+      "mimo_summary": ""
+    },
+    {
+      "name": "microsoft/autogen",
+      "url": "https://github.com/microsoft/autogen",
+      "stars": 58436,
+      "relevance": 9,
+      "key_innovations": [
+        "Agent化架构"
+      ],
+      "analyzed_at": "2026-05-27T12:03:36.011165",
+      "language": "Python",
+      "mimo_summary": ""
+    },
+    {
+      "name": "theronic/modex",
+      "url": "https://github.com/theronic/modex",
+      "stars": 114,
+      "relevance": 12,
+      "key_innovations": [
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T12:04:40.382931",
+      "language": "Clojure",
+      "mimo_summary": ""
+    },
+    {
+      "name": "Haohao-end/mcp-agent",
+      "url": "https://github.com/Haohao-end/mcp-agent",
+      "stars": 82,
+      "relevance": 23,
+      "key_innovations": [
+        "检索增强生成(RAG)",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T12:05:22.896956",
+      "language": "Python",
+      "mimo_summary": ""
+    },
+    {
+      "name": "RTGS2017/NagaAgent",
+      "url": "https://github.com/RTGS2017/NagaAgent",
+      "stars": 1519,
+      "relevance": 14,
+      "key_innovations": [
+        "多智能体协作架构"
+      ],
+      "analyzed_at": "2026-05-27T12:55:01.692760",
+      "language": "Python",
+      "mimo_summary": ""
+    },
+    {
+      "name": "rinadelph/Agent-MCP",
+      "url": "https://github.com/rinadelph/Agent-MCP",
+      "stars": 1239,
+      "relevance": 15,
+      "key_innovations": [
+        "多智能体协作架构",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T12:55:02.729324",
+      "language": "TypeScript",
+      "mimo_summary": ""
+    },
+    {
+      "name": "wanxingai/LightAgent",
+      "url": "https://github.com/wanxingai/LightAgent",
+      "stars": 1005,
+      "relevance": 28,
+      "key_innovations": [
+        "多智能体协作架构",
+        "记忆/状态持久化机制",
+        "Model Context Protocol集成"
+      ],
+      "analyzed_at": "2026-05-27T12:55:03.611008",
+      "language": "Python",
+      "mimo_summary": ""
+    },
+    {
+      "name": "wzf2000/MACRec",
+      "url": "https://github.com/wzf2000/MACRec",
+      "stars": 117,
+      "relevance": 10,
+      "key_innovations": [
+        "多智能体协作架构"
+      ],
+      "analyzed_at": "2026-05-27T12:55:04.489230",
+      "language": "Python",
+      "mimo_summary": ""
+    },
+    {
+      "name": "Taoidle/plan-cascade",
+      "url": "https://github.com/Taoidle/plan-cascade",
+      "stars": 84,
+      "relevance": 10,
+      "key_innovations": [
+        "多智能体协作架构"
+      ],
+      "analyzed_at": "2026-05-27T12:55:04.489296",
+      "language": "Rust",
+      "mimo_summary": ""
+    },
+    {
+      "name": "Rishabhmannu/amazon-greencart-hackathon",
+      "url": "https://github.com/Rishabhmannu/amazon-greencart-hackathon",
+      "stars": 58,
+      "relevance": 10,
+      "key_innovations": [
+        "多智能体协作架构"
+      ],
+      "analyzed_at": "2026-05-27T12:55:08.670177",
+      "language": "TypeScript",
+      "mimo_summary": ""
+    },
+    {
+      "name": "microsoft/agent-framework",
+      "url": "https://github.com/microsoft/agent-framework",
+      "stars": 10835,
+      "relevance": 15,
+      "key_innovations": [
+        "多智能体协作架构",
+        "工作流编排",
+        "可观测性/OpenTelemetry集成",
+        "Agent Skills知识库",
+        "声明式Agent(YAML定义)"
+      ],
+      "analyzed_at": "2026-05-29T09:12:07.974582",
+      "language": "Python"
     }
   ],
   "improvements": [
@@ -1112,7 +1283,277 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-05-27T11:20:18.988852"
+    },
+    {
+      "id": "da73ae5e",
+      "source": "crewAIInc/crewAI",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 crewAIInc/crewAI 的多智能体编排模式，实现Agent协作和任务分配",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T12:02:03.504177",
+      "updated_at": "2026-05-27T12:02:03.504177"
+    },
+    {
+      "id": "ac7372f7",
+      "source": "zhayujie/CowAgent",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 zhayujie/CowAgent 的记忆管理方案，优化memory系统的持久化和检索能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:02:28.555357",
+      "updated_at": "2026-05-27T12:02:28.555357"
+    },
+    {
+      "id": "658b6605",
+      "source": "zhayujie/CowAgent",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 zhayujie/CowAgent 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:02:28.555357",
+      "updated_at": "2026-05-27T12:02:28.555357"
+    },
+    {
+      "id": "3c7da26a",
+      "source": "trycua/cua",
+      "priority": "P1",
+      "module": "evaluation",
+      "suggestion": "参考 trycua/cua 的评估方法，建立Claw能力评测体系",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-05-27T12:02:59.043188",
+      "updated_at": "2026-05-27T12:02:59.043188"
+    },
+    {
+      "id": "983e95d5",
+      "source": "entanglr/zettelkasten-mcp",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 entanglr/zettelkasten-mcp 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:04:40.382830",
+      "updated_at": "2026-05-27T12:04:40.382830"
+    },
+    {
+      "id": "d7ac9521",
+      "source": "ziglana/gRPC-zig",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 ziglana/gRPC-zig 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:04:40.382890",
+      "updated_at": "2026-05-27T12:04:40.382890"
+    },
+    {
+      "id": "50a0a7c0",
+      "source": "invariantlabs-ai/mcp-streamable-http",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 invariantlabs-ai/mcp-streamable-http 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:04:40.382911",
+      "updated_at": "2026-05-27T12:04:40.382911"
+    },
+    {
+      "id": "7fa9dce4",
+      "source": "theronic/modex",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 theronic/modex 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:04:40.382931",
+      "updated_at": "2026-05-27T12:04:40.382931"
+    },
+    {
+      "id": "0efa8a4c",
+      "source": "Haohao-end/mcp-agent",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 Haohao-end/mcp-agent 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:05:22.896956",
+      "updated_at": "2026-05-27T12:05:22.896956"
+    },
+    {
+      "id": "edc2a40c",
+      "source": "Haohao-end/mcp-agent",
+      "priority": "P1",
+      "module": "knowledge_retrieval",
+      "suggestion": "引入 Haohao-end/mcp-agent 的检索增强方案，构建Claw的RAG能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:05:22.896956",
+      "updated_at": "2026-05-27T12:05:22.896956"
+    },
+    {
+      "id": "ce75695e",
+      "source": "RTGS2017/NagaAgent",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 RTGS2017/NagaAgent 的多智能体编排模式，实现Agent协作和任务分配",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:01.692760",
+      "updated_at": "2026-05-27T12:55:01.692760"
+    },
+    {
+      "id": "9cdbb15e",
+      "source": "RTGS2017/NagaAgent",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 RTGS2017/NagaAgent 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:01.692760",
+      "updated_at": "2026-05-27T12:55:01.692760"
+    },
+    {
+      "id": "a7acf53d",
+      "source": "rinadelph/Agent-MCP",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 rinadelph/Agent-MCP 的多智能体编排模式，实现Agent协作和任务分配",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:02.729324",
+      "updated_at": "2026-05-27T12:55:02.729324"
+    },
+    {
+      "id": "059dae81",
+      "source": "rinadelph/Agent-MCP",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 rinadelph/Agent-MCP 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:02.729324",
+      "updated_at": "2026-05-27T12:55:02.729324"
+    },
+    {
+      "id": "94cde592",
+      "source": "wanxingai/LightAgent",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴 wanxingai/LightAgent 的记忆管理方案，优化memory系统的持久化和检索能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:03.611008",
+      "updated_at": "2026-05-27T12:55:03.611008"
+    },
+    {
+      "id": "36461eec",
+      "source": "wanxingai/LightAgent",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 wanxingai/LightAgent 的多智能体编排模式，实现Agent协作和任务分配",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:03.611008",
+      "updated_at": "2026-05-27T12:55:03.611008"
+    },
+    {
+      "id": "48a7b3a8",
+      "source": "wanxingai/LightAgent",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "研究 wanxingai/LightAgent 的工具注册/发现机制，增强ToolRegistry能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:03.611008",
+      "updated_at": "2026-05-27T12:55:03.611008"
+    },
+    {
+      "id": "d3cbea6d",
+      "source": "wzf2000/MACRec",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 wzf2000/MACRec 的多智能体编排模式，实现Agent协作和任务分配",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:04.489230",
+      "updated_at": "2026-05-27T12:55:04.489230"
+    },
+    {
+      "id": "afbfe34e",
+      "source": "Taoidle/plan-cascade",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 Taoidle/plan-cascade 的多智能体编排模式，实现Agent协作和任务分配",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:04.489296",
+      "updated_at": "2026-05-27T12:55:04.489296"
+    },
+    {
+      "id": "d879348a",
+      "source": "Rishabhmannu/amazon-greencart-hackathon",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 Rishabhmannu/amazon-greencart-hackathon 的多智能体编排模式，实现Agent协作和任务分配",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-27T12:55:08.670177",
+      "updated_at": "2026-05-27T12:55:08.670177"
+    },
+    {
+      "id": "maf-091207",
+      "source": "microsoft/agent-framework",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考 microsoft/agent-framework 的图结构工作流编排（sequential/concurrent/handoff/group），实现Claw多Agent协作",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-05-29T09:12:07.974582"
+    },
+    {
+      "id": "maf-obs-091207",
+      "source": "microsoft/agent-framework",
+      "priority": "P1",
+      "module": "observability",
+      "suggestion": "借鉴 microsoft/agent-framework 的 OpenTelemetry 集成方案，为Claw添加可观测性（分布式追踪/监控/调试）",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-29T09:12:07.974582"
+    },
+    {
+      "id": "maf-skills-091207",
+      "source": "microsoft/agent-framework",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "参考 microsoft/agent-framework 的 Agent Skills 机制（文件/内联代码/类库多来源），增强Claw Skill市场",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-05-29T09:12:07.974582"
     }
   ],
-  "last_updated": "2026-05-27T11:20:25.919680"
+  "last_updated": "2026-05-29T09:12:07.974582",
+  "round_stats": [
+    {
+      "time": "2026-05-27T12:05:50.658127",
+      "new_projects": 7,
+      "new_improvements": 10,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-05-27T12:55:36.226298",
+      "new_projects": 6,
+      "new_improvements": 10,
+      "skipped_improvements": 3
+    },
+    {
+      "time": "2026-05-29T09:12:07.974582",
+      "new_projects": 1,
+      "new_improvements": 3,
+      "skipped_improvements": 0
+    }
+  ]
 }

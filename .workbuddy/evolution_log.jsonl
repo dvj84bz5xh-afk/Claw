@@ -799,3 +799,113 @@
 {"timestamp": "2026-05-27T11:20:25.923920", "level": "INFO", "message": "进化完成: 14 项目, 1 P0改进"}
 {"timestamp": "2026-05-27T11:20:25.924208", "level": "INFO", "message": "通知状态: 未发送（需配置QQ邮箱）"}
 {"timestamp": "2026-05-27T11:20:25.924528", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:01:51.065249", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:01:51.066255", "level": "INFO", "message": "小龙虾夜间进化引擎 v2.0 启动"}
+{"timestamp": "2026-05-27T12:01:51.066606", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:01:51.067347", "level": "INFO", "message": "已学习项目数: 48，将跳过重复项目"}
+{"timestamp": "2026-05-27T12:01:51.067943", "level": "INFO", "message": "动态关键词: 8 个"}
+{"timestamp": "2026-05-27T12:01:51.068200", "level": "INFO", "message": "本轮搜索方向: 7 个"}
+{"timestamp": "2026-05-27T12:01:51.068422", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-27T12:01:51.068696", "level": "INFO", "message": "搜索GitHub: LLM agent tool calling"}
+{"timestamp": "2026-05-27T12:01:52.341006", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:01:52.341795", "level": "INFO", "message": "跳过已学习: langchain4j/langchain4j"}
+{"timestamp": "2026-05-27T12:01:52.342218", "level": "INFO", "message": "跳过已学习: aipotheosis-labs/aci"}
+{"timestamp": "2026-05-27T12:01:52.342673", "level": "INFO", "message": "跳过已学习: yasasbanukaofficial/claude-code"}
+{"timestamp": "2026-05-27T12:01:52.343071", "level": "INFO", "message": "跳过已学习: tanstack/ai"}
+{"timestamp": "2026-05-27T12:01:52.343380", "level": "INFO", "message": "跳过已学习: antoinezambelli/forge"}
+{"timestamp": "2026-05-27T12:01:55.344270", "level": "INFO", "message": "搜索GitHub: RAG retrieval augmented"}
+{"timestamp": "2026-05-27T12:01:56.467243", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:01:56.468046", "level": "INFO", "message": "跳过已学习: infiniflow/ragflow"}
+{"timestamp": "2026-05-27T12:01:59.357672", "level": "INFO", "message": "跳过已学习: sciphi-ai/r2r"}
+{"timestamp": "2026-05-27T12:02:02.358902", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-27T12:02:03.503126", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:02:03.503789", "level": "INFO", "message": "跳过已学习: ruvnet/ruflo"}
+{"timestamp": "2026-05-27T12:02:50.330240", "level": "INFO", "message": "跳过不健康项目: reworkd/AgentGPT (仓库已归档)"}
+{"timestamp": "2026-05-27T12:02:53.331865", "level": "INFO", "message": "搜索GitHub: model context protocol MCP"}
+{"timestamp": "2026-05-27T12:02:54.843793", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:02:54.844554", "level": "INFO", "message": "跳过已学习: microsoft/mcp-for-beginners"}
+{"timestamp": "2026-05-27T12:02:54.845216", "level": "INFO", "message": "跳过已学习: tadata-org/fastapi_mcp"}
+{"timestamp": "2026-05-27T12:02:54.845709", "level": "INFO", "message": "跳过已学习: hangwin/mcp-chrome"}
+{"timestamp": "2026-05-27T12:02:54.846273", "level": "INFO", "message": "跳过已学习: mark3labs/mcp-go"}
+{"timestamp": "2026-05-27T12:02:54.847074", "level": "INFO", "message": "跳过已学习: lastmile-ai/mcp-agent"}
+{"timestamp": "2026-05-27T12:02:57.848193", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-27T12:02:59.042448", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:03:29.823579", "level": "INFO", "message": "跳过已学习: thudm/agentbench"}
+{"timestamp": "2026-05-27T12:03:31.042752", "level": "INFO", "message": "跳过已学习: ibm/assetopsbench"}
+{"timestamp": "2026-05-27T12:03:31.043570", "level": "INFO", "message": "跳过已学习: barca0412/introduction-to-quantitative-finance"}
+{"timestamp": "2026-05-27T12:03:34.044460", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-05-27T12:03:35.146841", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:03:36.010378", "level": "INFO", "message": "跳过已学习: foundationagents/metagpt"}
+{"timestamp": "2026-05-27T12:04:36.259266", "level": "INFO", "message": "跳过已学习: astrbotdevs/astrbot"}
+{"timestamp": "2026-05-27T12:04:39.260277", "level": "INFO", "message": "搜索GitHub: MCP server client implementation"}
+{"timestamp": "2026-05-27T12:04:40.382038", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:05:50.653814", "level": "INFO", "message": "Phase 1 完成: 12 个新项目，跳过 19 个"}
+{"timestamp": "2026-05-27T12:05:50.654577", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-27T12:05:50.655271", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-27T12:05:50.657599", "level": "INFO", "message": "改进项: 新增10个, 跳过已跟踪0个"}
+{"timestamp": "2026-05-27T12:05:50.659024", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-27T12:05:50.659852", "level": "INFO", "message": "Phase 5: 生成HTML仪表盘"}
+{"timestamp": "2026-05-27T12:05:50.662281", "level": "INFO", "message": "仪表盘已生成: C:\\Users\\10127\\WorkBuddy\\Claw\\docs\\evolution-dashboard.html"}
+{"timestamp": "2026-05-27T12:05:50.662639", "level": "INFO", "message": "Phase 6: 写入记忆文件"}
+{"timestamp": "2026-05-27T12:05:50.663300", "level": "INFO", "message": "Phase 7: 发送进化通知"}
+{"timestamp": "2026-05-27T12:05:50.663672", "level": "WARN", "message": "QQ邮箱未配置，跳过邮件发送"}
+{"timestamp": "2026-05-27T12:05:50.663969", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:05:50.664380", "level": "INFO", "message": "进化完成: 12 项目, 1 P0改进"}
+{"timestamp": "2026-05-27T12:05:50.664627", "level": "INFO", "message": "通知状态: 未发送"}
+{"timestamp": "2026-05-27T12:05:50.664952", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:55:00.532867", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:55:00.533585", "level": "INFO", "message": "小龙虾夜间进化引擎 v2.0 启动"}
+{"timestamp": "2026-05-27T12:55:00.533845", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:55:00.534585", "level": "INFO", "message": "已学习项目数: 55，将跳过重复项目"}
+{"timestamp": "2026-05-27T12:55:00.535171", "level": "INFO", "message": "动态关键词: 8 个"}
+{"timestamp": "2026-05-27T12:55:00.535444", "level": "INFO", "message": "本轮搜索方向: 7 个"}
+{"timestamp": "2026-05-27T12:55:00.535669", "level": "INFO", "message": "Phase 1: GitHub搜索与项目获取"}
+{"timestamp": "2026-05-27T12:55:00.535859", "level": "INFO", "message": "搜索GitHub: multi-agent collaboration framework"}
+{"timestamp": "2026-05-27T12:55:01.692276", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:55:07.489799", "level": "INFO", "message": "搜索GitHub: agentic AI platform 2025"}
+{"timestamp": "2026-05-27T12:55:08.669231", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:55:11.670691", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-05-27T12:55:13.047403", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:55:13.048723", "level": "INFO", "message": "跳过已学习: agricidaniel/claude-ads"}
+{"timestamp": "2026-05-27T12:55:13.049711", "level": "INFO", "message": "跳过已学习: the-open-agent/openagent"}
+{"timestamp": "2026-05-27T12:55:13.050363", "level": "INFO", "message": "跳过已学习: samuraigpt/generative-media-skills"}
+{"timestamp": "2026-05-27T12:55:13.050927", "level": "INFO", "message": "跳过已学习: markdown-viewer/skills"}
+{"timestamp": "2026-05-27T12:55:13.051514", "level": "INFO", "message": "跳过已学习: zubair-trabzada/ai-legal-claude"}
+{"timestamp": "2026-05-27T12:55:16.052549", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-05-27T12:55:17.246839", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:55:17.248098", "level": "INFO", "message": "跳过已学习: x1xhlol/system-prompts-and-models-of-ai-tools"}
+{"timestamp": "2026-05-27T12:55:18.051946", "level": "INFO", "message": "跳过已学习: infiniflow/ragflow"}
+{"timestamp": "2026-05-27T12:55:18.053380", "level": "INFO", "message": "跳过已学习: bytedance/deer-flow"}
+{"timestamp": "2026-05-27T12:55:18.054361", "level": "INFO", "message": "跳过已学习: aaif-goose/goose"}
+{"timestamp": "2026-05-27T12:55:21.055359", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-05-27T12:55:22.286157", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:55:22.286876", "level": "INFO", "message": "跳过已学习: ruvnet/ruflo"}
+{"timestamp": "2026-05-27T12:55:22.287409", "level": "INFO", "message": "跳过已学习: crewaiinc/crewai"}
+{"timestamp": "2026-05-27T12:55:22.287849", "level": "INFO", "message": "跳过已学习: cherryhq/cherry-studio"}
+{"timestamp": "2026-05-27T12:55:22.288207", "level": "INFO", "message": "跳过已学习: zhayujie/cowagent"}
+{"timestamp": "2026-05-27T12:55:23.323152", "level": "INFO", "message": "跳过不健康项目: reworkd/AgentGPT (仓库已归档)"}
+{"timestamp": "2026-05-27T12:55:26.324541", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-05-27T12:55:27.574183", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:55:27.575120", "level": "INFO", "message": "跳过已学习: trycua/cua"}
+{"timestamp": "2026-05-27T12:55:27.575982", "level": "INFO", "message": "跳过已学习: thudm/agentbench"}
+{"timestamp": "2026-05-27T12:55:28.618701", "level": "INFO", "message": "跳过已学习: ibm/assetopsbench"}
+{"timestamp": "2026-05-27T12:55:28.619479", "level": "INFO", "message": "跳过已学习: barca0412/introduction-to-quantitative-finance"}
+{"timestamp": "2026-05-27T12:55:31.620084", "level": "INFO", "message": "搜索GitHub: MCP server client implementation"}
+{"timestamp": "2026-05-27T12:55:33.218200", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-05-27T12:55:33.219467", "level": "INFO", "message": "跳过已学习: theronic/modex"}
+{"timestamp": "2026-05-27T12:55:33.220186", "level": "INFO", "message": "跳过已学习: haohao-end/mcp-agent"}
+{"timestamp": "2026-05-27T12:55:36.221143", "level": "INFO", "message": "Phase 1 完成: 11 个新项目，跳过 20 个"}
+{"timestamp": "2026-05-27T12:55:36.222013", "level": "INFO", "message": "Phase 2: 深度分析与比对"}
+{"timestamp": "2026-05-27T12:55:36.223542", "level": "INFO", "message": "Phase 3: 更新学习追踪系统"}
+{"timestamp": "2026-05-27T12:55:36.225834", "level": "INFO", "message": "改进项: 新增10个, 跳过已跟踪3个"}
+{"timestamp": "2026-05-27T12:55:36.227423", "level": "INFO", "message": "Phase 4: 生成进化报告"}
+{"timestamp": "2026-05-27T12:55:36.228782", "level": "INFO", "message": "Phase 5: 生成HTML仪表盘"}
+{"timestamp": "2026-05-27T12:55:36.231617", "level": "INFO", "message": "仪表盘已生成: C:\\Users\\10127\\WorkBuddy\\Claw\\docs\\evolution-dashboard.html"}
+{"timestamp": "2026-05-27T12:55:36.231861", "level": "INFO", "message": "Phase 6: 写入记忆文件"}
+{"timestamp": "2026-05-27T12:55:36.232374", "level": "INFO", "message": "Phase 7: 发送进化通知"}
+{"timestamp": "2026-05-27T12:55:37.729646", "level": "INFO", "message": "邮件已发送: [小龙虾进化v2.0] 05/27 12:55 - 11个项目, 6个P0"}
+{"timestamp": "2026-05-27T12:55:37.730489", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-05-27T12:55:37.732057", "level": "INFO", "message": "进化完成: 11 项目, 6 P0改进"}
+{"timestamp": "2026-05-27T12:55:37.732464", "level": "INFO", "message": "通知状态: 已发送"}
+{"timestamp": "2026-05-27T12:55:37.732821", "level": "INFO", "message": "========================================"}
+{"time": "2026-05-29T09:16:27.401669", "project": "microsoft/agent-framework", "stars": 10835, "relevance": 15, "new_improvements": 3, "p0_count": 1, "p1_count": 2, "type": "daily_learning"}
