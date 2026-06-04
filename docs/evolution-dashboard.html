@@ -32,6 +32,11 @@ tr:hover td{background:rgba(59,130,246,0.05)}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 @media(max-width:768px){.grid-2{grid-template-columns:1fr}}
 canvas{max-height:300px}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.75em;font-weight:600}
+.badge-p0{background:#ef4444;color:#fff}
+.badge-p1{background:#eab308;color:#000}
+.badge-p2{background:#3b82f6;color:#fff}
+.badge-new{background:#22c55e;color:#fff;margin-left:4px}
 .footer{text-align:center;color:#475569;padding:20px;font-size:0.85em}
 </style>
 </head>
@@ -39,20 +44,20 @@ canvas{max-height:300px}
 <div class="container">
 <div class="header">
 <h1>小龙虾智能进化系统</h1>
-<p>每日学习 · 持续进化 · 数据驱动</p>
+<p>每日学习 · 持续进化 · 数据驱动 · 细水长流</p>
 </div>
 
 <div class="stats">
 <div class="stat-card">
-<div class="value c-orange">64</div>
+<div class="value c-orange">65</div>
 <div class="label">已学习项目</div>
 </div>
 <div class="stat-card">
-<div class="value c-red">85</div>
+<div class="value c-red">88</div>
 <div class="label">改进项总数</div>
 </div>
 <div class="stat-card">
-<div class="value c-yellow">21</div>
+<div class="value c-yellow">23</div>
 <div class="label">P0 紧急改进</div>
 </div>
 <div class="stat-card">
@@ -79,21 +84,52 @@ canvas{max-height:300px}
 <div class="section">
 <h2>最新学习项目</h2>
 <table>
-<thead><tr><th>日期</th><th>项目</th><th>Stars</th><th>相关度</th></tr></thead>
-<tbody><tr><td>2026-05-29</td><td>microsoft/agent-framework</td><td>⭐10835</td><td>15</td></tr><tr><td>2026-05-27</td><td>Rishabhmannu/amazon-greencart-hackathon</td><td>⭐58</td><td>10</td></tr><tr><td>2026-05-27</td><td>Taoidle/plan-cascade</td><td>⭐84</td><td>10</td></tr><tr><td>2026-05-27</td><td>wzf2000/MACRec</td><td>⭐117</td><td>10</td></tr><tr><td>2026-05-27</td><td>wanxingai/LightAgent</td><td>⭐1005</td><td>28</td></tr></tbody>
+<thead><tr><th>日期</th><th>项目</th><th>Stars</th><th>相关度</th><th>标签</th></tr></thead>
+<tbody>
+<tr><td>2026-06-04</td><td><strong>modelcontextprotocol/python-sdk</strong></td><td>⭐23,225</td><td>24</td><td><span class="badge badge-new">NEW</span></td></tr>
+<tr><td>2026-05-29</td><td>microsoft/agent-framework</td><td>⭐10,835</td><td>15</td><td></td></tr>
+<tr><td>2026-05-27</td><td>wanxingai/LightAgent</td><td>⭐1,005</td><td>28</td><td><span class="badge badge-p0">🏆最高相关度</span></td></tr>
+<tr><td>2026-05-27</td><td>Rishabhmannu/amazon-greencart-hackathon</td><td>⭐58</td><td>10</td><td></td></tr>
+<tr><td>2026-05-27</td><td>Taoidle/plan-cascade</td><td>⭐84</td><td>10</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>本轮核心发现 — MCP Python SDK</h2>
+<table>
+<thead><tr><th>创新点</th><th>可借鉴模块</th><th>优先级</th></tr></thead>
+<tbody>
+<tr><td>Context 依赖注入（类型注解自动注入会话上下文）</td><td>skill_system</td><td><span class="badge badge-p0">P0</span></td></tr>
+<tr><td>Lifespan API（@asynccontextmanager 资源生命周期）</td><td>agent_orchestration</td><td><span class="badge badge-p0">P0</span></td></tr>
+<tr><td>结构化输出自动推导（返回类型→Schema）</td><td>tool_system</td><td><span class="badge badge-p1">P1</span></td></tr>
+</tbody>
 </table>
 </div>
 
 <div class="section">
 <h2>模块改进统计</h2>
 <table>
-<thead><tr><th>模块</th><th>改进项数</th></tr></thead>
-<tbody><tr><td>tool_system</td><td>38</td></tr><tr><td>agent_orchestration</td><td>21</td></tr><tr><td>knowledge_retrieval</td><td>13</td></tr><tr><td>memory</td><td>10</td></tr><tr><td>evaluation</td><td>1</td></tr><tr><td>observability</td><td>1</td></tr><tr><td>skill_system</td><td>1</td></tr></tbody>
+<thead><tr><th>模块</th><th>改进项数</th><th>P0数</th></tr></thead>
+<tbody>
+<tr><td>tool_system</td><td>39</td><td>8</td></tr>
+<tr><td>agent_orchestration</td><td>23</td><td>9</td></tr>
+<tr><td>knowledge_retrieval</td><td>13</td><td>3</td></tr>
+<tr><td>memory</td><td>10</td><td>2</td></tr>
+<tr><td>skill_system</td><td>2</td><td>1</td></tr>
+<tr><td>evaluation</td><td>1</td><td>0</td></tr>
+<tr><td>observability</td><td>1</td><td>0</td></tr>
+</tbody>
 </table>
 </div>
 
+<div class="section">
+<h2>进化轮次趋势</h2>
+<canvas id="trendChart"></canvas>
+</div>
+
 <div class="footer">
-<p>小龙虾智能进化系统 | 最后更新: 2026-05-29T09:12:07 | 细水长流模式</p>
+<p>小龙虾智能进化系统 | 最后更新: 2026-06-04T09:19 | 第24轮 · 细水长流模式</p>
 </div>
 </div>
 
@@ -102,7 +138,7 @@ new Chart(document.getElementById('priorityChart'),{
 type:'doughnut',
 data:{
 labels:['P0 紧急','P1 重要','P2 一般'],
-datasets:[{data:[21,64,0],backgroundColor:['#ef4444','#eab308','#3b82f6'],borderColor:'#1e293b',borderWidth:2}]
+datasets:[{data:[23,65,0],backgroundColor:['#ef4444','#eab308','#3b82f6'],borderColor:'#1e293b',borderWidth:2}]
 },
 options:{
 responsive:true,
@@ -115,8 +151,28 @@ legend:{position:'bottom',labels:{color:'#94a3b8'}}
 new Chart(document.getElementById('moduleChart'),{
 type:'bar',
 data:{
-labels:["tool_system","knowledge_retrieval","agent_orchestration","memory","evaluation","observability","skill_system"],
-datasets:[{label:'改进项数',data:[38,13,21,10,1,1,1],backgroundColor:'#f97316',borderRadius:6}]
+labels:["tool_system","agent_orchestration","knowledge_retrieval","memory","skill_system","evaluation","observability"],
+datasets:[{label:'改进项数',data:[39,23,13,10,2,1,1],backgroundColor:'#f97316',borderRadius:6}]
+},
+options:{
+responsive:true,
+indexAxis:'y',
+scales:{
+x:{beginAtZero:true,grid:{color:'#334155'},ticks:{color:'#94a3b8'}},
+y:{grid:{color:'#334155'},ticks:{color:'#94a3b8'}}
+},
+plugins:{legend:{display:false}}
+}
+});
+
+new Chart(document.getElementById('trendChart'),{
+type:'line',
+data:{
+labels:['R21','R22','R23','R24'],
+datasets:[
+{label:'新项目',data:[7,6,1,1],borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.1)',fill:true,tension:0.3},
+{label:'新改进项',data:[10,10,3,3],borderColor:'#ef4444',backgroundColor:'rgba(239,68,68,0.1)',fill:true,tension:0.3}
+]
 },
 options:{
 responsive:true,
@@ -124,7 +180,7 @@ scales:{
 y:{beginAtZero:true,grid:{color:'#334155'},ticks:{color:'#94a3b8'}},
 x:{grid:{color:'#334155'},ticks:{color:'#94a3b8'}}
 },
-plugins:{legend:{display:false}}
+plugins:{legend:{position:'bottom',labels:{color:'#94a3b8'}}}
 }
 });
 </script>

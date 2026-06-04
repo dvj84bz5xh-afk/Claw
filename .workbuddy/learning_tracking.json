@@ -661,6 +661,20 @@
       ],
       "analyzed_at": "2026-05-29T09:12:07.974582",
       "language": "Python"
+    },
+    {
+      "name": "modelcontextprotocol/python-sdk",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "stars": 23225,
+      "relevance": 24,
+      "key_innovations": [
+        "Context依赖注入模式",
+        "Lifespan API资源生命周期管理",
+        "结构化输出自动推导",
+        "双层API设计(FastMCP+LowLevel Server)",
+        "Progressive Disclosure(进度/确认/LLM采样)"
+      ],
+      "analyzed_at": "2026-06-04T09:45:57.923798"
     }
   ],
   "improvements": [
@@ -1533,9 +1547,39 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-05-29T09:12:07.974582"
+    },
+    {
+      "id": "mcp-ctx-inject",
+      "source": "modelcontextprotocol/python-sdk",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "参考MCP SDK的Context依赖注入模式(Context[Session,LifespanContext]泛型)，为Claw Skill系统实现类型注解自动注入会话上下文、项目配置、记忆系统引用",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-04T09:45:57.923888"
+    },
+    {
+      "id": "mcp-lifespan",
+      "source": "modelcontextprotocol/python-sdk",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考MCP SDK的Lifespan API(@asynccontextmanager)，为Claw进化引擎和Agent编排实现资源生命周期管理(数据库/文件/API Session)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-04T09:45:57.923890"
+    },
+    {
+      "id": "mcp-struct-output",
+      "source": "modelcontextprotocol/python-sdk",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "借鉴MCP结构化输出机制，Claw工具系统从返回类型注解(BaseModel/TypedDict)自动生成输入/输出Schema，简化工具注册",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-06-04T09:45:57.923891"
     }
   ],
-  "last_updated": "2026-05-29T09:12:07.974582",
+  "last_updated": "2026-06-04T09:45:57.923893",
   "round_stats": [
     {
       "time": "2026-05-27T12:05:50.658127",
@@ -1551,6 +1595,12 @@
     },
     {
       "time": "2026-05-29T09:12:07.974582",
+      "new_projects": 1,
+      "new_improvements": 3,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-06-04T09:45:57.923892",
       "new_projects": 1,
       "new_improvements": 3,
       "skipped_improvements": 0
