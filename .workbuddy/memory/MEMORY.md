@@ -37,8 +37,8 @@
 
 ### Claw 学习追踪系统
 - **目的**: 通过GitHub高星项目持续迭代CodeBuddy产品能力
-- **状态**: 已完成16个项目分析，识别57项改进项
-- **实施率**: 1.8%（P0:30, P1:27）
+- **状态**: 已完成17个项目分析，识别88项改进项
+- **实施率**: 0.0%（P0:23, P1:65）
 - **报告目录**: `.workbuddy/daily_learning/`
 - **技能目录**: 已创建 `.workbuddy/skills/`
 - **下一步**: 提高实施率，优先实施P0改进项
@@ -209,28 +209,31 @@
 - **自动化ID**: automation-1779269888569
 - **频率**: 每2小时（HOURLY/INTERVAL=2）
 - **有效期**: 2026-05-20 ~ 2026-12-31
-- **脚本**: `.workbuddy/night_evolution_engine.py`（2026-05-26 已修复：不再依赖gh CLI，改用GitHub REST API）
+- **脚本**: `.workbuddy/night_evolution_engine.py`（v2.0: 2026-05-27全面升级）
 - **进化日志**: `.workbuddy/evolution_log.jsonl`
 - **学习追踪**: `.workbuddy/learning_tracking.json`
-- **通知方式**: QQ邮箱（QQ_EMAIL_ACCOUNT + QQ_EMAIL_AUTH_CODE 环境变量，当前未配置）
-- **最近执行**: 2026-05-27 10:42 - 30个项目 / 6个P0改进（第22轮）
-- **历史累计**: 743条进化日志记录
-- **累计改进项**: 50+个（P0:12+, P1:38+）
+- **仪表盘**: `docs/evolution-dashboard.html`（Chart.js可视化）
+- **通知方式**: QQ邮箱（已配置，硬编码于脚本中：1012701669@qq.com）
+- **最近执行**: 2026-06-06 08:50 - 1个项目 / 3个改进项（第25轮，细水长流模式）
+- **历史累计**: 903条进化日志记录
+- **累计改进项**: 91个（P0:24, P1:67）
+- **v2.0新增功能**: MiMo深度README分析 / 改进项去重+状态跟踪 / 动态搜索关键词 / 项目健康度过滤 / HTML进化仪表盘
 
-### 持续高相关项目 (2026-05-27 10:42 更新)
-1. **langchain4j/langchain4j** (⭐12114, 相关度:26) - Java LLM库，RAG+MCP集成，相关度创历史新高
-2. **nanobrowser/nanobrowser** (⭐13048, 相关度:21) - AI浏览器自动化+多Agent工作流（连续6轮Top 3）
-3. **ruvnet/ruflo** (⭐55499, 相关度:21) - Claude原生多智能体编排平台，RAG+工作流+编排（连续6轮Top 3）
-4. **MemTensor/MemOS** (⭐9396, 相关度:18) - 自进化记忆OS，超持久记忆+混合检索（首次进Top 3）
-5. **liyupi/ai-guide** (⭐14576, 相关度:21) - AI资源大全+OpenClaw教程+MCP集成（连续多轮）
-6. **open-multi-agent/open-multi-agent** (⭐~6240, 相关度:19) - 目标→任务DAG自动编排（多轮榜首）
+### 持续高相关项目 (2026-05-27 12:55 更新)
+1. **wanxingai/LightAgent** (⭐1005, 相关度:28) - 🆕🏆 **刷新历史最高分！** 轻量级Agent框架，memory+MCP+skill+多Agent协作
+2. **langchain4j/langchain4j** (⭐12114, 相关度:26) - Java LLM库，RAG+MCP集成
+3. **nanobrowser/nanobrowser** (⭐13048, 相关度:21) - AI浏览器自动化+多Agent工作流（连续6轮Top 3）
+4. **ruvnet/ruflo** (⭐55499, 相关度:21) - Claude原生多智能体编排平台，RAG+工作流+编排（连续6轮Top 3）
+5. **rinadelph/Agent-MCP** (⭐1239, 相关度:15) - 🆕 多Agent系统框架+MCP集成
+6. **RTGS2017/NagaAgent** (⭐1519, 相关度:14) - 🆕 个人助手Agent框架，多智能体协作
 
-### P0待确认（紧急，连续22轮pending）
-所有P0项集中在 `agent_orchestration` 模块，已**连续22轮重复出现**，当前累计12+个来源：
-- **首选**: ruvnet/ruflo（相关度21，Claude生态原生编排平台，连续6轮Top 3）
-- **次选**: open-multi-agent/open-multi-agent（DAG编排，相关度19，多轮榜首）
+### P0待确认（紧急，连续23轮pending）
+所有P0项集中在 `agent_orchestration` 模块，已**连续23轮重复出现**，当前累计14+个来源：
+- **🆕 首选**: wanxingai/LightAgent（相关度28刷新纪录，覆盖memory+MCP+skill三大Claw核心方向）
+- **次选**: ruvnet/ruflo（相关度21，Claude生态原生编排平台，连续6轮Top 3）
 - **三选**: nanobrowser/nanobrowser（浏览器多Agent工作流，相关度21，连续6轮Top 3）
-- 持续出现: Yeachan-Heo/oh-my-claudecode, openai/swarm, cft0808/edict, kyegomez/swarms, wshobson/agents, crewAIInc/crewAI, microsoft/mcp-for-beginners, IBM/AssetOpsBench, Agent-Skills-for-Context-Engineering, FoundationAgents/MetaGPT
+- 新增: rinadelph/Agent-MCP, RTGS2017/NagaAgent, wzf2000/MACRec, Taoidle/plan-cascade
+- 历史: Yeachan-Heo/oh-my-claudecode, openai/swarm, cft0808/edict, kyegomez/swarms, crewAIInc/crewAI, microsoft/mcp-for-beginners, IBM/AssetOpsBench, Agent-Skills-for-Context-Engineering, FoundationAgents/MetaGPT
 - **实施是唯一出路**
 
 ### 基础设施 (2026-05-26)

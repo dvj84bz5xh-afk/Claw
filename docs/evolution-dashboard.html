@@ -3,186 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小龙虾智能进化仪表盘</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>Claw 智能进化仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
-.container{max-width:1200px;margin:0 auto;padding:20px}
-.header{text-align:center;padding:30px 0;border-bottom:2px solid #334155;margin-bottom:30px}
-.header h1{font-size:2.2em;background:linear-gradient(135deg,#f97316,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-.header p{color:#94a3b8;font-size:1.1em}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:30px}
-.stat-card{background:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:24px;border:1px solid #475569;transition:transform .2s}
-.stat-card:hover{transform:translateY(-4px)}
-.stat-card .value{font-size:2.4em;font-weight:700;margin-bottom:4px}
-.stat-card .label{color:#94a3b8;font-size:0.9em}
-.c-orange{color:#f97316}
-.c-red{color:#ef4444}
-.c-yellow{color:#eab308}
-.c-green{color:#22c55e}
-.c-blue{color:#3b82f6}
-.section{background:#1e293b;border-radius:16px;padding:24px;margin-bottom:24px;border:1px solid #334155}
-.section h2{font-size:1.3em;margin-bottom:16px;color:#f8fafc}
-table{width:100%;border-collapse:collapse}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #334155}
-th{color:#94a3b8;font-weight:600;font-size:0.85em;text-transform:uppercase}
-td{font-size:0.9em}
-tr:hover td{background:rgba(59,130,246,0.05)}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-@media(max-width:768px){.grid-2{grid-template-columns:1fr}}
-canvas{max-height:300px}
-.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.75em;font-weight:600}
-.badge-p0{background:#ef4444;color:#fff}
-.badge-p1{background:#eab308;color:#000}
-.badge-p2{background:#3b82f6;color:#fff}
-.badge-new{background:#22c55e;color:#fff;margin-left:4px}
-.footer{text-align:center;color:#475569;padding:20px;font-size:0.85em}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f172a; color: #e2e8f0; padding: 24px; }
+h1 { font-size: 28px; margin-bottom: 8px; color: #38bdf8; }
+.subtitle { color: #94a3b8; margin-bottom: 24px; font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px; }
+.card { background: #1e293b; border-radius: 16px; padding: 24px; border: 1px solid #334155; }
+.card h3 { font-size: 13px; color: #94a3b8; text-transform: uppercase; margin-bottom: 12px; }
+.card .value { font-size: 42px; font-weight: 700; }
+.card.p0 .value { color: #ef4444; }
+.card.p1 .value { color: #f59e0b; }
+.card.info .value { color: #3b82f6; }
+.card.success .value { color: #10b981; }
+.chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+@media (max-width: 768px) { .chart-row { grid-template-columns: 1fr; } }
+.chart-card { background: #1e293b; border-radius: 16px; padding: 24px; border: 1px solid #334155; }
+.chart-card h3 { font-size: 13px; color: #94a3b8; margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; font-size: 13px; }
+th { color: #94a3b8; font-weight: 500; }
+tr:hover { background: #33415533; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.badge.p0 { background: #ef444433; color: #ef4444; }
+.badge.p1 { background: #f59e0b33; color: #f59e0b; }
+.badge.p2 { background: #10b98133; color: #10b981; }
+.progress-bar { height: 6px; background: #334155; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, #3b82f6, #10b981); border-radius: 3px; }
+.footer { text-align: center; color: #475569; font-size: 12px; margin-top: 32px; }
 </style>
 </head>
 <body>
-<div class="container">
-<div class="header">
-<h1>小龙虾智能进化系统</h1>
-<p>每日学习 · 持续进化 · 数据驱动 · 细水长流</p>
+<h1>Claw 智能进化仪表盘</h1>
+<p class="subtitle">累计学习 66 个项目 · 识别 91 个改进项 · 最近更新: 2026-06-06</p>
+
+<div class="grid">
+  <div class="card info">
+    <h3>学习项目总数</h3>
+    <div class="value">66</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+  </div>
+  <div class="card p0">
+    <h3>P0 紧急改进</h3>
+    <div class="value">24</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:26.373626373626376%"></div></div>
+  </div>
+  <div class="card p1">
+    <h3>P1 重要改进</h3>
+    <div class="value">67</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:73.62637362637363%"></div></div>
+  </div>
+  <div class="card success">
+    <h3>实施率</h3>
+    <div class="value">0.0%</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+  </div>
 </div>
 
-<div class="stats">
-<div class="stat-card">
-<div class="value c-orange">65</div>
-<div class="label">已学习项目</div>
-</div>
-<div class="stat-card">
-<div class="value c-red">88</div>
-<div class="label">改进项总数</div>
-</div>
-<div class="stat-card">
-<div class="value c-yellow">23</div>
-<div class="label">P0 紧急改进</div>
-</div>
-<div class="stat-card">
-<div class="value c-green">0</div>
-<div class="label">已实施改进</div>
-</div>
-<div class="stat-card">
-<div class="value c-blue">0.0%</div>
-<div class="label">实施率</div>
-</div>
-</div>
-
-<div class="grid-2">
-<div class="section">
-<h2>改进项优先级分布</h2>
-<canvas id="priorityChart"></canvas>
-</div>
-<div class="section">
-<h2>模块分布</h2>
-<canvas id="moduleChart"></canvas>
-</div>
+<div class="chart-row">
+  <div class="chart-card">
+    <h3>改进项模块分布</h3>
+    <canvas id="moduleChart"></canvas>
+  </div>
+  <div class="chart-card">
+    <h3>最新学习项目</h3>
+    <table>
+      <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th></tr></thead>
+      <tbody>
+<tr><td><a href="https://github.com/mem0ai/mem0" target="_blank" style="color:#38bdf8">mem0ai/mem0</a></td><td>⭐57829</td><td>27</td><td>2026-06-06</td></tr>
+<tr><td><a href="https://github.com/modelcontextprotocol/python-sdk" target="_blank" style="color:#38bdf8">modelcontextprotocol/python-sdk</a></td><td>⭐23225</td><td>24</td><td>2026-06-04</td></tr>
+<tr><td><a href="https://github.com/microsoft/agent-framework" target="_blank" style="color:#38bdf8">microsoft/agent-framework</a></td><td>⭐10835</td><td>15</td><td>2026-05-29</td></tr>
+<tr><td><a href="https://github.com/Rishabhmannu/amazon-greencart-hackathon" target="_blank" style="color:#38bdf8">Rishabhmannu/amazon-greencart-hackathon</a></td><td>⭐58</td><td>10</td><td>2026-05-27</td></tr>
+<tr><td><a href="https://github.com/Taoidle/plan-cascade" target="_blank" style="color:#38bdf8">Taoidle/plan-cascade</a></td><td>⭐84</td><td>10</td><td>2026-05-27</td></tr>
+<tr><td><a href="https://github.com/wzf2000/MACRec" target="_blank" style="color:#38bdf8">wzf2000/MACRec</a></td><td>⭐117</td><td>10</td><td>2026-05-27</td></tr>
+<tr><td><a href="https://github.com/wanxingai/LightAgent" target="_blank" style="color:#38bdf8">wanxingai/LightAgent</a></td><td>⭐1005</td><td>28</td><td>2026-05-27</td></tr>
+<tr><td><a href="https://github.com/rinadelph/Agent-MCP" target="_blank" style="color:#38bdf8">rinadelph/Agent-MCP</a></td><td>⭐1239</td><td>15</td><td>2026-05-27</td></tr>
+<tr><td><a href="https://github.com/RTGS2017/NagaAgent" target="_blank" style="color:#38bdf8">RTGS2017/NagaAgent</a></td><td>⭐1519</td><td>14</td><td>2026-05-27</td></tr>
+<tr><td><a href="https://github.com/Haohao-end/mcp-agent" target="_blank" style="color:#38bdf8">Haohao-end/mcp-agent</a></td><td>⭐82</td><td>23</td><td>2026-05-27</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<div class="section">
-<h2>最新学习项目</h2>
-<table>
-<thead><tr><th>日期</th><th>项目</th><th>Stars</th><th>相关度</th><th>标签</th></tr></thead>
-<tbody>
-<tr><td>2026-06-04</td><td><strong>modelcontextprotocol/python-sdk</strong></td><td>⭐23,225</td><td>24</td><td><span class="badge badge-new">NEW</span></td></tr>
-<tr><td>2026-05-29</td><td>microsoft/agent-framework</td><td>⭐10,835</td><td>15</td><td></td></tr>
-<tr><td>2026-05-27</td><td>wanxingai/LightAgent</td><td>⭐1,005</td><td>28</td><td><span class="badge badge-p0">🏆最高相关度</span></td></tr>
-<tr><td>2026-05-27</td><td>Rishabhmannu/amazon-greencart-hackathon</td><td>⭐58</td><td>10</td><td></td></tr>
-<tr><td>2026-05-27</td><td>Taoidle/plan-cascade</td><td>⭐84</td><td>10</td><td></td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="section">
-<h2>本轮核心发现 — MCP Python SDK</h2>
-<table>
-<thead><tr><th>创新点</th><th>可借鉴模块</th><th>优先级</th></tr></thead>
-<tbody>
-<tr><td>Context 依赖注入（类型注解自动注入会话上下文）</td><td>skill_system</td><td><span class="badge badge-p0">P0</span></td></tr>
-<tr><td>Lifespan API（@asynccontextmanager 资源生命周期）</td><td>agent_orchestration</td><td><span class="badge badge-p0">P0</span></td></tr>
-<tr><td>结构化输出自动推导（返回类型→Schema）</td><td>tool_system</td><td><span class="badge badge-p1">P1</span></td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="section">
-<h2>模块改进统计</h2>
-<table>
-<thead><tr><th>模块</th><th>改进项数</th><th>P0数</th></tr></thead>
-<tbody>
-<tr><td>tool_system</td><td>39</td><td>8</td></tr>
-<tr><td>agent_orchestration</td><td>23</td><td>9</td></tr>
-<tr><td>knowledge_retrieval</td><td>13</td><td>3</td></tr>
-<tr><td>memory</td><td>10</td><td>2</td></tr>
-<tr><td>skill_system</td><td>2</td><td>1</td></tr>
-<tr><td>evaluation</td><td>1</td><td>0</td></tr>
-<tr><td>observability</td><td>1</td><td>0</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="section">
-<h2>进化轮次趋势</h2>
-<canvas id="trendChart"></canvas>
-</div>
-
-<div class="footer">
-<p>小龙虾智能进化系统 | 最后更新: 2026-06-04T09:19 | 第24轮 · 细水长流模式</p>
-</div>
+<div class=chart-card style=margin-bottom:24px>
+  <h3>P0改进项清单（待实施）</h3>
+  <table>
+    <thead><tr><th>来源</th><th>模块</th><th>建议</th><th>优先级</th></tr></thead>
+    <tbody>
+<tr><td>RTGS2017/NagaAgent</td><td>agent_orchestration</td><td style="font-size:12px">参考 RTGS2017/NagaAgent 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>rinadelph/Agent-MCP</td><td>agent_orchestration</td><td style="font-size:12px">参考 rinadelph/Agent-MCP 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>wanxingai/LightAgent</td><td>agent_orchestration</td><td style="font-size:12px">参考 wanxingai/LightAgent 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>wzf2000/MACRec</td><td>agent_orchestration</td><td style="font-size:12px">参考 wzf2000/MACRec 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>Taoidle/plan-cascade</td><td>agent_orchestration</td><td style="font-size:12px">参考 Taoidle/plan-cascade 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>Rishabhmannu/amazon-greencart-hackathon</td><td>agent_orchestration</td><td style="font-size:12px">参考 Rishabhmannu/amazon-greencart-hackathon 的多智能体编排模式，实现Agent...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>microsoft/agent-framework</td><td>agent_orchestration</td><td style="font-size:12px">参考 microsoft/agent-framework 的图结构工作流编排（sequential/concurrent...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>modelcontextprotocol/python-sdk</td><td>skill_system</td><td style="font-size:12px">参考MCP SDK的Context依赖注入模式(Context[Session,LifespanContext]泛型)，...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>modelcontextprotocol/python-sdk</td><td>agent_orchestration</td><td style="font-size:12px">参考MCP SDK的Lifespan API(@asynccontextmanager)，为Claw进化引擎和Agent...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>mem0ai/mem0</td><td>memory</td><td style="font-size:12px">借鉴mem0单轮提取算法，在对话结束后自动提取关键信息写入memory层，消除手动指令依赖。参考LoCoMo(91.6分...</td><td><span class="badge p0">P0</span></td></tr>
+    </tbody>
+  </table>
 </div>
 
 <script>
-new Chart(document.getElementById('priorityChart'),{
-type:'doughnut',
-data:{
-labels:['P0 紧急','P1 重要','P2 一般'],
-datasets:[{data:[23,65,0],backgroundColor:['#ef4444','#eab308','#3b82f6'],borderColor:'#1e293b',borderWidth:2}]
-},
-options:{
-responsive:true,
-plugins:{
-legend:{position:'bottom',labels:{color:'#94a3b8'}}
-}
-}
-});
-
-new Chart(document.getElementById('moduleChart'),{
-type:'bar',
-data:{
-labels:["tool_system","agent_orchestration","knowledge_retrieval","memory","skill_system","evaluation","observability"],
-datasets:[{label:'改进项数',data:[39,23,13,10,2,1,1],backgroundColor:'#f97316',borderRadius:6}]
-},
-options:{
-responsive:true,
-indexAxis:'y',
-scales:{
-x:{beginAtZero:true,grid:{color:'#334155'},ticks:{color:'#94a3b8'}},
-y:{grid:{color:'#334155'},ticks:{color:'#94a3b8'}}
-},
-plugins:{legend:{display:false}}
-}
-});
-
-new Chart(document.getElementById('trendChart'),{
-type:'line',
-data:{
-labels:['R21','R22','R23','R24'],
-datasets:[
-{label:'新项目',data:[7,6,1,1],borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.1)',fill:true,tension:0.3},
-{label:'新改进项',data:[10,10,3,3],borderColor:'#ef4444',backgroundColor:'rgba(239,68,68,0.1)',fill:true,tension:0.3}
-]
-},
-options:{
-responsive:true,
-scales:{
-y:{beginAtZero:true,grid:{color:'#334155'},ticks:{color:'#94a3b8'}},
-x:{grid:{color:'#334155'},ticks:{color:'#94a3b8'}}
-},
-plugins:{legend:{position:'bottom',labels:{color:'#94a3b8'}}}
-}
+// 模块分布图
+const moduleLabels = ["tool_system", "knowledge_retrieval", "agent_orchestration", "memory", "evaluation", "observability", "skill_system"];
+const moduleData = [39, 13, 22, 13, 1, 1, 2];
+new Chart(document.getElementById('moduleChart'), {
+  type: 'doughnut',
+  data: {
+    labels: moduleLabels,
+    datasets: [{
+      data: moduleData,
+      backgroundColor: ['#ef4444','#f59e0b','#3b82f6','#10b981','#8b5cf6','#ec4899','#06b6d4'],
+      borderColor: '#1e293b',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11 } } } }
+  }
 });
 </script>
+
+<p class=footer>Claw 智能进化引擎 · 细水长流模式 · Powered by WorkBuddy</p>
 </body>
 </html>
