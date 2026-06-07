@@ -37,23 +37,23 @@ tr:hover { background: #33415533; }
 </head>
 <body>
 <h1>Claw 智能进化仪表盘</h1>
-<p class="subtitle">累计学习 66 个项目 · 识别 91 个改进项 · 最近更新: 2026-06-06</p>
+<p class="subtitle">累计学习 67 个项目 · 识别 94 个改进项 · 最近更新: 2026-06-07</p>
 
 <div class="grid">
   <div class="card info">
     <h3>学习项目总数</h3>
-    <div class="value">66</div>
+    <div class="value">67</div>
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
   </div>
   <div class="card p0">
     <h3>P0 紧急改进</h3>
-    <div class="value">24</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:26.373626373626376%"></div></div>
+    <div class="value">26</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:27.66%"></div></div>
   </div>
   <div class="card p1">
     <h3>P1 重要改进</h3>
-    <div class="value">67</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:73.62637362637363%"></div></div>
+    <div class="value">68</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:72.34%"></div></div>
   </div>
   <div class="card success">
     <h3>实施率</h3>
@@ -72,6 +72,7 @@ tr:hover { background: #33415533; }
     <table>
       <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th></tr></thead>
       <tbody>
+<tr><td><a href="https://github.com/openai/openai-agents-python" target="_blank" style="color:#38bdf8">openai/openai-agents-python</a></td><td>⭐26954</td><td>26</td><td>2026-06-07</td></tr>
 <tr><td><a href="https://github.com/mem0ai/mem0" target="_blank" style="color:#38bdf8">mem0ai/mem0</a></td><td>⭐57829</td><td>27</td><td>2026-06-06</td></tr>
 <tr><td><a href="https://github.com/modelcontextprotocol/python-sdk" target="_blank" style="color:#38bdf8">modelcontextprotocol/python-sdk</a></td><td>⭐23225</td><td>24</td><td>2026-06-04</td></tr>
 <tr><td><a href="https://github.com/microsoft/agent-framework" target="_blank" style="color:#38bdf8">microsoft/agent-framework</a></td><td>⭐10835</td><td>15</td><td>2026-05-29</td></tr>
@@ -92,6 +93,8 @@ tr:hover { background: #33415533; }
   <table>
     <thead><tr><th>来源</th><th>模块</th><th>建议</th><th>优先级</th></tr></thead>
     <tbody>
+<tr><td>openai/openai-agents-python</td><td>agent_orchestration</td><td style="font-size:12px">借鉴openai-agents的Agent-as-Tool Handoffs机制，声明式Agent注册+自动路由，减少编排代码60%...</td><td><span class="badge p0">P0</span></td></tr>
+<tr><td>openai/openai-agents-python</td><td>agent_orchestration</td><td style="font-size:12px">引入Sandbox Agent持久化工作区（文件系统+代码仓库），长周期Agent跨会话状态延续...</td><td><span class="badge p0">P0</span></td></tr>
 <tr><td>RTGS2017/NagaAgent</td><td>agent_orchestration</td><td style="font-size:12px">参考 RTGS2017/NagaAgent 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
 <tr><td>rinadelph/Agent-MCP</td><td>agent_orchestration</td><td style="font-size:12px">参考 rinadelph/Agent-MCP 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
 <tr><td>wanxingai/LightAgent</td><td>agent_orchestration</td><td style="font-size:12px">参考 wanxingai/LightAgent 的多智能体编排模式，实现Agent协作和任务分配...</td><td><span class="badge p0">P0</span></td></tr>
@@ -109,7 +112,7 @@ tr:hover { background: #33415533; }
 <script>
 // 模块分布图
 const moduleLabels = ["tool_system", "knowledge_retrieval", "agent_orchestration", "memory", "evaluation", "observability", "skill_system"];
-const moduleData = [39, 13, 22, 13, 1, 1, 2];
+const moduleData = [39, 13, 24, 13, 1, 2, 2];
 new Chart(document.getElementById('moduleChart'), {
   type: 'doughnut',
   data: {
