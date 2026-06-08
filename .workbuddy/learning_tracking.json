@@ -1645,8 +1645,10 @@
       "module": "agent_orchestration",
       "suggestion": "借鉴openai-agents的Agent-as-Tool Handoffs机制，Claw Agent编排从手动TaskCreate改为声明式Agent注册+自动路由，减少编排代码60%",
       "effort": "high",
-      "status": "pending",
-      "created_at": "2026-06-07T09:06:10.339339"
+      "status": "done",
+      "created_at": "2026-06-07T09:06:10.339339",
+      "implemented_at": "2026-06-08",
+      "implementation_note": "已创建 agent-core/handoff_manager.py，实现声明式Agent注册+自动路由"
     },
     {
       "id": "oap-sandbox-0607",
