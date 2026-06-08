@@ -414,62 +414,90 @@ class HandoffManager:
         """
         决策是否 handoff（模拟 LLM 的工具调用决策）
 
-        在实际集成中，这里应该调用 LLM，传入:
-        - agent.instructions
-        - agent.get_all_tools() (含 handoff tools)
-        - current_input
+        匹配优先级:
+        1. 精确子串: 输入完整包含某个关键词
+        2. 中文bigram双向: 输入2字片段 ∩ 关键词2字片段（任一方向命中）
+        3. instructions扩展: 从agent.instructions提取额外关键词兜底
 
-        LLM 返回 tool_call 时，解析为 handoff 决策
-
-        此处为模拟实现，基于关键词匹配
+        实际生产应替换为LLM function calling决策。
         """
+        import re  # 正则模块（局部导入减少启动开销）
+
         if not agent.handoffs:
             return None
 
         input_lower = current_input.lower()
+        is_chinese = bool(re.search(r'[\u4e00-\u9fff]', input_lower))
 
         for h in agent.handoffs:
             if not isinstance(h, Handoff):
                 continue
 
-            # 检查是否启用
             if not h.should_enable(None, agent):
                 continue
 
-            # 改进版关键词匹配（实际应调用 LLM）
-            import re
-            input_lower = current_input.lower()
+            # === 构建关键词集合 ===
 
-            # 从 tool_description 提取自然词（按标点/空格分割）
-            desc_text = h.tool_description.replace(",", " ").replace("。", " ").replace("。", " ")
+            # 1) tool_description 中的自然词
+            desc_text = h.tool_description.replace(",", " ").replace("。", " ").replace("！", " ")
             desc_words = set()
-            for w in re.findall(r'[一-鿿A-Za-z0-9]+', desc_text):
-                w = w.strip("：:.-()")
+            for w in re.findall(r'[一-鿿A-Za-z0-9]{2,}', desc_text):
+                w = w.strip("：:.-()（）")
                 if len(w) >= 2:
                     desc_words.add(w.lower())
 
-            # 从 agent.name 提取（支持 camelCase + snake_case 分词）
+            # 2) agent.name 分词 (camelCase / snake_case)
             name_text = re.sub(r'(?<!^)(?=[A-Z])', ' ', h.agent.name)
-            name_words = set(w.lower() for w in name_text.replace("_", " ").split() if len(w) >= 2)
+            name_words = set(
+                w.lower() for w in name_text.replace("_", " ").split()
+                if len(w) >= 2
+            )
 
-            # 合并所有关键词
-            all_words = desc_words | name_words
+            # 3) 目标 Agent instructions 扩展（兜底源）
+            instr_words = set()
+            target_instr = getattr(h.agent, 'instructions', '') or ''
+            if len(target_instr) >= 4:
+                for w in re.findall(r'[一-鿿A-Za-z0-9]{2,}', target_instr):
+                    w = w.strip("：:.,;，。！？、")
+                    if len(w) >= 2:
+                        instr_words.add(w.lower())
 
-            # 匹配1: 输入包含任意完整关键词
-            if any(w in input_lower for w in all_words if len(w) >= 2):
-                return h.agent, current_input
+            # 合并
+            all_words = desc_words | name_words | instr_words
 
-            # 匹配2: 中文子串检测（输入任意2字片段在关键词中）
-            if re.search(r'[一-鿿]', input_lower):
-                # 中文输入：提取2字滑动窗口
-                for i in range(len(input_lower) - 1):
-                    bigram = input_lower[i:i+2]
-                    if any(bigram in w for w in all_words):
+            if not all_words:
+                continue
+
+            # === 匹配策略 ===
+
+            # 策略1: 精确子串（任意关键词完整出现在输入中）
+            for kw in all_words:
+                if len(kw) >= 2 and kw in input_lower:
+                    return h.agent, current_input
+
+            # 策略2: 中文bigram双向匹配
+            if is_chinese and len(input_lower) >= 2:
+                # 2a: 输入的2字片段 → 是否命中某个关键词
+                input_bigrams = {input_lower[i:i+2] for i in range(len(input_lower) - 1)}
+                for bg in input_bigrams:
+                    if any(bg in kw for kw in all_words if len(kw) >= 2):
                         return h.agent, current_input
 
-            # 匹配3: 关键词任意2字片段在输入中
-            for w in all_words:
-                if len(w) >= 2 and w in input_lower:
+                # 2b: 关键词的2字片段 → 是否命中输入（反向）
+                for kw in all_words:
+                    if len(kw) >= 2 and re.search(r'[\u4e00-\u9fff]', kw):
+                        for j in range(len(kw) - 1):
+                            kbg = kw[j:j+2]
+                            if kbg in input_lower:
+                                return h.agent, current_input
+
+            # 策略3: 英文单词token匹配（空格分割后部分匹配）
+            if not is_chinese:
+                input_tokens = set(re.findall(r'[a-z]{2,}', input_lower))
+                kw_tokens = set()
+                for kw in all_words:
+                    kw_tokens.update(re.findall(r'[a-z]{2,}', kw))
+                if input_tokens & kw_tokens:
                     return h.agent, current_input
 
         return None
