@@ -14,9 +14,10 @@ __all__ = [
     "multi_solution_generator",
     "openrelay_integration",
     "openrelay_config",
-    "github_learning_engine"
+    "github_learning_engine",
 ]
 
 # 确保Python将目录视为包
 import sys
+
 sys.path.insert(0, str(__file__))

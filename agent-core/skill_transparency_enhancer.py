@@ -15,15 +15,14 @@ Skill Transparency Enhancer - 技能透明度增强器
 - 自动化验证机制保证质量
 """
 
-import os
 import json
-import yaml
-from datetime import datetime
-from pathlib import Path
-from typing import Dict, List, Optional, Any, Tuple
-from dataclasses import dataclass, field
-from enum import Enum
 import uuid
+from dataclasses import dataclass, field
+from datetime import datetime
+from enum import Enum
+from pathlib import Path
+from typing import Any
+
 
 class TransparencyLevel(Enum):
     """透明度级别"""
@@ -56,13 +55,13 @@ class DecisionRecord:
     id: str
     timestamp: datetime
     decision_type: DecisionType
-    context: Dict[str, Any]
-    alternatives: List[Dict[str, Any]]
-    chosen_option: Dict[str, Any]
-    reasons: List[str]
+    context: dict[str, Any]
+    alternatives: list[dict[str, Any]]
+    chosen_option: dict[str, Any]
+    reasons: list[str]
     confidence_score: float = 1.0
-    
-    def to_dict(self) -> Dict[str, Any]:
+
+    def to_dict(self) -> dict[str, Any]:
         return {
             "id": self.id,
             "timestamp": self.timestamp.isoformat(),
@@ -81,11 +80,11 @@ class ConstraintRecord:
     constraint_type: ConstraintType
     description: str
     impact: str
-    justification: Optional[str] = None
-    workaround: Optional[str] = None
+    justification: str | None = None
+    workaround: str | None = None
     severity: str = "medium"  # low, medium, high, critical
-    
-    def to_dict(self) -> Dict[str, Any]:
+
+    def to_dict(self) -> dict[str, Any]:
         return {
             "id": self.id,
             "constraint_type": self.constraint_type.value,
@@ -102,13 +101,13 @@ class WorkflowStep:
     step_id: str
     name: str
     description: str
-    skill_used: Optional[str] = None
-    tools_used: List[str] = field(default_factory=list)
-    parameters: Dict[str, Any] = field(default_factory=dict)
-    duration_ms: Optional[int] = None
+    skill_used: str | None = None
+    tools_used: list[str] = field(default_factory=list)
+    parameters: dict[str, Any] = field(default_factory=dict)
+    duration_ms: int | None = None
     status: str = "pending"  # pending, running, completed, failed
-    
-    def to_dict(self) -> Dict[str, Any]:
+
+    def to_dict(self) -> dict[str, Any]:
         return {
             "step_id": self.step_id,
             "name": self.name,
@@ -126,30 +125,30 @@ class TransparencyReport:
     report_id: str
     session_id: str
     created_at: datetime
-    
+
     # 核心信息
     task_description: str
-    skill_configuration: Dict[str, Any]
-    
+    skill_configuration: dict[str, Any]
+
     # 透明度记录
-    workflow_steps: List[WorkflowStep] = field(default_factory=list)
-    decisions: List[DecisionRecord] = field(default_factory=list)
-    constraints: List[ConstraintRecord] = field(default_factory=list)
-    
+    workflow_steps: list[WorkflowStep] = field(default_factory=list)
+    decisions: list[DecisionRecord] = field(default_factory=list)
+    constraints: list[ConstraintRecord] = field(default_factory=list)
+
     # 用户指导
-    user_guidance: List[str] = field(default_factory=list)
-    tips: List[str] = field(default_factory=list)
-    warnings: List[str] = field(default_factory=list)
-    
+    user_guidance: list[str] = field(default_factory=list)
+    tips: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
+
     # 质量保证
-    verification_results: List[Dict[str, Any]] = field(default_factory=list)
-    quality_metrics: Dict[str, Any] = field(default_factory=dict)
-    
+    verification_results: list[dict[str, Any]] = field(default_factory=list)
+    quality_metrics: dict[str, Any] = field(default_factory=dict)
+
     # 元数据
     transparency_level: TransparencyLevel = TransparencyLevel.DETAILED
-    completed_at: Optional[datetime] = None
-    
-    def to_dict(self) -> Dict[str, Any]:
+    completed_at: datetime | None = None
+
+    def to_dict(self) -> dict[str, Any]:
         return {
             "report_id": self.report_id,
             "session_id": self.session_id,
@@ -167,7 +166,7 @@ class TransparencyReport:
             "verification_results": self.verification_results,
             "quality_metrics": self.quality_metrics
         }
-    
+
     def to_html(self) -> str:
         """生成HTML格式的报告"""
         html = f"""<!DOCTYPE html>
@@ -207,7 +206,7 @@ class TransparencyReport:
         <p>任务: {self.task_description}</p>
     </div>
 """
-        
+
         # 工作流程部分
         if self.workflow_steps:
             html += f"""
@@ -230,7 +229,7 @@ class TransparencyReport:
                 html += f'            <p><strong>状态:</strong> {step.status}</p>\n'
                 html += "        </div>\n"
             html += "    </div>\n"
-        
+
         # 决策记录部分
         if self.decisions:
             html += f"""
@@ -251,7 +250,7 @@ class TransparencyReport:
             if len(self.decisions) > 10:
                 html += f"        <p><em>...还有 {len(self.decisions) - 10} 个决策记录</em></p>\n"
             html += "    </div>\n"
-        
+
         # 约束条件部分
         if self.constraints:
             html += f"""
@@ -272,7 +271,7 @@ class TransparencyReport:
                     html += f'            <p><strong>替代方案:</strong> {constraint.workaround}</p>\n'
                 html += "        </div>\n"
             html += "    </div>\n"
-        
+
         # 用户指导部分
         if self.user_guidance or self.tips or self.warnings:
             html += """
@@ -291,7 +290,7 @@ class TransparencyReport:
             </ul>
         </div>
 """
-            
+
             if self.user_guidance:
                 html += """
         <h3>📝 使用指导</h3>
@@ -302,7 +301,7 @@ class TransparencyReport:
                 html += """
         </ul>
 """
-            
+
             if self.tips:
                 html += """
         <div class="tip">
@@ -316,7 +315,7 @@ class TransparencyReport:
         </div>
 """
             html += "    </div>\n"
-        
+
         # 质量保证部分
         if self.quality_metrics or self.verification_results:
             html += """
@@ -338,7 +337,7 @@ class TransparencyReport:
                 html += """
         </div>
 """
-            
+
             if self.verification_results:
                 html += """
         <h3>🔍 验证结果</h3>
@@ -356,7 +355,7 @@ class TransparencyReport:
                     html += f'            <p><strong>状态:</strong> {status}</p>\n'
                     html += "        </div>\n"
                 html += "    </div>\n"
-        
+
         # 技能配置部分
         html += f"""
     <div class="section">
@@ -366,7 +365,7 @@ class TransparencyReport:
         </pre>
     </div>
 """
-        
+
         # 总结部分
         html += f"""
     <div class="section">
@@ -379,7 +378,7 @@ class TransparencyReport:
         if self.completed_at:
             duration = (self.completed_at - self.created_at).total_seconds()
             html += f'        <p>总耗时: <strong>{duration:.2f}秒</strong></p>\n'
-        
+
         html += """
         <p style="margin-top: 20px; color: #718096; font-size: 14px;">
             🔍 此报告展示了AI系统的工作流程、决策过程和约束条件，旨在提高系统透明度。
@@ -390,33 +389,33 @@ class TransparencyReport:
 </html>
 """
         return html
-    
+
     def save_report(self, output_dir: str = "transparency_reports") -> str:
         """保存报告到文件"""
         output_path = Path(output_dir)
         output_path.mkdir(exist_ok=True)
-        
+
         # 保存JSON
         json_path = output_path / f"{self.report_id}.json"
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(self.to_dict(), f, ensure_ascii=False, indent=2)
-        
+
         # 保存HTML
         html_path = output_path / f"{self.report_id}.html"
         with open(html_path, 'w', encoding='utf-8') as f:
             f.write(self.to_html())
-        
+
         return str(html_path)
 
 class TransparencyEnhancer:
     """透明度增强器"""
-    
+
     def __init__(self, transparency_level: TransparencyLevel = TransparencyLevel.DETAILED):
         self.transparency_level = transparency_level
         self.current_report = None
         self.workflow_step_counter = 0
-    
-    def start_new_report(self, task_description: str, skill_config: Dict[str, Any]) -> TransparencyReport:
+
+    def start_new_report(self, task_description: str, skill_config: dict[str, Any]) -> TransparencyReport:
         """开始新的透明度报告"""
         self.current_report = TransparencyReport(
             report_id=str(uuid.uuid4())[:8],
@@ -428,16 +427,16 @@ class TransparencyEnhancer:
         )
         self.workflow_step_counter = 0
         return self.current_report
-    
-    def add_workflow_step(self, name: str, description: str, skill_used: str = None, 
-                          tools_used: List[str] = None, parameters: Dict[str, Any] = None) -> str:
+
+    def add_workflow_step(self, name: str, description: str, skill_used: str = None,
+                          tools_used: list[str] = None, parameters: dict[str, Any] = None) -> str:
         """添加工作流程步骤"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         self.workflow_step_counter += 1
         step_id = f"step_{self.workflow_step_counter:03d}"
-        
+
         step = WorkflowStep(
             step_id=step_id,
             name=name,
@@ -447,19 +446,19 @@ class TransparencyEnhancer:
             parameters=parameters or {},
             status="completed"
         )
-        
+
         self.current_report.workflow_steps.append(step)
         return step_id
-    
-    def record_decision(self, decision_type: DecisionType, context: Dict[str, Any], 
-                       alternatives: List[Dict[str, Any]], chosen_option: Dict[str, Any], 
-                       reasons: List[str], confidence_score: float = 1.0) -> str:
+
+    def record_decision(self, decision_type: DecisionType, context: dict[str, Any],
+                       alternatives: list[dict[str, Any]], chosen_option: dict[str, Any],
+                       reasons: list[str], confidence_score: float = 1.0) -> str:
         """记录决策"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         decision_id = str(uuid.uuid4())[:8]
-        
+
         decision = DecisionRecord(
             id=decision_id,
             timestamp=datetime.now(),
@@ -470,16 +469,16 @@ class TransparencyEnhancer:
             reasons=reasons,
             confidence_score=confidence_score
         )
-        
+
         self.current_report.decisions.append(decision)
         return decision_id
-    
+
     def add_constraint(self, constraint_type: ConstraintType, description: str, impact: str,
                        justification: str = None, workaround: str = None, severity: str = "medium"):
         """添加约束条件"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         constraint = ConstraintRecord(
             id=str(uuid.uuid4())[:8],
             constraint_type=constraint_type,
@@ -489,63 +488,63 @@ class TransparencyEnhancer:
             workaround=workaround,
             severity=severity
         )
-        
+
         self.current_report.constraints.append(constraint)
-    
+
     def add_user_guidance(self, guidance: str):
         """添加用户指导"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         self.current_report.user_guidance.append(guidance)
-    
+
     def add_tip(self, tip: str):
         """添加实用技巧"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         self.current_report.tips.append(tip)
-    
+
     def add_warning(self, warning: str):
         """添加警告"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         self.current_report.warnings.append(warning)
-    
+
     def add_verification_result(self, check_name: str, description: str, status: str, details: str = None):
         """添加验证结果"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         result = {
             "check_name": check_name,
             "description": description,
             "status": status,
             "details": details
         }
-        
+
         self.current_report.verification_results.append(result)
-    
+
     def add_quality_metric(self, metric_name: str, metric_value: Any):
         """添加质量指标"""
         if not self.current_report:
             raise ValueError("没有活动的报告，请先调用start_new_report()")
-        
+
         self.current_report.quality_metrics[metric_name] = metric_value
-    
+
     def complete_report(self):
         """完成报告"""
         if not self.current_report:
             raise ValueError("没有活动的报告")
-        
+
         self.current_report.completed_at = datetime.now()
         return self.current_report
-    
-    def generate_guidance_for_skill(self, skill_config: Dict[str, Any]) -> List[str]:
+
+    def generate_guidance_for_skill(self, skill_config: dict[str, Any]) -> list[str]:
         """为技能生成指导信息"""
         guidance = []
-        
+
         # 基于技能类型生成指导
         skill_type = skill_config.get("type", "unknown")
         if skill_type == "data_analysis":
@@ -560,13 +559,13 @@ class TransparencyEnhancer:
             guidance.append("此技能操作文件系统，请确保有适当的文件权限")
             guidance.append("敏感操作需要确认，请仔细阅读警告信息")
             guidance.append("建议操作前备份重要文件")
-        
+
         # 基于约束生成指导
         constraints = skill_config.get("constraints", [])
         for constraint in constraints:
             if constraint.get("severity") in ["high", "critical"]:
                 guidance.append(f"⚠️ 重要限制: {constraint.get('description')}")
-        
+
         return guidance
 
 # 测试函数
@@ -575,9 +574,9 @@ def test_transparency_enhancer():
     print("="*70)
     print("Transparency Enhancer Test")
     print("="*70)
-    
+
     enhancer = TransparencyEnhancer(TransparencyLevel.DETAILED)
-    
+
     # 模拟技能配置
     skill_config = {
         "name": "数据分析技能",
@@ -592,16 +591,16 @@ def test_transparency_enhancer():
             }
         ]
     }
-    
+
     # 开始新报告
     report = enhancer.start_new_report(
         task_description="分析销售数据并提供洞察报告",
         skill_config=skill_config
     )
-    
+
     print(f"报告ID: {report.report_id}")
     print(f"任务: {report.task_description}")
-    
+
     # 添加工作流程步骤
     enhancer.add_workflow_step(
         name="数据加载",
@@ -610,7 +609,7 @@ def test_transparency_enhancer():
         tools_used=["read_file", "validate_data"],
         parameters={"file_format": "csv", "encoding": "utf-8"}
     )
-    
+
     enhancer.add_workflow_step(
         name="数据清洗",
         description="处理缺失值和异常值",
@@ -618,7 +617,7 @@ def test_transparency_enhancer():
         tools_used=["pandas", "numpy"],
         parameters={"missing_strategy": "mean", "outlier_threshold": 3}
     )
-    
+
     enhancer.add_workflow_step(
         name="分析洞察",
         description="执行统计分析和趋势检测",
@@ -626,7 +625,7 @@ def test_transparency_enhancer():
         tools_used=["scipy", "matplotlib"],
         parameters={"analysis_type": "trend", "confidence_level": 0.95}
     )
-    
+
     # 记录决策
     enhancer.record_decision(
         decision_type=DecisionType.SKILL_SELECTION,
@@ -638,7 +637,7 @@ def test_transparency_enhancer():
         chosen_option={"skill": "pandas_cleaner", "reason": "速度快，满足基本需求"},
         reasons=["时间效率优先", "基本清洗需求", "兼容性好"]
     )
-    
+
     # 添加约束
     enhancer.add_constraint(
         constraint_type=ConstraintType.SYSTEM_LIMIT,
@@ -648,7 +647,7 @@ def test_transparency_enhancer():
         workaround="分批处理或使用数据库",
         severity="medium"
     )
-    
+
     enhancer.add_constraint(
         constraint_type=ConstraintType.SECURITY,
         description="不支持包含敏感信息的数据文件",
@@ -657,13 +656,13 @@ def test_transparency_enhancer():
         workaround="脱敏处理后上传",
         severity="high"
     )
-    
+
     # 添加用户指导
     enhancer.add_user_guidance("上传数据前，请确保数据格式正确（CSV或Excel）")
     enhancer.add_user_guidance("分析结果以交互式图表形式呈现，可点击查看更多细节")
     enhancer.add_tip("使用描述性列名可以获得更好的分析结果")
     enhancer.add_warning("处理大量数据时可能需要较长时间，请耐心等待")
-    
+
     # 添加验证结果
     enhancer.add_verification_result(
         check_name="数据完整性检查",
@@ -671,44 +670,44 @@ def test_transparency_enhancer():
         status="passed",
         details="所有数据行完整，无损坏记录"
     )
-    
+
     enhancer.add_verification_result(
         check_name="隐私安全检查",
         description="检查是否包含敏感个人信息",
         status="passed",
         details="未发现明显敏感信息"
     )
-    
+
     # 添加质量指标
     enhancer.add_quality_metric("数据质量评分", 8.5)
     enhancer.add_quality_metric("处理速度(行/秒)", 2500)
     enhancer.add_quality_metric("内存使用峰值(MB)", 125)
-    
+
     # 完成报告
     completed_report = enhancer.complete_report()
-    
+
     # 生成指导信息
     guidance = enhancer.generate_guidance_for_skill(skill_config)
     print(f"\n生成的指导信息 ({len(guidance)}条):")
     for item in guidance:
         print(f"  - {item}")
-    
+
     # 保存报告
     html_path = completed_report.save_report()
     print(f"\n报告已保存到: {html_path}")
-    
+
     # 显示报告摘要
-    print(f"\n报告摘要:")
+    print("\n报告摘要:")
     print(f"  工作流程步骤: {len(completed_report.workflow_steps)}")
     print(f"  决策记录: {len(completed_report.decisions)}")
     print(f"  约束条件: {len(completed_report.constraints)}")
     print(f"  用户指导: {len(completed_report.user_guidance)}")
     print(f"  验证结果: {len(completed_report.verification_results)}")
-    
+
     print("\n" + "="*70)
     print("Transparency Enhancer Test Completed!")
     print("="*70)
-    
+
     return html_path
 
 if __name__ == "__main__":
