@@ -39,6 +39,11 @@ try:
         RunnerType, EdgeType, Agent as WfAgent,
         intent_router, majority_vote, concat_results
     )
+    from lifespan_manager import (
+        LifespanManager, LifespanContext, ResourceInfo,
+        lifespan, sqlite_lifespan, jsonl_lifespan,
+        api_session_lifespan, subprocess_lifespan
+    )
     print("[OK] 成功导入所有模块")
 except Exception as e:
     print(f"[FAIL] 导入失败: {e}")
@@ -1172,6 +1177,127 @@ def main():
         "pass_rate": round(t5_passed / t5_total * 100, 1) if t5_total > 0 else 0,
         "time_ms": round(t5_elapsed, 1),
         "results": suite5.results,
+    })
+
+    # ---- 阶段6: LifespanManager 资源生命周期测试 ----
+    print("\n" + "=" * 70)
+    print("  阶段6: LifespanManager 资源生命周期测试")
+    print("=" * 70)
+
+    suite6 = TestSuite("阶段6-LifespanManager")
+
+    # [P0] 基本注册和启动
+    def test_lifespan_basic(suite: TestSuite):
+        """[P0] 基本注册和启动 - 资源管理器能正确初始化资源"""
+        import tempfile, os
+        db_path = os.path.join(tempfile.gettempdir(), "test_lifespan.db")
+        mgr = LifespanManager("test_basic")
+        mgr.register_sqlite("db", db_path)
+        with mgr:
+            ctx = mgr.get_ctx()
+            assert_true(ctx is not None, "上下文不应为None")
+            assert_true(mgr.get_resource("db") is not None, "应能获取db资源")
+        # 退出with后资源应被清理
+        assert_true(mgr.get_ctx() is None, "退出后应清理上下文")
+        os.unlink(db_path) if os.path.exists(db_path) else None
+
+    # [P0] 异常安全
+    def test_lifespan_exception_safety(suite: TestSuite):
+        """[P0] 异常安全 - 即使初始化失败也保证清理"""
+        cleanup_called = []
+
+        @lifespan
+        def resource_with_cleanup():
+            resource = {"data": "test"}
+            try:
+                yield {"res": resource}
+            finally:
+                cleanup_called.append(True)
+
+        mgr = LifespanManager("test_exc")
+        mgr.register("res", resource_with_cleanup)
+
+        try:
+            with mgr:
+                raise RuntimeError("模拟异常")
+        except RuntimeError:
+            pass
+
+        assert_true(len(cleanup_called) > 0, "异常时清理函数仍应被调用")
+
+    # [P1] 资源管理器状态
+    def test_lifespan_status(suite: TestSuite):
+        """[P1] 状态查询 - status()返回正确的摘要"""
+        mgr = LifespanManager("test_status")
+        mgr.register_sqlite("db", ":memory:")
+        with mgr:
+            status = mgr.status()
+            assert_true(status["initialized"] is True, "应已初始化")
+            assert_true(status["active_resources"] >= 1, "应至少有1个活跃资源")
+        # 退出后
+        status2 = mgr.status()
+        assert_true(status2["initialized"] is False, "退出后应为未初始化")
+
+    # [P1] 多次启动/关闭
+    def test_lifespan_restart(suite: TestSuite):
+        """[P1] 多次启动/关闭 - 资源管理器支持重复use"""
+        mgr = LifespanManager("test_restart")
+        mgr.register_sqlite("db", ":memory:")
+
+        # 第一次
+        with mgr:
+            assert_true(mgr.get_ctx() is not None, "第一次启动应成功")
+        # 第二次（重新启动）
+        with mgr:
+            assert_true(mgr.get_ctx() is not None, "第二次启动应成功")
+
+    # [P2] 自定义资源工厂
+    def test_lifespan_custom_factory(suite: TestSuite):
+        """[P2] 自定义资源工厂 - register()接受任意@lifespan装饰的函数"""
+        custom_log = []
+
+        @lifespan
+        def custom_resource():
+            custom_log.append("init")
+            try:
+                yield {"handler": lambda: "handled"}
+            finally:
+                custom_log.append("cleanup")
+
+        mgr = LifespanManager("test_custom")
+        mgr.register("custom", custom_resource)
+        with mgr:
+            handler = mgr.get_resource("custom")["handler"]
+            assert_true(handler() == "handled", "自定义资源应能正常工作")
+        assert_true("init" in custom_log, "初始化应被调用")
+        assert_true("cleanup" in custom_log, "清理应被调用")
+
+    # 执行阶段6所有测试
+    phase6_tests = [
+        ("基本注册和启动", test_lifespan_basic),
+        ("异常安全", test_lifespan_exception_safety),
+        ("状态查询", test_lifespan_status),
+        ("多次启动/关闭", test_lifespan_restart),
+        ("自定义资源工厂", test_lifespan_custom_factory),
+    ]
+
+    t6_start = time.perf_counter()
+    for test_name, test_fn in phase6_tests:
+        suite6.run_test(test_name, test_fn, suite6)
+    t6_elapsed = (time.perf_counter() - t6_start) * 1000
+
+    suite6.summary()
+    t6_total = len(suite6.results)
+    t6_passed = sum(1 for r in suite6.results if r.passed)
+    t6_failed = t6_total - t6_passed
+    all_summaries.append({
+        "suite": "阶段6-LifespanManager",
+        "total": t6_total,
+        "passed": t6_passed,
+        "failed": t6_failed,
+        "pass_rate": round(t6_passed / t6_total * 100, 1) if t6_total > 0 else 0,
+        "time_ms": round(t6_elapsed, 1),
+        "results": suite6.results,
     })
 
     # ---- 最终汇总 ----

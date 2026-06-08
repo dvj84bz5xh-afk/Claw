@@ -1597,8 +1597,10 @@
       "module": "agent_orchestration",
       "suggestion": "参考MCP SDK的Lifespan API(@asynccontextmanager)，为Claw进化引擎和Agent编排实现资源生命周期管理(数据库/文件/API Session)",
       "effort": "medium",
-      "status": "pending",
-      "created_at": "2026-06-04T09:45:57.923890"
+      "status": "done",
+      "created_at": "2026-06-04T09:45:57.923890",
+      "implemented_at": "2026-06-09",
+      "implementation_note": "已创建 agent-core/lifespan_manager.py (~700行)，实现LifespanManager资源生命周期管理器 + @lifespan装饰器 + 预置资源工厂(sqlite/jsonl/api_session/subprocess) + 异常安全保证，5个测试用例全通过"
     },
     {
       "id": "mcp-struct-output",
