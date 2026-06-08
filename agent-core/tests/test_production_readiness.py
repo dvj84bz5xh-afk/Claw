@@ -33,6 +33,12 @@ try:
         MemoryExtractor, MemoryStore, RuleBasedExtractor,
         MemoryItem, MemoryType, ImportanceLevel, ExtractionRule
     )
+    from workflow_graph import (
+        WorkflowGraph, WorkflowBuilder, WorkflowNode, WorkflowEdge,
+        WorkflowResult, ExecutionContext, ExecutionStatus,
+        RunnerType, EdgeType, Agent as WfAgent,
+        intent_router, majority_vote, concat_results
+    )
     print("[OK] 成功导入所有模块")
 except Exception as e:
     print(f"[FAIL] 导入失败: {e}")
@@ -917,6 +923,256 @@ def main():
     suite4.run_test("错误恢复能力", test_e2e_error_recovery, suite4)
 
     all_summaries.append(suite4.summary())
+
+    # ---- 阶段5: WorkflowGraph 图编排引擎测试 ----
+    print("\n" + "=" * 70)
+    print("  阶段5: WorkflowGraph 图编排引擎测试")
+    print("=" * 70)
+
+    suite5 = TestSuite("阶段5-WorkflowGraph")
+
+    # [P0] 基本图操作（增删查节点/边）
+    def test_wfg_basic_crud(suite: TestSuite):
+        """[P0] 图基本CRUD - 节点/边增删查"""
+        g = WorkflowGraph("test_crud")
+        n1 = g.add_node("a", "Node A", lambda d, **kw: "A_out")
+        n2 = g.add_node("b", "Node B", lambda d, **kw: "B_out")
+        assert_true(g.node_count == 2, "节点数应为2")
+        assert_true(g.get_node("a") is not None, "应能获取节点a")
+
+        e = g.connect("a", "b")
+        assert_true(g.edge_count == 1, "边数应为1")
+        assert_true(len(g.get_outgoing_edges("a")) == 1, "a应有1条出边")
+
+        g.remove_node("b")
+        assert_true(g.node_count == 1, "删除后节点数应为1")
+        assert_true(g.edge_count == 0, "删除节点后关联边也应删除")
+
+    # [P0] Sequential执行模式
+    def test_wfg_sequential(suite: TestSuite):
+        """[P0] Sequential顺序执行 - 数据在节点间传递"""
+        g = WorkflowGraph("test_seq")
+        g.add_node("step1", "Step1", lambda d, **kw: f"step1({d})")
+        g.add_node("step2", "Step2", lambda d, **kw: f"step2({d})")
+        g.add_node("step3", "Step3", lambda d, **kw: f"step3({d})")
+        g.connect("step1", "step2")
+        g.connect("step2", "step3")
+
+        result = g.run_sequential("hello")
+        assert_true(result.status in (ExecutionStatus.SUCCESS, ExecutionStatus.PARTIAL), "应成功执行")
+        assert_true(result.nodes_executed == 3, "应执行3个节点")
+        assert_true("step3" in str(result.final_output), "最终输出应包含step3结果")
+
+    # [P0] Concurrent执行模式
+    def test_wfg_concurrent(suite: TestSuite):
+        """[P0] Concurrent并行执行 - 多节点同时运行"""
+        g = WorkflowGraph("test_conc")
+        g.add_node("x", "Node X", lambda d, **kw: f"X:{d}")
+        g.add_node("y", "Node Y", lambda d, **kw: f"Y:{d}")
+        g.add_node("z", "Node Z", lambda d, **kw: f"Z:{d}")
+
+        result = g.run_concurrent("parallel_input", node_list=["x", "y", "z"])
+        assert_true(result.status in (ExecutionStatus.SUCCESS, ExecutionStatus.PARTIAL), "并行执行应成功")
+        assert_true(result.nodes_executed >= 2, "至少执行2个节点")
+        assert_true(isinstance(result.final_output, dict), "并发结果应为字典")
+
+    # [P0] Condition条件路由（中文）
+    def test_wfg_condition_chinese(suite: TestSuite):
+        """[P0] Condition中文路由 - 根据输入内容路由到正确Agent"""
+        g = WorkflowGraph("test_cond_cn", "中文条件路由测试")
+
+        # 使用intent_router辅助
+        billing_agent = WfAgent("BillingAgent", "处理账单查询")
+        refund_agent = WfAgent("RefundAgent", "处理退款申请")
+        tech_agent = WfAgent("TechSupportAgent", "解决技术问题")
+
+        g.add_node("router", "路由器")
+        g.add_node("billing", "账单专家", billing_agent)
+        g.add_node("refund", "退款专员", refund_agent)
+        g.add_node("tech", "技术支持", tech_agent)
+
+        # 条件边
+        g.connect("router", "billing", edge_type=EdgeType.CONDITION,
+                  condition=lambda d: "账单" in str(d) or "费用" in str(d))
+        g.connect("router", "refund", edge_type=EdgeType.CONDITION,
+                  condition=lambda d: "退款" in str(d) or "退钱" in str(d))
+        g.connect("router", "tech", edge_type=EdgeType.CONDITION,
+                  condition=lambda d: any(w in str(d) for w in ["崩溃", "bug", "错误", "无法"]))
+
+        # 测试用例
+        tests = [
+            ("我的账单有问题", "billing"),
+            ("我要退款", "refund"),
+            ("软件崩溃了", "tech"),
+        ]
+        for text, expected in tests:
+            r = g.run_condition(text)
+            hit_target = r.results[0].node_id if r.results else ""
+            assert_true(hit_target == expected,
+                       f'"{text}" 应路由到 {expected}, 实际到 {hit_target}')
+
+    # [P1] Group分组聚合
+    def test_wfg_group(suite: TestSuite):
+        """[P1] Group分组聚合 - 并行+聚合器"""
+        g = WorkflowGraph("test_grp")
+        g.add_node("a", "A", lambda d, **kw: "result_A")
+        g.add_node("b", "B", lambda d, **kw: "result_B")
+        g.add_node("c", "C", lambda d, **kw: "result_C")
+
+        result = g.run_group("input", group_nodes=["a", "b", "c"],
+                            aggregator=lambda outs: f"聚合: {len(outs)}个结果")
+        assert_true(result.status in (ExecutionStatus.SUCCESS, ExecutionStatus.PARTIAL))
+        assert_true(result.nodes_executed == 3, "应执行3个组成员")
+        assert_true("3" in str(result.final_output), "聚合结果应包含成员数")
+
+    # [P1] DAG拓扑分层执行
+    def test_wfg_dag(suite: TestSuite):
+        """[P1] DAG拓扑分层 - 自动分层+同层并行"""
+        b = WorkflowBuilder("test_dag_builder")
+        b.node("start", "开始", lambda d, **kw: "started")
+        b.node("prep_a", "准备A", lambda d, **kw: "A_ready", timeout=3)
+        b.node("prep_b", "准备B", lambda d, **kw: "B_ready", timeout=3)
+        b.node("merge", "合并", lambda d, **kw: "merged", timeout=3)
+        b.node("final", "完成", lambda d, **kw: "done", timeout=3)
+        b.edge("start", "prep_a")
+        b.edge("start", "prep_b")   # start → prep_a 和 prep_b 可并行
+        b.edge("prep_a", "merge")
+        b.edge("prep_b", "merge")   # merge 等待两者都完成
+        b.edge("merge", "final")
+
+        graph = b.build()
+        result = graph.run_dag("init_data")
+        assert_true(result.status in (ExecutionStatus.SUCCESS, ExecutionStatus.PARTIAL))
+        assert_true(result.nodes_executed == 5, "DAG应执行全部5节点")
+
+    # [P1] Loop循环执行
+    def test_wfg_loop(suite: TestSuite):
+        """[P1] Loop循环 - 迭代直到满足停止条件"""
+        g = WorkflowGraph("test_loop")
+        counter = {"value": 0}
+        def counting_handler(d, **kw):
+            counter["value"] += 1
+            return f"iter_{counter['value']}"
+
+        g.add_node("counter", "计数器", counting_handler, timeout=3)
+        result = g.run_loop("start", loop_body=["counter"], max_iterations=5,
+                            stop_condition=lambda d, i: i >= 3)
+        assert_true(result.status == ExecutionStatus.SUCCESS)
+        assert_true(result.nodes_executed == 3, "应在第3次迭代后停止")
+
+    # [P1] 环路检测
+    def test_wfg_cycle_detect(suite: TestSuite):
+        """[P1] 环路检测 - 正确识别DAG中的环路"""
+        g = WorkflowGraph("test_cycle")
+        g.add_node("a", "A", lambda d, **kw: None)
+        g.add_node("b", "B", lambda d, **kw: None)
+        g.add_node("c", "C", lambda d, **kw: None)
+        g.connect("a", "b")
+        g.connect("b", "c")
+        g.connect("c", "a")  # 制造环路
+
+        cycle = g.detect_cycle()
+        assert_true(cycle is not None, "应检测到环路")
+        assert_true(len(cycle) == 3, "环路应包含3个节点")
+
+    # [P1] 拓扑排序
+    def test_wfg_topo_sort(suite: TestSuite):
+        """[P1] 拓扑排序 - 依赖关系正确的线性序"""
+        g = WorkflowGraph("test_topo")
+        g.add_node("a", "A"); g.add_node("b", "B")
+        g.add_node("c", "C"); g.add_node("d", "D")
+        g.connect("a", "b"); g.connect("a", "c")
+        g.connect("b", "d"); g.connect("c", "d")
+
+        order = g.topological_sort()
+        assert_true(order.index("a") < order.index("b"), "a必须在b之前")
+        assert_true(order.index("a") < order.index("c"), "a必须在c之前")
+        assert_true(order.index("b") < order.index("d"), "b必须在d之前")
+        assert_true(order.index("c") < order.index("d"), "c必须在d之前")
+
+    # [P2] 超时控制
+    def test_wfg_timeout(suite: TestSuite):
+        """[P2] 超时保护 - 长时间运行节点应被终止"""
+        import time as _time
+        def slow_handler(d, **kw):
+            _time.sleep(10)
+            return "should not reach"
+
+        g = WorkflowGraph("test_timeout")
+        g.add_node("slow", "慢节点", slow_handler, timeout=0.3)  # 300ms超时
+
+        result = g.run_sequential("trigger")
+        assert_true(result.nodes_executed == 1, "应尝试执行")
+        # 超时节点状态应为TIMEOUT或FAILED
+        has_timeout = any(r.status == ExecutionStatus.TIMEOUT for r in result.results)
+        has_failed = any(r.status == ExecutionStatus.FAILED for r in result.results)
+        assert_true(has_timeout or has_failed, "超时节点应标记为TIMEOUT或FAILED")
+
+    # [P2] 序列化/导出
+    def test_wfg_serialize(suite: TestSuite):
+        """[P2] JSON序列化 - 图结构可正确导出为JSON"""
+        g = WorkflowGraph("test_serial")
+        g.add_node("n1", "N1", description="desc1")
+        g.add_node("n2", "N2", description="desc2")
+        g.connect("n1", "n2")
+
+        d = g.to_dict()
+        assert_true(d["node_count"] == 2, "序列化应包含2节点")
+        assert_true(d["edge_count"] == 1, "序列化应包含1边")
+        assert_true("entry_nodes" in d, "应包含入口节点信息")
+        json_str = g.to_json()
+        assert_true(len(json_str) > 50, "JSON字符串应有合理长度")
+
+    # [P2] WorkflowBuilder流式API
+    def test_wfg_builder(suite: TestSuite):
+        """[P2] Builder模式 - 流式API构建工作流"""
+        wf = (
+            WorkflowBuilder("builder_test")
+            .node("a", "A", lambda d, **kw: "ok")
+            .node("b", "B", lambda d, **kw: "ok")
+            .edge("a", "b")
+            .sequential_chain(["a", "b"])
+            .build()
+        )
+        assert_true(wf.node_count == 2, "Builder应创建2节点")
+        assert_true(wf.edge_count >= 1, "Builder应创建至少1边")
+        result = wf.run_sequential("data")
+        assert_true(result.status in (ExecutionStatus.SUCCESS, ExecutionStatus.PARTIAL))
+
+    # ---- 执行阶段5所有测试 ----
+    phase5_tests = [
+        ("图基本CRUD", test_wfg_basic_crud),
+        ("Sequential顺序执行", test_wfg_sequential),
+        ("Concurrent并行执行", test_wfg_concurrent),
+        ("Condition中文路由", test_wfg_condition_chinese),
+        ("Group分组聚合", test_wfg_group),
+        ("DAG拓扑分层执行", test_wfg_dag),
+        ("Loop循环执行", test_wfg_loop),
+        ("环路检测", test_wfg_cycle_detect),
+        ("拓扑排序", test_wfg_topo_sort),
+        ("超时保护", test_wfg_timeout),
+        ("JSON序列化", test_wfg_serialize),
+        ("Builder流式API", test_wfg_builder),
+    ]
+
+    t5_start = time.perf_counter()
+    for test_name, test_fn in phase5_tests:
+        suite5.run_test(test_name, test_fn, suite5)
+    t5_elapsed = (time.perf_counter() - t5_start) * 1000
+
+    suite5.summary()
+    t5_total = len(suite5.results)
+    t5_passed = sum(1 for r in suite5.results if r.passed)
+    t5_failed = t5_total - t5_passed
+    all_summaries.append({
+        "suite": "阶段5-WorkflowGraph",
+        "total": t5_total,
+        "passed": t5_passed,
+        "failed": t5_failed,
+        "pass_rate": round(t5_passed / t5_total * 100, 1) if t5_total > 0 else 0,
+        "time_ms": round(t5_elapsed, 1),
+        "results": suite5.results,
+    })
 
     # ---- 最终汇总 ----
     print("\n" + "=" * 70)

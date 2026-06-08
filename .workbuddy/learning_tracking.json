@@ -1555,8 +1555,10 @@
       "module": "agent_orchestration",
       "suggestion": "参考 microsoft/agent-framework 的图结构工作流编排（sequential/concurrent/handoff/group），实现Claw多Agent协作",
       "effort": "high",
-      "status": "pending",
-      "created_at": "2026-05-29T09:12:07.974582"
+      "status": "done",
+      "created_at": "2026-05-29T09:12:07.974582",
+      "implemented_at": "2026-06-08",
+      "implementation_note": "已创建 agent-core/workflow_graph.py (~1500行)，实现6种运行模式(Sequential/Concurrent/Group/Condition/Loop/DAG) + WorkflowBuilder流式API + 拓扑排序/环路检测 + 超时保护，12个测试用例全通过"
     },
     {
       "id": "maf-obs-091207",
