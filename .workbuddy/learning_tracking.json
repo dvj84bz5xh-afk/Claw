@@ -1615,8 +1615,10 @@
       "module": "memory",
       "suggestion": "借鉴mem0单轮提取算法，在对话结束后自动提取关键信息写入memory层，消除手动指令依赖。参考LoCoMo(91.6分)验证质量",
       "effort": "high",
-      "status": "pending",
-      "created_at": "2026-06-06T09:04:21.105539"
+      "status": "done",
+      "created_at": "2026-06-06T09:04:21.105539",
+      "implemented_at": "2026-06-08",
+      "implementation_note": "已创建 agent-core/memory_extractor.py, 借鉴mem0单轮提取算法"
     },
     {
       "id": "mem0-hybrid-search",
