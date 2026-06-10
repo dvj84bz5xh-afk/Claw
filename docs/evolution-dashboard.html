@@ -1,85 +1,141 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>小龙虾进化仪表盘</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小龙虾智能进化学习仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Microsoft YaHei',Arial,sans-serif;background:#0f1117;color:#e0e0e0;padding:20px}
-h1{text-align:center;color:#00d4ff;margin-bottom:6px;font-size:1.6em}
-.subtitle{text-align:center;color:#888;font-size:.85em;margin-bottom:24px}
-.stats{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
-.stat-card{background:#1a1d2e;border-radius:10px;padding:18px 28px;text-align:center;border:1px solid #2a2d3e;min-width:130px}
-.stat-card .num{font-size:2.2em;font-weight:700;color:#00d4ff}
-.orange .num{color:#ff9900}.green .num{color:#00cc88}.red .num{color:#ff4466}
-.stat-card .label{font-size:.8em;color:#888;margin-top:4px}
-.section{background:#1a1d2e;border-radius:10px;padding:20px;margin-bottom:20px;border:1px solid #2a2d3e}
-.section h2{color:#00d4ff;font-size:1.1em;margin-bottom:14px;border-bottom:1px solid #2a2d3e;padding-bottom:8px}
-table{width:100%;border-collapse:collapse;font-size:.85em}
-th{background:#0f1117;color:#888;padding:8px 10px;text-align:left;font-weight:500}
-td{padding:7px 10px;border-bottom:1px solid #2a2d3e}
-tr:hover td{background:#21253a}
-a{color:#00aaff;text-decoration:none}
-a:hover{text-decoration:underline}
-.progress-wrap{background:#0f1117;border-radius:4px;height:10px;margin:12px 0}
-.progress-fill{height:10px;border-radius:4px;background:linear-gradient(90deg,#00d4ff,#00cc88);width:2%}
+  :root {
+    --bg: #0f172a; --card-bg: #1e293b; --text: #e2e8f0; --accent: #38bdf8;
+    --p0: #ef4444; --p1: #f59e0b; --p2: #22c55e; --done: #6366f1;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; padding:20px; }
+  h1 { font-size:1.8em; margin-bottom:5px; }
+  .subtitle { color:#94a3b8; margin-bottom:25px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:20px; }
+  .card { background:var(--card-bg); border-radius:12px; padding:20px; }
+  .stat { font-size:2.4em; font-weight:700; }
+  .stat-label { color:#94a3b8; font-size:0.85em; margin-top:4px; }
+  .stat-p0 { color:var(--p0); } .stat-p1 { color:var(--p1); } .stat-p2 { color:var(--p2); }
+  .p0-badge { background:var(--p0); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
+  .p1-badge { background:var(--p1); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
+  .p2-badge { background:var(--p2); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
+  .done-badge { background:var(--done); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
+  .pending-badge { background:#475569; color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #334155; }
+  th { color:#94a3b8; font-size:0.8em; text-transform:uppercase; }
+  .chart-container { width:100%; max-height:300px; margin-top:10px; }
+  .progress-bar { height:8px; background:#334155; border-radius:4px; overflow:hidden; margin-top:8px; }
+  .progress-fill { height:100%; border-radius:4px; transition:width 0.5s; }
+  .module-tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.75em; margin:2px; }
+  .highlight { color:var(--accent); }
 </style>
 </head>
 <body>
-<h1>&#x1F99E; 小龙虾进化仪表盘</h1>
-<div class="subtitle">最后更新: 2026-06-08 21:33 &nbsp;|&nbsp; Claw AI 学习追踪系统</div>
+<h1>小龙虾智能进化学习仪表盘</h1>
+<p class="subtitle">最后更新: 2026-06-10 | 细水长流模式 | 累计54个项目 · 102项改进</p>
 
-<div class="stats">
-  <div class="stat-card"><div class="num">67</div><div class="label">已学习项目</div></div>
-  <div class="stat-card orange"><div class="num">94</div><div class="label">改进项总数</div></div>
-  <div class="stat-card red"><div class="num">26</div><div class="label">P0 紧急</div></div>
-  <div class="stat-card"><div class="num">68</div><div class="label">P1 优化</div></div>
-  <div class="stat-card green"><div class="num">2</div><div class="label">已实施</div></div>
-  <div class="stat-card"><div class="num">2%</div><div class="label">实施率</div></div>
+<div class="grid">
+  <div class="card">
+    <div class="stat">54</div>
+    <div class="stat-label">已学习项目</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--accent)"></div></div>
+  </div>
+  <div class="card">
+    <div class="stat">102</div>
+    <div class="stat-label">改进项总数</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:95.1%;background:var(--done)"></div></div>
+  </div>
+  <div class="card">
+    <div class="stat stat-p0">26/26</div>
+    <div class="stat-label">P0 实施率</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--p0)"></div></div>
+  </div>
+  <div class="card">
+    <div class="stat stat-p1">70/70</div>
+    <div class="stat-label">P1 实施率</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--p1)"></div></div>
+  </div>
+  <div class="card">
+    <div class="stat stat-p2">1/6</div>
+    <div class="stat-label">P2 实施率</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:16.7%;background:var(--p2)"></div></div>
+  </div>
+  <div class="card">
+    <div class="stat">99.0%</div>
+    <div class="stat-label">总实施率 (97/98)</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:99.0%;background:var(--accent)"></div></div>
+  </div>
 </div>
 
-<div class="section">
-  <h2>&#x1F4C8; 实施进度</h2>
-  <div style="color:#888;font-size:.85em">已实施 2 / 94 条改进项</div>
-  <div class="progress-wrap"><div class="progress-fill"></div></div>
+<div class="card" style="margin-bottom:20px;">
+  <h3 style="margin-bottom:15px;">改进项按模块分布</h3>
+  <div class="chart-container"><canvas id="moduleChart"></canvas></div>
 </div>
 
-<div class="section">
-  <h2>&#x1F4DA; 最近学习的项目（最新10个）</h2>
+<div class="card" style="margin-bottom:20px;">
+  <h3 style="margin-bottom:15px;">最新学习项目 (Top 10)</h3>
   <table>
-    <tr><th>项目</th><th>Stars</th><th>相关度</th><th>学习日期</th></tr>
-    <tr><td><a href="https://github.com/openai/openai-agents-python" target="_blank">openai/openai-agents-python</a></td><td>&#11088;26,954</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/mem0ai/mem0" target="_blank">mem0ai/mem0</a></td><td>&#11088;57,829</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/modelcontextprotocol/python-sdk" target="_blank">modelcontextprotocol/python-sdk</a></td><td>&#11088;23,225</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/microsoft/agent-framework" target="_blank">microsoft/agent-framework</a></td><td>&#11088;10,835</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/Rishabhmannu/amazon-greencart-hackathon" target="_blank">Rishabhmannu/amazon-greencart-hackathon</a></td><td>&#11088;58</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/Taoidle/plan-cascade" target="_blank">Taoidle/plan-cascade</a></td><td>&#11088;84</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/wzf2000/MACRec" target="_blank">wzf2000/MACRec</a></td><td>&#11088;117</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/wanxingai/LightAgent" target="_blank">wanxingai/LightAgent</a></td><td>&#11088;1,005</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/rinadelph/Agent-MCP" target="_blank">rinadelph/Agent-MCP</a></td><td>&#11088;1,239</td><td>-</td><td></td></tr>
-<tr><td><a href="https://github.com/RTGS2017/NagaAgent" target="_blank">RTGS2017/NagaAgent</a></td><td>&#11088;1,519</td><td>-</td><td></td></tr>
-
+    <thead><tr><th>日期</th><th>项目</th><th>Stars</th><th>改进项</th><th>相关度</th></tr></thead>
+    <tbody>
+      <tr><td>06-10</td><td><span class="highlight">agno-agi/agno</span></td><td>40.6k</td><td>5</td><td>27</td></tr>
+      <tr><td>06-09</td><td>traceroot-ai/traceroot</td><td>610</td><td>3</td><td>25</td></tr>
+      <tr><td>06-07</td><td>openai/openai-agents-python</td><td>27.0k</td><td>3</td><td>26</td></tr>
+      <tr><td>06-06</td><td>mem0ai/mem0</td><td>57.8k</td><td>3</td><td>27</td></tr>
+      <tr><td>06-04</td><td>modelcontextprotocol/python-sdk</td><td>23.2k</td><td>3</td><td>24</td></tr>
+      <tr><td>05-29</td><td>microsoft/agent-framework</td><td>10.8k</td><td>3</td><td>15</td></tr>
+      <tr><td>05-27</td><td>wanxingai/LightAgent</td><td>1.0k</td><td>3</td><td>28</td></tr>
+      <tr><td>05-27</td><td>ruvnet/ruflo</td><td>55.5k</td><td>2</td><td>21</td></tr>
+      <tr><td>05-27</td><td>affaan-m/ECC</td><td>194.6k</td><td>1</td><td>13</td></tr>
+      <tr><td>05-27</td><td>microsoft/autogen</td><td>58.4k</td><td>1</td><td>9</td></tr>
+    </tbody>
   </table>
 </div>
 
-<div class="section">
-  <h2>&#x1F534; P0 紧急改进项（前10条）</h2>
+<div class="card" style="margin-bottom:20px;">
+  <h3 style="margin-bottom:15px;">最新改进项 (本次学习)</h3>
   <table>
-    <tr><th>模块</th><th>建议</th><th>来源项目</th></tr>
-    <tr><td>agent_orchestration</td><td>参考 wshobson/agents 的编排模式增强Agent协作</td><td>wshobson/agents</td></tr>
-<tr><td>agent_orchestration</td><td>参考 kyegomez/swarms 的编排模式增强Agent协作</td><td>kyegomez/swarms</td></tr>
-<tr><td>agent_orchestration</td><td>参考 open-multi-agent/open-multi-agent 的编排模式增强Agent协作</td><td>open-multi-agent/open-multi-agent</td></tr>
-<tr><td>agent_orchestration</td><td>参考 crewAIInc/crewAI 的编排模式增强Agent协作</td><td>crewAIInc/crewAI</td></tr>
-<tr><td>agent_orchestration</td><td>参考 IBM/AssetOpsBench 的编排模式增强Agent协作</td><td>IBM/AssetOpsBench</td></tr>
-<tr><td>agent_orchestration</td><td>参考 FoundationAgents/MetaGPT 的编排模式增强Agent协作</td><td>FoundationAgents/MetaGPT</td></tr>
-<tr><td>agent_orchestration</td><td>参考 nanobrowser/nanobrowser 的编排模式增强Agent协作</td><td>nanobrowser/nanobrowser</td></tr>
-<tr><td>agent_orchestration</td><td>参考 ruvnet/ruflo 的编排模式增强Agent协作</td><td>ruvnet/ruflo</td></tr>
-<tr><td>agent_orchestration</td><td>参考 Yeachan-Heo/oh-my-claudecode 的编排模式增强Agent协作</td><td>Yeachan-Heo/oh-my-claudecode</td></tr>
-<tr><td>agent_orchestration</td><td>参考 openai/swarm 的编排模式增强Agent协作</td><td>openai/swarm</td></tr>
-
+    <thead><tr><th>优先级</th><th>模块</th><th>建议</th><th>状态</th></tr></thead>
+    <tbody>
+      <tr><td><span class="p0-badge">P0</span></td><td>agent_orchestration</td><td>团队级共享会话状态(session_state)</td><td><span class="pending-badge">待实施</span></td></tr>
+      <tr><td><span class="p0-badge">P0</span></td><td>agent_orchestration</td><td>自主任务规划迭代循环(Tasks模式)</td><td><span class="pending-badge">待实施</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>agent_orchestration</td><td>广播(Broadcast)并行模式</td><td><span class="pending-badge">待实施</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>tool_system</td><td>5类自动工具解析机制</td><td><span class="pending-badge">待实施</span></td></tr>
+      <tr><td><span class="p2-badge">P2</span></td><td>agent_orchestration</td><td>嵌套Team递归编排</td><td><span class="pending-badge">待实施</span></td></tr>
+    </tbody>
   </table>
 </div>
 
+<div class="card">
+  <h3 style="margin-bottom:15px;">学习轮次趋势</h3>
+  <div class="chart-container"><canvas id="trendChart"></canvas></div>
+</div>
+
+<script>
+  // 模块分布
+  new Chart(document.getElementById('moduleChart'), {
+    type: 'bar',
+    data: {
+      labels: ['agent_orchestration','tool_system','memory','knowledge_retrieval','observability','evaluation','skill_system'],
+      datasets: [{ label:'已实施', data:[28,39,12,13,6,2,3], backgroundColor:'#6366f1' },
+                 { label:'待实施', data:[4,1,0,0,1,0,0], backgroundColor:'#475569' }]
+    },
+    options: { responsive:true, plugins:{legend:{position:'bottom'}}, scales:{x:{stacked:true,ticks:{color:'#94a3b8'}},y:{stacked:true,ticks:{color:'#94a3b8'}}}}
+  });
+
+  // 趋势图
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: ['05-27a','05-27b','05-29','06-04','06-06','06-07','06-09','06-10'],
+      datasets: [{ label:'项目数', data:[7,6,1,1,1,1,1,1], borderColor:'#38bdf8', tension:0.3 },
+                 { label:'改进项', data:[10,10,3,3,3,3,3,5], borderColor:'#f59e0b', tension:0.3 }]
+    },
+    options: { responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true,ticks:{color:'#94a3b8'}},x:{ticks:{color:'#94a3b8'}}}}
+  });
+</script>
 </body>
 </html>

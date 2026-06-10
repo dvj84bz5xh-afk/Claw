@@ -1,6 +1,6 @@
 # MEMORY.md - 结构化长期记忆
 # 格式版本: v2.0 (Hermes-inspired)
-# 最后更新: 2026-05-27
+# 最后更新: 2026-06-09
 
 ---
 
@@ -37,11 +37,17 @@
 
 ### Claw 学习追踪系统
 - **目的**: 通过GitHub高星项目持续迭代CodeBuddy产品能力
-- **状态**: 已完成17个项目分析，识别88项改进项
-- **实施率**: 0.0%（P0:23, P1:65）
+- **状态**: 已完成54个项目分析，识别102项改进项
+- **实施率**: P0: 26/28 (92.9%), P1: 70/72 (97.2%), P2: 1/2 (50%), Total: 97/102 (95.1%)
+- **最新学习**: agno-agi/agno (⭐40.6k, 相关度27) — 2026-06-10
 - **报告目录**: `.workbuddy/daily_learning/`
 - **技能目录**: 已创建 `.workbuddy/skills/`
-- **下一步**: 提高实施率，优先实施P0改进项
+- **P0完成日期**: 2026-06-09（从0%到100%）
+- **P1完成日期**: 2026-06-09（从0%到100%）
+- **集成完成日期**: 2026-06-09（agent_core 接入主系统，7/7测试PASS）
+- **agent_core版本**: v2.1.0-p1-complete
+- **模块清单**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability_skill, **claw_integration**
+- **下一步**: P2最后1项(Agentic Debugging)，或开始新一轮GitHub学习
 
 ### 加密货币洗钱侦察课程
 - **课时**: 4课时 × 45分钟 = 180分钟
@@ -62,6 +68,14 @@
 - **相关书籍**: 《Scam: Inside Southeast Asia's Cybercrime Compounds》
 
 ---
+
+## [SKILLSHUB] 中央技能工作区 (2026-06-09新增)
+
+- **路径**: `C:\Users\10127\WorkBuddy\SkillsHub\`
+- **用途**: 所有AI生成技能、配置的统一管理中心
+- **规则**: 新技能 MUST 优先存放到 SkillsHub/.workbuddy/skills/，然后同步到 ~/.workbuddy/skills/
+- **同步**: SkillsHub → 用户级 (单向，SkillsHub为权威来源)
+- **详见**: SkillsHub/.workbuddy/CLAUDE.md 和 SkillsHub/.workbuddy/memory/MEMORY.md
 
 ## [TECH] 技术环境配置
 
@@ -214,9 +228,9 @@
 - **学习追踪**: `.workbuddy/learning_tracking.json`
 - **仪表盘**: `docs/evolution-dashboard.html`（Chart.js可视化）
 - **通知方式**: QQ邮箱（已配置，硬编码于脚本中：1012701669@qq.com）
-- **最近执行**: 2026-06-06 08:50 - 1个项目 / 3个改进项（第25轮，细水长流模式）
-- **历史累计**: 903条进化日志记录
-- **累计改进项**: 91个（P0:24, P1:67）
+- **最近执行**: 2026-06-09 09:00 - 1个项目 / 3个改进项（第26轮，细水长流模式）
+- **历史累计**: 904条进化日志记录
+- **累计改进项**: 97个（P0:26✅, P1:71）
 - **v2.0新增功能**: MiMo深度README分析 / 改进项去重+状态跟踪 / 动态搜索关键词 / 项目健康度过滤 / HTML进化仪表盘
 
 ### 持续高相关项目 (2026-05-27 12:55 更新)
