@@ -28,114 +28,165 @@
   th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #334155; }
   th { color:#94a3b8; font-size:0.8em; text-transform:uppercase; }
   .chart-container { width:100%; max-height:300px; margin-top:10px; }
-  .progress-bar { height:8px; background:#334155; border-radius:4px; overflow:hidden; margin-top:8px; }
-  .progress-fill { height:100%; border-radius:4px; transition:width 0.5s; }
-  .module-tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.75em; margin:2px; }
-  .highlight { color:var(--accent); }
+  .highlight { color:#fbbf24; font-weight:600; }
+  .new-tag { background:#f43f5e; color:white; padding:1px 6px; border-radius:3px; font-size:0.7em; margin-left:4px; }
 </style>
 </head>
 <body>
-<h1>小龙虾智能进化学习仪表盘</h1>
-<p class="subtitle">最后更新: 2026-06-10 | 细水长流模式 | 累计54个项目 · 102项改进</p>
+<h1>🦞 小龙虾智能进化学习仪表盘</h1>
+<p class="subtitle">Claw Evolution Learning Dashboard — 最后更新: 2026-06-13</p>
 
 <div class="grid">
   <div class="card">
-    <div class="stat">54</div>
+    <div class="stat">55</div>
     <div class="stat-label">已学习项目</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--accent)"></div></div>
   </div>
   <div class="card">
-    <div class="stat">102</div>
-    <div class="stat-label">改进项总数</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:95.1%;background:var(--done)"></div></div>
+    <div class="stat">106</div>
+    <div class="stat-label">累计改进项</div>
   </div>
   <div class="card">
-    <div class="stat stat-p0">26/26</div>
-    <div class="stat-label">P0 实施率</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--p0)"></div></div>
+    <div class="stat stat-p0">30</div>
+    <div class="stat-label">P0 改进项 (26 已实施)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p1">70/70</div>
-    <div class="stat-label">P1 实施率</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:100%;background:var(--p1)"></div></div>
+    <div class="stat stat-p1">74</div>
+    <div class="stat-label">P1 改进项 (70 已实施)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p2">1/6</div>
-    <div class="stat-label">P2 实施率</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:16.7%;background:var(--p2)"></div></div>
+    <div class="stat stat-p2">2</div>
+    <div class="stat-label">P2 改进项 (1 已实施)</div>
   </div>
   <div class="card">
-    <div class="stat">99.0%</div>
-    <div class="stat-label">总实施率 (97/98)</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:99.0%;background:var(--accent)"></div></div>
+    <div class="stat">91.5%</div>
+    <div class="stat-label">总实施率 (97/106)</div>
   </div>
 </div>
 
-<div class="card" style="margin-bottom:20px;">
-  <h3 style="margin-bottom:15px;">改进项按模块分布</h3>
-  <div class="chart-container"><canvas id="moduleChart"></canvas></div>
+<div class="grid">
+  <div class="card">
+    <h3>📊 改进项分布</h3>
+    <div class="chart-container"><canvas id="priorityChart"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>📈 学习趋势 (近10轮)</h3>
+    <div class="chart-container"><canvas id="trendChart"></canvas></div>
+  </div>
 </div>
 
-<div class="card" style="margin-bottom:20px;">
-  <h3 style="margin-bottom:15px;">最新学习项目 (Top 10)</h3>
+<div class="card" style="margin-bottom:20px">
+  <h3>🏆 最新学习项目</h3>
   <table>
-    <thead><tr><th>日期</th><th>项目</th><th>Stars</th><th>改进项</th><th>相关度</th></tr></thead>
+    <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th><th>核心创新</th></tr></thead>
     <tbody>
-      <tr><td>06-10</td><td><span class="highlight">agno-agi/agno</span></td><td>40.6k</td><td>5</td><td>27</td></tr>
-      <tr><td>06-09</td><td>traceroot-ai/traceroot</td><td>610</td><td>3</td><td>25</td></tr>
-      <tr><td>06-07</td><td>openai/openai-agents-python</td><td>27.0k</td><td>3</td><td>26</td></tr>
-      <tr><td>06-06</td><td>mem0ai/mem0</td><td>57.8k</td><td>3</td><td>27</td></tr>
-      <tr><td>06-04</td><td>modelcontextprotocol/python-sdk</td><td>23.2k</td><td>3</td><td>24</td></tr>
-      <tr><td>05-29</td><td>microsoft/agent-framework</td><td>10.8k</td><td>3</td><td>15</td></tr>
-      <tr><td>05-27</td><td>wanxingai/LightAgent</td><td>1.0k</td><td>3</td><td>28</td></tr>
-      <tr><td>05-27</td><td>ruvnet/ruflo</td><td>55.5k</td><td>2</td><td>21</td></tr>
-      <tr><td>05-27</td><td>affaan-m/ECC</td><td>194.6k</td><td>1</td><td>13</td></tr>
-      <tr><td>05-27</td><td>microsoft/autogen</td><td>58.4k</td><td>1</td><td>9</td></tr>
+      <tr>
+        <td><strong>pydantic/pydantic-ai</strong><span class="new-tag">NEW</span></td>
+        <td>⭐17.7k</td>
+        <td class="highlight">28</td>
+        <td>2026-06-13</td>
+        <td>RunContext泛型 / Deferred Approval / Graph状态机 / enqueue()</td>
+      </tr>
+      <tr>
+        <td>agno-agi/agno</td>
+        <td>⭐40.6k</td>
+        <td>27</td>
+        <td>2026-06-10</td>
+        <td>三层委托策略 / 团队共享状态 / 5类工具解析 / 嵌套Team</td>
+      </tr>
+      <tr>
+        <td>traceroot-ai/traceroot</td>
+        <td>⭐610</td>
+        <td>25</td>
+        <td>2026-06-09</td>
+        <td>OpenTelemetry追踪 / LLM-as-judge / Agentic Debugging</td>
+      </tr>
+      <tr>
+        <td>openai/openai-agents-python</td>
+        <td>⭐27.0k</td>
+        <td>26</td>
+        <td>2026-06-07</td>
+        <td>Handoffs路由 / Sandbox Agent / 全链路Tracing</td>
+      </tr>
+      <tr>
+        <td>mem0ai/mem0</td>
+        <td>⭐57.8k</td>
+        <td>27</td>
+        <td>2026-06-06</td>
+        <td>单轮记忆提取 / 混合检索 / 实体关联网络</td>
+      </tr>
     </tbody>
   </table>
 </div>
 
-<div class="card" style="margin-bottom:20px;">
-  <h3 style="margin-bottom:15px;">最新改进项 (本次学习)</h3>
+<div class="card" style="margin-bottom:20px">
+  <h3>🔥 待实施改进项 (P0优先)</h3>
   <table>
-    <thead><tr><th>优先级</th><th>模块</th><th>建议</th><th>状态</th></tr></thead>
+    <thead><tr><th>优先级</th><th>来源</th><th>模块</th><th>改进建议</th><th>状态</th></tr></thead>
     <tbody>
-      <tr><td><span class="p0-badge">P0</span></td><td>agent_orchestration</td><td>团队级共享会话状态(session_state)</td><td><span class="pending-badge">待实施</span></td></tr>
-      <tr><td><span class="p0-badge">P0</span></td><td>agent_orchestration</td><td>自主任务规划迭代循环(Tasks模式)</td><td><span class="pending-badge">待实施</span></td></tr>
-      <tr><td><span class="p1-badge">P1</span></td><td>agent_orchestration</td><td>广播(Broadcast)并行模式</td><td><span class="pending-badge">待实施</span></td></tr>
-      <tr><td><span class="p1-badge">P1</span></td><td>tool_system</td><td>5类自动工具解析机制</td><td><span class="pending-badge">待实施</span></td></tr>
-      <tr><td><span class="p2-badge">P2</span></td><td>agent_orchestration</td><td>嵌套Team递归编排</td><td><span class="pending-badge">待实施</span></td></tr>
+      <tr><td><span class="p0-badge">P0</span></td><td>pydantic/pydantic-ai</td><td>skill_system</td><td>RunContext运行时工具/能力可见性</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p0-badge">P0</span></td><td>pydantic/pydantic-ai</td><td>agent_orchestration</td><td>Deferred Tool Approval人机审批流</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p0-badge">P0</span></td><td>agno-agi/agno</td><td>agent_orchestration</td><td>团队级共享会话状态</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p0-badge">P0</span></td><td>agno-agi/agno</td><td>agent_orchestration</td><td>自主任务规划迭代循环</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>pydantic/pydantic-ai</td><td>agent_orchestration</td><td>Graph-based状态机执行</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>pydantic/pydantic-ai</td><td>skill_system</td><td>enqueue()中间结果推送</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>agno-agi/agno</td><td>agent_orchestration</td><td>广播并行模式</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>agno-agi/agno</td><td>tool_system</td><td>5类自动工具解析</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p2-badge">P2</span></td><td>traceroot-ai/traceroot</td><td>observability</td><td>Agentic Debugging根因分析</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p2-badge">P2</span></td><td>agno-agi/agno</td><td>agent_orchestration</td><td>嵌套Team递归编排</td><td><span class="pending-badge">pending</span></td></tr>
     </tbody>
   </table>
 </div>
 
 <div class="card">
-  <h3 style="margin-bottom:15px;">学习轮次趋势</h3>
-  <div class="chart-container"><canvas id="trendChart"></canvas></div>
+  <h3>🧩 agent_core 模块状态 (v2.1.0-p1-complete)</h3>
+  <table>
+    <thead><tr><th>模块</th><th>状态</th><th>来源项目</th></tr></thead>
+    <tbody>
+      <tr><td>model_scheduler</td><td><span class="done-badge">✅</span></td><td>多源合并</td></tr>
+      <tr><td>unified_registry</td><td><span class="done-badge">✅</span></td><td>多源合并</td></tr>
+      <tr><td>progressive_loader</td><td><span class="done-badge">✅</span></td><td>多源合并</td></tr>
+      <tr><td>agent_orchestrator</td><td><span class="done-badge">✅</span></td><td>18个来源合并</td></tr>
+      <tr><td>context_injector</td><td><span class="done-badge">✅</span></td><td>MCP SDK</td></tr>
+      <tr><td>tool_registry</td><td><span class="done-badge">✅</span></td><td>39个来源合并</td></tr>
+      <tr><td>rag_engine</td><td><span class="done-badge">✅</span></td><td>13个来源合并</td></tr>
+      <tr><td>memory_system</td><td><span class="done-badge">✅</span></td><td>12个来源合并</td></tr>
+      <tr><td>eval_observability_skill</td><td><span class="done-badge">✅</span></td><td>6个来源合并</td></tr>
+      <tr><td>claw_integration</td><td><span class="done-badge">✅</span></td><td>7/7测试PASS</td></tr>
+    </tbody>
+  </table>
 </div>
 
 <script>
-  // 模块分布
-  new Chart(document.getElementById('moduleChart'), {
-    type: 'bar',
-    data: {
-      labels: ['agent_orchestration','tool_system','memory','knowledge_retrieval','observability','evaluation','skill_system'],
-      datasets: [{ label:'已实施', data:[28,39,12,13,6,2,3], backgroundColor:'#6366f1' },
-                 { label:'待实施', data:[4,1,0,0,1,0,0], backgroundColor:'#475569' }]
-    },
-    options: { responsive:true, plugins:{legend:{position:'bottom'}}, scales:{x:{stacked:true,ticks:{color:'#94a3b8'}},y:{stacked:true,ticks:{color:'#94a3b8'}}}}
-  });
-
-  // 趋势图
-  new Chart(document.getElementById('trendChart'), {
-    type: 'line',
-    data: {
-      labels: ['05-27a','05-27b','05-29','06-04','06-06','06-07','06-09','06-10'],
-      datasets: [{ label:'项目数', data:[7,6,1,1,1,1,1,1], borderColor:'#38bdf8', tension:0.3 },
-                 { label:'改进项', data:[10,10,3,3,3,3,3,5], borderColor:'#f59e0b', tension:0.3 }]
-    },
-    options: { responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true,ticks:{color:'#94a3b8'}},x:{ticks:{color:'#94a3b8'}}}}
-  });
+const pCtx = document.getElementById('priorityChart').getContext('2d');
+new Chart(pCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['P0 已实施', 'P0 待实施', 'P1 已实施', 'P1 待实施', 'P2 已实施', 'P2 待实施'],
+    datasets: [{
+      data: [26, 4, 70, 4, 1, 1],
+      backgroundColor: ['#6366f1','#ef4444','#6366f1','#f59e0b','#6366f1','#22c55e'],
+      borderWidth: 0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:'#e2e8f0',padding:8,font:{size:11}}}} }
+});
+const tCtx = document.getElementById('trendChart').getContext('2d');
+new Chart(tCtx, {
+  type: 'line',
+  data: {
+    labels: ['05-27a','05-27b','05-29','06-04','06-06','06-07','06-09','06-10','06-13'],
+    datasets: [{
+      label: '累计项目',
+      data: [46,52,53,54,55,56,57,58,59],
+      borderColor: '#38bdf8', tension: 0.3, fill: false
+    },{
+      label: '累计改进项',
+      data: [71,81,84,87,90,93,96,101,105],
+      borderColor: '#6366f1', tension: 0.3, fill: false
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false, scales:{y:{grid:{color:'#334155'}},x:{grid:{color:'#334155'}}},plugins:{legend:{labels:{color:'#e2e8f0'}}} }
+});
 </script>
 </body>
 </html>

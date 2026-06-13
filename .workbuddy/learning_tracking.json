@@ -737,6 +737,21 @@
       ],
       "analyzed_at": "2026-06-10T09:00:00.000000",
       "language": "Python"
+    },
+    {
+      "name": "pydantic/pydantic-ai",
+      "url": "https://github.com/pydantic/pydantic-ai",
+      "stars": 17729,
+      "relevance": 28,
+      "key_innovations": [
+        "RunContext泛型依赖注入+运行时工具可见性",
+        "Deferred Tool Approval人机审批流",
+        "Graph-based有向图状态机执行",
+        "enqueue()中间结果推送",
+        "A2A Protocol Agent间通信"
+      ],
+      "analyzed_at": "2026-06-13T09:00:00.000000",
+      "language": "Python"
     }
   ],
   "improvements": [
@@ -1970,9 +1985,49 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-06-10T09:00:00.000000"
+    },
+    {
+      "id": "pai-ctx-visibility-0613",
+      "source": "pydantic/pydantic-ai",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "参考pydantic-ai的RunContext泛型+available_tool_names/available_capability_ids，为Claw context_injector添加运行时工具/能力可见性，工具执行时可查询当前可用工具集",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-13T09:00:00.000000"
+    },
+    {
+      "id": "pai-deferred-approval-0613",
+      "source": "pydantic/pydantic-ai",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "参考pydantic-ai的Deferred Tool Approval机制(ToolApproved/ToolDenied/override_args)，为Claw高风险工具添加人机审批流，支持approve/deny/参数覆写三态",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-13T09:00:00.000000"
+    },
+    {
+      "id": "pai-graph-exec-0613",
+      "source": "pydantic/pydantic-ai",
+      "priority": "P1",
+      "module": "agent_orchestration",
+      "suggestion": "参考pydantic-ai的Graph-based状态机(UserPromptNode→ModelRequestNode→CallToolsNode)，将Claw agent_orchestrator从线性流程升级为有向图状态机",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-13T09:00:00.000000"
+    },
+    {
+      "id": "pai-enqueue-0613",
+      "source": "pydantic/pydantic-ai",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "参考pydantic-ai的enqueue()机制，为Claw工具系统添加中间结果推送能力，工具执行中可向模型推送进度/中间内容",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-13T09:00:00.000000"
     }
   ],
-  "last_updated": "2026-06-10T09:00:00.000000",
+  "last_updated": "2026-06-13T09:00:00.000000",
   "round_stats": [
     {
       "time": "2026-05-27T12:05:50.658127",
@@ -2020,6 +2075,12 @@
       "time": "2026-06-10T09:00:00.000000",
       "new_projects": 1,
       "new_improvements": 5,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-06-13T09:00:00.000000",
+      "new_projects": 1,
+      "new_improvements": 4,
       "skipped_improvements": 0
     }
   ]
