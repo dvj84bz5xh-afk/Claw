@@ -752,6 +752,22 @@
       ],
       "analyzed_at": "2026-06-13T09:00:00.000000",
       "language": "Python"
+    },
+    {
+      "name": "browser-use/browser-use",
+      "url": "https://github.com/browser-use/browser-use",
+      "stars": 98690,
+      "relevance": 25,
+      "key_innovations": [
+        "Rust Core高性能运行时(3-5x提速)",
+        "双轨代理系统(Stable/Beta)",
+        "ChatBrowserUse统一模型接口",
+        "持久化浏览器+任务恢复循环",
+        "@tools.action装饰器扩展机制",
+        "MCP+1000+云集成双形态"
+      ],
+      "analyzed_at": "2026-06-14T08:50:00.000000",
+      "language": "Python"
     }
   ],
   "improvements": [
@@ -2025,10 +2041,66 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-06-13T09:00:00.000000"
+    },
+    {
+      "id": "bu-rust-core-0614",
+      "source": "browser-use/browser-use",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "借鉴browser-use的Rust Core高性能运行时思路(0.13版提速3-5x)，评估用Rust/Go重写Claw热点模块(HTTP代理/事件循环)，初期试点hot path",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-14T08:50:00.000000"
+    },
+    {
+      "id": "bu-dual-track-0614",
+      "source": "browser-use/browser-use",
+      "priority": "P1",
+      "module": "agent_orchestration",
+      "suggestion": "借鉴browser-use双轨代理(Traditional Stable + Beta High-perf)，在model_scheduler中新增agent_track=stable|beta字段，按场景分级路由降低生产风险",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-14T08:50:00.000000"
+    },
+    {
+      "id": "bu-unified-key-0614",
+      "source": "browser-use/browser-use",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "借鉴ChatBrowserUse统一LLM Provider接口设计，让Claw单个API key路由OpenAI/Anthropic/本地模型，减少用户配置负担",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-14T08:50:00.000000"
+    },
+    {
+      "id": "bu-resume-loop-0614",
+      "source": "browser-use/browser-use",
+      "priority": "P1",
+      "module": "agent_orchestration",
+      "suggestion": "借鉴browser-use持久化浏览器+任务恢复循环，为Claw夜间进化引擎添加断点续传+失败重试Resume机制，避免长任务中断导致当日学习记录丢失",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-14T08:50:00.000000"
+    },
+    {
+      "id": "bu-action-namespace-0614",
+      "source": "browser-use/browser-use",
+      "priority": "P2",
+      "module": "tool_system",
+      "suggestion": "借鉴@tools.action装饰器设计，为Claw tool_registry添加action命名空间分组(group=browser/db/search)，按业务域隔离工具集提升可维护性",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-06-14T08:50:00.000000"
     }
   ],
-  "last_updated": "2026-06-13T09:00:00.000000",
+  "last_updated": "2026-06-14T08:50:00.000000",
   "round_stats": [
+    {
+      "time": "2026-06-14T08:50:00.000000",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
+    },
     {
       "time": "2026-05-27T12:05:50.658127",
       "new_projects": 7,
