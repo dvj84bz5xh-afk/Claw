@@ -768,6 +768,29 @@
       ],
       "analyzed_at": "2026-06-14T08:50:00.000000",
       "language": "Python"
+    },
+    {
+      "name": "raga-ai-hub/RagaAI-Catalyst",
+      "url": "https://github.com/raga-ai-hub/RagaAI-Catalyst",
+      "stars": 16200,
+      "relevance": 27,
+      "key_innovations": [
+        "Agentic Tracing 5维全链路追踪(LLM/工具/网络/用户/决策)",
+        "GuardExecutor 实时护栏事中拦截机制",
+        "Red-teaming 自动化漏洞扫描闭环",
+        "时间线+执行图可视化多Agent协作",
+        "init_tracing 自动插桩0侵入",
+        "合成数据生成器弥补评估数据稀缺"
+      ],
+      "analyzed_at": "2026-06-15T09:01:28",
+      "language": "Python",
+      "report_path": ".workbuddy/daily_learning/2026-06-15_ragaai_catalyst.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 2
+      }
     }
   ],
   "improvements": [
@@ -2155,5 +2178,8 @@
       "new_improvements": 4,
       "skipped_improvements": 0
     }
-  ]
+  ],
+  "total_projects": 72,
+  "last_update": "2026-06-15T09:01:28",
+  "total_improvements": 6
 }
