@@ -32,36 +32,39 @@
   .chart-container { width:100%; max-height:300px; margin-top:10px; }
   h3 { margin-bottom:12px; }
   .footer { text-align:center; color:#64748b; margin-top:30px; font-size:0.85em; }
+  .milestone { background:linear-gradient(135deg,#6366f133,#38bdf833); border-left:3px solid #38bdf8; padding:12px 16px; border-radius:8px; margin-bottom:16px; font-size:0.92em; }
 </style>
 </head>
 <body>
 <h1>🦞 小龙虾智能进化学习仪表盘</h1>
-<div class="subtitle">最后更新: 2026-06-15 08:50 (第29轮 · 细水长流模式) · agent_core v2.1.0-p1-complete</div>
+<div class="subtitle">最后更新: 2026-06-16 09:00 (第29轮 · 细水长流模式) · agent_core v2.1.0-p1-complete</div>
+
+<div class="milestone">🎯 <strong>里程碑</strong>: 学习 langchain-ai/langchain (⭐132K) — Agent工程事实标准，分层抽象+模型互操作+全生命周期平台化，相关度28/30</div>
 
 <div class="grid">
   <div class="card">
-    <div class="stat">57</div>
+    <div class="stat">73</div>
     <div class="stat-label">累计学习项目 (本轮+1)</div>
   </div>
   <div class="card">
-    <div class="stat">112</div>
-    <div class="stat-label">累计改进项 (本轮+6)</div>
+    <div class="stat">118</div>
+    <div class="stat-label">累计改进项 (本轮+4)</div>
   </div>
   <div class="card">
-    <div class="stat">88.4%</div>
-    <div class="stat-label">总实施率 (99/112)</div>
+    <div class="stat">82.2%</div>
+    <div class="stat-label">总实施率 (97/118)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p0">26<span style="font-size:0.5em;color:#94a3b8">/32</span></div>
-    <div class="stat-label">P0 实施率 (81.3%)</div>
+    <div class="stat stat-p0">26<span style="font-size:0.5em;color:#94a3b8">/33</span></div>
+    <div class="stat-label">P0 实施率 (78.8%)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p1">70<span style="font-size:0.5em;color:#94a3b8">/78</span></div>
-    <div class="stat-label">P1 实施率 (89.7%)</div>
+    <div class="stat stat-p1">70<span style="font-size:0.5em;color:#94a3b8">/80</span></div>
+    <div class="stat-label">P1 实施率 (87.5%)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p2">1<span style="font-size:0.5em;color:#94a3b8">/4</span></div>
-    <div class="stat-label">P2 实施率 (25.0%)</div>
+    <div class="stat stat-p2">1<span style="font-size:0.5em;color:#94a3b8">/5</span></div>
+    <div class="stat-label">P2 实施率 (20.0%)</div>
   </div>
 </div>
 
@@ -82,14 +85,21 @@
     <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th><th>核心创新</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>raga-ai-hub/RagaAI-Catalyst</strong><span class="new-tag">NEW</span></td>
+        <td><strong>langchain-ai/langchain</strong><span class="new-tag">NEW</span></td>
+        <td>⭐132k</td>
+        <td class="highlight">28</td>
+        <td>2026-06-16</td>
+        <td>分层抽象(DeepAgents/LangGraph) / 模型互操作(init_chat_model) / 全生命周期平台化 / 标准接口优先</td>
+      </tr>
+      <tr>
+        <td><strong>raga-ai-hub/RagaAI-Catalyst</strong></td>
         <td>⭐16.2k</td>
         <td class="highlight">27</td>
         <td>2026-06-15</td>
         <td>Agentic Tracing 5维 / GuardExecutor实时护栏 / Red-teaming扫描 / 时间线+执行图 / 自动插桩 / 合成数据</td>
       </tr>
       <tr>
-        <td><strong>browser-use/browser-use</strong></td>
+        <td>browser-use/browser-use</td>
         <td>⭐98.7k</td>
         <td>25</td>
         <td>2026-06-14</td>
@@ -100,14 +110,14 @@
         <td>⭐17.7k</td>
         <td class="highlight">28</td>
         <td>2026-06-13</td>
-        <td>RunContext泛型 / Deferred Approval / Graph状态机 / enqueue()</td>
+        <td>RunContext泛型 / Deferred Approval / Graph状态机 / enqueue() / A2A Protocol</td>
       </tr>
       <tr>
         <td>agno-agi/agno</td>
         <td>⭐40.6k</td>
         <td>27</td>
         <td>2026-06-10</td>
-        <td>三层委托策略 / 团队共享状态 / 5类工具解析 / 嵌套Team</td>
+        <td>三层委托策略 / 团队共享状态 / 5类工具解析 / 嵌套Team / 自主规划循环</td>
       </tr>
       <tr>
         <td>traceroot-ai/traceroot</td>
@@ -121,37 +131,30 @@
         <td>⭐27.0k</td>
         <td>26</td>
         <td>2026-06-07</td>
-        <td>Handoffs路由 / Sandbox Agent / 全链路Tracing</td>
-      </tr>
-      <tr>
-        <td>mem0ai/mem0</td>
-        <td>⭐57.8k</td>
-        <td>27</td>
-        <td>2026-06-06</td>
-        <td>单轮记忆提取 / 混合检索 / 实体关联网络</td>
+        <td>Agent-as-Tool Handoffs路由 / Sandbox Agent / 全链路Tracing</td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <div class="card" style="margin-bottom:20px">
-  <h3>🔥 待实施改进项 (P0优先 · 新增2项)</h3>
+  <h3>🔥 待实施改进项 (P0优先 · 新增1项P0)</h3>
   <table>
     <thead><tr><th>优先级</th><th>来源</th><th>模块</th><th>改进建议</th><th>状态</th></tr></thead>
     <tbody>
-      <tr><td><span class="p0-badge">P0</span></td><td>raga-ai-hub/RagaAI-Catalyst 🆕</td><td>eval_observability_skill</td><td>GuardExecutor实时护栏事中拦截(PII/harmful/injection)</td><td><span class="pending-badge">pending</span></td></tr>
-      <tr><td><span class="p0-badge">P0</span></td><td>raga-ai-hub/RagaAI-Catalyst 🆕</td><td>eval_observability_skill</td><td>Agentic Tracing 5维追踪(LLM/工具/网络/用户/决策)</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p0-badge">P0</span></td><td>langchain-ai/langchain 🆕</td><td>agent_orchestration</td><td>LangGraph Checkpointer节点级状态快照+断点恢复</td><td><span class="pending-badge">pending</span></td></tr>
       <tr><td><span class="p0-badge">P0</span></td><td>browser-use/browser-use</td><td>agent_orchestration</td><td>Rust Core高性能运行时重写Claw热点</td><td><span class="pending-badge">pending</span></td></tr>
       <tr><td><span class="p0-badge">P0</span></td><td>pydantic/pydantic-ai</td><td>skill_system</td><td>RunContext运行时工具/能力可见性</td><td><span class="pending-badge">pending</span></td></tr>
       <tr><td><span class="p0-badge">P0</span></td><td>pydantic/pydantic-ai</td><td>agent_orchestration</td><td>Deferred Tool Approval人机审批流</td><td><span class="pending-badge">pending</span></td></tr>
       <tr><td><span class="p0-badge">P0</span></td><td>agno-agi/agno</td><td>agent_orchestration</td><td>团队级共享会话状态</td><td><span class="pending-badge">pending</span></td></tr>
       <tr><td><span class="p0-badge">P0</span></td><td>agno-agi/agno</td><td>agent_orchestration</td><td>自主任务规划迭代循环</td><td><span class="pending-badge">pending</span></td></tr>
-      <tr><td><span class="p1-badge">P1</span></td><td>raga-ai-hub/RagaAI-Catalyst 🆕</td><td>agent_orchestration</td><td>Red-teaming漏洞扫描流水线</td><td><span class="pending-badge">pending</span></td></tr>
-      <tr><td><span class="p1-badge">P1</span></td><td>raga-ai-hub/RagaAI-Catalyst 🆕</td><td>agent_orchestration</td><td>时间线+执行图多Agent协作可视化</td><td><span class="pending-badge">pending</span></td></tr>
-      <tr><td><span class="p1-badge">P1</span></td><td>pydantic/pydantic-ai</td><td>agent_orchestration</td><td>Graph-based状态机执行</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>langchain-ai/langchain 🆕</td><td>observability</td><td>LangSmith全链路Trace+Trace树可视化</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>langchain-ai/langchain 🆕</td><td>model_scheduler</td><td>init_chat_model统一接口后端透明切换</td><td><span class="pending-badge">pending</span></td></tr>
       <tr><td><span class="p1-badge">P1</span></td><td>browser-use/browser-use</td><td>model_scheduler</td><td>ChatBrowserUse统一LLM Provider Key路由</td><td><span class="pending-badge">pending</span></td></tr>
-      <tr><td><span class="p2-badge">P2</span></td><td>raga-ai-hub/RagaAI-Catalyst 🆕</td><td>tool_registry</td><td>init_tracing自动插桩(0侵入激活)</td><td><span class="pending-badge">pending</span></td></tr>
-      <tr><td><span class="p2-badge">P2</span></td><td>raga-ai-hub/RagaAI-Catalyst 🆕</td><td>rag_engine</td><td>合成数据生成器(弥补评估数据稀缺)</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>browser-use/browser-use</td><td>agent_orchestration</td><td>双轨代理(Stable/Beta)分级路由</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p1-badge">P1</span></td><td>pydantic/pydantic-ai</td><td>agent_orchestration</td><td>Graph-based状态机执行</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p2-badge">P2</span></td><td>langchain-ai/langchain 🆕</td><td>agent_orchestration</td><td>Deep Agents高层封装(规划+子代理+文件系统)</td><td><span class="pending-badge">pending</span></td></tr>
+      <tr><td><span class="p2-badge">P2</span></td><td>browser-use/browser-use</td><td>tool_system</td><td>@tools.action命名空间分组</td><td><span class="pending-badge">pending</span></td></tr>
       <tr><td><span class="p2-badge">P2</span></td><td>traceroot-ai/traceroot</td><td>observability</td><td>Agentic Debugging根因分析</td><td><span class="pending-badge">pending</span></td></tr>
     </tbody>
   </table>
@@ -176,16 +179,16 @@
   </table>
 </div>
 
-<div class="footer">🦞 Claw 智能进化系统 · 自动生成于 2026-06-15 08:50 · 下一轮: 实施 GuardExecutor 实时护栏</div>
+<div class="footer">🦞 Claw 智能进化系统 · 自动生成于 2026-06-16 09:00 · 下一轮: 学习 Microsoft Semantic Kernel 或 Haystack</div>
 
 <script>
 const pCtx = document.getElementById('priorityChart').getContext('2d');
 new Chart(pCtx, {
   type: 'doughnut',
   data: {
-    labels: ['P0 已实施(26)', 'P0 待实施(6)', 'P1 已实施(70)', 'P1 待实施(8)', 'P2 已实施(1)', 'P2 待实施(3)'],
+    labels: ['P0 已实施(26)', 'P0 待实施(7)', 'P1 已实施(70)', 'P1 待实施(10)', 'P2 已实施(1)', 'P2 待实施(4)'],
     datasets: [{
-      data: [26, 6, 70, 8, 1, 3],
+      data: [26, 7, 70, 10, 1, 4],
       backgroundColor: ['#6366f1','#ef4444','#6366f1','#f59e0b','#6366f1','#22c55e'],
       borderWidth: 0
     }]
@@ -196,14 +199,14 @@ const tCtx = document.getElementById('trendChart').getContext('2d');
 new Chart(tCtx, {
   type: 'line',
   data: {
-    labels: ['05-27a','05-27b','05-29','06-04','06-06','06-07','06-09','06-10','06-13','06-14','06-15'],
+    labels: ['05-27a','05-27b','05-29','06-04','06-06','06-07','06-09','06-10','06-13','06-14','06-15','06-16'],
     datasets: [{
       label: '累计项目',
-      data: [46,52,53,54,55,56,57,58,59,60,61],
+      data: [46,52,53,54,55,56,57,58,59,60,61,73],
       borderColor: '#38bdf8', tension: 0.3, fill: false
     },{
       label: '累计改进项',
-      data: [71,81,84,87,90,93,96,101,105,111,117],
+      data: [71,81,84,87,90,93,96,101,105,111,117,121],
       borderColor: '#6366f1', tension: 0.3, fill: false
     }]
   },
