@@ -812,6 +812,51 @@
         "P1": 2,
         "P2": 1
       }
+    },
+    {
+      "name": "garrytan/gbrain",
+      "url": "https://github.com/garrytan/gbrain",
+      "stars": 16000,
+      "relevance": 26,
+      "key_innovations": [
+        "零LLM成本自连线知识图谱(纯模式匹配)",
+        "缺口分析(GapAnalysis)—标注陈旧度/矛盾/空洞",
+        "混合搜索管线(向量+BM25+RRF+图谱信号)",
+        "双引擎架构(PGLite↔Postgres同一接口)",
+        "Schema包系统(15种DRY/MECE可演化类型)",
+        "Minions持久化作业队列(崩溃恢复+速率租约)"
+      ],
+      "analyzed_at": "2026-06-17T08:50:00",
+      "language": "TypeScript",
+      "report_path": ".workbuddy/daily_learning/2026-06-17_gbrain.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      }
+    },
+    {
+      "name": "comet-ml/opik",
+      "url": "https://github.com/comet-ml/opik",
+      "stars": 19694,
+      "relevance": 17,
+      "key_innovations": [
+        "生产级全链路追踪(40M+ traces/day)",
+        "LLM-as-Judge自动评估(幻觉/内容审核/RAG)",
+        "CI/CD集成评估(PyTest插件)",
+        "零侵入@opik.track装饰器+嵌套调用追踪",
+        "Prompt Playground多模型对比实验",
+        "Agent Optimizer+Guardrails"
+      ],
+      "analyzed_at": "2026-06-19T08:50:00",
+      "language": "Python",
+      "report_path": ".workbuddy/daily_learning/2026-06-19_opik.md",
+      "improvements_count": 4,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2
+      }
     }
   ],
   "improvements": [
@@ -2175,9 +2220,99 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-06-16T09:00:34"
+    },
+    {
+      "id": "gbrain-kg-0617",
+      "source": "garrytan/gbrain",
+      "priority": "P0",
+      "module": "memory",
+      "suggestion": "借鉴GBrain零LLM自连线知识图谱—从MEMORY.md的[SECTION]/wiki链接/表格自动提取实体+类型化关系(attended/works_at/mentions)，纯模式匹配零API成本",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-17T08:50:00"
+    },
+    {
+      "id": "gbrain-gap-0617",
+      "source": "garrytan/gbrain",
+      "priority": "P0",
+      "module": "memory",
+      "suggestion": "借鉴GBrain缺口分析(GapAnalysis)—查询时自动标注信息陈旧度(>30天)、缺失领域、页面间矛盾，输出答案+NOTICE标注而非返回原文",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-17T08:50:00"
+    },
+    {
+      "id": "gbrain-hybrid-0617",
+      "source": "garrytan/gbrain",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴GBrain混合搜索管线—文件glob→文本嵌入向量化+BM25关键词+RRF融合+图谱信号提升，三步检索替代当前单步文件读取",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-17T08:50:00"
+    },
+    {
+      "id": "gbrain-schema-0617",
+      "source": "garrytan/gbrain",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴GBrain Schema包系统—为MEMORY.md引入15种DRY/MECE类型分类法([USER]/[PROJECT]/[TECH]等)+schema migrate命令支持结构演化",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-17T08:50:00"
+    },
+    {
+      "id": "gbrain-jobs-0617",
+      "source": "garrytan/gbrain",
+      "priority": "P2",
+      "module": "evolution",
+      "suggestion": "借鉴GBrain Minions持久化作业队列—为进化引擎添加两阶段任务持久化(pending→done)+崩溃恢复+子任务级联超时，替代当前即发即弃脚本",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-17T08:50:00"
+    },
+    {
+      "id": "opik-judge-0619",
+      "source": "comet-ml/opik",
+      "priority": "P0",
+      "module": "observability",
+      "suggestion": "借鉴Opik LLM-as-Judge评估指标，为eval_observability_skill添加幻觉检测(hallucination_score)、内容审核(moderation_score)、RAG评估(relevance/context_precision)，用单次LLM调用实现，替代人工评测",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-19T08:50:00"
+    },
+    {
+      "id": "opik-prod-trace-0619",
+      "source": "comet-ml/opik",
+      "priority": "P0",
+      "module": "observability",
+      "suggestion": "借鉴Opik生产级Trace(40M+/day)+实时仪表盘，升级Claw eval_observability_skill为生产级追踪：trace/span结构化存储+反馈评分API+实时Chart.js仪表盘+批量异步写入",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-19T08:50:00"
+    },
+    {
+      "id": "opik-cicd-0619",
+      "source": "comet-ml/opik",
+      "priority": "P1",
+      "module": "evaluation",
+      "suggestion": "借鉴Opik PyTest插件+CI/CD集成评估，创建pytest-claw fixture，支持@pytest.mark.eval标记测试用例自动跑LLM评估指标，集成到进化引擎质量门禁",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-19T08:50:00"
+    },
+    {
+      "id": "opik-playground-0619",
+      "source": "comet-ml/opik",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "借鉴Opik Prompt Playground，为model_scheduler添加提示词实验场，支持多模型多提示词并行对比实验，输出评分+成本+延迟对比表",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-19T08:50:00"
     }
   ],
-  "last_updated": "2026-06-14T08:50:00.000000",
+  "last_updated": "2026-06-19T08:50:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -2244,9 +2379,21 @@
       "new_projects": 1,
       "new_improvements": 4,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-06-17T08:50:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-06-19T08:50:00",
+      "new_projects": 1,
+      "new_improvements": 4,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 73,
-  "last_update": "2026-06-16T09:00:34",
+  "total_projects": 75,
+  "last_update": "2026-06-17T08:50:00",
   "total_improvements": 10
 }
