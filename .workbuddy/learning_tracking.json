@@ -879,6 +879,29 @@
         "P1": 2,
         "P2": 1
       }
+    },
+    {
+      "name": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "stars": 200203,
+      "relevance": 29,
+      "key_innovations": [
+        "内置学习循环(创建Skill→使用中改进→主动保存)",
+        "/learn万能学习命令(零引擎纯prompt驱动)",
+        "轨迹压缩器(上下文自动管理)",
+        "插件化MCP目录(声明式manifest)",
+        "ACP跨Agent通信协议",
+        "多表面统一Gateway架构(CLI/TUI/Desktop/Telegram/Discord)"
+      ],
+      "analyzed_at": "2026-06-24T08:50:00",
+      "language": "Python",
+      "report_path": ".workbuddy/daily_learning/2026-06-24_hermes_agent.md",
+      "improvements_count": 4,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 1,
+        "P2": 1
+      }
     }
   ],
   "improvements": [
@@ -2382,9 +2405,49 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-06-23T08:50:00"
+    },
+    {
+      "id": "ha-learn-0624",
+      "source": "NousResearch/hermes-agent",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "借鉴Hermes /learn命令(零引擎纯prompt驱动)，为Claw实现对话内自动Skill提取，支持目录/URL/对话流/粘贴笔记→标准化SKILL.md，无需手动编写",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-24T08:50:00"
+    },
+    {
+      "id": "ha-ongoing-loop-0624",
+      "source": "NousResearch/hermes-agent",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "借鉴Hermes内置持续学习循环(create→improve→nudge)，将Claw夜间批处理进化引擎升级为在线持续进化：每次对话后自动检查是否生成新Skill/改进现有Skill/保存知识",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-24T08:50:00"
+    },
+    {
+      "id": "ha-compress-0624",
+      "source": "NousResearch/hermes-agent",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "借鉴Hermes轨迹压缩器(Trajectory Compressor)，为Claw记忆系统添加上下文自动压缩能力：长对话摘要+关键信息保留+旧对话归档，缓解纯文件存储膨胀",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-24T08:50:00"
+    },
+    {
+      "id": "ha-mcp-catalog-0624",
+      "source": "NousResearch/hermes-agent",
+      "priority": "P2",
+      "module": "tool_system",
+      "suggestion": "借鉴Hermes optional-mcps/声明式manifest目录结构，重构Claw MCP Connector配置为统一manifest格式(单个YAML描述server/transport/auth)",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-06-24T08:50:00"
     }
   ],
-  "last_updated": "2026-06-19T08:50:00",
+  "last_updated": "2026-06-24T08:50:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -2463,9 +2526,15 @@
       "new_projects": 1,
       "new_improvements": 4,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-06-24T08:50:00",
+      "new_projects": 1,
+      "new_improvements": 4,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 75,
-  "last_update": "2026-06-17T08:50:00",
-  "total_improvements": 10
+  "total_projects": 76,
+  "last_update": "2026-06-24T08:50:00",
+  "total_improvements": 136
 }

@@ -37,33 +37,33 @@
 </head>
 <body>
 <h1>🦞 小龙虾智能进化学习仪表盘</h1>
-<div class="subtitle">最后更新: 2026-06-23 08:50 (第30轮 · 细水长流模式) · agent_core v2.1.0-p1-complete</div>
+<div class="subtitle">最后更新: 2026-06-24 08:50 (第31轮 · 细水长流模式) · agent_core v2.1.0-p1-complete</div>
 
-<div class="milestone">🎯 <strong>里程碑</strong>: 学习 TheDotMack/claude-mem (⭐83.8K) — 跨会话持久化记忆压缩系统，Progressive Disclosure 3层检索+Chroma向量+FTS5混合搜索+5生命周期钩子自动捕获+Web Viewer实时仪表盘，相关度29（记忆系统高度对标）</div>
+<div class="milestone">🎯 <strong>里程碑</strong>: 学习 NousResearch/hermes-agent (⭐200K) — 唯一内置学习循环的自进化Agent，"The agent that grows with you"。核心创新：/learn万能命令(零引擎prompt驱动自动提取Skill)、持续在线学习循环(create→improve→nudge)、轨迹压缩器、多表面统一Gateway、插件化MCP目录、ACP跨Agent协议，相关度29（直接对标Claw进化引擎）</div>
 
 <div class="grid">
   <div class="card">
-    <div class="stat">76</div>
+    <div class="stat">77</div>
     <div class="stat-label">累计学习项目 (本轮+1)</div>
   </div>
   <div class="card">
-    <div class="stat">129</div>
-    <div class="stat-label">累计改进项 (本轮+5)</div>
+    <div class="stat">136</div>
+    <div class="stat-label">累计改进项 (本轮+4)</div>
   </div>
   <div class="card">
-    <div class="stat">74.4%</div>
-    <div class="stat-label">总实施率 (96/129)</div>
+    <div class="stat">72.1%</div>
+    <div class="stat-label">总实施率 (98/136)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p0">26<span style="font-size:0.5em;color:#94a3b8">/38</span></div>
-    <div class="stat-label">P0 实施率 (68.4%)</div>
+    <div class="stat stat-p0">26<span style="font-size:0.5em;color:#94a3b8">/40</span></div>
+    <div class="stat-label">P0 实施率 (65.0%)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p1">70<span style="font-size:0.5em;color:#94a3b8">/85</span></div>
-    <div class="stat-label">P1 实施率 (82.4%)</div>
+    <div class="stat stat-p1">70<span style="font-size:0.5em;color:#94a3b8">/87</span></div>
+    <div class="stat-label">P1 实施率 (80.5%)</div>
   </div>
   <div class="card">
-    <div class="stat stat-p2">0<span style="font-size:0.5em;color:#94a3b8">/6</span></div>
+    <div class="stat stat-p2">0<span style="font-size:0.5em;color:#94a3b8">/8</span></div>
     <div class="stat-label">P2 实施率 (0%)</div>
   </div>
 </div>
@@ -85,7 +85,14 @@
     <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th><th>核心创新</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>TheDotMack/claude-mem</strong><span class="new-tag">NEW</span></td>
+        <td><strong>NousResearch/hermes-agent</strong><span class="new-tag">NEW</span></td>
+        <td>⭐200k</td>
+        <td class="highlight">29</td>
+        <td>2026-06-24</td>
+        <td>/learn万能命令(零引擎prompt)/持续学习循环(create→improve→nudge)/轨迹压缩器/多表面Gateway/插件化MCP目录/ACP跨Agent协议</td>
+      </tr>
+      <tr>
+        <td><strong>TheDotMack/claude-mem</strong></td>
         <td>⭐83.8k</td>
         <td class="highlight">29</td>
         <td>2026-06-23</td>
@@ -145,43 +152,36 @@
 </div>
 
 <div class="card" style="margin-bottom:20px">
-  <h3>🆕 本轮新增改进项 (P0×2 + P1×2 + P2×1)</h3>
+  <h3>🆕 本轮新增改进项 (P0×2 + P1×1 + P2×1)</h3>
   <table>
     <thead><tr><th>ID</th><th>优先级</th><th>模块</th><th>建议</th><th>状态</th></tr></thead>
     <tbody>
       <tr>
-        <td>cmem-progressive-0623</td>
+        <td>ha-learn-0624</td>
         <td><span class="p0-badge">P0</span></td>
-        <td>memory</td>
-        <td>Progressive Disclosure 3层记忆检索(search→timeline→get_observations)</td>
+        <td>skill_system</td>
+        <td>/learn命令自动Skill提取(目录/URL/对话流→标准化SKILL.md)</td>
         <td><span class="pending-badge">pending</span></td>
       </tr>
       <tr>
-        <td>cmem-hybrid-0623</td>
+        <td>ha-ongoing-loop-0624</td>
         <td><span class="p0-badge">P0</span></td>
-        <td>memory</td>
-        <td>Chroma向量+SQLite FTS5混合搜索替换纯文件glob</td>
+        <td>agent_orchestration</td>
+        <td>升级进化引擎到持续在线学习循环(对话后自动Skill改进检查)</td>
         <td><span class="pending-badge">pending</span></td>
       </tr>
       <tr>
-        <td>cmem-hooks-0623</td>
+        <td>ha-compress-0624</td>
         <td><span class="p1-badge">P1</span></td>
         <td>memory</td>
-        <td>PostToolUse自动化记忆捕获钩子</td>
+        <td>轨迹压缩器自动摘要+关键保留+旧对话归档</td>
         <td><span class="pending-badge">pending</span></td>
       </tr>
       <tr>
-        <td>cmem-dashboard-0623</td>
-        <td><span class="p1-badge">P1</span></td>
-        <td>observability</td>
-        <td>Memory Web Dashboard实时记忆流可视化</td>
-        <td><span class="pending-badge">pending</span></td>
-      </tr>
-      <tr>
-        <td>cmem-privacy-0623</td>
+        <td>ha-mcp-catalog-0624</td>
         <td><span class="p2-badge">P2</span></td>
-        <td>memory</td>
-        <td>&lt;private&gt;标签自动脱敏</td>
+        <td>tool_system</td>
+        <td>MCP Connector声明式manifest格式统一</td>
         <td><span class="pending-badge">pending</span></td>
       </tr>
     </tbody>
@@ -189,7 +189,7 @@
 </div>
 
 <div class="footer">
-  第30轮智能进化学习 · 细水长流模式 · 学习频率: 每天1项目 · 累计: 76项目 / 129改进项 / 96已实施
+  第31轮智能进化学习 · 细水长流模式 · 学习频率: 每天1项目 · 累计: 77项目 / 136改进项 / 98已实施
 </div>
 
 <script>
@@ -199,7 +199,7 @@ new Chart(document.getElementById('priorityChart'), {
   data: {
     labels: ['P0 Done', 'P0 Pending', 'P1 Done', 'P1 Pending', 'P2 Pending'],
     datasets: [{
-      data: [26, 12, 70, 15, 6],
+      data: [26, 14, 70, 17, 8],
       backgroundColor: ['#ef4444', '#fca5a5', '#f59e0b', '#fcd34d', '#4ade80'],
       borderWidth: 2,
       borderColor: '#1e293b'
@@ -221,11 +221,11 @@ new Chart(document.getElementById('priorityChart'), {
 new Chart(document.getElementById('trendChart'), {
   type: 'line',
   data: {
-    labels: ['06-10','06-13','06-14','06-15','06-16','06-17','06-19','06-23'],
+    labels: ['06-10','06-13','06-14','06-15','06-16','06-17','06-19','06-23','06-24'],
     datasets: [
       {
         label: '项目数',
-        data: [68,69,70,71,72,73,75,76],
+        data: [68,69,70,71,72,73,75,76,77],
         borderColor: '#38bdf8',
         backgroundColor: '#38bdf833',
         fill: true,
@@ -233,7 +233,7 @@ new Chart(document.getElementById('trendChart'), {
       },
       {
         label: '改进项',
-        data: [110,113,118,124,128,133,124,129],
+        data: [110,113,118,124,128,133,124,129,136],
         borderColor: '#f59e0b',
         backgroundColor: '#f59e0b33',
         fill: true,
