@@ -3,258 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小龙虾智能进化学习仪表盘</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>Claw 智能进化仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
-  :root {
-    --bg: #0f172a; --card-bg: #1e293b; --text: #e2e8f0; --accent: #38bdf8;
-    --p0: #ef4444; --p1: #f59e0b; --p2: #22c55e; --done: #6366f1;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; padding:20px; }
-  h1 { font-size:1.8em; margin-bottom:5px; }
-  .subtitle { color:#94a3b8; margin-bottom:25px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:20px; }
-  .card { background:var(--card-bg); border-radius:12px; padding:20px; }
-  .stat { font-size:2.4em; font-weight:700; }
-  .stat-label { color:#94a3b8; font-size:0.85em; margin-top:4px; }
-  .stat-p0 { color:var(--p0); } .stat-p1 { color:var(--p1); } .stat-p2 { color:var(--p2); }
-  .p0-badge { background:var(--p0); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
-  .p1-badge { background:var(--p1); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
-  .p2-badge { background:var(--p2); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
-  .done-badge { background:var(--done); color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
-  .pending-badge { background:#475569; color:white; padding:2px 8px; border-radius:4px; font-size:0.75em; }
-  .new-tag { background:#ec4899; color:white; padding:1px 6px; border-radius:3px; font-size:0.7em; margin-left:6px; }
-  .highlight { color:#fbbf24; font-weight:600; }
-  table { width:100%; border-collapse:collapse; }
-  th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #334155; font-size:0.92em; }
-  th { color:#94a3b8; font-size:0.8em; text-transform:uppercase; }
-  .chart-container { width:100%; max-height:300px; margin-top:10px; }
-  h3 { margin-bottom:12px; }
-  .footer { text-align:center; color:#64748b; margin-top:30px; font-size:0.85em; }
-  .milestone { background:linear-gradient(135deg,#6366f133,#38bdf833); border-left:3px solid #38bdf8; padding:12px 16px; border-radius:8px; margin-bottom:16px; font-size:0.92em; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:20px}
+.header{text-align:center;padding:20px 0;border-bottom:1px solid #334155}
+.header h1{font-size:28px;color:#38bdf8}
+.header .subtitle{color:#94a3b8;margin-top:8px}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:20px 0}
+.stat-card{background:#1e293b;border-radius:12px;padding:20px;text-align:center;border:1px solid #334155}
+.stat-card .label{color:#94a3b8;font-size:12px;margin-bottom:8px}
+.stat-card .value{font-size:28px;font-weight:bold;color:#38bdf8}
+.stat-card .sub{color:#64748b;font-size:11px;margin-top:4px}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
+.chart-box{background:#1e293b;border-radius:12px;padding:20px;border:1px solid #334155}
+.chart-box h3{color:#38bdf8;margin-bottom:12px;font-size:16px}
+.projects-section{background:#1e293b;border-radius:12px;padding:20px;border:1px solid #334155;margin:20px 0}
+.projects-section h3{color:#38bdf8;margin-bottom:12px}
+.project-item{display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #334155}
+.project-item:last-child{border-bottom:none}
+.project-name{color:#e2e8f0;font-weight:500}
+.project-stars{color:#94a3b8}
+.project-rel{color:#22d3ee;font-weight:bold}
+.improvements-section{background:#1e293b;border-radius:12px;padding:20px;border:1px solid #334155;margin:20px 0}
+.improvements-section h3{color:#38bdf8;margin-bottom:12px}
+.imp-item{display:flex;align-items:center;padding:8px;border-bottom:1px solid #334155}
+.imp-item:last-child{border-bottom:none}
+.imp-badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:bold;margin-right:12px}
+.imp-badge.P0{background:#ef4444;color:#fff}
+.imp-badge.P1{background:#f59e0b;color:#fff}
+.imp-badge.P2{background:#22c55e;color:#fff}
+.imp-badge.done{background:#334155;color:#94a3b8}
+.imp-badge.pending{background:#475569;color:#e2e8f0}
+.imp-text{color:#e2e8f0;font-size:13px}
+.imp-source{color:#64748b;font-size:11px;margin-left:auto}
+.footer{text-align:center;padding:20px;color:#475569;font-size:12px}
 </style>
 </head>
 <body>
-<h1>🦞 小龙虾智能进化学习仪表盘</h1>
-<div class="subtitle">最后更新: 2026-06-24 08:50 (第31轮 · 细水长流模式) · agent_core v2.1.0-p1-complete</div>
-
-<div class="milestone">🎯 <strong>里程碑</strong>: 学习 NousResearch/hermes-agent (⭐200K) — 唯一内置学习循环的自进化Agent，"The agent that grows with you"。核心创新：/learn万能命令(零引擎prompt驱动自动提取Skill)、持续在线学习循环(create→improve→nudge)、轨迹压缩器、多表面统一Gateway、插件化MCP目录、ACP跨Agent协议，相关度29（直接对标Claw进化引擎）</div>
-
-<div class="grid">
-  <div class="card">
-    <div class="stat">77</div>
-    <div class="stat-label">累计学习项目 (本轮+1)</div>
-  </div>
-  <div class="card">
-    <div class="stat">136</div>
-    <div class="stat-label">累计改进项 (本轮+4)</div>
-  </div>
-  <div class="card">
-    <div class="stat">72.1%</div>
-    <div class="stat-label">总实施率 (98/136)</div>
-  </div>
-  <div class="card">
-    <div class="stat stat-p0">26<span style="font-size:0.5em;color:#94a3b8">/40</span></div>
-    <div class="stat-label">P0 实施率 (65.0%)</div>
-  </div>
-  <div class="card">
-    <div class="stat stat-p1">70<span style="font-size:0.5em;color:#94a3b8">/87</span></div>
-    <div class="stat-label">P1 实施率 (80.5%)</div>
-  </div>
-  <div class="card">
-    <div class="stat stat-p2">0<span style="font-size:0.5em;color:#94a3b8">/8</span></div>
-    <div class="stat-label">P2 实施率 (0%)</div>
-  </div>
+<div class="header">
+<h1>🦞 Claw 智能进化仪表盘</h1>
+<div class="subtitle">AI/Agent 学习追踪系统 — 细水长流模式 | 最后更新: 2026-06-25</div>
 </div>
 
-<div class="grid">
-  <div class="card">
-    <h3>📊 改进项分布</h3>
-    <div class="chart-container"><canvas id="priorityChart"></canvas></div>
-  </div>
-  <div class="card">
-    <h3>📈 学习趋势 (近10轮)</h3>
-    <div class="chart-container"><canvas id="trendChart"></canvas></div>
-  </div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="label">学习项目</div>
+<div class="value">78</div>
+<div class="sub">累计覆盖</div>
+</div>
+<div class="stat-card">
+<div class="label">改进项总数</div>
+<div class="value">138</div>
+<div class="sub">P0:42 P1:88 P2:8</div>
+</div>
+<div class="stat-card">
+<div class="label">已实施</div>
+<div class="value">96</div>
+<div class="sub">实施率 69.6%</div>
+</div>
+<div class="stat-card">
+<div class="label">待实施</div>
+<div class="value">42</div>
+<div class="sub">P0:16 P1:18 P2:8</div>
+</div>
+<div class="stat-card">
+<div class="label">进化轮次</div>
+<div class="value">29</div>
+<div class="sub">持续进化</div>
+</div>
 </div>
 
-<div class="card" style="margin-bottom:20px">
-  <h3>🏆 最新学习项目</h3>
-  <table>
-    <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th><th>核心创新</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>NousResearch/hermes-agent</strong><span class="new-tag">NEW</span></td>
-        <td>⭐200k</td>
-        <td class="highlight">29</td>
-        <td>2026-06-24</td>
-        <td>/learn万能命令(零引擎prompt)/持续学习循环(create→improve→nudge)/轨迹压缩器/多表面Gateway/插件化MCP目录/ACP跨Agent协议</td>
-      </tr>
-      <tr>
-        <td><strong>TheDotMack/claude-mem</strong></td>
-        <td>⭐83.8k</td>
-        <td class="highlight">29</td>
-        <td>2026-06-23</td>
-        <td>Progressive Disclosure 3层检索 / Chroma+FTS5混合搜索 / 5生命周期钩子 / Web Viewer实时仪表盘 / Privacy标签</td>
-      </tr>
-      <tr>
-        <td><strong>comet-ml/opik</strong></td>
-        <td>⭐19.7k</td>
-        <td class="highlight">17</td>
-        <td>2026-06-19</td>
-        <td>生产级40M+Trace/日 / LLM-as-Judge / CI/CD PyTest插件 / Prompt Playground / Agent Optimizer</td>
-      </tr>
-      <tr>
-        <td><strong>garrytan/gbrain</strong></td>
-        <td>⭐16.0k</td>
-        <td class="highlight">26</td>
-        <td>2026-06-17</td>
-        <td>零LLM自连线知识图谱 / 缺口分析 / 混合搜索(向量+BM25+RRF) / Schema包系统 / Minions持久化作业</td>
-      </tr>
-      <tr>
-        <td><strong>langchain-ai/langchain</strong></td>
-        <td>⭐132k</td>
-        <td class="highlight">28</td>
-        <td>2026-06-16</td>
-        <td>分层抽象(DeepAgents/LangGraph) / 模型互操作 / 全生命周期平台化 / 标准接口优先</td>
-      </tr>
-      <tr>
-        <td>raga-ai-hub/RagaAI-Catalyst</td>
-        <td>⭐16.2k</td>
-        <td>27</td>
-        <td>2026-06-15</td>
-        <td>Agentic Tracing 5维 / GuardExecutor实时护栏 / Red-teaming / 时间线+执行图 / 自动插桩</td>
-      </tr>
-      <tr>
-        <td>browser-use/browser-use</td>
-        <td>⭐98.7k</td>
-        <td>25</td>
-        <td>2026-06-14</td>
-        <td>Rust Core 3-5x提速 / 双轨代理 / ChatBrowserUse统一Key / Resume循环 / @tools.action命名空间</td>
-      </tr>
-      <tr>
-        <td>pydantic/pydantic-ai</td>
-        <td>⭐17.7k</td>
-        <td>28</td>
-        <td>2026-06-13</td>
-        <td>RunContext泛型 / Deferred Approval / Graph状态机 / enqueue() / A2A Protocol</td>
-      </tr>
-      <tr>
-        <td>agno-agi/agno</td>
-        <td>⭐40.6k</td>
-        <td>27</td>
-        <td>2026-06-10</td>
-        <td>三层委托策略 / 团队共享会话 / 5类自动工具解析 / 嵌套团队递归 / LearningMachine跨Agent共享</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="charts-row">
+<div class="chart-box">
+<h3>改进项实施率 (按优先级)</h3>
+<canvas id="priorityChart" height="200"></canvas>
+</div>
+<div class="chart-box">
+<h3>模块改进分布</h3>
+<canvas id="moduleChart" height="200"></canvas>
+</div>
 </div>
 
-<div class="card" style="margin-bottom:20px">
-  <h3>🆕 本轮新增改进项 (P0×2 + P1×1 + P2×1)</h3>
-  <table>
-    <thead><tr><th>ID</th><th>优先级</th><th>模块</th><th>建议</th><th>状态</th></tr></thead>
-    <tbody>
-      <tr>
-        <td>ha-learn-0624</td>
-        <td><span class="p0-badge">P0</span></td>
-        <td>skill_system</td>
-        <td>/learn命令自动Skill提取(目录/URL/对话流→标准化SKILL.md)</td>
-        <td><span class="pending-badge">pending</span></td>
-      </tr>
-      <tr>
-        <td>ha-ongoing-loop-0624</td>
-        <td><span class="p0-badge">P0</span></td>
-        <td>agent_orchestration</td>
-        <td>升级进化引擎到持续在线学习循环(对话后自动Skill改进检查)</td>
-        <td><span class="pending-badge">pending</span></td>
-      </tr>
-      <tr>
-        <td>ha-compress-0624</td>
-        <td><span class="p1-badge">P1</span></td>
-        <td>memory</td>
-        <td>轨迹压缩器自动摘要+关键保留+旧对话归档</td>
-        <td><span class="pending-badge">pending</span></td>
-      </tr>
-      <tr>
-        <td>ha-mcp-catalog-0624</td>
-        <td><span class="p2-badge">P2</span></td>
-        <td>tool_system</td>
-        <td>MCP Connector声明式manifest格式统一</td>
-        <td><span class="pending-badge">pending</span></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="projects-section">
+<h3>🏆 最近学习项目 (Top 10)</h3>
+<div class="project-item"><span class="project-name">NousResearch/hermes-agent</span><span class="project-stars">⭐200K</span><span class="project-rel">相关度:29</span></div>
+<div class="project-item"><span class="project-name">TheDotMack/claude-mem</span><span class="project-stars">⭐83.8K</span><span class="project-rel">相关度:29</span></div>
+<div class="project-item"><span class="project-name">pydantic/pydantic-ai</span><span class="project-stars">⭐17.7K</span><span class="project-rel">相关度:28</span></div>
+<div class="project-item"><span class="project-name">langchain-ai/langchain</span><span class="project-stars">⭐132.5K</span><span class="project-rel">相关度:28</span></div>
+<div class="project-item"><span class="project-name">wanxingai/LightAgent</span><span class="project-stars">⭐1K</span><span class="project-rel">相关度:28</span></div>
+<div class="project-item"><span class="project-name">agno-agi/agno</span><span class="project-stars">⭐40.6K</span><span class="project-rel">相关度:27</span></div>
+<div class="project-item"><span class="project-name">mem0ai/mem0</span><span class="project-stars">⭐57.8K</span><span class="project-rel">相关度:27</span></div>
+<div class="project-item"><span class="project-name">raga-ai-hub/RagaAI-Catalyst</span><span class="project-stars">⭐16.2K</span><span class="project-rel">相关度:27</span></div>
+<div class="project-item"><span class="project-name">garrytan/gbrain</span><span class="project-stars">⭐16K</span><span class="project-rel">相关度:26</span></div>
+<div class="project-item"><span class="project-name">🆕 topoteretes/cognee</span><span class="project-stars">⭐21.6K</span><span class="project-rel">相关度:23</span></div>
+</div>
+
+<div class="improvements-section">
+<h3>📋 本轮新增改进项 (cognee)</h3>
+<div class="imp-item"><span class="imp-badge P0">P0</span><span class="imp-badge pending">pending</span><span class="imp-text">remember/recall/forget/improve四操作记忆API</span><span class="imp-source">cognee</span></div>
+<div class="imp-item"><span class="imp-badge P0">P0</span><span class="imp-badge pending">pending</span><span class="imp-text">Session+Permanent双层级记忆架构</span><span class="imp-source">cognee</span></div>
+<div class="imp-item"><span class="imp-badge P1">P1</span><span class="imp-badge pending">pending</span><span class="imp-text">5个生命周期钩子自动管理记忆</span><span class="imp-source">cognee</span></div>
+<div class="imp-item"><span class="imp-badge P1">P1</span><span class="imp-badge pending">pending</span><span class="imp-text">代码图谱管道(解析代码仓库为调用图)</span><span class="imp-source">cognee</span></div>
+<div class="imp-item"><span class="imp-badge P2">P2</span><span class="imp-badge pending">pending</span><span class="imp-text">认知本体自动生成</span><span class="imp-source">cognee</span></div>
 </div>
 
 <div class="footer">
-  第31轮智能进化学习 · 细水长流模式 · 学习频率: 每天1项目 · 累计: 77项目 / 136改进项 / 98已实施
+Claw 智能进化学习系统 v2.1 | 第29轮 | 细水长流模式 | Powered by WorkBuddy
 </div>
 
 <script>
-// Priority distribution chart
-new Chart(document.getElementById('priorityChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['P0 Done', 'P0 Pending', 'P1 Done', 'P1 Pending', 'P2 Pending'],
-    datasets: [{
-      data: [26, 14, 70, 17, 8],
-      backgroundColor: ['#ef4444', '#fca5a5', '#f59e0b', '#fcd34d', '#4ade80'],
-      borderWidth: 2,
-      borderColor: '#1e293b'
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: { color: '#94a3b8', padding: 10, font: { size: 11 } }
-      }
-    }
-  }
-});
+const pCtx=document.getElementById('priorityChart').getContext('2d');
+new Chart(pCtx,{type:'bar',data:{labels:['P0','P1','P2'],datasets:[{label:'已实施',data:[26,70,0],backgroundColor:'#22d3ee'},{label:'待实施',data:[16,18,8],backgroundColor:'#475569'}]},options:{responsive:true,plugins:{legend:{labels:{color:'#e2e8f0'}}},scales:{x:{ticks:{color:'#94a3b8'}},y:{ticks:{color:'#94a3b8'}}}}});
 
-// Learning trend (last 10 rounds)
-new Chart(document.getElementById('trendChart'), {
-  type: 'line',
-  data: {
-    labels: ['06-10','06-13','06-14','06-15','06-16','06-17','06-19','06-23','06-24'],
-    datasets: [
-      {
-        label: '项目数',
-        data: [68,69,70,71,72,73,75,76,77],
-        borderColor: '#38bdf8',
-        backgroundColor: '#38bdf833',
-        fill: true,
-        tension: 0.3
-      },
-      {
-        label: '改进项',
-        data: [110,113,118,124,128,133,124,129,136],
-        borderColor: '#f59e0b',
-        backgroundColor: '#f59e0b33',
-        fill: true,
-        tension: 0.3
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } },
-      y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' }, beginAtZero: false }
-    },
-    plugins: {
-      legend: {
-        labels: { color: '#94a3b8', font: { size: 11 } }
-      }
-    }
-  }
-});
+const mCtx=document.getElementById('moduleChart').getContext('2d');
+new Chart(mCtx,{type:'doughnut',data:{labels:['agent_orchestration','memory','tool_system','knowledge_retrieval','skill_system','observability','evaluation'],datasets:[{data:[20,15,39,13,3,6,2],backgroundColor:['#ef4444','#f59e0b','#22d3ee','#22c55e','#a78bfa','#fb923c','#64748b']}]},options:{responsive:true,plugins:{legend:{labels:{color:'#e2e8f0',font:{size:11}}}}}});
 </script>
 </body>
 </html>
