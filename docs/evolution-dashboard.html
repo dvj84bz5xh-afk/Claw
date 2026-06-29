@@ -28,61 +28,180 @@ table { width: 100%; border-collapse: collapse; }
 th { background: #21262d; color: #58a6ff; padding: 10px; text-align: left; font-size: 13px; }
 td { padding: 10px; border-bottom: 1px solid #30363d; font-size: 13px; }
 .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+.tag-p0 { background: #f8514922; color: #f85149; }
+.tag-p1 { background: #d2992222; color: #d29922; }
+.tag-p2 { background: #3fb95022; color: #3fb950; }
+.tag-done { background: #3fb95022; color: #3fb950; }
 .tag-pending { background: #30363d; color: #8b949e; }
 .highlight { background: #161b22; border: 1px solid #58a6ff; border-radius: 8px; padding: 16px; margin-bottom: 24px; }
 .highlight-title { color: #58a6ff; font-size: 18px; margin-bottom: 8px; }
 .highlight-desc { color: #c9d1d9; font-size: 14px; line-height: 1.6; }
+.module-section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+.module-title { color: #58a6ff; font-size: 16px; margin-bottom: 12px; }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>Claw Evolution Dashboard</h1>
-<p class="subtitle">智能进化学习系统 - 第30轮更新 | 2026-06-26 09:04</p>
+<h1>🦞 Claw Evolution Dashboard</h1>
+<p class="subtitle">智能进化学习系统 - 第31轮更新 | 2026-06-29 08:50</p>
+
 <div class="highlight">
-<div class="highlight-title">本轮学习: a2aproject/A2A (24467K stars, 相关度29)</div>
-<div class="highlight-desc">A2A Agent-to-Agent开放协议 - 传输无关设计 + AgentCard能力发现 + Task生命周期 + 不透明性原则 + A2A/MCP互补。新增5项改进(P0x2, P1x2, P2x1)</div>
+<div class="highlight-title">🔥 本轮学习: ModelEngine-Group/nexent (⭐5.4K, 相关度34)</div>
+<div class="highlight-desc">
+零代码AI Agent生成平台(Harness Engineering原则) — Progressive Skill Disclosure按需Skill注入 + 零代码Agent自然语言生成 + 双层记忆(user+user-agent) + A2A协议原生 + Agent版本管理 + 知识级溯源。<br>
+<strong>新增6项改进(P0×2, P1×3, P2×1)</strong> — 核心突破：Skill按需注入可节省60-80%上下文窗口
 </div>
+</div>
+
 <div class="grid">
-<div class="card"><div class="card-title">项目总数</div><div class="stat">79</div><div class="stat-label">已分析的GitHub项目</div></div>
-<div class="card"><div class="card-title">改进项总数</div><div class="stat">143</div><div class="stat-label">96 已实施 / 47 待实施</div><div class="progress-bar"><div class="progress-fill total-fill" style="width:67%"></div></div></div>
-<div class="card"><div class="card-title">总实施率</div><div class="stat">67.1%</div><div class="stat-label">96/143 已完成</div></div>
+<div class="card"><div class="card-title">📊 项目总数</div><div class="stat">80</div><div class="stat-label">已分析的GitHub项目</div></div>
+<div class="card"><div class="card-title">📈 改进项总数</div><div class="stat">149</div><div class="stat-label">96 已实施 / 53 待实施</div><div class="progress-bar"><div class="progress-fill total-fill" style="width:64.4%"></div></div></div>
+<div class="card"><div class="card-title">🎯 总实施率</div><div class="stat">64.4%</div><div class="stat-label">96/149 已完成</div></div>
 </div>
+
 <div class="grid">
-<div class="card"><div class="card-title">P0 (紧急)</div><div class="stat">26/44</div><div class="stat-label">18 项待实施</div><div class="progress-bar"><div class="progress-fill p0-fill" style="width:59%"></div></div></div>
-<div class="card"><div class="card-title">P1 (重要)</div><div class="stat">70/90</div><div class="stat-label">20 项待实施</div><div class="progress-bar"><div class="progress-fill p1-fill" style="width:78%"></div></div></div>
-<div class="card"><div class="card-title">P2 (优化)</div><div class="stat">0/9</div><div class="stat-label">9 项待实施</div><div class="progress-bar"><div class="progress-fill p2-fill" style="width:0%"></div></div></div>
+<div class="card">
+<div class="card-title">🔴 P0 实施率</div>
+<div class="stat">56.5%</div>
+<div class="stat-label">26/46 已实施</div>
+<div class="progress-bar"><div class="progress-fill p0-fill" style="width:56.5%"></div></div>
 </div>
+<div class="card">
+<div class="card-title">🟡 P1 实施率</div>
+<div class="stat">75.3%</div>
+<div class="stat-label">70/93 已实施</div>
+<div class="progress-bar"><div class="progress-fill p1-fill" style="width:75.3%"></div></div>
+</div>
+<div class="card">
+<div class="card-title">🟢 P2 实施率</div>
+<div class="stat">0%</div>
+<div class="stat-label">0/10 已实施</div>
+<div class="progress-bar"><div class="progress-fill p2-fill" style="width:0%"></div></div>
+</div>
+</div>
+
 <div class="chart-row">
-<div class="chart-container"><div class="card-title">模块分布</div><canvas id="moduleChart" height="300"></canvas></div>
-<div class="chart-container"><div class="card-title">相关度趋势</div><canvas id="trendChart" height="300"></canvas></div>
+<div class="chart-container">
+<div class="card-title">📈 学习轮次趋势（最近10轮）</div>
+<canvas id="roundChart" height="220"></canvas>
 </div>
-<div class="card"><div class="card-title">最高相关度项目 (Top 10)</div><table><tr><th>项目</th><th>星数</th><th>相关度</th><th>语言</th><th>分析日期</th></tr><tr><td>TheDotMack/claude-mem</td><td>83764</td><td><b>29</b></td><td>JavaScript</td><td>2026-06-23</td></tr>
-<tr><td>NousResearch/hermes-agent</td><td>200203</td><td><b>29</b></td><td>Python</td><td>2026-06-24</td></tr>
-<tr><td>a2aproject/A2A</td><td>24467</td><td><b>29</b></td><td>Protocol (proto</td><td>2026-06-26</td></tr>
-<tr><td>wanxingai/LightAgent</td><td>1005</td><td><b>28</b></td><td>Python</td><td>2026-05-27</td></tr>
-<tr><td>pydantic/pydantic-ai</td><td>17729</td><td><b>28</b></td><td>Python</td><td>2026-06-13</td></tr>
-<tr><td>langchain-ai/langchain</td><td>132476</td><td><b>28</b></td><td>Python</td><td>2026-06-16</td></tr>
-<tr><td>mem0ai/mem0</td><td>57829</td><td><b>27</b></td><td>Python</td><td>2026-06-06</td></tr>
-<tr><td>agno-agi/agno</td><td>40600</td><td><b>27</b></td><td>Python</td><td>2026-06-10</td></tr>
-<tr><td>raga-ai-hub/RagaAI-Catalyst</td><td>16200</td><td><b>27</b></td><td>Python</td><td>2026-06-15</td></tr>
-<tr><td>langchain4j/langchain4j</td><td>12114</td><td><b>26</b></td><td>N/A</td><td>2026-05-27</td></tr>
-</table></div>
-<div class="card"><div class="card-title">最近学习项目</div><table><tr><th>项目</th><th>星数</th><th>相关度</th><th>改进项</th><th>日期</th></tr><tr><td>a2aproject/A2A</td><td>24467</td><td>29</td><td>5</td><td>2026-06-26</td></tr><tr><td>topoteretes/cognee</td><td>21626</td><td>23</td><td>5</td><td>2026-06-25</td></tr><tr><td>NousResearch/hermes-agent</td><td>200203</td><td>29</td><td>4</td><td>2026-06-24</td></tr><tr><td>TheDotMack/claude-mem</td><td>83764</td><td>29</td><td>5</td><td>2026-06-23</td></tr><tr><td>comet-ml/opik</td><td>19694</td><td>17</td><td>4</td><td>2026-06-19</td></tr><tr><td>garrytan/gbrain</td><td>16000</td><td>26</td><td>5</td><td>2026-06-17</td></tr><tr><td>langchain-ai/langchain</td><td>132476</td><td>28</td><td>4</td><td>2026-06-16</td></tr><tr><td>raga-ai-hub/RagaAI-Catalyst</td><td>16200</td><td>27</td><td>6</td><td>2026-06-15</td></tr><tr><td>browser-use/browser-use</td><td>98690</td><td>25</td><td>0</td><td>2026-06-14</td></tr><tr><td>pydantic/pydantic-ai</td><td>17729</td><td>28</td><td>0</td><td>2026-06-13</td></tr></table></div>
-<div class="card"><div class="card-title">P0 待实施改进项</div><table><tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr><tr><td>a2a-multi-mo</td><td>a2aproject/A2A</td><td>agent_orchestra</td><td>多模式交互支持：agent_orchestrator增加SSE流式和Webhook异步模式，当前仅同</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>a2a-agent-ca</td><td>a2aproject/A2A</td><td>agent_orchestra</td><td>实现Agent Card能力声明机制，为Claw agent_core添加AgentCard类(na</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>cognee-4op-a</td><td>topoteretes/cognee</td><td>memory</td><td>为Claw记忆系统实现remember/recall/forget/improve四操作API，替代</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>cognee-dual-</td><td>topoteretes/cognee</td><td>memory</td><td>实现Session+Permanent双层级记忆架构，会话快速缓存+后台同步到永久存储</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>ha-learn-062</td><td>NousResearch/hermes-</td><td>skill_system</td><td>借鉴Hermes /learn命令(零引擎纯prompt驱动)，为Claw实现对话内自动Skill提</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>ha-ongoing-l</td><td>NousResearch/hermes-</td><td>agent_orchestra</td><td>借鉴Hermes内置持续学习循环(create→improve→nudge)，将Claw夜间批处理进</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>cmem-progres</td><td>TheDotMack/claude-me</td><td>memory</td><td>实现Progressive Disclosure 3层记忆检索(search→timeline→ge</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>cmem-hybrid-</td><td>TheDotMack/claude-me</td><td>memory</td><td>引入Chroma向量数据库+SQLite FTS5混合搜索，替换纯文件glob查找</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>opik-judge-0</td><td>comet-ml/opik</td><td>observability</td><td>借鉴Opik LLM-as-Judge评估指标，为eval_observability_skill添</td><td><span class="tag tag-pending">pending</span></td></tr>
-<tr><td>opik-prod-tr</td><td>comet-ml/opik</td><td>observability</td><td>借鉴Opik生产级Trace(40M+/day)+实时仪表盘，升级Claw eval_observa</td><td><span class="tag tag-pending">pending</span></td></tr>
-</table></div>
+<div class="chart-container">
+<div class="card-title">📊 改进项分布</div>
+<canvas id="priorityChart" height="220"></canvas>
 </div>
+</div>
+
+<div class="chart-row">
+<div class="chart-container">
+<div class="card-title">🏗️ 模块改进项统计</div>
+<canvas id="moduleChart" height="220"></canvas>
+</div>
+<div class="chart-container">
+<div class="card-title">⭐ 高相关度项目Top 10</div>
+<canvas id="relevanceChart" height="220"></canvas>
+</div>
+</div>
+
+<div class="module-section">
+<div class="module-title">🔥 本轮新增改进项（Round 31 - nexent）</div>
+<table>
+<tr><th>ID</th><th>优先级</th><th>模块</th><th>改进建议</th><th>状态</th></tr>
+<tr><td>nexent-psd</td><td><span class="tag tag-p0">P0</span></td><td>skill_system</td><td>Progressive Skill Disclosure按需注入</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>nexent-zcg</td><td><span class="tag tag-p0">P0</span></td><td>agent_orchestration</td><td>零代码Agent自然语言生成器</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>nexent-version</td><td><span class="tag tag-p1">P1</span></td><td>skill_system</td><td>Agent版本管理(迭代+回滚)</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>nexent-trace</td><td><span class="tag tag-p1">P1</span></td><td>rag_engine</td><td>知识级溯源(精确引用+来源验证)</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>nexent-mem</td><td><span class="tag tag-p1">P1</span></td><td>memory_system</td><td>双层记忆架构优化</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>nexent-market</td><td><span class="tag tag-p2">P2</span></td><td>skill_system</td><td>Agent Marketplace社区策展</td><td><span class="tag tag-pending">pending</span></td></tr>
+</table>
+</div>
+
+<div class="module-section">
+<div class="module-title">📋 最近5轮学习项目</div>
+<table>
+<tr><th>轮次</th><th>项目</th><th>Stars</th><th>相关度</th><th>新增改进</th></tr>
+<tr><td>31</td><td>ModelEngine-Group/nexent</td><td>5,356</td><td>34</td><td>6 (P0×2, P1×3, P2×1)</td></tr>
+<tr><td>30</td><td>a2aproject/A2A</td><td>24,467</td><td>29</td><td>5 (P0×2, P1×2, P2×1)</td></tr>
+<tr><td>29</td><td>topoteretes/cognee</td><td>21,626</td><td>23</td><td>5 (P0×2, P1×2, P2×1)</td></tr>
+<tr><td>28</td><td>NousResearch/hermes-agent</td><td>200,203</td><td>29</td><td>4 (P0×2, P1×1, P2×1)</td></tr>
+<tr><td>27</td><td>TheDotMack/claude-mem</td><td>83,764</td><td>29</td><td>5 (P0×2, P1×2, P2×1)</td></tr>
+</table>
+</div>
+
+<div class="module-section">
+<div class="module-title">⚠️ P0待实施项（20项pending）</div>
+<table>
+<tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th></tr>
+<tr><td>nexent-psd</td><td>nexent</td><td>skill_system</td><td>Progressive Skill Disclosure按需注入</td></tr>
+<tr><td>nexent-zcg</td><td>nexent</td><td>agent_orchestration</td><td>零代码Agent自然语言生成器</td></tr>
+<tr><td>a2a-agent-card</td><td>A2A</td><td>agent_orchestration</td><td>AgentCard能力声明与发现</td></tr>
+<tr><td>a2a-multi-mode</td><td>A2A</td><td>agent_orchestration</td><td>多模式交互(SSE流式+Webhook异步)</td></tr>
+<tr><td>claude-mem-psd</td><td>claude-mem</td><td>skill_system</td><td>Progressive Disclosure 3层MCP搜索</td></tr>
+<tr><td>claude-mem-hooks</td><td>claude-mem</td><td>memory_system</td><td>5生命周期钩子自动捕获</td></tr>
+<tr><td>hermes-learn</td><td>hermes-agent</td><td>skill_system</td><td>/learn万能学习命令</td></tr>
+<tr><td>hermes-compress</td><td>hermes-agent</td><td>agent_orchestration</td><td>轨迹压缩器</td></tr>
+<tr><td>cognee-remember</td><td>cognee</td><td>memory_system</td><td>remember/recall/forget四操作API</td></tr>
+<tr><td>cognee-hooks</td><td>cognee</td><td>memory_system</td><td>5生命周期钩子(SessionStart等)</td></tr>
+</table>
+</div>
+
+</div>
+
 <script>
-const md=[["tool_system", 42], ["knowledge_retrieval", 14], ["agent_orchestration", 41], ["memory", 25], ["evaluation", 3], ["observability", 8], ["skill_system", 6], ["model_scheduler", 3], ["evolution", 1]]; const tp=[{"name": "a2aproject/A2A", "relevance": 29}, {"name": "topoteretes/cognee", "relevance": 23}, {"name": "NousResearch/hermes-", "relevance": 29}, {"name": "TheDotMack/claude-me", "relevance": 29}, {"name": "comet-ml/opik", "relevance": 17}, {"name": "garrytan/gbrain", "relevance": 26}, {"name": "langchain-ai/langcha", "relevance": 28}, {"name": "raga-ai-hub/RagaAI-C", "relevance": 27}, {"name": "browser-use/browser-", "relevance": 25}, {"name": "pydantic/pydantic-ai", "relevance": 28}];
-new Chart(document.getElementById('moduleChart'),{type:'doughnut',data:{labels:md.map(d=>d[0]),datasets:[{data:md.map(d=>d[1]),backgroundColor:['#f85149','#d29922','#3fb950','#58a6ff','#bc8cff','#ff7b72','#79c0ff','#d2a8ff','#a5d6ff','#ffd33d']}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'#c9d1d9'}}}}});
-new Chart(document.getElementById('trendChart'),{type:'bar',data:{labels:tp.map(p=>p.name),datasets:[{label:'相关度',data:tp.map(p=>p.relevance),backgroundColor:'#58a6ff'}]},options:{responsive:true,scales:{y:{beginAtZero:true,grid:{color:'#30363d'},ticks:{color:'#c9d1d9'}},x:{ticks:{color:'#c9d1d9',font:{size:10}}}},plugins:{legend:{labels:{color:'#c9d1d9'}}}}});
+// Round trend chart
+const ctx1 = document.getElementById('roundChart').getContext('2d');
+new Chart(ctx1, {
+  type: 'line',
+  data: {
+    labels: ['R22','R23','R24','R25','R26','R27','R28','R29','R30','R31'],
+    datasets: [{
+      label: '改进项总数',
+      data: [106,110,115,121,127,132,137,143,148,149],
+      borderColor: '#58a6ff', backgroundColor: '#58a6ff22', fill: true
+    }, {
+      label: '已实施',
+      data: [96,96,96,96,96,96,96,96,96,96],
+      borderColor: '#3fb950', backgroundColor: '#3fb95022', fill: true
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { labels: { color: '#c9d1d9' }}}, scales: { x: { ticks: { color: '#8b949e' }}, y: { ticks: { color: '#8b949e' }}}}
+});
+
+// Priority distribution chart
+const ctx2 = document.getElementById('priorityChart').getContext('2d');
+new Chart(ctx2, {
+  type: 'doughnut',
+  data: {
+    labels: ['P0 Done','P0 Pending','P1 Done','P1 Pending','P2 Pending'],
+    datasets: [{ data: [26,20,70,23,10], backgroundColor: ['#f85149','#f8514966','#d29922','#d2992266','#3fb95066'] }]
+  },
+  options: { responsive: true, plugins: { legend: { labels: { color: '#c9d1d9' }}}}
+});
+
+// Module chart
+const ctx3 = document.getElementById('moduleChart').getContext('2d');
+new Chart(ctx3, {
+  type: 'bar',
+  data: {
+    labels: ['agent_orch','skill_sys','tool_sys','memory','rag','knowledge','eval/obs'],
+    datasets: [{
+      label: 'Done', data: [18,2,39,12,13,6,6], backgroundColor: '#3fb950'
+    }, {
+      label: 'Pending', data: [6,8,0,8,1,0,0], backgroundColor: '#8b949e'
+    }]
+  },
+  options: { responsive: true, scales: { x: { stacked: true, ticks: { color: '#8b949e' }}, y: { stacked: true, ticks: { color: '#8b949e' }}}, plugins: { legend: { labels: { color: '#c9d1d9' }}}}
+});
+
+// Relevance top 10
+const ctx4 = document.getElementById('relevanceChart').getContext('2d');
+new Chart(ctx4, {
+  type: 'bar',
+  data: {
+    labels: ['nexent','LightAgent','pydantic-ai','claude-mem','hermes-agent','A2A','openai-agents','mem0','agno','browser-use'],
+    datasets: [{ data: [34,28,28,29,29,29,26,27,27,25], backgroundColor: '#58a6ff' }]
+  },
+  options: { responsive: true, indexAxis: 'y', scales: { x: { ticks: { color: '#8b949e' }}, y: { ticks: { color: '#8b949e', font: { size: 11 }}}}, plugins: { legend: { display: false }}}
+});
 </script>
-</body></html>
+</body>
+</html>

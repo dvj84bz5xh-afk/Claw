@@ -947,6 +947,30 @@
         "P1": 2,
         "P2": 1
       }
+    },
+    {
+      "name": "ModelEngine-Group/nexent",
+      "url": "https://github.com/ModelEngine-Group/nexent",
+      "stars": 5356,
+      "relevance": 34,
+      "key_innovations": [
+        "Zero-Code Agent Generation (自然语言→可执行Agent)",
+        "Progressive Skill Disclosure (按需Skill注入)",
+        "Layered Memory (user+user-agent双层)",
+        "A2A Agent Collaboration Protocol",
+        "Agent Version Management (迭代+回滚)",
+        "Knowledge-Level Traceability (精确引用+来源验证)",
+        "Agent Marketplace (社区策展+一键安装)"
+      ],
+      "analyzed_at": "2026-06-29T08:56:36.561295",
+      "language": "Python",
+      "report_path": ".workbuddy/daily_learning/2026-06-29_nexent.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      }
     }
   ],
   "improvements": [
@@ -2590,6 +2614,66 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-06-26T08:58:38.593056"
+    },
+    {
+      "id": "nexent-psd",
+      "source": "ModelEngine-Group/nexent",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "实现Progressive Skill Disclosure机制：根据任务上下文动态选择相关Skill注入，而非全量加载，预估节省60-80%上下文窗口",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-29T08:56:36.561390"
+    },
+    {
+      "id": "nexent-zcg",
+      "source": "ModelEngine-Group/nexent",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "开发零代码Agent生成器：用户输入自然语言需求描述→自动生成Skill YAML + Agent配置，降低Agent创建门槛",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-29T08:56:36.561391"
+    },
+    {
+      "id": "nexent-version",
+      "source": "ModelEngine-Group/nexent",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "为Skill和Agent配置添加版本控制和回滚机制：每次修改自动生成版本快照，支持diff对比和一键回滚",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-29T08:56:36.561394"
+    },
+    {
+      "id": "nexent-trace",
+      "source": "ModelEngine-Group/nexent",
+      "priority": "P1",
+      "module": "rag_engine",
+      "suggestion": "RAG检索结果附带精确引用（来源文档+段落位置），生成内容标注引用编号，提升可验证性",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-29T08:56:36.561395"
+    },
+    {
+      "id": "nexent-mem",
+      "source": "ModelEngine-Group/nexent",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "双层记忆架构优化：user-level全局偏好 + user-agent-level任务上下文分离，提升记忆检索精准度",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-29T08:56:36.561395"
+    },
+    {
+      "id": "nexent-market",
+      "source": "ModelEngine-Group/nexent",
+      "priority": "P2",
+      "module": "skill_system",
+      "suggestion": "建立社区Skill策展机制：官方精选+用户贡献，评分+下载统计+一键安装，构建Agent Marketplace",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-06-29T08:56:36.561396"
     }
   ],
   "last_updated": "2026-06-24T08:50:00",
