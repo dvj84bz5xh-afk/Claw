@@ -1,6 +1,6 @@
 # MEMORY.md - 结构化长期记忆
 # 格式版本: v2.0 (Hermes-inspired)
-# 最后更新: 2026-06-09
+# 最后更新: 2026-06-30
 
 ---
 
@@ -37,17 +37,17 @@
 
 ### Claw 学习追踪系统
 - **目的**: 通过GitHub高星项目持续迭代CodeBuddy产品能力
-- **状态**: 已完成55个项目分析，识别106项改进项
-- **实施率**: P0: 26/30 (86.7%), P1: 70/74 (94.6%), P2: 1/2 (50%), Total: 97/106 (91.5%)
-- **最新学习**: browser-use/browser-use (⭐98.7k, 相关度25) — 2026-06-14
+- **状态**: 已完成80个项目分析，识别149项改进项
+- **实施率**: P0: 26/46 (56.5%), P1: 70/93 (75.3%), P2: 0/10 (0%), Total: 96/149 (64.4%)
+- **最新学习**: ModelEngine-Group/nexent (⭐5356, 相关度34) — 2026-06-29
 - **报告目录**: `.workbuddy/daily_learning/`
 - **技能目录**: 已创建 `.workbuddy/skills/`
-- **P0完成日期**: 2026-06-09（从0%到100%）
-- **P1完成日期**: 2026-06-09（从0%到100%）
+- **P0完成日期**: 2026-06-09（从0%到100%，后因新增P0回落）
+- **P1完成日期**: 2026-06-09（从0%到100%，后因新增P1回落）
 - **集成完成日期**: 2026-06-09（agent_core 接入主系统，7/7测试PASS）
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块清单**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability_skill, **claw_integration**
-- **下一步**: P2最后1项(Agentic Debugging)，或开始新一轮GitHub学习
+- **下一步**: 继续新一轮GitHub学习，优先处理P0 pending项
 
 ### 加密货币洗钱侦察课程
 - **课时**: 4课时 × 45分钟 = 180分钟
@@ -228,26 +228,29 @@
 - **学习追踪**: `.workbuddy/learning_tracking.json`
 - **仪表盘**: `docs/evolution-dashboard.html`（Chart.js可视化）
 - **通知方式**: QQ邮箱（已配置，硬编码于脚本中：1012701669@qq.com）
-- **最近执行**: 2026-06-14 08:50 - 1个项目 / 5个改进项（第28轮，细水长流模式）
+- **最近执行**: 2026-06-29 08:50 - 1个项目 / 6个改进项（第31轮，细水长流模式）
 - **历史累计**: 905条进化日志记录
-- **累计改进项**: 106个（P0:26✅+4⏳, P1:70✅+4⏳）
+- **累计改进项**: 149个（P0:26✅+20⏳, P1:70✅+23⏳, P2:0✅+10⏳）
 - **v2.0新增功能**: MiMo深度README分析 / 改进项去重+状态跟踪 / 动态搜索关键词 / 项目健康度过滤 / HTML进化仪表盘
 
-### 持续高相关项目 (2026-05-27 12:55 更新)
-1. **wanxingai/LightAgent** (⭐1005, 相关度:28) - 🆕🏆 **刷新历史最高分！** 轻量级Agent框架，memory+MCP+skill+多Agent协作
-2. **langchain4j/langchain4j** (⭐12114, 相关度:26) - Java LLM库，RAG+MCP集成
-3. **nanobrowser/nanobrowser** (⭐13048, 相关度:21) - AI浏览器自动化+多Agent工作流（连续6轮Top 3）
-4. **ruvnet/ruflo** (⭐55499, 相关度:21) - Claude原生多智能体编排平台，RAG+工作流+编排（连续6轮Top 3）
-5. **rinadelph/Agent-MCP** (⭐1239, 相关度:15) - 🆕 多Agent系统框架+MCP集成
-6. **RTGS2017/NagaAgent** (⭐1519, 相关度:14) - 🆕 个人助手Agent框架，多智能体协作
+### 持续高相关项目 (2026-06-29 更新)
+1. **ModelEngine-Group/nexent** (⭐5356, 相关度:34) - 🆕🏆 零代码Agent生成平台，A2A+双层记忆+Skill按需注入
+2. **wanxingai/LightAgent** (⭐1005, 相关度:28) - 轻量级Agent框架，memory+MCP+skill+多Agent协作
+3. **pydantic/pydantic-ai** (⭐17729, 相关度:28) - 依赖注入+Graph状态机+延迟审批+A2A
+4. **NousResearch/hermes-agent** (⭐200203, 相关度:29) - 内置学习循环+万能/learn命令+轨迹压缩
+5. **TheDotMack/claude-mem** (⭐83764, 相关度:29) - 3层MCP搜索工作流+Web Viewer记忆流可视化
+6. **agno-agi/agno** (⭐40600, 相关度:27) - 三层委托+团队共享状态+LearningMachine跨Agent记忆
+7. **mem0ai/mem0** (⭐57829, 相关度:27) - 单轮记忆提取+混合检索+多级记忆架构
+8. **raga-ai-hub/RagaAI-Catalyst** (⭐16200, 相关度:27) - 5维追踪+实时护栏+红队测试闭环
+9. **langchain-ai/langchain** (⭐132476, 相关度:28) - 分层抽象+模型互操作+全生命周期平台
+10. **a2aproject/A2A** (⭐24467, 相关度:29) - Agent Card发现+传输无关协议+Task生命周期
 
-### P0待确认（紧急，连续23轮pending）
-所有P0项集中在 `agent_orchestration` 模块，已**连续23轮重复出现**，当前累计14+个来源：
-- **🆕 首选**: wanxingai/LightAgent（相关度28刷新纪录，覆盖memory+MCP+skill三大Claw核心方向）
-- **次选**: ruvnet/ruflo（相关度21，Claude生态原生编排平台，连续6轮Top 3）
-- **三选**: nanobrowser/nanobrowser（浏览器多Agent工作流，相关度21，连续6轮Top 3）
-- 新增: rinadelph/Agent-MCP, RTGS2017/NagaAgent, wzf2000/MACRec, Taoidle/plan-cascade
-- 历史: Yeachan-Heo/oh-my-claudecode, openai/swarm, cft0808/edict, kyegomez/swarms, crewAIInc/crewAI, microsoft/mcp-for-beginners, IBM/AssetOpsBench, Agent-Skills-for-Context-Engineering, FoundationAgents/MetaGPT
+### P0待确认（紧急）
+当前P0 pending项集中在 `agent_orchestration` 和 `skill_system` 模块，累计20项未实施。最新候选：
+- **trpc-group/trpc-agent-go**（A2A+AG-UI+graph workflows，相关度35）
+- **builderz-labs/mission-control**（自托管Agent编排平台，相关度26）
+- **headroomlabs-ai/headroom**（LLM上下文压缩，53K stars）
+- **历史待实施**: LightAgent/ruflo/nanobrowser等早期项目 pending项
 - **实施是唯一出路**
 
 ### 基础设施 (2026-05-26)

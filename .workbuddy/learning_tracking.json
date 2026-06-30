@@ -971,6 +971,18 @@
         "P1": 2,
         "P2": 1
       }
+    },
+    {
+      "name": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "stars": 241516,
+      "relevance": 13,
+      "key_innovations": [
+        "Agent化架构"
+      ],
+      "analyzed_at": "2026-06-30T08:59:06.507070",
+      "language": "Shell",
+      "mimo_summary": ""
     }
   ],
   "improvements": [
@@ -2676,7 +2688,7 @@
       "created_at": "2026-06-29T08:56:36.561396"
     }
   ],
-  "last_updated": "2026-06-24T08:50:00",
+  "last_updated": "2026-06-30T08:59:20.962762",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -2760,6 +2772,12 @@
       "time": "2026-06-24T08:50:00",
       "new_projects": 1,
       "new_improvements": 4,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-06-30T08:59:20.962748",
+      "new_projects": 1,
+      "new_improvements": 0,
       "skipped_improvements": 0
     }
   ],

@@ -928,3 +928,28 @@
 {"timestamp": "2026-06-25T09:01:25.882817", "level": "INFO", "message": "\u667a\u80fd\u8fdb\u5316\u5b66\u4e60: \u7b2c29\u8f6e\u5b8c\u6210", "project": "topoteretes/cognee", "stars": 21626, "relevance": 23, "improvements": 5, "priority_breakdown": {"P0": 2, "P1": 2, "P2": 1}, "total_stats": {"projects": 78, "improvements": 138, "done": 96, "pending": 42, "rate": "69.6%"}}
 {"timestamp": "2026-06-26T08:59:02.278111", "round": 30, "project": "a2aproject/A2A", "stars": 24467, "relevance": 29, "new_improvements": 5, "priority_breakdown": {"P0": 2, "P1": 2, "P2": 1}, "key_innovation": "Agent-to-Agent protocol: AgentCard discovery + Task lifecycle + Opacity principle + Multi-transport + A2A/MCP complementarity", "report_path": ".workbuddy/daily_learning/2026-06-26_a2a_protocol.md"}
 {"timestamp": "2026-06-29T08:56:57.748071", "round": 31, "project": "ModelEngine-Group/nexent", "stars": 5356, "relevance": 34, "language": "Python", "improvements": [{"id": "nexent-psd", "priority": "P0", "module": "skill_system", "suggestion": "Progressive Skill Disclosure按需注入"}, {"id": "nexent-zcg", "priority": "P0", "module": "agent_orchestration", "suggestion": "零代码Agent生成器"}, {"id": "nexent-version", "priority": "P1", "module": "skill_system", "suggestion": "Agent版本管理"}, {"id": "nexent-trace", "priority": "P1", "module": "rag_engine", "suggestion": "知识级溯源"}, {"id": "nexent-mem", "priority": "P1", "module": "memory_system", "suggestion": "双层记忆架构"}, {"id": "nexent-market", "priority": "P2", "module": "skill_system", "suggestion": "Agent Marketplace"}], "stats": {"total_projects": 80, "total_improvements": 149, "done": 96, "pending": 53, "p0_done": 26, "p0_total": 46, "p1_done": 70, "p1_total": 93, "p2_done": 0, "p2_total": 10}}
+{"timestamp": "2026-06-30T08:58:41.878070", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-06-30T08:58:41.879838", "level": "INFO", "message": "今日智能进化学习启动: 2026-06-30"}
+{"timestamp": "2026-06-30T08:58:41.880528", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-06-30T08:58:41.883745", "level": "INFO", "message": "已学习项目数: 78"}
+{"timestamp": "2026-06-30T08:58:41.886064", "level": "INFO", "message": "本轮搜索方向: ['agentic AI platform 2025', 'AI code generation agent', 'AI agent framework', 'open source AI agent', 'autonomous AI agent']"}
+{"timestamp": "2026-06-30T08:58:41.886758", "level": "INFO", "message": "搜索GitHub: agentic AI platform 2025"}
+{"timestamp": "2026-06-30T08:58:46.068415", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-06-30T08:58:47.069349", "level": "INFO", "message": "搜索GitHub: AI code generation agent"}
+{"timestamp": "2026-06-30T08:58:51.029971", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-06-30T08:58:52.031472", "level": "INFO", "message": "搜索GitHub: AI agent framework"}
+{"timestamp": "2026-06-30T08:58:56.822457", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-06-30T08:58:57.824082", "level": "INFO", "message": "搜索GitHub: open source AI agent"}
+{"timestamp": "2026-06-30T08:59:00.079133", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-06-30T08:59:01.080805", "level": "INFO", "message": "搜索GitHub: autonomous AI agent"}
+{"timestamp": "2026-06-30T08:59:05.505487", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-06-30T08:59:14.256380", "level": "INFO", "message": "跳过不健康项目: reworkd/AgentGPT (仓库已归档)"}
+{"timestamp": "2026-06-30T08:59:18.297919", "level": "INFO", "message": "选择学习项目: obra/superpowers (Stars:241516, 相关度:13)"}
+{"timestamp": "2026-06-30T08:59:20.957800", "level": "INFO", "message": "学习报告已生成: C:\\Users\\10127\\WorkBuddy\\Claw\\.workbuddy\\daily_learning\\2026-06-30_obra_superpowers.md"}
+{"timestamp": "2026-06-30T08:59:20.961958", "level": "INFO", "message": "改进项: 新增0个, 跳过已跟踪0个"}
+{"timestamp": "2026-06-30T08:59:20.965482", "level": "INFO", "message": "第32轮学习完成", "project": "obra/superpowers", "stars": 241516, "relevance": 13, "improvements": 0, "round": "2026-06-30"}
+{"timestamp": "2026-06-30T08:59:20.972639", "level": "INFO", "message": "仪表盘已生成: C:\\Users\\10127\\WorkBuddy\\Claw\\docs\\evolution-dashboard.html"}
+{"timestamp": "2026-06-30T08:59:25.999081", "level": "INFO", "message": "飞书消息已发送"}
+{"timestamp": "2026-06-30T08:59:40.853544", "level": "INFO", "message": "邮件已发送: [小龙虾进化] 2026-06-30 - 学习 obra/superpowers"}
+{"timestamp": "2026-06-30T08:59:40.854286", "level": "INFO", "message": "通知状态: 飞书已发送, QQ邮箱已发送"}
+{"timestamp": "2026-06-30T08:59:40.854977", "level": "INFO", "message": "开始Git同步..."}
