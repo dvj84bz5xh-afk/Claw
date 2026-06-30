@@ -976,13 +976,17 @@
       "name": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
       "stars": 241516,
-      "relevance": 13,
+      "relevance": 22,
       "key_innovations": [
-        "Agent化架构"
+        "可组合Skill系统（跨Claude/Cursor/Codex/Gemini等IDE自动触发）",
+        "Spec-Driven Development：先出短规格→用户确认→再出实现计划",
+        "Subagent-Driven Development：主Agent拆解任务给子Agent并审阅",
+        "Red/Green TDD 与 YAGNI/DRY 在Agent工作流中强制执行",
+        "双市场Skill分发：官方Marketplace + 社区Marketplace"
       ],
       "analyzed_at": "2026-06-30T08:59:06.507070",
-      "language": "Shell",
-      "mimo_summary": ""
+      "language": "Shell/Marketdown",
+      "mimo_summary": "可组合Skill+Spec-Driven+子代理开发，适用于Claw Skill系统与编码Agent编排"
     }
   ],
   "improvements": [
@@ -2686,6 +2690,39 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-06-29T08:56:36.561396"
+    },
+    {
+      "id": "superpowers-1",
+      "source": "obra/superpowers",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "借鉴 obra/superpowers 的可组合Skill设计，实现基于上下文的Skill自动触发机制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-30T09:00:00",
+      "updated_at": "2026-06-30T09:00:00"
+    },
+    {
+      "id": "superpowers-2",
+      "source": "obra/superpowers",
+      "priority": "P1",
+      "module": "agent_orchestration",
+      "suggestion": "引入 Spec-driven 子代理开发流程：需求澄清→规格确认→计划审批→子Agent实施→主Agent审阅",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-06-30T09:00:00",
+      "updated_at": "2026-06-30T09:00:00"
+    },
+    {
+      "id": "superpowers-3",
+      "source": "obra/superpowers",
+      "priority": "P2",
+      "module": "workflow_engine",
+      "suggestion": "在编码工作流中嵌入设计评审、计划确认、TDD检查点等里程碑节点",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-06-30T09:00:00",
+      "updated_at": "2026-06-30T09:00:00"
     }
   ],
   "last_updated": "2026-06-30T08:59:20.962762",
