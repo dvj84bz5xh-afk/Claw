@@ -987,6 +987,29 @@
       "analyzed_at": "2026-06-30T08:59:06.507070",
       "language": "Shell/Marketdown",
       "mimo_summary": "可组合Skill+Spec-Driven+子代理开发，适用于Claw Skill系统与编码Agent编排"
+    },
+    {
+      "name": "headroomlabs-ai/headroom",
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "stars": 55244,
+      "relevance": 32,
+      "key_innovations": [
+        "AI agent上下文压缩层",
+        "library/proxy/agent wrap/MCP server四形态",
+        "ContentRouter+SmartCrusher+CodeCompressor+Kompress多压缩器",
+        "CCR可逆压缩与按需检索",
+        "Cross-agent memory共享存储",
+        "headroom learn失败会话挖掘"
+      ],
+      "analyzed_at": "2026-07-02T08:50:00",
+      "language": "Python",
+      "report_path": ".workbuddy/daily_learning/2026-07-02_headroom.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      }
     }
   ],
   "improvements": [
@@ -2723,6 +2746,61 @@
       "status": "pending",
       "created_at": "2026-06-30T09:00:00",
       "updated_at": "2026-06-30T09:00:00"
+    },
+    {
+      "id": "headroom-73f020a2",
+      "source": "headroomlabs-ai/headroom",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "引入headroom的ContentRouter/SmartCrusher，对tool_registry和rag_engine的大输出进行类型感知压缩，降低60%+ context token",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-02T08:50:00",
+      "value": "直接解决Claw工具输出/RAG结果token膨胀，降低API成本并提升长上下文稳定性"
+    },
+    {
+      "id": "headroom-d24159ae",
+      "source": "headroomlabs-ai/headroom",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "实现CCR可逆压缩：原始内容本地缓存，向LLM暴露retrieve工具按需取回完整信息，避免压缩丢失关键细节",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-02T08:50:00",
+      "value": "在压缩与信息完整性之间取得平衡，支撑更安全的长上下文处理"
+    },
+    {
+      "id": "headroom-a03a3cb7",
+      "source": "headroomlabs-ai/headroom",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "借鉴Cross-agent memory实现共享存储与自动去重，让多个子Agent访问统一记忆并减少重复",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-02T08:50:00",
+      "value": "提升多Agent协作效率，降低记忆冗余"
+    },
+    {
+      "id": "headroom-13187ee6",
+      "source": "headroomlabs-ai/headroom",
+      "priority": "P1",
+      "module": "evolution",
+      "suggestion": "扩展夜间进化引擎，扫描失败/低效会话并自动写入.workbuddy/memory或SKILL.md，形成headroom learn式闭环",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-02T08:50:00",
+      "value": "从被动学习转向主动修正，加速Claw能力迭代"
+    },
+    {
+      "id": "headroom-643947e3",
+      "source": "headroomlabs-ai/headroom",
+      "priority": "P2",
+      "module": "context_injector",
+      "suggestion": "引入输出token削减(verbosity steering + effort routing)，在常规步骤中降低模型输出冗余",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-02T08:50:00",
+      "value": "减少输出token成本，提升响应简洁性"
     }
   ],
   "last_updated": "2026-06-30T08:59:20.962762",
