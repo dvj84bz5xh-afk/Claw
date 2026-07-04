@@ -1033,6 +1033,28 @@
         "P1": 2,
         "P2": 1
       }
+    },
+    {
+      "name": "google-gemini/gemini-cli",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "stars": 100337,
+      "relevance": 31,
+      "key_innovations": [
+        "GitHub Action原生集成(PR审查+Issue分类+@触发)",
+        "@命名空间MCP触发机制(@github/@slack/@database)",
+        "GEMINI.md分层上下文文件(全局/项目/目录级)",
+        "对话检查点(Checkpointing)保存恢复",
+        "三轨发布体系(Preview/Stable/Nightly)"
+      ],
+      "analyzed_at": "2026-07-04T08:50:00",
+      "language": "TypeScript",
+      "report_path": ".workbuddy/daily_learning/2026-07-04_gemini_cli.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 1,
+        "P1": 3,
+        "P2": 1
+      }
     }
   ],
   "improvements": [

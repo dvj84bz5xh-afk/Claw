@@ -31,28 +31,28 @@
 </head>
 <body>
 <h1>Claw 智能进化仪表盘</h1>
-<div class="updated">最后更新: 2026-07-03 08:50 CST | 模式: 细水长流 | 第34轮</div>
+<div class="updated">最后更新: 2026-07-04 08:50 CST | 模式: 细水长流 | 第35轮</div>
 
 <div class="section">
   <div class="grid">
     <div class="card">
       <h3>已学习项目</h3>
-      <p class="value">83</p>
-      <p class="sub">+1 本轮 (langgraph)</p>
+      <p class="value">84</p>
+      <p class="sub">+1 本轮 (gemini-cli)</p>
     </div>
     <div class="card">
       <h3>累计改进项</h3>
-      <p class="value">162</p>
-      <p class="sub">96 已实施 / 66 待实施</p>
+      <p class="value">167</p>
+      <p class="sub">96 已实施 / 71 待实施</p>
     </div>
     <div class="card">
       <h3>实施率</h3>
-      <p class="value">59.3%</p>
+      <p class="value">57.5%</p>
       <p class="sub">目标: 80%+</p>
     </div>
     <div class="card">
       <h3>P0 待实施</h3>
-      <p class="value" style="color:var(--p0)">24</p>
+      <p class="value" style="color:var(--p0)">23</p>
       <p class="sub">需优先处理</p>
     </div>
   </div>
@@ -78,6 +78,7 @@
       <tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th><th>改进项</th></tr>
     </thead>
     <tbody>
+<tr><td><a href="https://github.com/google-gemini/gemini-cli" target="_blank">google-gemini/gemini-cli</a></td><td>100,337</td><td>31</td><td>2026-07-04</td><td>5</td></tr>
 <tr><td><a href="https://github.com/langchain-ai/langgraph" target="_blank">langchain-ai/langgraph</a></td><td>36,347</td><td>29</td><td>2026-07-03</td><td>5</td></tr>
 <tr><td><a href="https://github.com/headroomlabs-ai/headroom" target="_blank">headroomlabs-ai/headroom</a></td><td>55,244</td><td>32</td><td>2026-07-02</td><td>5</td></tr>
 <tr><td><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a></td><td>241,516</td><td>22</td><td>2026-06-30</td><td>0</td></tr>
@@ -94,12 +95,13 @@
 </div>
 
 <div class="section">
-  <h2>高优先级待实施改进 (P0) - 24项</h2>
+  <h2>高优先级待实施改进 (P0) - 23项</h2>
   <table>
     <thead>
       <tr><th>优先级</th><th>模块</th><th>来源</th><th>建议</th></tr>
     </thead>
     <tbody>
+<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>google-gemini/gemini-cli</td><td>引入GitHub Action原生集成：PR自动审查+Issue智能分类+@gemini-cli按需触发，扩展进化引擎到PR/Issue自动化处理...</td></tr>
 <tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>agno-agi/agno</td><td>借鉴agno的session_state+share_member_interactions机制，为Claw多Agent添加团队级共享上下文层，消除Agent间...</td></tr>
 <tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>agno-agi/agno</td><td>借鉴agno的TeamMode.tasks自主任务规划循环，Agent自主拆解复杂任务+迭代执行(max_iterations可配置)...</td></tr>
 <tr><td><span class="badge badge-P0">P0</span></td><td>skill_system</td><td>pydantic/pydantic-ai</td><td>参考pydantic-ai的RunContext泛型+available_tool_names/available_capability_ids，为Claw c...</td></tr>
@@ -133,7 +135,7 @@ new Chart(priorityCtx, {
     labels: ['P0', 'P1', 'P2'],
     datasets: [
       { label: '已实施', data: [26, 70, 0], backgroundColor: '#0d6efd' },
-      { label: '待实施', data: [24, 29, 13], backgroundColor: '#adb5bd' }
+      { label: '待实施', data: [23, 32, 14], backgroundColor: '#adb5bd' }
     ]
   },
   options: { responsive: true, scales: { y: { beginAtZero: true } } }
