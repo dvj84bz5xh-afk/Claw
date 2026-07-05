@@ -1055,6 +1055,29 @@
         "P1": 3,
         "P2": 1
       }
+    },
+    {
+      "name": "campfirein/byterover-cli",
+      "url": "https://github.com/campfirein/byterover-cli",
+      "stars": 4901,
+      "relevance": 16,
+      "key_innovations": [
+        "Context Tree Git-like版本控制记忆管理",
+        "Review Workflow知识质量审批机制",
+        "LoCoMo/LongMemEval Benchmark验证(96.1%/92.8%)",
+        "24内置Agent工具标准化操作记忆",
+        "MCP原生集成+22+编码Agent兼容",
+        "Hub+Connectors生态(Skills+Bundles)"
+      ],
+      "analyzed_at": "2026-07-05T08:50:00",
+      "language": "TypeScript",
+      "report_path": ".workbuddy/daily_learning/2026-07-05_byterover_cli.md",
+      "improvements_count": 4,
+      "priority_breakdown": {
+        "P0": 1,
+        "P1": 2,
+        "P2": 1
+      }
     }
   ],
   "improvements": [
@@ -2901,6 +2924,46 @@
       "status": "pending",
       "created_at": "2026-07-03T08:50:00",
       "value": "长会话性能优化"
+    },
+    {
+      "id": "brv-ctree-0705",
+      "source": "campfirein/byterover-cli",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "引入Context Tree树形记忆架构+Git-like版本控制(branch/commit/merge/push/pull)",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-05T08:50:00"
+    },
+    {
+      "id": "brv-review-0705",
+      "source": "campfirein/byterover-cli",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "Review Workflow知识质量审批机制(curate pending/approve/reject)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-05T08:50:00"
+    },
+    {
+      "id": "brv-benchmark-0705",
+      "source": "campfirein/byterover-cli",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "引入LoCoMo/LongMemEval Benchmark驱动记忆性能评估",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-05T08:50:00"
+    },
+    {
+      "id": "brv-tools-0705",
+      "source": "campfirein/byterover-cli",
+      "priority": "P2",
+      "module": "tool_registry",
+      "suggestion": "标准化记忆操作工具集(curate/query/review/vc 24个工具)",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-05T08:50:00"
     }
   ],
   "last_updated": "2026-07-03T08:50:00",

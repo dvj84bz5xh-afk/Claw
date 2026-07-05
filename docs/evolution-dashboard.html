@@ -25,131 +25,133 @@
   .badge-P0 { background:#f8d7da; color:#721c24; }
   .badge-P1 { background:#fff3cd; color:#856404; }
   .badge-P2 { background:#d1e7dd; color:#155724; }
+  .badge-done { background:#d1e7dd; color:#155724; }
+  .badge-pending { background:#cff4fc; color:#055160; }
   .section { margin-bottom:2rem; }
   .updated { color:var(--muted); font-size:0.85rem; margin-top:1rem; }
 </style>
 </head>
 <body>
-<h1>Claw 智能进化仪表盘</h1>
-<div class="updated">最后更新: 2026-07-04 08:50 CST | 模式: 细水长流 | 第35轮</div>
+<h1>🦞 Claw 智能进化仪表盘</h1>
 
-<div class="section">
-  <div class="grid">
-    <div class="card">
-      <h3>已学习项目</h3>
-      <p class="value">84</p>
-      <p class="sub">+1 本轮 (gemini-cli)</p>
-    </div>
-    <div class="card">
-      <h3>累计改进项</h3>
-      <p class="value">167</p>
-      <p class="sub">96 已实施 / 71 待实施</p>
-    </div>
-    <div class="card">
-      <h3>实施率</h3>
-      <p class="value">57.5%</p>
-      <p class="sub">目标: 80%+</p>
-    </div>
-    <div class="card">
-      <h3>P0 待实施</h3>
-      <p class="value" style="color:var(--p0)">23</p>
-      <p class="sub">需优先处理</p>
-    </div>
+<div class="grid">
+  <div class="card">
+    <h3>学习项目</h3>
+    <p class="value">85</p>
+    <p class="sub">已分析 GitHub 高星项目</p>
+  </div>
+  <div class="card">
+    <h3>改进项总数</h3>
+    <p class="value">166</p>
+    <p class="sub">P0:51 / P1:101 / P2:14</p>
+  </div>
+  <div class="card">
+    <h3>实施率</h3>
+    <p class="value">57.8%</p>
+    <p class="sub">96 已实施 / 70 待实施</p>
+  </div>
+  <div class="card">
+    <h3>进化轮次</h3>
+    <p class="value">36</p>
+    <p class="sub">2026-07-05 第36轮学习</p>
+  </div>
+</div>
+
+<div class="charts">
+  <div class="chart-card">
+    <h3 style="margin:0 0 0.5rem;font-size:1rem;">改进项优先级分布</h3>
+    <canvas id="priorityChart" height="200"></canvas>
+  </div>
+  <div class="chart-card">
+    <h3 style="margin:0 0 0.5rem;font-size:1rem;">模块改进分布</h3>
+    <canvas id="moduleChart" height="200"></canvas>
   </div>
 </div>
 
 <div class="section">
-  <div class="charts">
-    <div class="chart-card">
-      <h3>改进项优先级分布</h3>
-      <canvas id="priorityChart"></canvas>
-    </div>
-    <div class="chart-card">
-      <h3>待实施改进模块分布</h3>
-      <canvas id="moduleChart"></canvas>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>最新学习项目</h2>
+  <h2>最近学习项目</h2>
   <table>
-    <thead>
-      <tr><th>项目</th><th>Stars</th><th>相关度</th><th>日期</th><th>改进项</th></tr>
-    </thead>
+    <thead><tr><th>日期</th><th>项目</th><th>Stars</th><th>相关度</th><th>改进项</th></tr></thead>
     <tbody>
-<tr><td><a href="https://github.com/google-gemini/gemini-cli" target="_blank">google-gemini/gemini-cli</a></td><td>100,337</td><td>31</td><td>2026-07-04</td><td>5</td></tr>
-<tr><td><a href="https://github.com/langchain-ai/langgraph" target="_blank">langchain-ai/langgraph</a></td><td>36,347</td><td>29</td><td>2026-07-03</td><td>5</td></tr>
-<tr><td><a href="https://github.com/headroomlabs-ai/headroom" target="_blank">headroomlabs-ai/headroom</a></td><td>55,244</td><td>32</td><td>2026-07-02</td><td>5</td></tr>
-<tr><td><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a></td><td>241,516</td><td>22</td><td>2026-06-30</td><td>0</td></tr>
-<tr><td><a href="https://github.com/ModelEngine-Group/nexent" target="_blank">ModelEngine-Group/nexent</a></td><td>5,356</td><td>34</td><td>2026-06-29</td><td>6</td></tr>
-<tr><td><a href="https://github.com/a2aproject/A2A" target="_blank">a2aproject/A2A</a></td><td>24,467</td><td>29</td><td>2026-06-26</td><td>5</td></tr>
-<tr><td><a href="https://github.com/topoteretes/cognee" target="_blank">topoteretes/cognee</a></td><td>21,626</td><td>23</td><td>2026-06-25</td><td>5</td></tr>
-<tr><td><a href="https://github.com/NousResearch/hermes-agent" target="_blank">NousResearch/hermes-agent</a></td><td>200,203</td><td>29</td><td>2026-06-24</td><td>4</td></tr>
-<tr><td><a href="https://github.com/TheDotMack/claude-mem" target="_blank">TheDotMack/claude-mem</a></td><td>83,764</td><td>29</td><td>2026-06-23</td><td>5</td></tr>
-<tr><td><a href="https://github.com/comet-ml/opik" target="_blank">comet-ml/opik</a></td><td>19,694</td><td>17</td><td>2026-06-19</td><td>4</td></tr>
-<tr><td><a href="https://github.com/garrytan/gbrain" target="_blank">garrytan/gbrain</a></td><td>16,000</td><td>26</td><td>2026-06-17</td><td>5</td></tr>
-
+      <tr><td>2026-07-05</td><td>campfirein/byterover-cli</td><td>4,901</td><td>16</td><td>P0×1 P1×2 P2×1</td></tr>
+      <tr><td>2026-07-04</td><td>google-gemini/gemini-cli</td><td>100,337</td><td>31</td><td>P0×1 P1×3 P2×1</td></tr>
+      <tr><td>2026-07-03</td><td>langchain-ai/langgraph</td><td>36,347</td><td>29</td><td>P0×2 P1×2 P2×1</td></tr>
+      <tr><td>2026-07-02</td><td>headroomlabs-ai/headroom</td><td>55,244</td><td>32</td><td>P0×2 P1×2 P2×1</td></tr>
+      <tr><td>2026-06-30</td><td>obra/superpowers</td><td>241,516</td><td>22</td><td>P0×1 P1×3 P2×1</td></tr>
+      <tr><td>2026-06-29</td><td>ModelEngine-Group/nexent</td><td>5,356</td><td>34</td><td>P0×2 P1×2 P2×1</td></tr>
+      <tr><td>2026-06-26</td><td>a2aproject/A2A</td><td>24,467</td><td>29</td><td>P0×2 P1×2 P2×1</td></tr>
+      <tr><td>2026-06-25</td><td>topoteretes/cognee</td><td>21,626</td><td>23</td><td>P0×2 P1×2 P2×1</td></tr>
+      <tr><td>2026-06-24</td><td>NousResearch/hermes-agent</td><td>200,203</td><td>29</td><td>P0×2 P1×1 P2×1</td></tr>
+      <tr><td>2026-06-23</td><td>TheDotMack/claude-mem</td><td>83,764</td><td>29</td><td>P0×2 P1×2 P2×1</td></tr>
     </tbody>
   </table>
 </div>
 
 <div class="section">
-  <h2>高优先级待实施改进 (P0) - 23项</h2>
+  <h2>P0 待实施改进项</h2>
   <table>
-    <thead>
-      <tr><th>优先级</th><th>模块</th><th>来源</th><th>建议</th></tr>
-    </thead>
+    <thead><tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr></thead>
     <tbody>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>google-gemini/gemini-cli</td><td>引入GitHub Action原生集成：PR自动审查+Issue智能分类+@gemini-cli按需触发，扩展进化引擎到PR/Issue自动化处理...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>agno-agi/agno</td><td>借鉴agno的session_state+share_member_interactions机制，为Claw多Agent添加团队级共享上下文层，消除Agent间...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>agno-agi/agno</td><td>借鉴agno的TeamMode.tasks自主任务规划循环，Agent自主拆解复杂任务+迭代执行(max_iterations可配置)...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>skill_system</td><td>pydantic/pydantic-ai</td><td>参考pydantic-ai的RunContext泛型+available_tool_names/available_capability_ids，为Claw c...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>pydantic/pydantic-ai</td><td>参考pydantic-ai的Deferred Tool Approval机制(ToolApproved/ToolDenied/override_args)，为C...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>browser-use/browser-use</td><td>借鉴browser-use的Rust Core高性能运行时思路(0.13版提速3-5x)，评估用Rust/Go重写Claw热点模块(HTTP代理/事件循环)，初...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>langchain-ai/langchain</td><td>借鉴LangGraph的Checkpointer节点级状态快照+断点恢复，为Claw workflow_graph.py添加跨会话Resume机制，进化引擎中断...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>memory</td><td>garrytan/gbrain</td><td>借鉴GBrain零LLM自连线知识图谱—从MEMORY.md的[SECTION]/wiki链接/表格自动提取实体+类型化关系(attended/works_at...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>memory</td><td>garrytan/gbrain</td><td>借鉴GBrain缺口分析(GapAnalysis)—查询时自动标注信息陈旧度(>30天)、缺失领域、页面间矛盾，输出答案+NOTICE标注而非返回原文...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>observability</td><td>comet-ml/opik</td><td>借鉴Opik LLM-as-Judge评估指标，为eval_observability_skill添加幻觉检测(hallucination_score)、内容审...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>observability</td><td>comet-ml/opik</td><td>借鉴Opik生产级Trace(40M+/day)+实时仪表盘，升级Claw eval_observability_skill为生产级追踪：trace/span结...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>memory</td><td>TheDotMack/claude-mem</td><td>实现Progressive Disclosure 3层记忆检索(search→timeline→get_observations)，减少记忆注入token 70...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>memory</td><td>TheDotMack/claude-mem</td><td>引入Chroma向量数据库+SQLite FTS5混合搜索，替换纯文件glob查找...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>skill_system</td><td>NousResearch/hermes-agent</td><td>借鉴Hermes /learn命令(零引擎纯prompt驱动)，为Claw实现对话内自动Skill提取，支持目录/URL/对话流/粘贴笔记→标准化SKILL.m...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>NousResearch/hermes-agent</td><td>借鉴Hermes内置持续学习循环(create→improve→nudge)，将Claw夜间批处理进化引擎升级为在线持续进化：每次对话后自动检查是否生成新Ski...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>memory</td><td>topoteretes/cognee</td><td>为Claw记忆系统实现remember/recall/forget/improve四操作API，替代纯文件读写...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>memory</td><td>topoteretes/cognee</td><td>实现Session+Permanent双层级记忆架构，会话快速缓存+后台同步到永久存储...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>a2aproject/A2A</td><td>实现Agent Card能力声明机制，为Claw agent_core添加AgentCard类(name/description/skills/interfac...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>a2aproject/A2A</td><td>多模式交互支持：agent_orchestrator增加SSE流式和Webhook异步模式，当前仅同步调用...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>skill_system</td><td>ModelEngine-Group/nexent</td><td>实现Progressive Skill Disclosure机制：根据任务上下文动态选择相关Skill注入，而非全量加载，预估节省60-80%上下文窗口...</td></tr>
-<tr><td><span class="badge badge-P0">P0</span></td><td>agent_orchestration</td><td>ModelEngine-Group/nexent</td><td>开发零代码Agent生成器：用户输入自然语言需求描述→自动生成Skill YAML + Agent配置，降低Agent创建门槛...</td></tr>
-
+      <tr><td>brv-ctree-0705</td><td>byterover-cli</td><td>memory_system</td><td>Context Tree树形记忆架构+Git-like版本控制</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
+      <tr><td>gc-ghaction-0704</td><td>gemini-cli</td><td>agent_orchestration</td><td>GitHub Action原生集成(PR审查+Issue分类)</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
+      <tr><td>hd-compress-0702</td><td>headroom</td><td>context_injector</td><td>ContentRouter+SmartCrusher上下文压缩</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
+      <tr><td>hd-memory-0702</td><td>headroom</td><td>memory_system</td><td>Cross-agent memory共享存储</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
+      <tr><td>lg-delta-0703</td><td>langgraph</td><td>memory_system</td><td>DeltaChannel增量状态存储(4.9x节省)</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
+      <tr><td>lg-durable-0703</td><td>langgraph</td><td>agent_orchestration</td><td>Durable Execution持久化执行与故障恢复</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
+      <tr><td>nexent-zero-0629</td><td>nexent</td><td>skill_system</td><td>Zero-Code Agent Generation(自然语言→可执行Agent)</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
+      <tr><td>nexent-progressive-0629</td><td>nexent</td><td>skill_system</td><td>Progressive Skill Disclosure(按需Skill注入)</td><td><span class="badge badge-P0 badge-pending">PENDING</span></td></tr>
     </tbody>
   </table>
 </div>
+
+<div class="section">
+  <h2>持续高相关项目 (Top 10)</h2>
+  <table>
+    <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>核心创新</th></tr></thead>
+    <tbody>
+      <tr><td>ModelEngine-Group/nexent</td><td>5,356</td><td>34</td><td>零代码Agent生成+A2A+双层记忆</td></tr>
+      <tr><td>headroomlabs-ai/headroom</td><td>55,244</td><td>32</td><td>LLM上下文压缩层</td></tr>
+      <tr><td>google-gemini/gemini-cli</td><td>100,337</td><td>31</td><td>GitHub Action+@命名空间MCP</td></tr>
+      <tr><td>a2aproject/A2A</td><td>24,467</td><td>29</td><td>Agent Card+传输无关协议+Task生命周期</td></tr>
+      <tr><td>NousResearch/hermes-agent</td><td>200,203</td><td>29</td><td>学习循环+/learn+轨迹压缩</td></tr>
+      <tr><td>TheDotMack/claude-mem</td><td>83,764</td><td>29</td><td>3层MCP搜索+Web Viewer可视化</td></tr>
+      <tr><td>pydantic/pydantic-ai</td><td>17,729</td><td>28</td><td>依赖注入+Graph状态机+A2A</td></tr>
+      <tr><td>langchain-ai/langchain</td><td>132,476</td><td>28</td><td>分层抽象+模型互操作+全生命周期</td></tr>
+      <tr><td>wanxingai/LightAgent</td><td>1,005</td><td>28</td><td>轻量级Agent+memory+MCP+skill</td></tr>
+      <tr><td>agno-agi/agno</td><td>40,600</td><td>27</td><td>三层委托+团队共享状态+LearningMachine</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="updated">最后更新: 2026-07-05 08:50 | 第36轮进化学习 | 细水长流模式</p>
 
 <script>
-const priorityCtx = document.getElementById('priorityChart').getContext('2d');
-new Chart(priorityCtx, {
-  type: 'bar',
-  data: {
-    labels: ['P0', 'P1', 'P2'],
-    datasets: [
-      { label: '已实施', data: [26, 70, 0], backgroundColor: '#0d6efd' },
-      { label: '待实施', data: [23, 32, 14], backgroundColor: '#adb5bd' }
-    ]
-  },
-  options: { responsive: true, scales: { y: { beginAtZero: true } } }
-});
-
-const moduleData = {"observability": 5, "agent_orchestration": 20, "tool_system": 3, "skill_system": 9, "model_scheduler": 3, "memory": 12, "evolution": 3, "evaluation": 1, "knowledge_retrieval": 1, "rag_engine": 1, "memory_system": 4, "workflow_engine": 1, "context_injector": 3};
-const moduleCtx = document.getElementById('moduleChart').getContext('2d');
-new Chart(moduleCtx, {
+// Priority distribution chart
+new Chart(document.getElementById('priorityChart'), {
   type: 'doughnut',
   data: {
-    labels: Object.keys(moduleData),
-    datasets: [{ data: Object.values(moduleData), backgroundColor: ['#0d6efd','#6610f2','#6f42c1','#d63384','#dc3545','#fd7e14','#ffc107','#198754','#20c997','#0dcaf0','#495057','#e9ecef','#212529'] }]
+    labels: ['P0 Done (26)', 'P0 Pending (25)', 'P1 Done (70)', 'P1 Pending (31)', 'P2 Pending (14)'],
+    datasets: [{
+      data: [26, 25, 70, 31, 14],
+      backgroundColor: ['#dc3545','#f8d7da','#fd7e14','#fff3cd','#198754'],
+      borderWidth: 1
+    }]
   },
-  options: { responsive: true }
+  options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+});
+
+// Module distribution chart
+new Chart(document.getElementById('moduleChart'), {
+  type: 'bar',
+  data: {
+    labels: ['agent_orchestration', 'tool_system', 'memory_system', 'knowledge_retrieval', 'skill_system', 'eval_observability', 'context_injector', 'evolution'],
+    datasets: [{
+      label: '改进项数量',
+      data: [18, 39, 14, 13, 7, 6, 4, 2],
+      backgroundColor: ['#0d6efd','#fd7e14','#198754','#6f42c1','#dc3545','#20c997','#e83e8c','#6610f2']
+    }]
+  },
+  options: { responsive: true, scales: { y: { beginAtZero: true } } }
 });
 </script>
 </body>
