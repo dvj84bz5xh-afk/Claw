@@ -1078,6 +1078,28 @@
         "P1": 2,
         "P2": 1
       }
+    },
+    {
+      "name": "cline/cline",
+      "url": "https://github.com/cline/cline",
+      "stars": 64318,
+      "relevance": 33,
+      "language": "TypeScript",
+      "analyzed_at": "2026-07-06T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-06_cline.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "多表面统一SDK架构",
+        "Plan/Act双模式切换",
+        ".clinerules项目规则系统",
+        "插件+MCP双扩展体系",
+        "多Agent团队与定时任务"
+      ]
     }
   ],
   "improvements": [
@@ -2964,6 +2986,61 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-07-05T08:50:00"
+    },
+    {
+      "id": "cline-rules-0706",
+      "source": "cline/cline",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "引入.clinerules项目规则自动加载，替代部分硬编码项目约定",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-06T08:50:00",
+      "updated_at": "2026-07-06T08:50:00"
+    },
+    {
+      "id": "cline-planact-0706",
+      "source": "cline/cline",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "Plan/Act模式显式化：Plan阶段只输出方案，Act阶段才执行工具调用",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-06T08:50:00",
+      "updated_at": "2026-07-06T08:50:00"
+    },
+    {
+      "id": "cline-sdk-0706",
+      "source": "cline/cline",
+      "priority": "P1",
+      "module": "agent_core",
+      "suggestion": "抽象多表面SDK层，让CLI/GUI/IDE扩展共享同一Runtime",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-06T08:50:00",
+      "updated_at": "2026-07-06T08:50:00"
+    },
+    {
+      "id": "cline-skills-0706",
+      "source": "cline/cline",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "Skills按需注入：根据任务关键词自动加载对应Skill规则",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-06T08:50:00",
+      "updated_at": "2026-07-06T08:50:00"
+    },
+    {
+      "id": "cline-cron-0706",
+      "source": "cline/cline",
+      "priority": "P2",
+      "module": "automation",
+      "suggestion": "定时Agent任务：扩展automation支持类cron表达式",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-06T08:50:00",
+      "updated_at": "2026-07-06T08:50:00"
     }
   ],
   "last_updated": "2026-07-03T08:50:00",
