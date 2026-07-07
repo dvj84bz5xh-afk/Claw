@@ -1100,6 +1100,28 @@
         "插件+MCP双扩展体系",
         "多Agent团队与定时任务"
       ]
+    },
+    {
+      "name": "shareAI-lab/learn-claude-code",
+      "url": "https://github.com/shareAI-lab/learn-claude-code",
+      "stars": 70074,
+      "relevance": 35,
+      "language": "Python",
+      "analyzed_at": "2026-07-07T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-07_learn_claude_code.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "线束工程范式(Harness=Model+Tools+Knowledge+Permission)",
+        "自组织任务认领(MessageBus+inbox+无领导者)",
+        "Worktree隔离多Agent并行(文件系统级)",
+        "reactive_compact上下文压缩(保留近期原文)",
+        "SkillManifest按需注入(元数据先行)"
+      ]
     }
   ],
   "improvements": [
@@ -3041,6 +3063,56 @@
       "status": "pending",
       "created_at": "2026-07-06T08:50:00",
       "updated_at": "2026-07-06T08:50:00"
+    },
+    {
+      "id": "lcc-worktree-0707",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "引入Worktree隔离的多Agent并行执行模式，文件系统级隔离避免冲突",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-07T08:50:00"
+    },
+    {
+      "id": "lcc-claim-0707",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "实现自组织任务认领机制(MessageBus+inbox轮询)，减少中心调度开销",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-07T08:50:00"
+    },
+    {
+      "id": "lcc-compact-0707",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "借鉴reactive_compact策略，保留最近N轮原文，对历史摘要压缩",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-07T08:50:00"
+    },
+    {
+      "id": "lcc-skills-0707",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "改为SkillManifest按需注入模式，先列元数据后展开内容",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-07T08:50:00"
+    },
+    {
+      "id": "lcc-async-0707",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P2",
+      "module": "agent_core",
+      "suggestion": "引入后台任务队列+通知，慢操作非阻塞化",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-07T08:50:00"
     }
   ],
   "last_updated": "2026-07-03T08:50:00",
