@@ -1122,6 +1122,28 @@
         "reactive_compact上下文压缩(保留近期原文)",
         "SkillManifest按需注入(元数据先行)"
       ]
+    },
+    {
+      "name": "NevaMind-AI/memU",
+      "url": "https://github.com/NevaMind-AI/memU",
+      "stars": 13993,
+      "relevance": 30,
+      "language": "Python",
+      "analyzed_at": "2026-07-08T08:58:36.150136",
+      "report_path": ".workbuddy/daily_learning/2026-07-08_memU.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "File-as-Memory范式(Markdown文件树而非向量库)",
+        "零LLM检索(纯向量排序,零chat-LLM调用)",
+        "自进化技能蒸馏(Agent追踪→skill文件→每次同步精炼)",
+        "增量差异同步(.memu_manifest.json状态追踪)",
+        "三层表示(File→Segment→Resource检索回滚)"
+      ]
     }
   ],
   "improvements": [
@@ -3113,6 +3135,56 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-07-07T08:50:00"
+    },
+    {
+      "id": "memu-file-memory-0708",
+      "source": "NevaMind-AI/memU",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "将Claw记忆系统从JSON格式改为Markdown文件树(INDEX.md/MEMORY.md/SKILL.md),支持Git版本控制和人类审计",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-08T08:58:36.150256"
+    },
+    {
+      "id": "memu-zero-llm-0708",
+      "source": "NevaMind-AI/memU",
+      "priority": "P0",
+      "module": "rag_engine",
+      "suggestion": "在rag_engine中增加零LLM快速检索路径,纯向量相似度排序,跳过意图路由和查询重写",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-08T08:58:36.150258"
+    },
+    {
+      "id": "memu-skill-distill-0708",
+      "source": "NevaMind-AI/memU",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "从Agent执行追踪自动蒸馏skill文件,每次workspace同步时合并精炼",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-08T08:58:36.150259"
+    },
+    {
+      "id": "memu-manifest-sync-0708",
+      "source": "NevaMind-AI/memU",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "引入manifest文件状态追踪机制,实现增量差异同步而非全量重扫",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-08T08:58:36.150260"
+    },
+    {
+      "id": "memu-three-layer-0708",
+      "source": "NevaMind-AI/memU",
+      "priority": "P2",
+      "module": "rag_engine",
+      "suggestion": "实现三层表示(File→Segment→Resource)检索回滚设计",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-08T08:58:36.150261"
     }
   ],
   "last_updated": "2026-07-03T08:50:00",
