@@ -1144,6 +1144,28 @@
         "增量差异同步(.memu_manifest.json状态追踪)",
         "三层表示(File→Segment→Resource检索回滚)"
       ]
+    },
+    {
+      "name": "letta-ai/letta",
+      "url": "https://github.com/letta-ai/letta",
+      "stars": 23711,
+      "relevance": 31,
+      "language": "Python",
+      "analyzed_at": "2026-07-09T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-09_letta.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "有状态Agent架构(PostgreSQL+pgvector记忆持久化+复合索引)",
+        "自我改进循环(Skills+Subagents持续学习+自我开发dogfooding)",
+        "多后端统一SDK(Cloud/Local/App Server无缝切换)",
+        "事件循环看门狗(线程级heartbeat检测>15s阻塞)",
+        "安全沙箱体系(JSON替代pickle+代码隔离+resumeSession)"
+      ]
     }
   ],
   "improvements": [
@@ -3185,9 +3207,59 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-07-08T08:58:36.150261"
+    },
+    {
+      "id": "letta-pg-memory-0709",
+      "source": "letta-ai/letta",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "记忆持久化升级：JSON文件→PostgreSQL+pgvector语义检索+复合索引",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-09T08:50:00"
+    },
+    {
+      "id": "letta-watchdog-0709",
+      "source": "letta-ai/letta",
+      "priority": "P0",
+      "module": "agent_core",
+      "suggestion": "事件循环看门狗：线程级heartbeat检测>15s阻塞，每5s心跳",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-09T08:50:00"
+    },
+    {
+      "id": "letta-multi-backend-0709",
+      "source": "letta-ai/letta",
+      "priority": "P1",
+      "module": "agent_core",
+      "suggestion": "多后端部署抽象：云端/本地/自托管统一SDK接口，backend参数切换",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-09T08:50:00"
+    },
+    {
+      "id": "letta-resume-session-0709",
+      "source": "letta-ai/letta",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "会话恢复机制：resumeSession断点续传+有状态流式传输",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-09T08:50:00"
+    },
+    {
+      "id": "letta-otel-0709",
+      "source": "letta-ai/letta",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "OTEL全链路埋点：标准化Agent事件采集，兼容Datadog导出",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-09T08:50:00"
     }
   ],
-  "last_updated": "2026-07-03T08:50:00",
+  "last_updated": "2026-07-09T08:50:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -3284,9 +3356,15 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-07-09T08:50:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 83,
-  "last_update": "2026-06-24T08:50:00",
-  "total_improvements": 162
+  "total_projects": 89,
+  "last_update": "2026-07-09T08:50:00",
+  "total_improvements": 186
 }

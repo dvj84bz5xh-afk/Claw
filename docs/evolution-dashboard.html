@@ -30,31 +30,31 @@ td{padding:8px;border-bottom:1px solid #21262d;font-size:13px;color:#e6edf3}
 </head>
 <body>
 <div class="container">
-<h1>🦞 Claw 智能进化仪表盘 — 第39轮</h1>
+<h1>🦞 Claw 智能进化仪表盘 — 第40轮</h1>
 
 <div class="grid">
 <div class="card">
 <h3>📊 项目总数</h3>
-<div class="value">88</div>
-<div class="sub">本轮: NevaMind-AI/memU</div>
+    <div class="value">89</div>
+    <div class="sub">本轮: letta-ai/letta</div>
 </div>
 <div class="card">
 <h3>📋 改进项</h3>
-<div class="value">181</div>
-<div class="sub">96 done / 85 pending</div>
-<div class="progress-bar"><div class="progress-fill" style="width:53%;background:#58a6ff"></div></div>
+    <div class="value">186</div>
+    <div class="sub">96 done / 90 pending</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:51.6%;background:#58a6ff"></div></div>
 </div>
 <div class="card">
 <h3>🔴 P0 实施率</h3>
-<div class="value">45.6%</div>
-<div class="sub">26/57 done</div>
-<div class="progress-bar"><div class="progress-fill" style="width:45.6%;background:#f85149"></div></div>
+    <div class="value">44.1%</div>
+    <div class="sub">26/59 done</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:44.1%;background:#f85149"></div></div>
 </div>
 <div class="card">
 <h3>🟡 P1 实施率</h3>
-<div class="value">65.4%</div>
-<div class="sub">70/107 done</div>
-<div class="progress-bar"><div class="progress-fill" style="width:65.4%;background:#d29922"></div></div>
+    <div class="value">64.2%</div>
+    <div class="sub">70/109 done</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:64.2%;background:#d29922"></div></div>
 </div>
 </div>
 
@@ -69,14 +69,14 @@ td{padding:8px;border-bottom:1px solid #21262d;font-size:13px;color:#e6edf3}
 </div>
 </div>
 
-<h2>🆕 第39轮学习 — NevaMind-AI/memU</h2>
+<h2>🆕 第40轮学习 — letta-ai/letta</h2>
 <table>
 <tr><th>创新点</th><th>优先级</th><th>模块</th></tr>
-<tr><td>File-as-Memory范式(Markdown文件树而非向量库)</td><td><span class="tag p0">P0</span></td><td>memory_system</td></tr>
-<tr><td>零LLM检索(纯向量排序,零chat-LLM调用)</td><td><span class="tag p0">P0</span></td><td>rag_engine</td></tr>
-<tr><td>自进化技能蒸馏(Agent追踪→skill文件→同步精炼)</td><td><span class="tag p1">P1</span></td><td>skill_system</td></tr>
-<tr><td>增量差异同步(.memu_manifest.json状态追踪)</td><td><span class="tag p1">P1</span></td><td>memory_system</td></tr>
-<tr><td>三层表示(File→Segment→Resource检索回滚)</td><td><span class="tag p2">P2</span></td><td>rag_engine</td></tr>
+<tr><td>PG+pgvector记忆持久化+复合索引</td><td><span class="tag p0">P0</span></td><td>memory_system</td></tr>
+<tr><td>事件循环看门狗(线程级heartbeat检测>15s阻塞)</td><td><span class="tag p0">P0</span></td><td>agent_core</td></tr>
+<tr><td>多后端部署抽象(Cloud/Local/App Server统一SDK)</td><td><span class="tag p1">P1</span></td><td>agent_core</td></tr>
+<tr><td>会话恢复机制(resumeSession断点续传)</td><td><span class="tag p1">P1</span></td><td>memory_system</td></tr>
+<tr><td>OTEL全链路埋点(标准化Agent事件采集)</td><td><span class="tag p2">P2</span></td><td>eval_observability</td></tr>
 </table>
 
 <h2>🏆 持续高相关项目 (Top 10)</h2>
@@ -85,6 +85,7 @@ td{padding:8px;border-bottom:1px solid #21262d;font-size:13px;color:#e6edf3}
 <tr><td>shareAI-lab/learn-claude-code</td><td>70,074</td><td>35</td><td>线束工程+自组织认领</td></tr>
 <tr><td>ModelEngine-Group/nexent</td><td>5,356</td><td>34</td><td>零代码Agent+双层记忆</td></tr>
 <tr><td>headroomlabs-ai/headroom</td><td>55,244</td><td>32</td><td>上下文压缩+CCR</td></tr>
+<tr><td>letta-ai/letta 🆕</td><td>23,711</td><td>31</td><td>有状态Agent+event loop watchdog</td></tr>
 <tr><td>google-gemini/gemini-cli</td><td>100,337</td><td>31</td><td>GEMINI.md+@MCP触发</td></tr>
 <tr><td>NevaMind-AI/memU 🆕</td><td>13,993</td><td>30</td><td>文件即记忆+零LLM检索</td></tr>
 <tr><td>a2aproject/A2A</td><td>24,467</td><td>29</td><td>Agent Card+Task生命周期</td></tr>
@@ -97,7 +98,9 @@ td{padding:8px;border-bottom:1px solid #21262d;font-size:13px;color:#e6edf3}
 <h2>⏳ P0待实施项 (Top 10)</h2>
 <table>
 <tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr>
-<tr><td>memu-file-memory-0708 🆕</td><td>NevaMind-AI/memU</td><td>memory_system</td><td>将记忆从JSON改为Markdown文件树</td><td><span class="tag pending">pending</span></td></tr>
+<tr><td>letta-pg-memory-0709 🆕</td><td>letta-ai/letta</td><td>memory_system</td><td>记忆持久化PG+pgvector语义检索+复合索引</td><td><span class="tag pending">pending</span></td></tr>
+<tr><td>letta-watchdog-0709 🆕</td><td>letta-ai/letta</td><td>agent_core</td><td>事件循环看门狗线程级heartbeat检测</td><td><span class="tag pending">pending</span></td></tr>
+<tr><td>memu-file-memory-0708</td><td>NevaMind-AI/memU</td><td>memory_system</td><td>将记忆从JSON改为Markdown文件树</td><td><span class="tag pending">pending</span></td></tr>
 <tr><td>memu-zero-llm-0708 🆕</td><td>NevaMind-AI/memU</td><td>rag_engine</td><td>增加零LLM快速检索路径</td><td><span class="tag pending">pending</span></td></tr>
 <tr><td>lcc-worktree-0707</td><td>learn-claude-code</td><td>agent_orchestrator</td><td>Worktree隔离多Agent并行</td><td><span class="tag pending">pending</span></td></tr>
 <tr><td>lcc-claim-0707</td><td>learn-claude-code</td><td>agent_orchestrator</td><td>自组织任务认领机制</td><td><span class="tag pending">pending</span></td></tr>
@@ -113,10 +116,10 @@ td{padding:8px;border-bottom:1px solid #21262d;font-size:13px;color:#e6edf3}
 
 <script>
 const ctx1=document.getElementById('priorityChart').getContext('2d');
-new Chart(ctx1,{type:'doughnut',data:{labels:['P0 done','P0 pending','P1 done','P1 pending','P2 done','P2 pending'],datasets:[{data:[26,31,70,37,0,17],backgroundColor:['#3fb950','#f85149','#3fb950','#d29922','#3fb950','#8b949e'],borderWidth:0}]},options:{responsive:true,plugins:{legend:{labels:{color:'#e6edf3',font:{size:11}}}}}});
+new Chart(ctx1,{type:'doughnut',data:{labels:['P0 done','P0 pending','P1 done','P1 pending','P2 done','P2 pending'],datasets:[{data:[26,33,70,39,0,18],backgroundColor:['#3fb950','#f85149','#3fb950','#d29922','#3fb950','#8b949e'],borderWidth:0}]},options:{responsive:true,plugins:{legend:{labels:{color:'#e6edf3',font:{size:11}}}}}});
 
 const ctx2=document.getElementById('moduleChart').getContext('2d');
-new Chart(ctx2,{type:'bar',data:{labels:['agent_orchestrator','memory_system','rag_engine','skill_system','tool_registry','eval_observability','context_injector'],datasets:[{label:'done',data:[18,12,13,0,39,6,0],backgroundColor:'#3fb950'},,{label:'pending',data:[5,10,8,10,0,0,4],backgroundColor:'#f85149'}]},options:{responsive:true,scales:{x:{ticks:{color:'#8b949e'},grid:{color:'#30363d'}},y:{ticks:{color:'#8b949e'},grid:{color:'#30363d'}}},plugins:{legend:{labels:{color:'#e6edf3'}}}}});
+new Chart(ctx2,{type:'bar',data:{labels:['agent_orchestrator','memory_system','rag_engine','skill_system','tool_registry','eval_observability','context_injector','agent_core'],datasets:[{label:'done',data:[18,12,13,0,39,6,0,0],backgroundColor:'#3fb950'},,{label:'pending',data:[5,12,8,10,0,1,4,2],backgroundColor:'#f85149'}]},options:{responsive:true,scales:{x:{ticks:{color:'#8b949e'},grid:{color:'#30363d'}},y:{ticks:{color:'#8b949e'},grid:{color:'#30363d'}}},plugins:{legend:{labels:{color:'#e6edf3'}}}}});
 </script>
 </body>
 </html>
