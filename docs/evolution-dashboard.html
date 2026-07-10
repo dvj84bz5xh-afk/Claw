@@ -3,123 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <title>Claw 智能进化仪表盘</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;margin:0;padding:20px;background:#0d1117;color:#e6edf3}
-.container{max-width:1200px;margin:auto}
-h1{text-align:center;font-size:28px;color:#58a6ff;margin-bottom:30px}
-h2{font-size:18px;color:#8b949e;border-bottom:1px solid #30363d;padding-bottom:8px;margin-top:30px}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-top:20px}
-.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px}
-.card h3{color:#58a6ff;font-size:14px;margin:0 0 12px}
-.card .value{font-size:32px;font-weight:bold;color:#e6edf3}
-.card .sub{font-size:12px;color:#8b949e;margin-top:4px}
-.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
-.chart-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px}
-.chart-card h3{color:#58a6ff;font-size:14px;margin:0 0 12px}
-table{width:100%;border-collapse:collapse;margin-top:12px}
-th{text-align:left;color:#8b949e;font-size:12px;padding:8px;border-bottom:1px solid #30363d}
-td{padding:8px;border-bottom:1px solid #21262d;font-size:13px;color:#e6edf3}
-.p0{color:#f85149}.p1{color:#d29922}.p2{color:#3fb950}
-.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;margin-right:4px}
-.tag.p0{background:#f8514922;color:#f85149}.tag.p1{background:#d2992222;color:#d29922}.tag.p2{background:#3fb95022;color:#3fb950}
-.tag.done{background:#3fb95022;color:#3fb950}.tag.pending{background:#f8514922;color:#f85149}
-.progress-bar{height:8px;background:#21262d;border-radius:4px;margin-top:8px;overflow:hidden}
-.progress-fill{height:100%;border-radius:4px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0d1117;color:#c9d1d9;margin:0;padding:24px;}
+.container{max-width:1200px;margin:0 auto;}
+h1{color:#58a6ff;border-bottom:2px solid #21262d;padding-bottom:12px;}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0;}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;}
+.card .num{font-size:36px;font-weight:700;color:#58a6ff;}
+.card .lbl{color:#8b949e;font-size:13px;margin-top:4px;}
+table{width:100%;border-collapse:collapse;margin-top:16px;background:#161b22;}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #21262d;font-size:14px;}
+th{background:#0d1117;color:#8b949e;font-weight:600;}
+tr:hover{background:#1c2128;}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;}
+.badge.p0{background:rgba(248,81,73,.15);color:#f85149;}
+.badge.p1{background:rgba(210,153,34,.15);color:#d29922;}
+.badge.p2{background:rgba(63,185,80,.15);color:#3fb950;}
+.badge.done{background:rgba(63,185,80,.15);color:#3fb950;}
+.badge.pending{background:rgba(139,148,158,.15);color:#8b949e;}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.chart-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;}
+.footer{color:#8b949e;font-size:12px;text-align:center;margin-top:32px;border-top:1px solid #21262d;padding-top:16px;}
 </style>
 </head>
 <body>
 <div class="container">
-<h1>🦞 Claw 智能进化仪表盘 — 第40轮</h1>
+<h1>🦞 Claw 智能进化仪表盘</h1>
+<p style="color:#8b949e;">最后更新: 2026-07-10 08:50 | 模式: 细水长流</p>
 
-<div class="grid">
-<div class="card">
-<h3>📊 项目总数</h3>
-    <div class="value">89</div>
-    <div class="sub">本轮: letta-ai/letta</div>
-</div>
-<div class="card">
-<h3>📋 改进项</h3>
-    <div class="value">186</div>
-    <div class="sub">96 done / 90 pending</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:51.6%;background:#58a6ff"></div></div>
-</div>
-<div class="card">
-<h3>🔴 P0 实施率</h3>
-    <div class="value">44.1%</div>
-    <div class="sub">26/59 done</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:44.1%;background:#f85149"></div></div>
-</div>
-<div class="card">
-<h3>🟡 P1 实施率</h3>
-    <div class="value">64.2%</div>
-    <div class="sub">70/109 done</div>
-    <div class="progress-bar"><div class="progress-fill" style="width:64.2%;background:#d29922"></div></div>
-</div>
+<div class="stats">
+  <div class="card"><div class="num">90</div><div class="lbl">已学习项目</div></div>
+  <div class="card"><div class="num">192</div><div class="lbl">改进项总数</div></div>
+  <div class="card"><div class="num">96</div><div class="lbl">已实施</div></div>
+  <div class="card"><div class="num">96</div><div class="lbl">待实施</div></div>
 </div>
 
 <div class="chart-row">
-<div class="chart-card">
-<h3>📈 改进项分布</h3>
-<canvas id="priorityChart" height="200"></canvas>
-</div>
-<div class="chart-card">
-<h3>📚 模块改进分布</h3>
-<canvas id="moduleChart" height="200"></canvas>
-</div>
+  <div class="chart-card"><h3>改进项优先级分布</h3><canvas id="priChart" height="200"></canvas></div>
+  <div class="chart-card"><h3>实施率对比</h3><canvas id="rateChart" height="200"></canvas></div>
 </div>
 
-<h2>🆕 第40轮学习 — letta-ai/letta</h2>
+<div class="card" style="margin-top:16px;">
+<h3>最近学习项目</h3>
 <table>
-<tr><th>创新点</th><th>优先级</th><th>模块</th></tr>
-<tr><td>PG+pgvector记忆持久化+复合索引</td><td><span class="tag p0">P0</span></td><td>memory_system</td></tr>
-<tr><td>事件循环看门狗(线程级heartbeat检测>15s阻塞)</td><td><span class="tag p0">P0</span></td><td>agent_core</td></tr>
-<tr><td>多后端部署抽象(Cloud/Local/App Server统一SDK)</td><td><span class="tag p1">P1</span></td><td>agent_core</td></tr>
-<tr><td>会话恢复机制(resumeSession断点续传)</td><td><span class="tag p1">P1</span></td><td>memory_system</td></tr>
-<tr><td>OTEL全链路埋点(标准化Agent事件采集)</td><td><span class="tag p2">P2</span></td><td>eval_observability</td></tr>
+<thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>改进项</th><th>分析时间</th></tr></thead>
+<tbody>
+<tr><td><a href="https://github.com/OpenHands/OpenHands" style="color:#58a6ff;">OpenHands/OpenHands</a></td><td>80,247</td><td>30</td><td>6</td><td>2026-07-10</td></tr><tr><td><a href="https://github.com/letta-ai/letta" style="color:#58a6ff;">letta-ai/letta</a></td><td>23,711</td><td>31</td><td>5</td><td>2026-07-09</td></tr><tr><td><a href="https://github.com/NevaMind-AI/memU" style="color:#58a6ff;">NevaMind-AI/memU</a></td><td>13,993</td><td>30</td><td>5</td><td>2026-07-08</td></tr><tr><td><a href="https://github.com/shareAI-lab/learn-claude-code" style="color:#58a6ff;">shareAI-lab/learn-claude-code</a></td><td>70,074</td><td>35</td><td>5</td><td>2026-07-07</td></tr><tr><td><a href="https://github.com/cline/cline" style="color:#58a6ff;">cline/cline</a></td><td>64,318</td><td>33</td><td>5</td><td>2026-07-06</td></tr>
+</tbody>
 </table>
+</div>
 
-<h2>🏆 持续高相关项目 (Top 10)</h2>
+<div class="card" style="margin-top:16px;">
+<h3>最近改进项 (Latest 10)</h3>
 <table>
-<tr><th>项目</th><th>Stars</th><th>相关度</th><th>关键创新</th></tr>
-<tr><td>shareAI-lab/learn-claude-code</td><td>70,074</td><td>35</td><td>线束工程+自组织认领</td></tr>
-<tr><td>ModelEngine-Group/nexent</td><td>5,356</td><td>34</td><td>零代码Agent+双层记忆</td></tr>
-<tr><td>headroomlabs-ai/headroom</td><td>55,244</td><td>32</td><td>上下文压缩+CCR</td></tr>
-<tr><td>letta-ai/letta 🆕</td><td>23,711</td><td>31</td><td>有状态Agent+event loop watchdog</td></tr>
-<tr><td>google-gemini/gemini-cli</td><td>100,337</td><td>31</td><td>GEMINI.md+@MCP触发</td></tr>
-<tr><td>NevaMind-AI/memU 🆕</td><td>13,993</td><td>30</td><td>文件即记忆+零LLM检索</td></tr>
-<tr><td>a2aproject/A2A</td><td>24,467</td><td>29</td><td>Agent Card+Task生命周期</td></tr>
-<tr><td>hermes-agent</td><td>200,203</td><td>29</td><td>/learn命令+轨迹压缩</td></tr>
-<tr><td>pydantic/pydantic-ai</td><td>17,729</td><td>28</td><td>依赖注入+Graph状态机</td></tr>
-<tr><td>langchain-ai/langchain</td><td>132,476</td><td>28</td><td>分层抽象+模型互操作</td></tr>
-<tr><td>agno-agi/agno</td><td>40,600</td><td>27</td><td>三层委托+LearningMachine</td></tr>
+<thead><tr><th>来源</th><th>模块</th><th>优先级</th><th>建议</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>OpenHands/OpenHands</td><td>platform</td><td><span class="badge p2">P2</span></td><td>启动Claw Incubator计划，吸引第三方Skill/MCP贡献者，建立生态合作模式...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>context_injector</td><td><span class="badge p2">P2</span></td><td>强化.workbuddy/CLAUDE.md项目级规则系统，支持多项目隔离与团队协作标准化...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>agent_orchestration</td><td><span class="badge p1">P1</span></td><td>强化Claw自动化触发机制：Webhook(飞书/QQ/钉钉) + Cron双模式调度...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>tool_system</td><td><span class="badge p1">P1</span></td><td>参考多层后端抽象(Local/Docker/VM/Cloud)，增强Claw远程沙箱部署能力...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>skill_system</td><td><span class="badge p1">P1</span></td><td>建立SkillsHub自动化模板市场(GitHub Issue拆解/报告→飞书/定时日报等)，开箱即用...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>agent_orchestration</td><td><span class="badge p0">P0</span></td><td>实现Claw ACP适配器，对接Agent Communication Protocol，支持Claude Code/C...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>eval_observability</td><td><span class="badge p2">P2</span></td><td>OTEL全链路埋点：标准化Agent事件采集，兼容Datadog导出...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>memory_system</td><td><span class="badge p1">P1</span></td><td>会话恢复机制：resumeSession断点续传+有状态流式传输...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>agent_core</td><td><span class="badge p1">P1</span></td><td>多后端部署抽象：云端/本地/自托管统一SDK接口，backend参数切换...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>agent_core</td><td><span class="badge p0">P0</span></td><td>事件循环看门狗：线程级heartbeat检测>15s阻塞，每5s心跳...</td><td><span class="badge pending">pending</span></td></tr>
+</tbody>
 </table>
+</div>
 
-<h2>⏳ P0待实施项 (Top 10)</h2>
-<table>
-<tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr>
-<tr><td>letta-pg-memory-0709 🆕</td><td>letta-ai/letta</td><td>memory_system</td><td>记忆持久化PG+pgvector语义检索+复合索引</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>letta-watchdog-0709 🆕</td><td>letta-ai/letta</td><td>agent_core</td><td>事件循环看门狗线程级heartbeat检测</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>memu-file-memory-0708</td><td>NevaMind-AI/memU</td><td>memory_system</td><td>将记忆从JSON改为Markdown文件树</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>memu-zero-llm-0708 🆕</td><td>NevaMind-AI/memU</td><td>rag_engine</td><td>增加零LLM快速检索路径</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>lcc-worktree-0707</td><td>learn-claude-code</td><td>agent_orchestrator</td><td>Worktree隔离多Agent并行</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>lcc-claim-0707</td><td>learn-claude-code</td><td>agent_orchestrator</td><td>自组织任务认领机制</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>headroom-compress-0702</td><td>headroom</td><td>context_injector</td><td>CCR可逆压缩与按需检索</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>headroom-router-0702</td><td>headroom</td><td>context_injector</td><td>ContentRouter智能路由压缩</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>raga-tracing-0615</td><td>RagaAI-Catalyst</td><td>eval_observability</td><td>5维全链路追踪</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>raga-guard-0615</td><td>RagaAI-Catalyst</td><td>eval_observability</td><td>GuardExecutor实时护栏</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>obra-spec-driven-0630</td><td>obra/superpowers</td><td>skill_system</td><td>Spec-Driven Development先出规格</td><td><span class="tag pending">pending</span></td></tr>
-<tr><td>gbrain-gap-0617</td><td>gbrain</td><td>memory_system</td><td>缺口分析标注陈旧度/矛盾</td><td><span class="tag pending">pending</span></td></tr>
-</table>
-
+<div class="footer">Claw 智能进化系统 v2.0 | 自动生成 | 数据源: learning_tracking.json</div>
 </div>
 
 <script>
-const ctx1=document.getElementById('priorityChart').getContext('2d');
-new Chart(ctx1,{type:'doughnut',data:{labels:['P0 done','P0 pending','P1 done','P1 pending','P2 done','P2 pending'],datasets:[{data:[26,33,70,39,0,18],backgroundColor:['#3fb950','#f85149','#3fb950','#d29922','#3fb950','#8b949e'],borderWidth:0}]},options:{responsive:true,plugins:{legend:{labels:{color:'#e6edf3',font:{size:11}}}}}});
+const priData = {
+  labels: ['P0 紧急', 'P1 重要', 'P2 一般'],
+  datasets: [{label: '实施数', data: [26, 70, 0], backgroundColor: ['#f85149', '#d29922', '#3fb950']},
+             {label: '总数', data: [60, 112, 20], backgroundColor: ['rgba(248,81,73,0.2)', 'rgba(210,153,34,0.2)', 'rgba(63,185,80,0.2)']}]
+};
+new Chart(document.getElementById('priChart'), {type:'bar', data:priData, options:{plugins:{legend:{labels:{color:'#c9d1d9'}}},scales:{x:{ticks:{color:'#8b949e'}},y:{ticks:{color:'#8b949e'}}}});
 
-const ctx2=document.getElementById('moduleChart').getContext('2d');
-new Chart(ctx2,{type:'bar',data:{labels:['agent_orchestrator','memory_system','rag_engine','skill_system','tool_registry','eval_observability','context_injector','agent_core'],datasets:[{label:'done',data:[18,12,13,0,39,6,0,0],backgroundColor:'#3fb950'},,{label:'pending',data:[5,12,8,10,0,1,4,2],backgroundColor:'#f85149'}]},options:{responsive:true,scales:{x:{ticks:{color:'#8b949e'},grid:{color:'#30363d'}},y:{ticks:{color:'#8b949e'},grid:{color:'#30363d'}}},plugins:{legend:{labels:{color:'#e6edf3'}}}}});
+const rateData = {
+  labels: ['P0', 'P1', 'P2', '总览'],
+  datasets: [{label: '实施率 %', data: [43.3, 62.5, 0.0, 50.0], backgroundColor: ['#f85149', '#d29922', '#3fb950', '#58a6ff'], borderRadius: 6}]
+};
+new Chart(document.getElementById('rateChart'), {type:'bar', data:rateData, options:{plugins:{legend:{labels:{color:'#c9d1d9'}}},scales:{x:{ticks:{color:'#8b949e'}},y:{ticks:{color:'#8b949e'},max:100}}});
 </script>
 </body>
 </html>

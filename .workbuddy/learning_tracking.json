@@ -1166,6 +1166,29 @@
         "事件循环看门狗(线程级heartbeat检测>15s阻塞)",
         "安全沙箱体系(JSON替代pickle+代码隔离+resumeSession)"
       ]
+    },
+    {
+      "name": "OpenHands/OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "stars": 80247,
+      "relevance": 30,
+      "language": "Python",
+      "analyzed_at": "2026-07-10T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-10_openhands.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 2
+      },
+      "key_innovations": [
+        "ACP多协议互操作(OpenHands/Claude Code/Codex/Gemini)",
+        "Agent Canvas自托管控制中心(TypeScript+React)",
+        "多层后端抽象(Local/Docker/VM/Cloud)",
+        "预构建自动化模板(Slack/GitHub/Linear集成)",
+        "项目级配置目录(.openhands/ + AGENTS.md)",
+        "Incubator生态合作计划"
+      ]
     }
   ],
   "improvements": [
@@ -3257,6 +3280,66 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-07-09T08:50:00"
+    },
+    {
+      "id": "a1b2c3d4",
+      "source": "OpenHands/OpenHands",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "实现Claw ACP适配器，对接Agent Communication Protocol，支持Claude Code/Codex/Gemini等多代理接入",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-10T08:50:00"
+    },
+    {
+      "id": "b2c3d4e5",
+      "source": "OpenHands/OpenHands",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "建立SkillsHub自动化模板市场(GitHub Issue拆解/报告→飞书/定时日报等)，开箱即用",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-10T08:50:00"
+    },
+    {
+      "id": "c3d4e5f6",
+      "source": "OpenHands/OpenHands",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "参考多层后端抽象(Local/Docker/VM/Cloud)，增强Claw远程沙箱部署能力",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-10T08:50:00"
+    },
+    {
+      "id": "d4e5f6a7",
+      "source": "OpenHands/OpenHands",
+      "priority": "P1",
+      "module": "agent_orchestration",
+      "suggestion": "强化Claw自动化触发机制：Webhook(飞书/QQ/钉钉) + Cron双模式调度",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-10T08:50:00"
+    },
+    {
+      "id": "e5f6a7b8",
+      "source": "OpenHands/OpenHands",
+      "priority": "P2",
+      "module": "context_injector",
+      "suggestion": "强化.workbuddy/CLAUDE.md项目级规则系统，支持多项目隔离与团队协作标准化",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-10T08:50:00"
+    },
+    {
+      "id": "f6a7b8c9",
+      "source": "OpenHands/OpenHands",
+      "priority": "P2",
+      "module": "platform",
+      "suggestion": "启动Claw Incubator计划，吸引第三方Skill/MCP贡献者，建立生态合作模式",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-10T08:50:00"
     }
   ],
   "last_updated": "2026-07-09T08:50:00",
