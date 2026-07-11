@@ -1189,6 +1189,22 @@
         "项目级配置目录(.openhands/ + AGENTS.md)",
         "Incubator生态合作计划"
       ]
+    },
+    {
+      "name": "tinyhumansai/openhuman",
+      "url": "https://github.com/tinyhumansai/openhuman",
+      "stars": 34612,
+      "relevance": 25,
+      "key_innovations": [
+        "Memory Tree: SQLite Markdown 树 + Obsidian 镜像持久化记忆",
+        "Graph-based Agent 编排: 检查点图 + 三级子 Agent 舰队 + 可视化工作流",
+        "SuperContext 深度研究器: 本地记忆/网络扫描 + 浏览器/语音/会议集成",
+        "Signal 协议 Agent 间通信 + x402 USDC 支付经济",
+        "本地优先 + 100+ OAuth + 5000+ MCP + 90000+ Skills"
+      ],
+      "analyzed_at": "2026-07-11T08:55:33.165200",
+      "language": "Rust",
+      "mimo_summary": "本地优先的个人 AI 超级智能系统，集记忆大脑、图式 Agent 编排与深度研究器于一体"
     }
   ],
   "improvements": [
@@ -3340,9 +3356,42 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-07-10T08:50:00"
+    },
+    {
+      "id": "979048e6",
+      "source": "tinyhumansai/openhuman",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "引入 OpenHuman Memory Tree 方案：SQLite Markdown 树 + Obsidian 双向同步，优化 Claw 记忆的本地持久化与可解释性",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-11T08:55:33.165200",
+      "updated_at": "2026-07-11T08:55:33.165200"
+    },
+    {
+      "id": "ac41e270",
+      "source": "tinyhumansai/openhuman",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "引入 OpenHuman 检查点图（graph）编排：支持子 Agent 舰队、可视化工作流、审批门控，替代简单循环编排",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-11T08:55:33.165200",
+      "updated_at": "2026-07-11T08:55:33.165200"
+    },
+    {
+      "id": "01062777",
+      "source": "tinyhumansai/openhuman",
+      "priority": "P1",
+      "module": "workflow_engine",
+      "suggestion": "借鉴 OpenHuman 可视化工作流与审批门控机制，构建 Claw 任务自动化流水线",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-11T08:55:33.165200",
+      "updated_at": "2026-07-11T08:55:33.165200"
     }
   ],
-  "last_updated": "2026-07-09T08:50:00",
+  "last_updated": "2026-07-11T08:56:54.775724",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -3444,6 +3493,18 @@
       "time": "2026-07-09T08:50:00",
       "new_projects": 1,
       "new_improvements": 5,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-07-11T08:55:34.981965",
+      "new_projects": 1,
+      "new_improvements": 3,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-07-11T08:56:54.775719",
+      "new_projects": 1,
+      "new_improvements": 3,
       "skipped_improvements": 0
     }
   ],

@@ -2,84 +2,225 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>Claw 智能进化仪表盘</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claw 进化仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0d1117;color:#c9d1d9;margin:0;padding:24px;}
-.container{max-width:1200px;margin:0 auto;}
-h1{color:#58a6ff;border-bottom:2px solid #21262d;padding-bottom:12px;}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0;}
-.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;}
-.card .num{font-size:36px;font-weight:700;color:#58a6ff;}
-.card .lbl{color:#8b949e;font-size:13px;margin-top:4px;}
-table{width:100%;border-collapse:collapse;margin-top:16px;background:#161b22;}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #21262d;font-size:14px;}
-th{background:#0d1117;color:#8b949e;font-weight:600;}
-tr:hover{background:#1c2128;}
-.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;}
-.badge.p0{background:rgba(248,81,73,.15);color:#f85149;}
-.badge.p1{background:rgba(210,153,34,.15);color:#d29922;}
-.badge.p2{background:rgba(63,185,80,.15);color:#3fb950;}
-.badge.done{background:rgba(63,185,80,.15);color:#3fb950;}
-.badge.pending{background:rgba(139,148,158,.15);color:#8b949e;}
-.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
-.chart-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;}
-.footer{color:#8b949e;font-size:12px;text-align:center;margin-top:32px;border-top:1px solid #21262d;padding-top:16px;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; padding: 20px; }
+.header { text-align: center; margin-bottom: 30px; }
+.header h1 { color: #58a6ff; font-size: 2em; }
+.header p { color: #8b949e; margin-top: 5px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 20px; }
+.card h3 { color: #58a6ff; margin-bottom: 15px; font-size: 1.1em; }
+.stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #21262d; }
+.stat-label { color: #8b949e; }
+.stat-value { color: #f0f6fc; font-weight: bold; }
+.stat-value.p0 { color: #f85149; }
+.stat-value.p1 { color: #d29922; }
+.chart-container { position: relative; height: 250px; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+th { color: #58a6ff; }
+td a { color: #58a6ff; text-decoration: none; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+.badge-p0 { background: #f8514922; color: #f85149; }
+.badge-p1 { background: #d2992222; color: #d29922; }
+.badge-pending { background: #8b949e22; color: #8b949e; }
 </style>
 </head>
 <body>
-<div class="container">
-<h1>🦞 Claw 智能进化仪表盘</h1>
-<p style="color:#8b949e;">最后更新: 2026-07-10 08:50 | 模式: 细水长流</p>
-
-<div class="stats">
-  <div class="card"><div class="num">90</div><div class="lbl">已学习项目</div></div>
-  <div class="card"><div class="num">192</div><div class="lbl">改进项总数</div></div>
-  <div class="card"><div class="num">96</div><div class="lbl">已实施</div></div>
-  <div class="card"><div class="num">96</div><div class="lbl">待实施</div></div>
+<div class="header">
+<h1>Claw 进化仪表盘</h1>
+<p>最后更新: 2026-07-11 08:56:54 | 已运行 19 轮</p>
 </div>
 
-<div class="chart-row">
-  <div class="chart-card"><h3>改进项优先级分布</h3><canvas id="priChart" height="200"></canvas></div>
-  <div class="chart-card"><h3>实施率对比</h3><canvas id="rateChart" height="200"></canvas></div>
+<div class="grid">
+<div class="card">
+<h3>📊 核心指标</h3>
+<div class="stat-row"><span class="stat-label">扫描项目总数</span><span class="stat-value">91</span></div>
+<div class="stat-row"><span class="stat-label">改进项总数</span><span class="stat-value">195</span></div>
+<div class="stat-row"><span class="stat-label">P0待实施</span><span class="stat-value p0">61</span></div>
+<div class="stat-row"><span class="stat-label">P1待评估</span><span class="stat-value p1">114</span></div>
+<div class="stat-row"><span class="stat-label">待处理总数</span><span class="stat-value">99</span></div>
+<div class="stat-row"><span class="stat-label">进化日志</span><span class="stat-value">991 条</span></div>
 </div>
 
-<div class="card" style="margin-top:16px;">
-<h3>最近学习项目</h3>
+<div class="card">
+<h3>🏗️ 改进项分布（按模块）</h3>
+<div class="chart-container"><canvas id="moduleChart"></canvas></div>
+</div>
+
+<div class="card">
+<h3>🔤 项目语言分布</h3>
+<div class="chart-container"><canvas id="langChart"></canvas></div>
+</div>
+
+<div class="card">
+<h3>📈 进化趋势（最近20轮）</h3>
+<div class="chart-container"><canvas id="trendChart"></canvas></div>
+</div>
+</div>
+
+<div class="card" style="margin-bottom:20px;">
+<h3>🔥 Top 10 高相关项目</h3>
+<div class="chart-container" style="height:300px;"><canvas id="topChart"></canvas></div>
+</div>
+
+<div class="card" style="margin-bottom:20px;">
+<h3>📋 学习项目列表</h3>
 <table>
-<thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>改进项</th><th>分析时间</th></tr></thead>
-<tbody>
-<tr><td><a href="https://github.com/OpenHands/OpenHands" style="color:#58a6ff;">OpenHands/OpenHands</a></td><td>80,247</td><td>30</td><td>6</td><td>2026-07-10</td></tr><tr><td><a href="https://github.com/letta-ai/letta" style="color:#58a6ff;">letta-ai/letta</a></td><td>23,711</td><td>31</td><td>5</td><td>2026-07-09</td></tr><tr><td><a href="https://github.com/NevaMind-AI/memU" style="color:#58a6ff;">NevaMind-AI/memU</a></td><td>13,993</td><td>30</td><td>5</td><td>2026-07-08</td></tr><tr><td><a href="https://github.com/shareAI-lab/learn-claude-code" style="color:#58a6ff;">shareAI-lab/learn-claude-code</a></td><td>70,074</td><td>35</td><td>5</td><td>2026-07-07</td></tr><tr><td><a href="https://github.com/cline/cline" style="color:#58a6ff;">cline/cline</a></td><td>64,318</td><td>33</td><td>5</td><td>2026-07-06</td></tr>
-</tbody>
-</table>
-</div>
+<tr><th>#</th><th>项目</th><th>Stars</th><th>相关度</th><th>语言</th><th>关键创新</th></tr>
+<tr><td>1</td><td><a href="https://github.com/shareAI-lab/learn-claude-code" target="_blank">shareAI-lab/learn-claude-code</a></td><td>70,074</td><td>35</td><td>Python</td><td>线束工程范式(Harness=Model+Tools+Knowledge+Permission), 自组织任务认领(MessageBus+inbox+无领导者)</td></tr>
+<tr><td>2</td><td><a href="https://github.com/ModelEngine-Group/nexent" target="_blank">ModelEngine-Group/nexent</a></td><td>5,356</td><td>34</td><td>Python</td><td>Zero-Code Agent Generation (自然语言→可执行Agent), Progressive Skill Disclosure (按需Skill注入)</td></tr>
+<tr><td>3</td><td><a href="https://github.com/cline/cline" target="_blank">cline/cline</a></td><td>64,318</td><td>33</td><td>TypeScript</td><td>多表面统一SDK架构, Plan/Act双模式切换</td></tr>
+<tr><td>4</td><td><a href="https://github.com/headroomlabs-ai/headroom" target="_blank">headroomlabs-ai/headroom</a></td><td>55,244</td><td>32</td><td>Python</td><td>AI agent上下文压缩层, library/proxy/agent wrap/MCP server四形态</td></tr>
+<tr><td>5</td><td><a href="https://github.com/google-gemini/gemini-cli" target="_blank">google-gemini/gemini-cli</a></td><td>100,337</td><td>31</td><td>TypeScript</td><td>GitHub Action原生集成(PR审查+Issue分类+@触发), @命名空间MCP触发机制(@github/@slack/@database)</td></tr>
+<tr><td>6</td><td><a href="https://github.com/letta-ai/letta" target="_blank">letta-ai/letta</a></td><td>23,711</td><td>31</td><td>Python</td><td>有状态Agent架构(PostgreSQL+pgvector记忆持久化+复合索引), 自我改进循环(Skills+Subagents持续学习+自我开发dogfooding)</td></tr>
+<tr><td>7</td><td><a href="https://github.com/NevaMind-AI/memU" target="_blank">NevaMind-AI/memU</a></td><td>13,993</td><td>30</td><td>Python</td><td>File-as-Memory范式(Markdown文件树而非向量库), 零LLM检索(纯向量排序,零chat-LLM调用)</td></tr>
+<tr><td>8</td><td><a href="https://github.com/OpenHands/OpenHands" target="_blank">OpenHands/OpenHands</a></td><td>80,247</td><td>30</td><td>Python</td><td>ACP多协议互操作(OpenHands/Claude Code/Codex/Gemini), Agent Canvas自托管控制中心(TypeScript+React)</td></tr>
+<tr><td>9</td><td><a href="https://github.com/TheDotMack/claude-mem" target="_blank">TheDotMack/claude-mem</a></td><td>83,764</td><td>29</td><td>JavaScript</td><td>Progressive Disclosure 3层MCP搜索工作流, Chroma向量+SQLite FTS5混合搜索</td></tr>
+<tr><td>10</td><td><a href="https://github.com/NousResearch/hermes-agent" target="_blank">NousResearch/hermes-agent</a></td><td>200,203</td><td>29</td><td>Python</td><td>内置学习循环(创建Skill→使用中改进→主动保存), /learn万能学习命令(零引擎纯prompt驱动)</td></tr>
+<tr><td>11</td><td><a href="https://github.com/a2aproject/A2A" target="_blank">a2aproject/A2A</a></td><td>24,467</td><td>29</td><td>Protocol (protobuf + multi-SDK)</td><td>Agent Card能力声明与发现机制, 传输无关协议设计(protobuf+多绑定)</td></tr>
+<tr><td>12</td><td><a href="https://github.com/langchain-ai/langgraph" target="_blank">langchain-ai/langgraph</a></td><td>36,347</td><td>29</td><td>Python</td><td>DeltaChannel增量状态存储(4.9x节省), 图结构Agent执行(节点+边+子图+循环)</td></tr>
+<tr><td>13</td><td><a href="https://github.com/wanxingai/LightAgent" target="_blank">wanxingai/LightAgent</a></td><td>1,005</td><td>28</td><td>Python</td><td>多智能体协作架构, 记忆/状态持久化机制</td></tr>
+<tr><td>14</td><td><a href="https://github.com/pydantic/pydantic-ai" target="_blank">pydantic/pydantic-ai</a></td><td>17,729</td><td>28</td><td>Python</td><td>RunContext泛型依赖注入+运行时工具可见性, Deferred Tool Approval人机审批流</td></tr>
+<tr><td>15</td><td><a href="https://github.com/langchain-ai/langchain" target="_blank">langchain-ai/langchain</a></td><td>132,476</td><td>28</td><td>Python</td><td>分层抽象架构(DeepAgents→LangChain→LangGraph), 模型互操作性(init_chat_model统一接口)</td></tr>
+<tr><td>16</td><td><a href="https://github.com/mem0ai/mem0" target="_blank">mem0ai/mem0</a></td><td>57,829</td><td>27</td><td>Python</td><td>单轮记忆提取算法(1次LLM调用), 混合检索(语义+BM25+实体)</td></tr>
+<tr><td>17</td><td><a href="https://github.com/agno-agi/agno" target="_blank">agno-agi/agno</a></td><td>40,600</td><td>27</td><td>Python</td><td>三层委托策略(Route/Broadcast/Tasks), 团队级共享会话状态</td></tr>
+<tr><td>18</td><td><a href="https://github.com/raga-ai-hub/RagaAI-Catalyst" target="_blank">raga-ai-hub/RagaAI-Catalyst</a></td><td>16,200</td><td>27</td><td>Python</td><td>Agentic Tracing 5维全链路追踪(LLM/工具/网络/用户/决策), GuardExecutor 实时护栏事中拦截机制</td></tr>
+<tr><td>19</td><td><a href="https://github.com/langchain4j/langchain4j" target="_blank">langchain4j/langchain4j</a></td><td>12,114</td><td>26</td><td>-</td><td>检索增强生成(RAG), Model Context Protocol集成</td></tr>
+<tr><td>20</td><td><a href="https://github.com/openai/openai-agents-python" target="_blank">openai/openai-agents-python</a></td><td>26,954</td><td>26</td><td>Python</td><td>Agent-as-Tool Handoffs自动路由, Sandbox Agent持久化状态</td></tr>
+<tr><td>21</td><td><a href="https://github.com/garrytan/gbrain" target="_blank">garrytan/gbrain</a></td><td>16,000</td><td>26</td><td>TypeScript</td><td>零LLM成本自连线知识图谱(纯模式匹配), 缺口分析(GapAnalysis)—标注陈旧度/矛盾/空洞</td></tr>
+<tr><td>22</td><td><a href="https://github.com/traceroot-ai/traceroot" target="_blank">traceroot-ai/traceroot</a></td><td>610</td><td>25</td><td>TypeScript</td><td>OpenTelemetry兼容Agent追踪, LLM-as-judge自动检测器</td></tr>
+<tr><td>23</td><td><a href="https://github.com/browser-use/browser-use" target="_blank">browser-use/browser-use</a></td><td>98,690</td><td>25</td><td>Python</td><td>Rust Core高性能运行时(3-5x提速), 双轨代理系统(Stable/Beta)</td></tr>
+<tr><td>24</td><td><a href="https://github.com/tinyhumansai/openhuman" target="_blank">tinyhumansai/openhuman</a></td><td>34,612</td><td>25</td><td>Rust</td><td>Memory Tree: SQLite Markdown 树 + Obsidian 镜像持久化记忆, Graph-based Agent 编排: 检查点图 + 三级子 Agent 舰队 + 可视化工作流</td></tr>
+<tr><td>25</td><td><a href="https://github.com/modelcontextprotocol/python-sdk" target="_blank">modelcontextprotocol/python-sdk</a></td><td>23,225</td><td>24</td><td>-</td><td>Context依赖注入模式, Lifespan API资源生命周期管理</td></tr>
+<tr><td>26</td><td><a href="https://github.com/Haohao-end/mcp-agent" target="_blank">Haohao-end/mcp-agent</a></td><td>82</td><td>23</td><td>Python</td><td>检索增强生成(RAG), Model Context Protocol集成</td></tr>
+<tr><td>27</td><td><a href="https://github.com/topoteretes/cognee" target="_blank">topoteretes/cognee</a></td><td>21,626</td><td>23</td><td>Python</td><td>remember/recall/forget/improve四操作记忆API, Session+Permanent双层级记忆架构</td></tr>
+<tr><td>28</td><td><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a></td><td>241,516</td><td>22</td><td>Shell/Marketdown</td><td>可组合Skill系统（跨Claude/Cursor/Codex/Gemini等IDE自动触发）, Spec-Driven Development：先出短规格→用户确认→再出实现计划</td></tr>
+<tr><td>29</td><td><a href="https://github.com/nanobrowser/nanobrowser" target="_blank">nanobrowser/nanobrowser</a></td><td>13,048</td><td>21</td><td>-</td><td>多智能体协作架构, 工作流编排</td></tr>
+<tr><td>30</td><td><a href="https://github.com/ruvnet/ruflo" target="_blank">ruvnet/ruflo</a></td><td>55,499</td><td>21</td><td>-</td><td>多智能体协作架构, 检索增强生成(RAG)</td></tr>
+</table></div>
 
-<div class="card" style="margin-top:16px;">
-<h3>最近改进项 (Latest 10)</h3>
+<div class="card">
+<h3>⚠️ P0改进项（待实施）</h3>
 <table>
-<thead><tr><th>来源</th><th>模块</th><th>优先级</th><th>建议</th><th>状态</th></tr></thead>
-<tbody>
-<tr><td>OpenHands/OpenHands</td><td>platform</td><td><span class="badge p2">P2</span></td><td>启动Claw Incubator计划，吸引第三方Skill/MCP贡献者，建立生态合作模式...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>context_injector</td><td><span class="badge p2">P2</span></td><td>强化.workbuddy/CLAUDE.md项目级规则系统，支持多项目隔离与团队协作标准化...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>agent_orchestration</td><td><span class="badge p1">P1</span></td><td>强化Claw自动化触发机制：Webhook(飞书/QQ/钉钉) + Cron双模式调度...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>tool_system</td><td><span class="badge p1">P1</span></td><td>参考多层后端抽象(Local/Docker/VM/Cloud)，增强Claw远程沙箱部署能力...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>skill_system</td><td><span class="badge p1">P1</span></td><td>建立SkillsHub自动化模板市场(GitHub Issue拆解/报告→飞书/定时日报等)，开箱即用...</td><td><span class="badge pending">pending</span></td></tr><tr><td>OpenHands/OpenHands</td><td>agent_orchestration</td><td><span class="badge p0">P0</span></td><td>实现Claw ACP适配器，对接Agent Communication Protocol，支持Claude Code/C...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>eval_observability</td><td><span class="badge p2">P2</span></td><td>OTEL全链路埋点：标准化Agent事件采集，兼容Datadog导出...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>memory_system</td><td><span class="badge p1">P1</span></td><td>会话恢复机制：resumeSession断点续传+有状态流式传输...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>agent_core</td><td><span class="badge p1">P1</span></td><td>多后端部署抽象：云端/本地/自托管统一SDK接口，backend参数切换...</td><td><span class="badge pending">pending</span></td></tr><tr><td>letta-ai/letta</td><td>agent_core</td><td><span class="badge p0">P0</span></td><td>事件循环看门狗：线程级heartbeat检测>15s阻塞，每5s心跳...</td><td><span class="badge pending">pending</span></td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="footer">Claw 智能进化系统 v2.0 | 自动生成 | 数据源: learning_tracking.json</div>
-</div>
+<tr><th>#</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr>
+<tr><td>1</td><td>wshobson/agents</td><td>agent_orchestration</td><td>参考 wshobson/agents 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>2</td><td>kyegomez/swarms</td><td>agent_orchestration</td><td>参考 kyegomez/swarms 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>3</td><td>open-multi-agent/open-multi-agent</td><td>agent_orchestration</td><td>参考 open-multi-agent/open-multi-agent 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>4</td><td>crewAIInc/crewAI</td><td>agent_orchestration</td><td>参考 crewAIInc/crewAI 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>5</td><td>IBM/AssetOpsBench</td><td>agent_orchestration</td><td>参考 IBM/AssetOpsBench 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>6</td><td>FoundationAgents/MetaGPT</td><td>agent_orchestration</td><td>参考 FoundationAgents/MetaGPT 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>7</td><td>nanobrowser/nanobrowser</td><td>agent_orchestration</td><td>参考 nanobrowser/nanobrowser 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>8</td><td>ruvnet/ruflo</td><td>agent_orchestration</td><td>参考 ruvnet/ruflo 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>9</td><td>Yeachan-Heo/oh-my-claudecode</td><td>agent_orchestration</td><td>参考 Yeachan-Heo/oh-my-claudecode 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>10</td><td>openai/swarm</td><td>agent_orchestration</td><td>参考 openai/swarm 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>11</td><td>cft0808/edict</td><td>agent_orchestration</td><td>参考 cft0808/edict 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>12</td><td>muratcankoylan/Agent-Skills-for-Context-Engineering</td><td>agent_orchestration</td><td>参考 muratcankoylan/Agent-Skills-for-Context-Engineering 的编排模式</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>13</td><td>microsoft/mcp-for-beginners</td><td>agent_orchestration</td><td>参考 microsoft/mcp-for-beginners 的编排模式增强Agent协作</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>14</td><td>crewAIInc/crewAI</td><td>agent_orchestration</td><td>参考 crewAIInc/crewAI 的多智能体编排模式，实现Agent协作和任务分配</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>15</td><td>RTGS2017/NagaAgent</td><td>agent_orchestration</td><td>参考 RTGS2017/NagaAgent 的多智能体编排模式，实现Agent协作和任务分配</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>16</td><td>rinadelph/Agent-MCP</td><td>agent_orchestration</td><td>参考 rinadelph/Agent-MCP 的多智能体编排模式，实现Agent协作和任务分配</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>17</td><td>wanxingai/LightAgent</td><td>agent_orchestration</td><td>参考 wanxingai/LightAgent 的多智能体编排模式，实现Agent协作和任务分配</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>18</td><td>wzf2000/MACRec</td><td>agent_orchestration</td><td>参考 wzf2000/MACRec 的多智能体编排模式，实现Agent协作和任务分配</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>19</td><td>Taoidle/plan-cascade</td><td>agent_orchestration</td><td>参考 Taoidle/plan-cascade 的多智能体编排模式，实现Agent协作和任务分配</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>20</td><td>Rishabhmannu/amazon-greencart-hackathon</td><td>agent_orchestration</td><td>参考 Rishabhmannu/amazon-greencart-hackathon 的多智能体编排模式，实现Agent</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>21</td><td>microsoft/agent-framework</td><td>agent_orchestration</td><td>参考 microsoft/agent-framework 的图结构工作流编排（sequential/concurrent</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>22</td><td>modelcontextprotocol/python-sdk</td><td>skill_system</td><td>参考MCP SDK的Context依赖注入模式(Context[Session,LifespanContext]泛型)，</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>23</td><td>modelcontextprotocol/python-sdk</td><td>agent_orchestration</td><td>参考MCP SDK的Lifespan API(@asynccontextmanager)，为Claw进化引擎和Agent</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>24</td><td>mem0ai/mem0</td><td>memory</td><td>借鉴mem0单轮提取算法，在对话结束后自动提取关键信息写入memory层，消除手动指令依赖。参考LoCoMo(91.6分</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>25</td><td>openai/openai-agents-python</td><td>agent_orchestration</td><td>借鉴openai-agents的Agent-as-Tool Handoffs机制，Claw Agent编排从手动Task</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>26</td><td>openai/openai-agents-python</td><td>agent_orchestration</td><td>引入Sandbox Agent持久化工作区（文件系统+代码仓库），为Claw进化引擎等长周期Agent提供跨会话状态延续</td><td><span class="badge badge-p0">done</span></td></tr>
+<tr><td>27</td><td>agno-agi/agno</td><td>agent_orchestration</td><td>借鉴agno的session_state+share_member_interactions机制，为Claw多Agent</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>28</td><td>agno-agi/agno</td><td>agent_orchestration</td><td>借鉴agno的TeamMode.tasks自主任务规划循环，Agent自主拆解复杂任务+迭代执行(max_iterati</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>29</td><td>pydantic/pydantic-ai</td><td>skill_system</td><td>参考pydantic-ai的RunContext泛型+available_tool_names/available_ca</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>30</td><td>pydantic/pydantic-ai</td><td>agent_orchestration</td><td>参考pydantic-ai的Deferred Tool Approval机制(ToolApproved/ToolDeni</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>31</td><td>browser-use/browser-use</td><td>agent_orchestration</td><td>借鉴browser-use的Rust Core高性能运行时思路(0.13版提速3-5x)，评估用Rust/Go重写Cla</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>32</td><td>langchain-ai/langchain</td><td>agent_orchestration</td><td>借鉴LangGraph的Checkpointer节点级状态快照+断点恢复，为Claw workflow_graph.py</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>33</td><td>garrytan/gbrain</td><td>memory</td><td>借鉴GBrain零LLM自连线知识图谱—从MEMORY.md的[SECTION]/wiki链接/表格自动提取实体+类型化</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>34</td><td>garrytan/gbrain</td><td>memory</td><td>借鉴GBrain缺口分析(GapAnalysis)—查询时自动标注信息陈旧度(>30天)、缺失领域、页面间矛盾，输出答案</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>35</td><td>comet-ml/opik</td><td>observability</td><td>借鉴Opik LLM-as-Judge评估指标，为eval_observability_skill添加幻觉检测(hall</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>36</td><td>comet-ml/opik</td><td>observability</td><td>借鉴Opik生产级Trace(40M+/day)+实时仪表盘，升级Claw eval_observability_ski</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>37</td><td>TheDotMack/claude-mem</td><td>memory</td><td>实现Progressive Disclosure 3层记忆检索(search→timeline→get_observat</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>38</td><td>TheDotMack/claude-mem</td><td>memory</td><td>引入Chroma向量数据库+SQLite FTS5混合搜索，替换纯文件glob查找</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>39</td><td>NousResearch/hermes-agent</td><td>skill_system</td><td>借鉴Hermes /learn命令(零引擎纯prompt驱动)，为Claw实现对话内自动Skill提取，支持目录/URL</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>40</td><td>NousResearch/hermes-agent</td><td>agent_orchestration</td><td>借鉴Hermes内置持续学习循环(create→improve→nudge)，将Claw夜间批处理进化引擎升级为在线持续</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>41</td><td>topoteretes/cognee</td><td>memory</td><td>为Claw记忆系统实现remember/recall/forget/improve四操作API，替代纯文件读写</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>42</td><td>topoteretes/cognee</td><td>memory</td><td>实现Session+Permanent双层级记忆架构，会话快速缓存+后台同步到永久存储</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>43</td><td>a2aproject/A2A</td><td>agent_orchestration</td><td>实现Agent Card能力声明机制，为Claw agent_core添加AgentCard类(name/descrip</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>44</td><td>a2aproject/A2A</td><td>agent_orchestration</td><td>多模式交互支持：agent_orchestrator增加SSE流式和Webhook异步模式，当前仅同步调用</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>45</td><td>ModelEngine-Group/nexent</td><td>skill_system</td><td>实现Progressive Skill Disclosure机制：根据任务上下文动态选择相关Skill注入，而非全量加载</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>46</td><td>ModelEngine-Group/nexent</td><td>agent_orchestration</td><td>开发零代码Agent生成器：用户输入自然语言需求描述→自动生成Skill YAML + Agent配置，降低Agent创</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>47</td><td>headroomlabs-ai/headroom</td><td>context_injector</td><td>引入headroom的ContentRouter/SmartCrusher，对tool_registry和rag_eng</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>48</td><td>headroomlabs-ai/headroom</td><td>memory_system</td><td>实现CCR可逆压缩：原始内容本地缓存，向LLM暴露retrieve工具按需取回完整信息，避免压缩丢失关键细节</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>49</td><td>langchain-ai/langgraph</td><td>memory_system</td><td>实现DeltaChannel增量状态存储：检查点仅存储零字节哨兵值而非完整累积值，snapshot_frequency=</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>50</td><td>langchain-ai/langgraph</td><td>agent_orchestration</td><td>从线性编排升级图结构：引入StateGraph概念(节点+条件边+子图)，支持循环推理和动态分支，从管道式升级为网状</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>51</td><td>campfirein/byterover-cli</td><td>memory_system</td><td>引入Context Tree树形记忆架构+Git-like版本控制(branch/commit/merge/push/p</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>52</td><td>cline/cline</td><td>context_injector</td><td>引入.clinerules项目规则自动加载，替代部分硬编码项目约定</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>53</td><td>cline/cline</td><td>agent_orchestrator</td><td>Plan/Act模式显式化：Plan阶段只输出方案，Act阶段才执行工具调用</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>54</td><td>shareAI-lab/learn-claude-code</td><td>agent_orchestrator</td><td>引入Worktree隔离的多Agent并行执行模式，文件系统级隔离避免冲突</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>55</td><td>shareAI-lab/learn-claude-code</td><td>agent_orchestrator</td><td>实现自组织任务认领机制(MessageBus+inbox轮询)，减少中心调度开销</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>56</td><td>NevaMind-AI/memU</td><td>memory_system</td><td>将Claw记忆系统从JSON格式改为Markdown文件树(INDEX.md/MEMORY.md/SKILL.md),支</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>57</td><td>NevaMind-AI/memU</td><td>rag_engine</td><td>在rag_engine中增加零LLM快速检索路径,纯向量相似度排序,跳过意图路由和查询重写</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>58</td><td>letta-ai/letta</td><td>memory_system</td><td>记忆持久化升级：JSON文件→PostgreSQL+pgvector语义检索+复合索引</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>59</td><td>letta-ai/letta</td><td>agent_core</td><td>事件循环看门狗：线程级heartbeat检测>15s阻塞，每5s心跳</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>60</td><td>OpenHands/OpenHands</td><td>agent_orchestration</td><td>实现Claw ACP适配器，对接Agent Communication Protocol，支持Claude Code/C</td><td><span class="badge badge-pending">pending</span></td></tr>
+<tr><td>61</td><td>tinyhumansai/openhuman</td><td>agent_orchestration</td><td>引入 OpenHuman 检查点图（graph）编排：支持子 Agent 舰队、可视化工作流、审批门控，替代简单循环编排</td><td><span class="badge badge-pending">pending</span></td></tr>
+</table></div>
 
 <script>
-const priData = {
-  labels: ['P0 紧急', 'P1 重要', 'P2 一般'],
-  datasets: [{label: '实施数', data: [26, 70, 0], backgroundColor: ['#f85149', '#d29922', '#3fb950']},
-             {label: '总数', data: [60, 112, 20], backgroundColor: ['rgba(248,81,73,0.2)', 'rgba(210,153,34,0.2)', 'rgba(63,185,80,0.2)']}]
-};
-new Chart(document.getElementById('priChart'), {type:'bar', data:priData, options:{plugins:{legend:{labels:{color:'#c9d1d9'}}},scales:{x:{ticks:{color:'#8b949e'}},y:{ticks:{color:'#8b949e'}}}});
+const chartColors = ['#58a6ff','#f85149','#d29922','#3fb950','#bc8cff','#f778ba','#79c0ff','#ffa657'];
 
-const rateData = {
-  labels: ['P0', 'P1', 'P2', '总览'],
-  datasets: [{label: '实施率 %', data: [43.3, 62.5, 0.0, 50.0], backgroundColor: ['#f85149', '#d29922', '#3fb950', '#58a6ff'], borderRadius: 6}]
-};
-new Chart(document.getElementById('rateChart'), {type:'bar', data:rateData, options:{plugins:{legend:{labels:{color:'#c9d1d9'}}},scales:{x:{ticks:{color:'#8b949e'}},y:{ticks:{color:'#8b949e'},max:100}}});
+// 模块分布饼图
+new Chart(document.getElementById('moduleChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ["tool_system", "knowledge_retrieval", "agent_orchestration", "memory", "evaluation", "observability", "skill_system", "model_scheduler", "evolution", "rag_engine", "memory_system", "workflow_engine", "context_injector", "eval_observability", "tool_registry", "agent_orchestrator", "agent_core", "automation", "platform"],
+    datasets: [{ data: [43, 14, 47, 26, 3, 8, 15, 3, 3, 3, 10, 2, 6, 2, 1, 3, 4, 1, 1], backgroundColor: chartColors }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#c9d1d9' } } } }
+});
+
+// 语言分布饼图
+new Chart(document.getElementById('langChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ["Unknown", "Python", "TypeScript", "HTML", "Clojure", "Rust", "JavaScript", "Protocol (protobuf + multi-SDK)", "Shell/Marketdown"],
+    datasets: [{ data: [51, 25, 8, 1, 1, 2, 1, 1, 1], backgroundColor: chartColors }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#c9d1d9' } } } }
+});
+
+// 进化趋势折线图
+new Chart(document.getElementById('trendChart'), {
+  type: 'line',
+  data: {
+    labels: ["2026-06-14T08:50", "2026-05-27T12:05", "2026-05-27T12:55", "2026-05-29T09:12", "2026-06-04T09:45", "2026-06-06T09:04", "2026-06-07T09:06", "2026-06-09T09:00", "2026-06-10T09:00", "2026-06-13T09:00", "2026-06-16T09:00", "2026-06-17T08:50", "2026-06-19T08:50", "2026-06-24T08:50", "2026-06-30T08:59", "2026-07-03T08:50", "2026-07-09T08:50", "2026-07-11T08:55", "2026-07-11T08:56"],
+    datasets: [
+      { label: '新项目', data: [1, 7, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], borderColor: '#58a6ff', tension: 0.3 },
+      { label: '新改进项', data: [5, 10, 10, 3, 3, 3, 3, 3, 5, 4, 4, 5, 4, 4, 0, 5, 5, 3, 3], borderColor: '#3fb950', tension: 0.3 }
+    ]
+  },
+  options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } }, y: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } } }, plugins: { legend: { labels: { color: '#c9d1d9' } } } }
+});
+
+// Top 10 项目柱状图
+new Chart(document.getElementById('topChart'), {
+  type: 'bar',
+  data: {
+    labels: ["learn-claude-co", "nexent", "cline", "headroom", "gemini-cli", "letta", "memU", "OpenHands", "claude-mem", "hermes-agent"],
+    datasets: [
+      { label: '相关度', data: [35, 34, 33, 32, 31, 31, 30, 30, 29, 29], backgroundColor: '#58a6ff' },
+    ]
+  },
+  options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } }, y: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } } }, plugins: { legend: { labels: { color: '#c9d1d9' } } } }
+});
 </script>
-</body>
-</html>
+
+<div style="text-align:center;color:#8b949e;margin-top:30px;padding:10px;">
+<p>Generated by Claw Evolution Engine v2.0 | 2026-07-11 08:56</p>
+</div>
+</body></html>
