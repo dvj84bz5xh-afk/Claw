@@ -1205,6 +1205,28 @@
       "analyzed_at": "2026-07-11T08:55:33.165200",
       "language": "Rust",
       "mimo_summary": "本地优先的个人 AI 超级智能系统，集记忆大脑、图式 Agent 编排与深度研究器于一体"
+    },
+    {
+      "name": "omnigent-ai/omnigent",
+      "url": "https://github.com/omnigent-ai/omnigent",
+      "stars": 7087,
+      "relevance": 33,
+      "language": "Python",
+      "analyzed_at": "2026-07-12T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-12_omnigent.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 1,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Meta-Harness Agent定义与执行后端分离(热插拔)",
+        "Polly多Agent交叉供应商审查",
+        "智能模型路由(服务器端判断+会话级持久化)",
+        "三层策略体系(ALLOW/ASK/DENY)",
+        "线束测试台自执行能力矩阵"
+      ]
     }
   ],
   "improvements": [
@@ -3389,9 +3411,59 @@
       "status": "pending",
       "created_at": "2026-07-11T08:55:33.165200",
       "updated_at": "2026-07-11T08:55:33.165200"
+    },
+    {
+      "id": "omni-harness-0712",
+      "source": "omnigent-ai/omnigent",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "引入Meta-Harness抽象层：将Agent定义(YAML/JSON)与执行后端(本地/沙箱/远程)分离，实现线束热插拔。Agent定义一次即可在任意后端运行",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-12T08:50:00"
+    },
+    {
+      "id": "omni-routing-0712",
+      "source": "omnigent-ai/omnigent",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "智能模型路由优化：借鉴最小成本模型作为路由判断器+会话级model_override持久化模式，减少每任务重复决策",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-12T08:50:00"
+    },
+    {
+      "id": "omni-cross-review-0712",
+      "source": "omnigent-ai/omnigent",
+      "priority": "P1",
+      "module": "quality_gate",
+      "suggestion": "引入多Agent交叉供应商审查：不同模型/供应商Agent互相审查代码输出，避免单供应商盲区，增强质量门禁",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-12T08:50:00"
+    },
+    {
+      "id": "omni-policy-0712",
+      "source": "omnigent-ai/omnigent",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "构建三层策略体系(Server/Agent/Session级 ALLOW/ASK/DENY)，为Claw工具执行添加精细权限控制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-12T08:50:00"
+    },
+    {
+      "id": "omni-bench-0712",
+      "source": "omnigent-ai/omnigent",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "构建Agent能力自检矩阵：借鉴自执行表格机制，实现Claw Agent能力漂移自动检测+修正闭环",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-12T08:50:00"
     }
   ],
-  "last_updated": "2026-07-11T08:56:54.775724",
+  "last_updated": "2026-07-12T08:50:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -3506,9 +3578,15 @@
       "new_projects": 1,
       "new_improvements": 3,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-07-12T08:50:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 89,
-  "last_update": "2026-07-09T08:50:00",
-  "total_improvements": 186
+  "total_projects": 92,
+  "last_update": "2026-07-12T08:50:00",
+  "total_improvements": 200
 }
