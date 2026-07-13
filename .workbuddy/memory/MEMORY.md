@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v2.0 | 最后更新: 2026-07-11
+# 格式版本: v2.0 | 最后更新: 2026-07-13
 
 ---
 
@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 92项目 / 200改进项 / 实施率约48% (96/200)
-- **最新学习**: omnigent-ai/omnigent (⭐7,087, 相关度33) — 2026-07-12
+- **进度**: 93项目 / 206改进项 / 实施率约47% (96/206)
+- **最新学习**: EvoMap/evolver (⭐8,888, 相关度34) — 2026-07-13
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -33,13 +33,16 @@
 - **状态**: 细水长流模式，每日1项目
 
 ### 高相关项目候选
-1. **NousResearch/hermes-agent** (⭐200K, 相关度29) - 学习循环+轨迹压缩
-2. **TheDotMack/claude-mem** (⭐84K, 相关度29) - 3层MCP搜索+记忆可视化
-3. **langchain-ai/langchain** (⭐132K, 相关度28) - 分层抽象+全生命周期
-4. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A
-5. **a2aproject/A2A** (⭐24K, 相关度29) - Agent Card+Task生命周期
+1. **EvoMap/evolver** (⭐9K, 相关度34) - GEP基因编码+6阶段进化管道+ATP市场 ✅已学习
+2. **NousResearch/hermes-agent** (⭐200K, 相关度29) - 学习循环+轨迹压缩 ✅已学习
+3. **TheDotMack/claude-mem** (⭐84K, 相关度29) - 3层MCP搜索+记忆可视化 ✅已学习
+4. **langchain-ai/langchain** (⭐132K, 相关度28) - 分层抽象+全生命周期 ✅已学习
+5. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
+6. **a2aproject/A2A** (⭐24K, 相关度29) - Agent Card+Task生命周期 ✅已学习
 
 ### P0待实施
+- progressive_loader: GEP基因编码替代自由文本改进建议（来自Evolver）
+- claw_integration: 6阶段结构化进化管道（来自Evolver）
 - agent_orchestration: Claw ACP适配器（来自OpenHands）
 - skill_system: SkillsHub自动化模板市场
 

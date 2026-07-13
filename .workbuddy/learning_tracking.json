@@ -1227,6 +1227,29 @@
         "三层策略体系(ALLOW/ASK/DENY)",
         "线束测试台自执行能力矩阵"
       ]
+    },
+    {
+      "name": "EvoMap/evolver",
+      "url": "https://github.com/EvoMap/evolver",
+      "stars": 8888,
+      "relevance": 34,
+      "language": "JavaScript",
+      "analyzed_at": "2026-07-13T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-13_evolver.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "GEP Gene Evolution Protocol(紧凑基因替代Skill文档)",
+        "6阶段结构化进化管道(collect/enrich/select/dispatch/hub/signals)",
+        "多线束适配器(ClaudeCode/Codex/Cursor/Kiro/OpenCode共享GEP引擎)",
+        "ATP Agent Task Protocol任务经济市场",
+        "Skill2Gene蒸馏压缩(skill2gep管道)",
+        "Self-PR+Self-Repair自修复机制"
+      ]
     }
   ],
   "improvements": [
@@ -3461,6 +3484,66 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-07-12T08:50:00"
+    },
+    {
+      "id": "evolver-gep-0713",
+      "source": "EvoMap/evolver",
+      "priority": "P0",
+      "module": "progressive_loader",
+      "suggestion": "引入GEP基因编码到Claw进化引擎，将改进项从自由文本升级为Gene(trigger/strategy/outcome)结构",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-13T08:50:00"
+    },
+    {
+      "id": "evolver-pipeline-0713",
+      "source": "EvoMap/evolver",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "构建6阶段进化管道(collect/enrich/select/dispatch/hub/signals)替代当前单步报告模式",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-13T08:50:00"
+    },
+    {
+      "id": "evolver-s2g-0713",
+      "source": "EvoMap/evolver",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "实现Skill2Gene蒸馏器，将verbose SKILL.md压缩为<500字符Gene格式",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-13T08:50:00"
+    },
+    {
+      "id": "evolver-atp-0713",
+      "source": "EvoMap/evolver",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "基于SkillsHub实现ATP技能任务经济(Consumer/Merchant/Buyer/Deliver)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-13T08:50:00"
+    },
+    {
+      "id": "evolver-mgraph-0713",
+      "source": "EvoMap/evolver",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "引入Memory Graph关系图谱，补充当前flat Markdown记忆架构",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-13T08:50:00"
+    },
+    {
+      "id": "evolver-selfpr-0713",
+      "source": "EvoMap/evolver",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "Self-PR自修复机制: Agent检测缺陷后自动创建Git PR修复",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-13T08:50:00"
     }
   ],
   "last_updated": "2026-07-12T08:50:00",
