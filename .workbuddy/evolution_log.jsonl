@@ -994,3 +994,4 @@
 {"timestamp": "2026-07-11T08:56:57.546833", "level": "INFO", "message": "邮件已发送: [Claw进化] 2026-07-11 - tinyhumansai/openhuman"}
 {"timestamp":"2026-07-12T08:50:00","round":43,"project":"omnigent-ai/omnigent","stars":7087,"relevance":33,"improvements":5,"p0":1,"p1":3,"p2":1,"action":"learned"}
 {"timestamp":"2026-07-13T08:50:00","level":"INFO","project":"EvoMap/evolver","stars":8888,"relevance":34,"improvements":6,"priority_breakdown":"P0x2/P1x3/P2x1","message":"学习EvoMap/evolver: GEP基因编码+6阶段进化管道+ATP任务经济+Skill2Gene蒸馏+Memory Graph+Self-PR自修复"}
+{"timestamp":"2026-07-14T08:50:00","level":"INFO","project":"zeroclaw-labs/zeroclaw","stars":32251,"relevance":38,"improvements":6,"priority_breakdown":"P0x3/P1x2/P2x1","message":"学习zeroclaw-labs/zeroclaw: 单二进制Rust运行时+SOP-Graph+工具回执+Provider回退链+4档自治+20+crate模块化"}

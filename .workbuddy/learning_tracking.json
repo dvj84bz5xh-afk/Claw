@@ -1250,6 +1250,31 @@
         "Skill2Gene蒸馏压缩(skill2gep管道)",
         "Self-PR+Self-Repair自修复机制"
       ]
+    },
+    {
+      "name": "zeroclaw-labs/zeroclaw",
+      "url": "https://github.com/zeroclaw-labs/zeroclaw",
+      "stars": 32251,
+      "relevance": 38,
+      "language": "Rust",
+      "analyzed_at": "2026-07-14T09:57:53.669535",
+      "report_path": ".workbuddy/daily_learning/2026-07-14_zeroclaw.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 3,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "单一Rust二进制运行时(6.6MB single binary)",
+        "SOP-Graph工作流引擎(可恢复+审批门)",
+        "工具回执加密审计(cryptographic tool receipts)",
+        "Provider回退链+circuit-breaker",
+        "4档自治分层(Strict/Supervised/YOLO/Trusted)",
+        "20+ crate模块化架构",
+        "30+渠道适配器+Gateway",
+        "硬件能力trait抽象(GPIO/I2C/SPI/USB)"
+      ]
     }
   ],
   "improvements": [
@@ -3544,6 +3569,66 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-07-13T08:50:00"
+    },
+    {
+      "id": "zeroclaw-sop-0714",
+      "source": "zeroclaw-labs/zeroclaw",
+      "priority": "P0",
+      "module": "progressive_loader",
+      "suggestion": "引入SOP-Graph工作流引擎:有向图Skill执行+checkpoint恢复+approval gate",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-14T09:57:53.669630"
+    },
+    {
+      "id": "zeroclaw-binary-0714",
+      "source": "zeroclaw-labs/zeroclaw",
+      "priority": "P0",
+      "module": "agent_core",
+      "suggestion": "PyInstaller/Nuitka打包Claw为单一可执行文件,消除Python环境依赖",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-14T09:57:53.669631"
+    },
+    {
+      "id": "zeroclaw-receipts-0714",
+      "source": "zeroclaw-labs/zeroclaw",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "添加工具回执审计:SHA256+timestamp+agent_id签名,事后回放",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-14T09:57:53.669633"
+    },
+    {
+      "id": "zeroclaw-fallback-0714",
+      "source": "zeroclaw-labs/zeroclaw",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "Provider回退链+circuit-breaker:连续3次失败自动切换",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-14T09:57:53.669634"
+    },
+    {
+      "id": "zeroclaw-autonomy-0714",
+      "source": "zeroclaw-labs/zeroclaw",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "4档自治分层(Strict/Supervised/YOLO/Trusted)与permission set",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-14T09:57:53.669635"
+    },
+    {
+      "id": "zeroclaw-channels-0714",
+      "source": "zeroclaw-labs/zeroclaw",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "Channel Adapter trait统一渠道接口(Telegram/Discord/企微)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-14T09:57:53.669636"
     }
   ],
   "last_updated": "2026-07-12T08:50:00",

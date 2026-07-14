@@ -2,176 +2,93 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小龙虾智能进化仪表盘</title>
+<title>Claw 智能进化仪表盘</title>
 <style>
-  :root {
-    --bg: #0f172a;
-    --card: #1e293b;
-    --border: #334155;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --accent: #38bdf8;
-    --p0: #ef4444;
-    --p1: #f59e0b;
-    --p2: #22c55e;
-    --done: #6366f1;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 24px; }
-  .header { text-align: center; margin-bottom: 32px; }
-  .header h1 { font-size: 28px; color: var(--accent); margin-bottom: 4px; }
-  .header p { color: var(--muted); font-size: 14px; }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
-  .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
-  .stat-card .value { font-size: 36px; font-weight: 700; }
-  .stat-card .label { color: var(--muted); font-size: 13px; margin-top: 4px; }
-  .stat-card.accent .value { color: var(--accent); }
-  .stat-card.p0 .value { color: var(--p0); }
-  .stat-card.done .value { color: var(--done); }
-  .section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px; }
-  .section h2 { font-size: 18px; margin-bottom: 16px; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-  table { width: 100%; border-collapse: collapse; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
-  th { color: var(--muted); font-weight: 600; }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-  .badge.p0 { background: rgba(239,68,68,.2); color: var(--p0); }
-  .badge.p1 { background: rgba(245,158,11,.2); color: var(--p1); }
-  .badge.p2 { background: rgba(34,197,94,.2); color: var(--p2); }
-  .badge.done { background: rgba(99,102,241,.2); color: var(--done); }
-  .badge.pending { background: rgba(239,68,68,.15); color: #f87171; }
-  .bar-container { margin: 8px 0; display: flex; align-items: center; gap: 12px; }
-  .bar-label { width: 100px; font-size: 12px; color: var(--muted); text-align: right; }
-  .bar-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 4px; transition: width .3s; }
-  .bar-fill.p0 { background: var(--p0); }
-  .bar-fill.p1 { background: var(--p1); }
-  .bar-fill.p2 { background: var(--p2); }
-  .bar-fill.done { background: var(--done); }
-  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; background: rgba(56,189,248,.1); color: var(--accent); margin: 2px; }
-  .footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 24px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "Segoe UI", "PingFang SC", sans-serif; background: #0f172a; color: #e2e8f0; padding: 24px; }
+.container { max-width: 1280px; margin: 0 auto; }
+h1 { font-size: 32px; margin-bottom: 8px; background: linear-gradient(135deg,#60a5fa 0%,#a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { color: #94a3b8; margin-bottom: 32px; font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+.card { background: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155; }
+.card .label { color: #94a3b8; font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
+.card .value { font-size: 32px; font-weight: 700; }
+.card .delta { font-size: 12px; color: #10b981; margin-top: 4px; }
+.section { background: #1e293b; border-radius: 12px; padding: 24px; border: 1px solid #334155; margin-bottom: 24px; }
+.section h2 { font-size: 18px; margin-bottom: 16px; color: #f1f5f9; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; padding: 10px 12px; color: #94a3b8; font-weight: 500; border-bottom: 1px solid #334155; }
+td { padding: 10px 12px; border-bottom: 1px solid #1e293b; }
+tr:hover { background: #0f172a; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+.p0 { background: #dc2626; color: #fff; }
+.p1 { background: #f59e0b; color: #fff; }
+.p2 { background: #3b82f6; color: #fff; }
+.tag { background: #334155; color: #cbd5e1; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 4px; }
+.footer { text-align: center; color: #64748b; font-size: 12px; margin-top: 32px; }
 </style>
 </head>
 <body>
+<div class="container">
+<h1>🦀 Claw 智能进化仪表盘</h1>
+<p class="subtitle">最后更新: 2026-07-14 09:58:19 | 小龙虾智能进化学习系统</p>
 
-<div class="header">
-  <h1>🦞 小龙虾智能进化仪表盘</h1>
-  <p>细水长流模式 · 每日1项目 · 自动更新于 2026-07-13 08:50</p>
-</div>
-
-<div class="stats-grid">
-  <div class="stat-card accent">
-    <div class="value">93</div>
-    <div class="label">学习项目总数</div>
+<div class="grid">
+  <div class="card">
+    <div class="label">学习项目</div>
+    <div class="value">94</div>
+    <div class="delta">+1 today (zeroclaw)</div>
   </div>
-  <div class="stat-card p0">
-    <div class="value">206</div>
+  <div class="card">
     <div class="label">改进项总数</div>
+    <div class="value">212</div>
+    <div class="delta">+6 today</div>
   </div>
-  <div class="stat-card done">
+  <div class="card">
+    <div class="label">已实施</div>
     <div class="value">96</div>
-    <div class="label">已实施改进</div>
+    <div class="delta">45.3%</div>
   </div>
-  <div class="stat-card">
-    <div class="value" style="color:#f59e0b">47%</div>
-    <div class="label">实施率 (96/206)</div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>改进项优先级分布</h2>
-  <div class="bar-container">
-    <span class="bar-label">P0 紧急</span>
-    <div class="bar-track"><div class="bar-fill p0" style="width:23%"></div></div>
-    <span style="font-size:12px">46项</span>
-  </div>
-  <div class="bar-container">
-    <span class="bar-label">P1 重要</span>
-    <div class="bar-track"><div class="bar-fill p1" style="width:41%"></div></div>
-    <span style="font-size:12px">87项</span>
-  </div>
-  <div class="bar-container">
-    <span class="bar-label">P2 优化</span>
-    <div class="bar-track"><div class="bar-fill p2" style="width:14%"></div></div>
-    <span style="font-size:12px">29项</span>
-  </div>
-  <div class="bar-container">
-    <span class="bar-label">已完成</span>
-    <div class="bar-track"><div class="bar-fill done" style="width:47%"></div></div>
-    <span style="font-size:12px">96项 (47%)</span>
+  <div class="card">
+    <div class="label">待实施 P0</div>
+    <div class="value">41</div>
+    <div class="delta" style="color:#f59e0b">优先处理</div>
   </div>
 </div>
 
 <div class="section">
-  <h2>模块改进分布</h2>
-  <table>
-    <tr><th>模块</th><th>总数</th><th>已完成</th><th>待实施</th></tr>
-    <tr><td>agent_orchestration</td><td>48</td><td><span class="badge done">20</span></td><td><span class="badge p0">28</span></td></tr>
-    <tr><td>tool_system</td><td>28</td><td><span class="badge done">28</span></td><td>0</td></tr>
-    <tr><td>memory / memory_system</td><td>40</td><td><span class="badge done">12</span></td><td><span class="badge p0">28</span></td></tr>
-    <tr><td>knowledge_retrieval / rag_engine</td><td>14</td><td><span class="badge done">13</span></td><td><span class="badge p0">1</span></td></tr>
-    <tr><td>observability / eval_observability</td><td>22</td><td><span class="badge done">6</span></td><td><span class="badge p0">16</span></td></tr>
-    <tr><td>skill_system</td><td>20</td><td><span class="badge done">6</span></td><td><span class="badge p0">14</span></td></tr>
-    <tr><td>progressive_loader</td><td>4</td><td><span class="badge done">0</span></td><td><span class="badge p0">4</span></td></tr>
-    <tr><td>model_scheduler</td><td>6</td><td><span class="badge done">0</span></td><td><span class="badge p0">6</span></td></tr>
-    <tr><td>context_injector</td><td>10</td><td><span class="badge done">3</span></td><td><span class="badge p0">7</span></td></tr>
-    <tr><td>claw_integration</td><td>8</td><td><span class="badge done">0</span></td><td><span class="badge p0">8</span></td></tr>
-    <tr><td>其他</td><td>12</td><td><span class="badge done">8</span></td><td><span class="badge p0">4</span></td></tr>
-  </table>
+<h2>📚 最近学习项目 (Top 10)</h2>
+<table>
+<thead><tr><th>项目</th><th>语言</th><th>Stars</th><th>相关度</th><th>改进数</th><th>学习日期</th></tr></thead>
+<tbody>
+<tr><td><a href="https://github.com/zeroclaw-labs/zeroclaw" style="color:#60a5fa;text-decoration:none">zeroclaw-labs/zeroclaw</a></td><td>Rust</td><td>⭐32,251</td><td>38</td><td>6 <span style="color:#94a3b8;font-size:11px">(P0x3/P1x2/P2x1)</span></td><td>2026-07-14</td></tr><tr><td><a href="https://github.com/EvoMap/evolver" style="color:#60a5fa;text-decoration:none">EvoMap/evolver</a></td><td>JavaScript</td><td>⭐8,888</td><td>34</td><td>6 <span style="color:#94a3b8;font-size:11px">(P0x2/P1x3/P2x1)</span></td><td>2026-07-13</td></tr><tr><td><a href="https://github.com/omnigent-ai/omnigent" style="color:#60a5fa;text-decoration:none">omnigent-ai/omnigent</a></td><td>Python</td><td>⭐7,087</td><td>33</td><td>5 <span style="color:#94a3b8;font-size:11px">(P0x1/P1x3/P2x1)</span></td><td>2026-07-12</td></tr><tr><td><a href="https://github.com/tinyhumansai/openhuman" style="color:#60a5fa;text-decoration:none">tinyhumansai/openhuman</a></td><td>Rust</td><td>⭐34,612</td><td>25</td><td>- <span style="color:#94a3b8;font-size:11px">(-)</span></td><td>2026-07-11</td></tr><tr><td><a href="https://github.com/OpenHands/OpenHands" style="color:#60a5fa;text-decoration:none">OpenHands/OpenHands</a></td><td>Python</td><td>⭐80,247</td><td>30</td><td>6 <span style="color:#94a3b8;font-size:11px">(P0x2/P1x2/P2x2)</span></td><td>2026-07-10</td></tr><tr><td><a href="https://github.com/letta-ai/letta" style="color:#60a5fa;text-decoration:none">letta-ai/letta</a></td><td>Python</td><td>⭐23,711</td><td>31</td><td>5 <span style="color:#94a3b8;font-size:11px">(P0x2/P1x2/P2x1)</span></td><td>2026-07-09</td></tr><tr><td><a href="https://github.com/NevaMind-AI/memU" style="color:#60a5fa;text-decoration:none">NevaMind-AI/memU</a></td><td>Python</td><td>⭐13,993</td><td>30</td><td>5 <span style="color:#94a3b8;font-size:11px">(P0x2/P1x2/P2x1)</span></td><td>2026-07-08</td></tr><tr><td><a href="https://github.com/shareAI-lab/learn-claude-code" style="color:#60a5fa;text-decoration:none">shareAI-lab/learn-claude-code</a></td><td>Python</td><td>⭐70,074</td><td>35</td><td>5 <span style="color:#94a3b8;font-size:11px">(P0x2/P1x2/P2x1)</span></td><td>2026-07-07</td></tr><tr><td><a href="https://github.com/cline/cline" style="color:#60a5fa;text-decoration:none">cline/cline</a></td><td>TypeScript</td><td>⭐64,318</td><td>33</td><td>5 <span style="color:#94a3b8;font-size:11px">(P0x2/P1x2/P2x1)</span></td><td>2026-07-06</td></tr><tr><td><a href="https://github.com/campfirein/byterover-cli" style="color:#60a5fa;text-decoration:none">campfirein/byterover-cli</a></td><td>TypeScript</td><td>⭐4,901</td><td>16</td><td>4 <span style="color:#94a3b8;font-size:11px">(P0x1/P1x2/P2x1)</span></td><td>2026-07-05</td></tr>
+</tbody>
+</table>
 </div>
 
 <div class="section">
-  <h2>最新学习项目 (近10天)</h2>
-  <table>
-    <tr><th>日期</th><th>项目</th><th>Stars</th><th>相关度</th><th>改进</th><th>优先级</th></tr>
-    <tr><td>07-13</td><td>EvoMap/evolver</td><td>8,888</td><td>34</td><td>6</td><td><span class="badge p0">P0×2</span> <span class="badge p1">P1×3</span> <span class="badge p2">P2×1</span></td></tr>
-    <tr><td>07-12</td><td>omnigent-ai/omnigent</td><td>7,087</td><td>33</td><td>5</td><td><span class="badge p0">P0×1</span> <span class="badge p1">P1×3</span> <span class="badge p2">P2×1</span></td></tr>
-    <tr><td>07-11</td><td>tinyhumansai/openhuman</td><td>34,612</td><td>25</td><td>3</td><td><span class="badge p0">P0×1</span> <span class="badge p1">P1×2</span></td></tr>
-    <tr><td>07-10</td><td>OpenHands/OpenHands</td><td>80,247</td><td>30</td><td>6</td><td><span class="badge p0">P0×2</span> <span class="badge p1">P1×2</span> <span class="badge p2">P2×2</span></td></tr>
-    <tr><td>07-09</td><td>letta-ai/letta</td><td>23,711</td><td>31</td><td>5</td><td><span class="badge p0">P0×2</span> <span class="badge p1">P1×2</span> <span class="badge p2">P2×1</span></td></tr>
-    <tr><td>07-08</td><td>NevaMind-AI/memU</td><td>13,993</td><td>30</td><td>5</td><td><span class="badge p0">P0×2</span> <span class="badge p1">P1×2</span> <span class="badge p2">P2×1</span></td></tr>
-    <tr><td>07-07</td><td>shareAI-lab/learn-claude-code</td><td>70,074</td><td>35</td><td>5</td><td><span class="badge p0">P0×2</span> <span class="badge p1">P1×2</span> <span class="badge p2">P2×1</span></td></tr>
-    <tr><td>07-06</td><td>cline/cline</td><td>64,318</td><td>33</td><td>5</td><td><span class="badge p0">P0×2</span> <span class="badge p1">P1×2</span> <span class="badge p2">P2×1</span></td></tr>
-    <tr><td>07-05</td><td>campfirein/byterover-cli</td><td>4,901</td><td>16</td><td>4</td><td><span class="badge p0">P0×1</span> <span class="badge p1">P1×2</span> <span class="badge p2">P2×1</span></td></tr>
-    <tr><td>07-04</td><td>google-gemini/gemini-cli</td><td>100,337</td><td>31</td><td>5</td><td><span class="badge p0">P0×1</span> <span class="badge p1">P1×3</span> <span class="badge p2">P2×1</span></td></tr>
-  </table>
+<h2>🔥 最新改进项 (P0/P1)</h2>
+<table>
+<thead><tr><th>优先级</th><th>模块</th><th>来源</th><th>建议</th></tr></thead>
+<tbody>
+<tr><td><span class="badge p1">P1</span></td><td>context_injector</td><td>zeroclaw-labs/zeroclaw</td><td>4档自治分层(Strict/Supervised/YOLO/Trusted)与permission set</td></tr><tr><td><span class="badge p1">P1</span></td><td>model_scheduler</td><td>zeroclaw-labs/zeroclaw</td><td>Provider回退链+circuit-breaker:连续3次失败自动切换</td></tr><tr><td><span class="badge p0">P0</span></td><td>eval_observability</td><td>zeroclaw-labs/zeroclaw</td><td>添加工具回执审计:SHA256+timestamp+agent_id签名,事后回放</td></tr><tr><td><span class="badge p0">P0</span></td><td>agent_core</td><td>zeroclaw-labs/zeroclaw</td><td>PyInstaller/Nuitka打包Claw为单一可执行文件,消除Python环境依赖</td></tr><tr><td><span class="badge p0">P0</span></td><td>progressive_loader</td><td>zeroclaw-labs/zeroclaw</td><td>引入SOP-Graph工作流引擎:有向图Skill执行+checkpoint恢复+approval gate</td></tr><tr><td><span class="badge p0">P0</span></td><td>progressive_loader</td><td>EvoMap/evolver</td><td>引入GEP基因编码到Claw进化引擎，将改进项从自由文本升级为Gene(trigger/strategy/outcome)结构</td></tr><tr><td><span class="badge p0">P0</span></td><td>claw_integration</td><td>EvoMap/evolver</td><td>构建6阶段进化管道(collect/enrich/select/dispatch/hub/signals)替代当前单步报告模式</td></tr><tr><td><span class="badge p1">P1</span></td><td>skill_system</td><td>EvoMap/evolver</td><td>实现Skill2Gene蒸馏器，将verbose SKILL.md压缩为<500字符Gene格式</td></tr><tr><td><span class="badge p1">P1</span></td><td>skill_system</td><td>EvoMap/evolver</td><td>基于SkillsHub实现ATP技能任务经济(Consumer/Merchant/Buyer/Deliver)</td></tr><tr><td><span class="badge p1">P1</span></td><td>memory_system</td><td>EvoMap/evolver</td><td>引入Memory Graph关系图谱，补充当前flat Markdown记忆架构</td></tr><tr><td><span class="badge p0">P0</span></td><td>agent_orchestration</td><td>omnigent-ai/omnigent</td><td>引入Meta-Harness抽象层：将Agent定义(YAML/JSON)与执行后端(本地/沙箱/远程)分离，实现线束热插拔。Agent定义一次即可在任意后端运</td></tr><tr><td><span class="badge p1">P1</span></td><td>model_scheduler</td><td>omnigent-ai/omnigent</td><td>智能模型路由优化：借鉴最小成本模型作为路由判断器+会话级model_override持久化模式，减少每任务重复决策</td></tr><tr><td><span class="badge p1">P1</span></td><td>quality_gate</td><td>omnigent-ai/omnigent</td><td>引入多Agent交叉供应商审查：不同模型/供应商Agent互相审查代码输出，避免单供应商盲区，增强质量门禁</td></tr><tr><td><span class="badge p1">P1</span></td><td>claw_integration</td><td>omnigent-ai/omnigent</td><td>构建三层策略体系(Server/Agent/Session级 ALLOW/ASK/DENY)，为Claw工具执行添加精细权限控制</td></tr><tr><td><span class="badge p1">P1</span></td><td>memory</td><td>tinyhumansai/openhuman</td><td>引入 OpenHuman Memory Tree 方案：SQLite Markdown 树 + Obsidian 双向同步，优化 Claw 记忆的本地持久化与可</td></tr>
+</tbody>
+</table>
 </div>
 
 <div class="section">
-  <h2>今日学习 — EvoMap/evolver 🧬</h2>
-  <p style="margin-bottom:12px"><strong>GEP基因进化协议驱动自进化引擎</strong> | ⭐8,888 | 相关度34 | JavaScript</p>
-  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
-    <span class="tag">GEP基因编码</span><span class="tag">6阶段进化管道</span><span class="tag">多线束适配器</span><span class="tag">ATP任务经济</span><span class="tag">Skill2Gene蒸馏</span><span class="tag">Self-PR自修复</span>
-  </div>
-  <table>
-    <tr><th>优先级</th><th>改进建议</th><th>模块</th></tr>
-    <tr><td><span class="badge p0">P0</span></td><td>引入GEP基因编码：将改进项从自由文本升级为Gene(trigger/strategy/outcome)结构</td><td>progressive_loader</td></tr>
-    <tr><td><span class="badge p0">P0</span></td><td>构建6阶段进化管道(collect/enrich/select/dispatch/hub/signals)</td><td>claw_integration</td></tr>
-    <tr><td><span class="badge p1">P1</span></td><td>Skill2Gene蒸馏器：将verbose SKILL.md压缩为<500字符Gene格式</td><td>skill_system</td></tr>
-    <tr><td><span class="badge p1">P1</span></td><td>ATP技能任务经济：Consumer/Merchant/Buyer/Deliver技能交易</td><td>skill_system</td></tr>
-    <tr><td><span class="badge p1">P1</span></td><td>Memory Graph关系图谱：补充flat Markdown记忆架构</td><td>memory_system</td></tr>
-    <tr><td><span class="badge p2">P2</span></td><td>Self-PR自修复：Agent检测缺陷后自动创建Git PR</td><td>claw_integration</td></tr>
-  </table>
-  <p style="margin-top:12px;font-size:12px;color:var(--muted)">论文: arXiv:2604.15097 — Gene编码在CritPt上将基线从9.1%提升至18.57%</p>
-</div>
-
-<div class="section">
-  <h2>P0 待实施项 (高优先级)</h2>
-  <table>
-    <tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr>
-    <tr><td>evolver-gep-0713</td><td>EvoMap/evolver</td><td>progressive_loader</td><td>GEP基因编码替代自由文本改进建议</td><td><span class="badge pending">待实施</span></td></tr>
-    <tr><td>evolver-pipeline-0713</td><td>EvoMap/evolver</td><td>claw_integration</td><td>6阶段结构化进化管道</td><td><span class="badge pending">待实施</span></td></tr>
-    <tr><td>omni-harness-0712</td><td>omnigent/omnigent</td><td>agent_orchestration</td><td>Meta-Harness抽象层</td><td><span class="badge pending">待实施</span></td></tr>
-    <tr><td>lcc-claim-0707</td><td>learn-claude-code</td><td>agent_orchestrator</td><td>自组织任务认领机制</td><td><span class="badge pending">待实施</span></td></tr>
-    <tr><td>letta-pg-memory-0709</td><td>letta-ai/letta</td><td>memory_system</td><td>记忆PG持久化升级</td><td><span class="badge pending">待实施</span></td></tr>
-    <tr><td>letta-watchdog-0709</td><td>letta-ai/letta</td><td>agent_core</td><td>事件循环看门狗</td><td><span class="badge pending">待实施</span></td></tr>
-    <tr><td>a1b2c3d4</td><td>OpenHands/OpenHands</td><td>agent_orchestration</td><td>Claw ACP适配器</td><td><span class="badge pending">待实施</span></td></tr>
-  </table>
+<h2>📊 模块覆盖度</h2>
+<table>
+<thead><tr><th>模块</th><th>改进数</th><th>已实施</th><th>完成率</th></tr></thead>
+<tbody>
+<tr><td><span class="tag">agent_orchestration</span></td><td>48</td><td>24</td><td>50%</td></tr><tr><td><span class="tag">tool_system</span></td><td>43</td><td>39</td><td>91%</td></tr><tr><td><span class="tag">memory</span></td><td>26</td><td>13</td><td>50%</td></tr><tr><td><span class="tag">skill_system</span></td><td>17</td><td>2</td><td>12%</td></tr><tr><td><span class="tag">knowledge_retrieval</span></td><td>14</td><td>13</td><td>93%</td></tr><tr><td><span class="tag">memory_system</span></td><td>11</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">observability</span></td><td>8</td><td>3</td><td>38%</td></tr><tr><td><span class="tag">context_injector</span></td><td>7</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">model_scheduler</span></td><td>5</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">agent_core</span></td><td>5</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">eval_observability</span></td><td>4</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">claw_integration</span></td><td>4</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">evaluation</span></td><td>3</td><td>2</td><td>67%</td></tr><tr><td><span class="tag">evolution</span></td><td>3</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">rag_engine</span></td><td>3</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">agent_orchestrator</span></td><td>3</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">workflow_engine</span></td><td>2</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">progressive_loader</span></td><td>2</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">tool_registry</span></td><td>1</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">automation</span></td><td>1</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">platform</span></td><td>1</td><td>0</td><td>0%</td></tr><tr><td><span class="tag">quality_gate</span></td><td>1</td><td>0</td><td>0%</td></tr>
+</tbody>
+</table>
 </div>
 
 <div class="footer">
-  <p>智能进化引擎 v2.0 · 自动化ID: automation-1779863408739 · 每日09:00自动运行 · 累计学习93项目 · 206改进项</p>
+Claw 智能进化系统 · 细水长流模式 · 每日 09:00 自动学习 · Powered by WorkBuddy
 </div>
-
+</div>
 </body>
 </html>
