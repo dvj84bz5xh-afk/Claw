@@ -1275,6 +1275,31 @@
         "30+渠道适配器+Gateway",
         "硬件能力trait抽象(GPIO/I2C/SPI/USB)"
       ]
+    },
+    {
+      "name": "agentscope-ai/agentscope",
+      "url": "https://github.com/agentscope-ai/agentscope",
+      "stars": 27857,
+      "relevance": 30,
+      "language": "Python",
+      "analyzed_at": "2026-07-15T09:00:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-15_agentscope.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "可组合中间件系统(MiddlewareBase + 7种内建中间件)",
+        "三重长期记忆架构(AgenticMemory + Mem0 + ReMe)",
+        "零侵入追踪中间件(TracingMiddleware)",
+        "预算控制中间件(ReplyBudgetControlMiddleware)",
+        "多后端沙箱抽象(Local/Docker/E2B/OpenSandbox/Daytona/K8s)",
+        "统一事件总线(Event System + human-in-the-loop)",
+        "细粒度权限系统(Permission System + 多租户隔离)",
+        "Agent Team分布式多Agent协作"
+      ]
     }
   ],
   "improvements": [
@@ -3629,6 +3654,56 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-07-14T09:57:53.669636"
+    },
+    {
+      "id": "agentscope-mw-0715",
+      "source": "agentscope-ai/agentscope",
+      "priority": "P0",
+      "module": "agent_core",
+      "suggestion": "引入MiddlewareBase中间件钩子系统到agent_core，支持可插拔中间件",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-15T09:00:00"
+    },
+    {
+      "id": "agentscope-trace-0715",
+      "source": "agentscope-ai/agentscope",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "参考TracingMiddleware设计零侵入追踪，通过中间件钩子自动捕获全链路事件",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-15T09:00:00"
+    },
+    {
+      "id": "agentscope-budget-0715",
+      "source": "agentscope-ai/agentscope",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "引入ReplyBudgetControlMiddleware概念，限制单轮/单会话token消耗上限",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-15T09:00:00"
+    },
+    {
+      "id": "agentscope-sandbox-0715",
+      "source": "agentscope-ai/agentscope",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "引入多后端沙箱Workspace抽象，支持本地/Docker/E2B三种执行环境",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-15T09:00:00"
+    },
+    {
+      "id": "agentscope-event-0715",
+      "source": "agentscope-ai/agentscope",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "引入统一事件总线Event System，解耦模块间通信，支持UI推送和human-in-the-loop",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-15T09:00:00"
     }
   ],
   "last_updated": "2026-07-12T08:50:00",

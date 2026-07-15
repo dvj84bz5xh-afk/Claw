@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 93项目 / 206改进项 / 实施率约47% (96/206)
-- **最新学习**: EvoMap/evolver (⭐8,888, 相关度34) — 2026-07-13
+- **进度**: 94项目 / 212改进项 / 实施率约47% (99/212)
+- **最新学习**: zeroclaw-labs/zeroclaw (⭐32,251, 相关度38) — 2026-07-14
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
