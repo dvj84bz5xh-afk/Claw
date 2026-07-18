@@ -1302,19 +1302,6 @@
       ]
     },
     {
-      "name": "chiang-yuan/llamp",
-      "url": "https://github.com/chiang-yuan/llamp",
-      "stars": 100,
-      "relevance": 18,
-      "key_innovations": [
-        "检索增强生成(RAG)",
-        "Agent化架构"
-      ],
-      "analyzed_at": "2026-07-18T08:53:42.169320",
-      "language": "Jupyter Notebook",
-      "mimo_summary": ""
-    },
-    {
       "name": "johnson7788/MultiAgentPPT",
       "url": "https://github.com/johnson7788/MultiAgentPPT",
       "stars": 1618,
@@ -3730,17 +3717,6 @@
       "effort": "high",
       "status": "pending",
       "created_at": "2026-07-15T09:00:00"
-    },
-    {
-      "id": "48bf471a",
-      "source": "chiang-yuan/llamp",
-      "priority": "P1",
-      "module": "knowledge_retrieval",
-      "suggestion": "引入 chiang-yuan/llamp 的检索增强方案，构建Claw的RAG能力",
-      "effort": "medium",
-      "status": "pending",
-      "created_at": "2026-07-18T08:53:42.169320",
-      "updated_at": "2026-07-18T08:53:42.169320"
     },
     {
       "id": "432f4d47",
