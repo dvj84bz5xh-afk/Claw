@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 94项目 / 212改进项 / 实施率约47% (99/212)
-- **最新学习**: zeroclaw-labs/zeroclaw (⭐32,251, 相关度38) — 2026-07-14
+- **进度**: 95项目 / 217改进项 / 实施率约44.2% (96/217)
+- **最新学习**: agentscope-ai/agentscope (⭐27,857, 相关度30) — 2026-07-15
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -38,9 +38,12 @@
 3. **TheDotMack/claude-mem** (⭐84K, 相关度29) - 3层MCP搜索+记忆可视化 ✅已学习
 4. **langchain-ai/langchain** (⭐132K, 相关度28) - 分层抽象+全生命周期 ✅已学习
 5. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
-6. **a2aproject/A2A** (⭐24K, 相关度29) - Agent Card+Task生命周期 ✅已学习
+7. **agentscope-ai/agentscope** (⭐27K, 相关度30) - 中间件系统+三重记忆+零侵入追踪 ✅已学习
+7. **agentscope-ai/agentscope** (⭐27K, 相关度30) - 中间件系统+三重记忆+零侵入追踪 ✅已学习
 
 ### P0待实施
+- agent_core: MiddlewareBase中间件钩子系统（来自AgentScope）
+- eval_observability: TracingMiddleware零侵入追踪（来自AgentScope）
 - progressive_loader: GEP基因编码替代自由文本改进建议（来自Evolver）
 - claw_integration: 6阶段结构化进化管道（来自Evolver）
 - agent_orchestration: Claw ACP适配器（来自OpenHands）
@@ -62,6 +65,16 @@
 - **路径**: `C:\Users\10127\WorkBuddy\SkillsHub\`
 - **规则**: 新技能先存SkillsHub，再同步到`~/.workbuddy/skills/`
 - **权威来源**: SkillsHub为唯一权威
+
+---
+
+## [TEAM] 飞书协作群
+
+- **平台**: 飞书群
+- **成员**: WorkBuddy(我) + Claude Code + Hermes
+- **协作模式**: 自主分工 + 相互监督 + 交叉验证
+- **原则**: 不抢活、不甩锅、主动验证、发现问题立即反馈
+- **我的定位**: 全栈开发/数据分析/链追踪/课程开发/Skill生态
 
 ---
 

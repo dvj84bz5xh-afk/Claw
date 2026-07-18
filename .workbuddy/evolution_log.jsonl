@@ -996,3 +996,33 @@
 {"timestamp":"2026-07-13T08:50:00","level":"INFO","project":"EvoMap/evolver","stars":8888,"relevance":34,"improvements":6,"priority_breakdown":"P0x2/P1x3/P2x1","message":"学习EvoMap/evolver: GEP基因编码+6阶段进化管道+ATP任务经济+Skill2Gene蒸馏+Memory Graph+Self-PR自修复"}
 {"timestamp":"2026-07-14T08:50:00","level":"INFO","project":"zeroclaw-labs/zeroclaw","stars":32251,"relevance":38,"improvements":6,"priority_breakdown":"P0x3/P1x2/P2x1","message":"学习zeroclaw-labs/zeroclaw: 单二进制Rust运行时+SOP-Graph+工具回执+Provider回退链+4档自治+20+crate模块化"}
 {"timestamp": "2026-07-15T09:00:00+08:00", "project": "agentscope-ai/agentscope", "stars": 27857, "relevance": 30, "language": "Python", "improvements_added": 5, "p0_count": 2, "p1_count": 2, "p2_count": 1, "key_innovations": ["MiddlewareBase可组合中间件系统", "三重长期记忆(AgenticMemory+Mem0+ReMe)", "TracingMiddleware零侵入追踪", "ReplyBudgetControlMiddleware预算控制", "多后端沙箱Workspace抽象"]}
+{"timestamp": "2026-07-18T08:53:24.089662", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-07-18T08:53:24.090210", "level": "INFO", "message": "今日智能进化学习启动: 2026-07-18"}
+{"timestamp": "2026-07-18T08:53:24.090486", "level": "INFO", "message": "========================================"}
+{"timestamp": "2026-07-18T08:53:24.091987", "level": "INFO", "message": "已学习项目数: 93"}
+{"timestamp": "2026-07-18T08:53:24.093326", "level": "INFO", "message": "本轮搜索方向: ['agent memory persistent store', 'browser automation agent', 'agent evaluation benchmark', 'agentic RAG framework 2025', 'agent skill system']"}
+{"timestamp": "2026-07-18T08:53:24.093563", "level": "INFO", "message": "搜索GitHub: agent memory persistent store"}
+{"timestamp": "2026-07-18T08:53:26.171300", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-07-18T08:53:27.172617", "level": "INFO", "message": "搜索GitHub: browser automation agent"}
+{"timestamp": "2026-07-18T08:53:28.816453", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-07-18T08:53:29.817477", "level": "INFO", "message": "搜索GitHub: agent evaluation benchmark"}
+{"timestamp": "2026-07-18T08:53:31.088866", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-07-18T08:53:32.090667", "level": "INFO", "message": "搜索GitHub: agentic RAG framework 2025"}
+{"timestamp": "2026-07-18T08:53:33.334332", "level": "INFO", "message": "找到 4 个仓库"}
+{"timestamp": "2026-07-18T08:53:34.335788", "level": "INFO", "message": "搜索GitHub: agent skill system"}
+{"timestamp": "2026-07-18T08:53:35.607459", "level": "INFO", "message": "找到 5 个仓库"}
+{"timestamp": "2026-07-18T08:53:37.612205", "level": "WARN", "message": "GitHub API HTTP 403: https://api.github.com/repos/calesthio/OpenMontage"}
+{"timestamp": "2026-07-18T08:53:38.384194", "level": "WARN", "message": "GitHub API HTTP 403: https://api.github.com/repos/jo-inc/camofox-browser"}
+{"timestamp": "2026-07-18T08:53:39.329663", "level": "WARN", "message": "GitHub API HTTP 403: https://api.github.com/repos/browser-act/skills"}
+{"timestamp": "2026-07-18T08:53:40.278234", "level": "WARN", "message": "GitHub API HTTP 403: https://api.github.com/repos/Xnhyacinth/Awesome-LLM-Long-Context-Modeling"}
+{"timestamp": "2026-07-18T08:53:41.232304", "level": "WARN", "message": "GitHub API HTTP 403: https://api.github.com/repos/alash3al/stash"}
+{"timestamp": "2026-07-18T08:53:42.168602", "level": "WARN", "message": "GitHub API HTTP 403: https://api.github.com/repos/JuliusBrussee/cavemem"}
+{"timestamp": "2026-07-18T08:53:42.169459", "level": "INFO", "message": "选择学习项目: chiang-yuan/llamp (Stars:100, 相关度:18)"}
+{"timestamp": "2026-07-18T08:53:45.866720", "level": "INFO", "message": "学习报告已生成: C:\\Users\\10127\\WorkBuddy\\Claw\\.workbuddy\\daily_learning\\2026-07-18_chiang-yuan_llamp.md"}
+{"timestamp": "2026-07-18T08:53:45.868839", "level": "INFO", "message": "改进项: 新增1个, 跳过已跟踪0个"}
+{"timestamp": "2026-07-18T08:53:45.870563", "level": "INFO", "message": "第32轮学习完成", "project": "chiang-yuan/llamp", "stars": 100, "relevance": 18, "improvements": 1, "round": "2026-07-18"}
+{"timestamp": "2026-07-18T08:53:45.875428", "level": "INFO", "message": "仪表盘已生成: C:\\Users\\10127\\WorkBuddy\\Claw\\docs\\evolution-dashboard.html"}
+{"timestamp": "2026-07-18T08:53:50.503709", "level": "INFO", "message": "飞书消息已发送"}
+{"timestamp": "2026-07-18T08:53:55.870163", "level": "INFO", "message": "邮件已发送: [小龙虾进化] 2026-07-18 - 学习 chiang-yuan/llamp"}
+{"timestamp": "2026-07-18T08:53:55.870917", "level": "INFO", "message": "通知状态: 飞书已发送, QQ邮箱已发送"}
+{"timestamp": "2026-07-18T08:53:55.871520", "level": "INFO", "message": "开始Git同步..."}
