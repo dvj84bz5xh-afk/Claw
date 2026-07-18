@@ -1312,7 +1312,14 @@
       ],
       "analyzed_at": "2026-07-18T08:55:28.743268",
       "language": "Python",
-      "mimo_summary": ""
+      "mimo_summary": "",
+      "report_path": ".workbuddy/daily_learning/2026-07-18_johnson7788_MultiAgentPPT.md",
+      "improvements_count": 1,
+      "priority_breakdown": {
+        "P0": 0,
+        "P1": 1,
+        "P2": 0
+      }
     }
   ],
   "improvements": [
