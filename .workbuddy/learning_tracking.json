@@ -1320,6 +1320,31 @@
         "P1": 1,
         "P2": 0
       }
+    },
+    {
+      "name": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "stars": 13553,
+      "relevance": 35,
+      "language": "Python",
+      "analyzed_at": "2026-07-19T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-19_ARIS.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 4,
+        "P1": 2,
+        "P2": 0
+      },
+      "key_innovations": [
+        "睡眠自主研究闭环 (Auto-Research-In-Sleep)",
+        "纯Markdown零锁定Skill架构",
+        "对抗性交叉模型审查机制",
+        "元优化自我进化 (/meta-optimize)",
+        "反自主研究完整性审计 (61信号)",
+        "MCP原生工具调度+版本协商",
+        "研究Wiki关系图谱知识库",
+        "多IDE/Agent可移植性设计"
+      ]
     }
   ],
   "improvements": [
@@ -3735,6 +3760,66 @@
       "status": "pending",
       "created_at": "2026-07-18T08:55:28.743268",
       "updated_at": "2026-07-18T08:55:28.743268"
+    },
+    {
+      "id": "aris-meta-0719",
+      "source": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "实现Claw `/meta-optimize` 自进化命令：每日进化任务完成后自动分析学习日志，识别高频低效模式，生成SKILL.md补丁建议，形成'学习→分析→优化'闭环",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-19T08:50:00"
+    },
+    {
+      "id": "aris-skill-std-0719",
+      "source": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "制定Claw Markdown Skill标准：参考ARIS的SKILL.md格式（触发器+行为+示例+前置条件），将SkillsHub技能标准化为纯Markdown，确保任何Agent都能读取执行，消除框架锁定",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-19T08:50:00"
+    },
+    {
+      "id": "aris-cross-review-0719",
+      "source": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "引入交叉模型审查机制：Claw多Agent协作中关键输出必须经另一模型Agent审查通过，参考ARIS两梯队原则（ultra深度审计+xhigh底线）设置质量门禁",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-19T08:50:00"
+    },
+    {
+      "id": "aris-integrity-0719",
+      "source": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "建立反进化完整性审计：参考ARIS Anti-Autoresearch（46种hack模式），为Claw进化引擎建立改进建议质量审计机制，检测重复建议、过度泛化、无根无据、与已有实施冲突的项",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-19T08:50:00"
+    },
+    {
+      "id": "aris-mcp-0719",
+      "source": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "升级MCP连接器稳定性：参考ARIS的MCP实现（版本协商、NDJSON、按服务器超时、软降级、审批门），修复Claw MCP已知问题（协议版本不匹配、超时处理不当、错误信息泄漏凭证）",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-19T08:50:00"
+    },
+    {
+      "id": "aris-wiki-0719",
+      "source": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "priority": "P1",
+      "module": "memory",
+      "suggestion": "构建项目级研究Wiki：将.workbuddy/memory/从简单文件集合升级为带关系图谱的知识库（论文/项目/技能/改进项关联网络），支持跨会话查询关联内容",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-19T08:50:00"
     }
   ],
   "last_updated": "2026-07-18T08:55:30.978075",
