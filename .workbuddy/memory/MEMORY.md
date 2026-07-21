@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v2.0 | 最后更新: 2026-07-13
+# 格式版本: v2.0 | 最后更新: 2026-07-19
 
 ---
 
@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 95项目 / 217改进项 / 实施率约44.2% (96/217)
-- **最新学习**: agentscope-ai/agentscope (⭐27,857, 相关度30) — 2026-07-15
+- **进度**: 98项目 / 232改进项 / 实施率约44.8% (104/232)
+- **最新学习**: mastra-ai/mastra (⭐26,388, 相关度36) — 2026-07-21
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -33,21 +33,30 @@
 - **状态**: 细水长流模式，每日1项目
 
 ### 高相关项目候选
-1. **EvoMap/evolver** (⭐9K, 相关度34) - GEP基因编码+6阶段进化管道+ATP市场 ✅已学习
-2. **NousResearch/hermes-agent** (⭐200K, 相关度29) - 学习循环+轨迹压缩 ✅已学习
-3. **TheDotMack/claude-mem** (⭐84K, 相关度29) - 3层MCP搜索+记忆可视化 ✅已学习
-4. **langchain-ai/langchain** (⭐132K, 相关度28) - 分层抽象+全生命周期 ✅已学习
-5. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
-7. **agentscope-ai/agentscope** (⭐27K, 相关度30) - 中间件系统+三重记忆+零侵入追踪 ✅已学习
-7. **agentscope-ai/agentscope** (⭐27K, 相关度30) - 中间件系统+三重记忆+零侵入追踪 ✅已学习
+1. **mastra-ai/mastra** (⭐26K, 相关度36) - 统一存储抽象+14可观测集成+LLM-as-Judge+工作流持久化 ✅已学习
+2. **EvoMap/evolver** (⭐9K, 相关度34) - GEP基因编码+6阶段进化管道+ATP市场 ✅已学习
+3. **wanshuiyin/Auto-claude-code-research-in-sleep** (⭐13K, 相关度35) - 睡眠自主研究+Markdown Skill+交叉审查+元进化 ✅已学习
+4. **NousResearch/hermes-agent** (⭐200K, 相关度29) - 学习循环+轨迹压缩 ✅已学习
+5. **TheDotMack/claude-mem** (⭐84K, 相关度29) - 3层MCP搜索+记忆可视化 ✅已学习
+6. **agentscope-ai/agentscope** (⭐27K, 相关度30) - 中间件系统+三重记忆+零侵入追踪 ✅已学习
+7. **langchain-ai/langchain** (⭐132K, 相关度28) - 分层抽象+全生命周期 ✅已学习
+8. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
 
 ### P0待实施
+- storage: StorageAdapter统一存储抽象层（来自Mastra）— **新增模块**
+- eval_observability: 14可观测性集成矩阵升级（来自Mastra）
+- eval_observability: LLM-as-Judge工具验证评估闭环（来自Mastra）
+- agent_orchestration: 工作流检查点断点续传（来自Mastra）
 - agent_core: MiddlewareBase中间件钩子系统（来自AgentScope）
 - eval_observability: TracingMiddleware零侵入追踪（来自AgentScope）
 - progressive_loader: GEP基因编码替代自由文本改进建议（来自Evolver）
 - claw_integration: 6阶段结构化进化管道（来自Evolver）
 - agent_orchestration: Claw ACP适配器（来自OpenHands）
 - skill_system: SkillsHub自动化模板市场
+- skill_system: `/meta-optimize` 自进化命令（来自ARIS）
+- skill_system: Markdown Skill标准零锁定规范（来自ARIS）
+- agent_orchestration: 交叉模型审查机制（来自ARIS）
+- eval_observability: 反进化完整性审计61信号（来自ARIS）
 
 ---
 

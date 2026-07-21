@@ -1345,6 +1345,31 @@
         "研究Wiki关系图谱知识库",
         "多IDE/Agent可移植性设计"
       ]
+    },
+    {
+      "name": "mastra-ai/mastra",
+      "url": "https://github.com/mastra-ai/mastra",
+      "stars": 26388,
+      "relevance": 36,
+      "language": "TypeScript",
+      "analyzed_at": "2026-07-21T09:00:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-21_mastra.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 4,
+        "P1": 4,
+        "P2": 0
+      },
+      "key_innovations": [
+        "统一模型路由层(40+Provider/3000+模型)",
+        "图结构工作流引擎(.then/.branch/.parallel+持久化恢复)",
+        "20+存储后端统一抽象",
+        "14种可观测性集成矩阵",
+        "LLM-as-Judge工具验证评估",
+        "Observational Memory+Working Memory模板",
+        "MCP Server原生创作",
+        "Input/Output Processor管道"
+      ]
     }
   ],
   "improvements": [
@@ -3820,6 +3845,94 @@
       "effort": "high",
       "status": "pending",
       "created_at": "2026-07-19T08:50:00"
+    },
+    {
+      "id": "mastra-storage-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P0",
+      "module": "storage",
+      "suggestion": "创建StorageAdapter统一存储抽象层，先支持SQLite/JSON/Memory三种后端，替换当前硬编码文件读写，后续按需扩展至20+后端",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "解决Claw存储层碎片化问题，为断点续传/多后端/生产部署奠定基础"
+    },
+    {
+      "id": "mastra-obs-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "参考Mastra可观测性矩阵，扩展Claw eval_observability_skill至10+集成：OTel exporter + Langfuse/Langsmith/PostHog/Sentry连接器",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "从6项基础能力跃升至生产级可观测平台，满足企业部署需求"
+    },
+    {
+      "id": "mastra-judge-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "引入LLM-as-Judge评估闭环：进化引擎每次学习后自动触发Judge Agent，调用只读工具验证建议质量，检测重复/冲突/无根无据项",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "替代纯人工审核，实现改进建议自动化质量门禁，减少P0噪音"
+    },
+    {
+      "id": "mastra-resume-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "为夜间进化引擎添加工作流检查点机制：每阶段(collect/enrich/select/dispatch)完成后序列化状态到存储，中断后从断点恢复",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "解决长任务中断导致当日学习记录丢失问题，提升引擎可靠性"
+    },
+    {
+      "id": "mastra-mcp-srv-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P1",
+      "module": "tool_system",
+      "suggestion": "将Claw Agent/Skill/Tool暴露为MCP Server，让Cursor/Windsurf等IDE也能调用Claw能力，实现双向MCP生态",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "从MCP消费者升级为生产者，扩展Claw生态触达范围"
+    },
+    {
+      "id": "mastra-wmem-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "引入Working Memory模板化设计：为MEMORY.md增加结构化模板(姓名/位置/职业/兴趣/目标/事件/项目)，自动提取填充",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "提升长期上下文连贯性，减少每次会话重复询问用户信息"
+    },
+    {
+      "id": "mastra-proc-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "将context_injector扩展为Input/Output Processor管道架构：TokenLimiter/Redaction/Moderation等处理器链式执行",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "增强上下文安全性与可控性，支持token预算和敏感信息脱敏"
+    },
+    {
+      "id": "mastra-router-0721",
+      "source": "mastra-ai/mastra",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "统一模型路由层：参考Mastra的Model Router设计，为model_scheduler实现单invoke()接口后端透明切换(OpenAI/Anthropic/本地/Gemini)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-21T09:00:00",
+      "value": "减少用户多模型配置负担，提升model_scheduler可维护性"
     }
   ],
   "last_updated": "2026-07-18T08:55:30.978075",
@@ -3955,9 +4068,15 @@
       "new_projects": 1,
       "new_improvements": 1,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-07-21T09:00:00",
+      "new_projects": 1,
+      "new_improvements": 8,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 92,
-  "last_update": "2026-07-12T08:50:00",
-  "total_improvements": 200
+  "total_projects": 98,
+  "last_update": "2026-07-21T09:00:00",
+  "total_improvements": 232
 }

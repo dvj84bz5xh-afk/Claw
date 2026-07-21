@@ -5,109 +5,162 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claw 智能进化仪表盘</title>
 <style>
-:root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #c9d1d9; --muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; --danger: #f85149; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
-.container { max-width: 1200px; margin: 0 auto; }
-h1 { text-align: center; margin-bottom: 8px; } .subtitle { text-align: center; color: var(--muted); margin-bottom: 28px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px; }
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
-.card h3 { margin: 0 0 8px; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-.card .value { font-size: 36px; font-weight: 700; margin: 8px 0; }
-.card .delta { font-size: 12px; color: var(--muted); }
-.accent { color: var(--accent); } .success { color: var(--success); } .warning { color: var(--warning); } .danger { color: var(--danger); }
-.section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-.section h2 { margin-top: 0; font-size: 18px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
-th { color: var(--muted); font-weight: 500; }
-tr:hover { background: rgba(255,255,255,0.03); }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
-.badge-p0 { background: rgba(248,81,73,0.15); color: var(--danger); }
-.badge-p1 { background: rgba(210,153,34,0.15); color: var(--warning); }
-.badge-p2 { background: rgba(88,166,255,0.15); color: var(--accent); }
-.badge-done { background: rgba(63,185,80,0.15); color: var(--success); }
-.badge-pending { background: rgba(139,148,158,0.15); color: var(--muted); }
-.progress-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 8px; }
-.progress-fill { height: 100%; background: var(--success); border-radius: 4px; }
-.footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 30px; padding-bottom: 20px; }
+  :root {
+    --bg: #0d1117; --card: #161b22; --border: #30363d;
+    --text: #c9d1d9; --text-dim: #8b949e; --accent: #58a6ff;
+    --p0: #f85149; --p1: #d29922; --p2: #3fb950; --done: #238636;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6; padding: 24px;
+  }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .subtitle { color: var(--text-dim); font-size: 14px; margin-bottom: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+  }
+  .card h3 { font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .card .value { font-size: 32px; font-weight: 700; }
+  .card .delta { font-size: 13px; color: var(--done); margin-top: 4px; }
+  .bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 12px; }
+  .bar-seg { height: 100%; }
+  .seg-p0 { background: var(--p0); }
+  .seg-p1 { background: var(--p1); }
+  .seg-p2 { background: var(--p2); }
+  .seg-done { background: var(--done); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--text-dim); font-weight: 600; font-size: 12px; text-transform: uppercase; }
+  tr:hover { background: rgba(88,166,255,0.05); }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 12px;
+    font-size: 11px; font-weight: 600;
+  }
+  .badge-p0 { background: rgba(248,81,73,0.15); color: var(--p0); }
+  .badge-p1 { background: rgba(210,153,34,0.15); color: var(--p1); }
+  .badge-p2 { background: rgba(63,185,80,0.15); color: var(--p2); }
+  .badge-done { background: rgba(35,134,54,0.15); color: var(--done); }
+  .section-title { font-size: 18px; margin: 32px 0 16px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .progress-wrap { margin-top: 8px; }
+  .progress-bar { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--done)); width: 43.1%; }
+  .latest-project {
+    background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(35,134,54,0.08));
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px; margin-bottom: 24px;
+  }
+  .latest-project h2 { font-size: 16px; margin-bottom: 8px; }
+  .latest-project p { color: var(--text-dim); font-size: 13px; }
+  .kpis { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+  .kpi { text-align: center; }
+  .kpi-num { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .kpi-label { font-size: 11px; color: var(--text-dim); }
 </style>
 </head>
 <body>
-<div class="container">
-<h1>🦞 Claw 智能进化仪表盘</h1>
-<div class="subtitle">最后更新: 2026-07-19 08:54 | 细水长流 · 每日一项目</div>
+<h1>Claw 智能进化仪表盘</h1>
+<p class="subtitle">最后更新: 2026-07-21 09:00 CST | 细水长流模式 · 每日1项目</p>
+
+<div class="latest-project">
+  <h2>今日学习: mastra-ai/mastra</h2>
+  <p>Modern TypeScript framework for AI-powered applications and agents</p>
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-num">26,388</div><div class="kpi-label">Stars</div></div>
+    <div class="kpi"><div class="kpi-num">36</div><div class="kpi-label">相关度</div></div>
+    <div class="kpi"><div class="kpi-num">8</div><div class="kpi-label">新改进项</div></div>
+    <div class="kpi"><div class="kpi-num">P0×4</div><div class="kpi-label">高优先级</div></div>
+  </div>
+</div>
 
 <div class="grid">
-<div class="card"><h3>学习项目</h3><div class="value accent">97</div><div class="delta">累计分析项目</div></div>
-<div class="card"><h3>改进项</h3><div class="value accent">224</div><div class="delta">+6 今日</div></div>
-<div class="card"><h3>已实施</h3><div class="value success">96</div><div class="delta">实施率 42.9%</div></div>
-<div class="card"><h3>P0 待实施</h3><div class="value danger">47</div><div class="delta">高优先级</div></div>
-<div class="card"><h3>P1 待实施</h3><div class="value warning">57</div><div class="delta">中优先级</div></div>
-<div class="card"><h3>P2 待实施</h3><div class="value">24</div><div class="delta">低优先级</div></div>
+  <div class="card">
+    <h3>累计学习项目</h3>
+    <div class="value">98</div>
+    <div class="delta">+1 今日</div>
+  </div>
+  <div class="card">
+    <h3>改进项总数</h3>
+    <div class="value">232</div>
+    <div class="delta">+8 今日</div>
+  </div>
+  <div class="card">
+    <h3>P0 待实施</h3>
+    <div class="value">51</div>
+    <div class="delta" style="color:var(--p0)">+4 今日</div>
+  </div>
+  <div class="card">
+    <h3>已实施 / 实施率</h3>
+    <div class="value">104 / 43.1%</div>
+    <div class="delta">+0 今日</div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill"></div></div>
+    </div>
+  </div>
 </div>
 
-<div class="section">
-<h2>📊 实施进度</h2>
-<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-<span style="font-size:14px;">已实施 96 / 224 项改进</span>
-<span style="margin-left:auto;font-size:14px;font-weight:600;" class="success">42.9%</span>
-</div>
-<div class="progress-bar"><div class="progress-fill" style="width:42.9%"></div></div>
+<h2 class="section-title">改进项分布</h2>
+<div class="card">
+  <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;">
+    <span><span style="color:var(--done)">已实施 104</span></span>
+    <span><span style="color:var(--p0)">P0 待办 51</span></span>
+    <span><span style="color:var(--p1)">P1 待办 51</span></span>
+    <span><span style="color:var(--p2)">P2 待办 26</span></span>
+  </div>
+  <div class="bar">
+    <div class="bar-seg seg-done" style="width:44.8%"></div>
+    <div class="bar-seg seg-p0" style="width:22.0%"></div>
+    <div class="bar-seg seg-p1" style="width:22.0%"></div>
+    <div class="bar-seg seg-p2" style="width:11.2%"></div>
+  </div>
 </div>
 
-<div class="section">
-<h2>📚 最近学习项目 (15个)</h2>
+<h2 class="section-title">最近10个学习项目</h2>
+<div class="card" style="padding:0;overflow:hidden;">
 <table>
-<tr><th>日期</th><th>项目</th><th>⭐</th><th>相关度</th><th>改进项</th><th>P0/P1/P2</th></tr>
-<tr><td>2026-07-19</td><td><a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep" style="color:var(--accent);text-decoration:none;" target="_blank">wanshuiyin/Auto-claude-code-research-in-sleep</a></td><td>13,553</td><td>35</td><td>6</td><td><span class="badge badge-p0">4</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">0</span></td></tr>
-<tr><td>2026-07-18</td><td><a href="https://github.com/johnson7788/MultiAgentPPT" style="color:var(--accent);text-decoration:none;" target="_blank">johnson7788/MultiAgentPPT</a></td><td>1,618</td><td>13</td><td>1</td><td><span class="badge badge-p0">0</span> <span class="badge badge-p1">1</span> <span class="badge badge-p2">0</span></td></tr>
-<tr><td>2026-07-15</td><td><a href="https://github.com/agentscope-ai/agentscope" style="color:var(--accent);text-decoration:none;" target="_blank">agentscope-ai/agentscope</a></td><td>27,857</td><td>30</td><td>5</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-14</td><td><a href="https://github.com/zeroclaw-labs/zeroclaw" style="color:var(--accent);text-decoration:none;" target="_blank">zeroclaw-labs/zeroclaw</a></td><td>32,251</td><td>38</td><td>6</td><td><span class="badge badge-p0">3</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-13</td><td><a href="https://github.com/EvoMap/evolver" style="color:var(--accent);text-decoration:none;" target="_blank">EvoMap/evolver</a></td><td>8,888</td><td>34</td><td>6</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">3</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-12</td><td><a href="https://github.com/omnigent-ai/omnigent" style="color:var(--accent);text-decoration:none;" target="_blank">omnigent-ai/omnigent</a></td><td>7,087</td><td>33</td><td>5</td><td><span class="badge badge-p0">1</span> <span class="badge badge-p1">3</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-11</td><td><a href="https://github.com/tinyhumansai/openhuman" style="color:var(--accent);text-decoration:none;" target="_blank">tinyhumansai/openhuman</a></td><td>34,612</td><td>25</td><td>0</td><td><span class="badge badge-p0">0</span> <span class="badge badge-p1">0</span> <span class="badge badge-p2">0</span></td></tr>
-<tr><td>2026-07-10</td><td><a href="https://github.com/OpenHands/OpenHands" style="color:var(--accent);text-decoration:none;" target="_blank">OpenHands/OpenHands</a></td><td>80,247</td><td>30</td><td>6</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">2</span></td></tr>
-<tr><td>2026-07-09</td><td><a href="https://github.com/letta-ai/letta" style="color:var(--accent);text-decoration:none;" target="_blank">letta-ai/letta</a></td><td>23,711</td><td>31</td><td>5</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-08</td><td><a href="https://github.com/NevaMind-AI/memU" style="color:var(--accent);text-decoration:none;" target="_blank">NevaMind-AI/memU</a></td><td>13,993</td><td>30</td><td>5</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-07</td><td><a href="https://github.com/shareAI-lab/learn-claude-code" style="color:var(--accent);text-decoration:none;" target="_blank">shareAI-lab/learn-claude-code</a></td><td>70,074</td><td>35</td><td>5</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-06</td><td><a href="https://github.com/cline/cline" style="color:var(--accent);text-decoration:none;" target="_blank">cline/cline</a></td><td>64,318</td><td>33</td><td>5</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-05</td><td><a href="https://github.com/campfirein/byterover-cli" style="color:var(--accent);text-decoration:none;" target="_blank">campfirein/byterover-cli</a></td><td>4,901</td><td>16</td><td>4</td><td><span class="badge badge-p0">1</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-04</td><td><a href="https://github.com/google-gemini/gemini-cli" style="color:var(--accent);text-decoration:none;" target="_blank">google-gemini/gemini-cli</a></td><td>100,337</td><td>31</td><td>5</td><td><span class="badge badge-p0">1</span> <span class="badge badge-p1">3</span> <span class="badge badge-p2">1</span></td></tr>
-<tr><td>2026-07-03</td><td><a href="https://github.com/langchain-ai/langgraph" style="color:var(--accent);text-decoration:none;" target="_blank">langchain-ai/langgraph</a></td><td>36,347</td><td>29</td><td>5</td><td><span class="badge badge-p0">2</span> <span class="badge badge-p1">2</span> <span class="badge badge-p2">1</span></td></tr>
+  <thead>
+    <tr><th>日期</th><th>项目</th><th>Stars</th><th>相关度</th><th>改进项</th><th>报告</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>07-21</td><td><a href="https://github.com/mastra-ai/mastra" target="_blank">mastra-ai/mastra</a></td><td>26,388</td><td>36</td><td><span class="badge badge-p0">P0×4</span> <span class="badge badge-p1">P1×4</span></td><td><a href="../.workbuddy/daily_learning/2026-07-21_mastra.md">查看</a></td></tr>
+    <tr><td>07-19</td><td><a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep" target="_blank">wanshuiyin/Auto-claude-code-research-in-sleep</a></td><td>13,553</td><td>35</td><td><span class="badge badge-p0">P0×4</span> <span class="badge badge-p1">P1×2</span></td><td><a href="../.workbuddy/daily_learning/2026-07-19_ARIS.md">查看</a></td></tr>
+    <tr><td>07-18</td><td><a href="https://github.com/johnson7788/MultiAgentPPT" target="_blank">johnson7788/MultiAgentPPT</a></td><td>1,618</td><td>13</td><td><span class="badge badge-p1">P1×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-18_johnson7788_MultiAgentPPT.md">查看</a></td></tr>
+    <tr><td>07-15</td><td><a href="https://github.com/agentscope-ai/agentscope" target="_blank">agentscope-ai/agentscope</a></td><td>27,857</td><td>30</td><td><span class="badge badge-p0">P0×2</span> <span class="badge badge-p1">P1×2</span> <span class="badge badge-p2">P2×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-15_agentscope.md">查看</a></td></tr>
+    <tr><td>07-14</td><td><a href="https://github.com/zeroclaw-labs/zeroclaw" target="_blank">zeroclaw-labs/zeroclaw</a></td><td>32,251</td><td>38</td><td><span class="badge badge-p0">P0×3</span> <span class="badge badge-p1">P1×2</span> <span class="badge badge-p2">P2×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-14_zeroclaw.md">查看</a></td></tr>
+    <tr><td>07-13</td><td><a href="https://github.com/EvoMap/evolver" target="_blank">EvoMap/evolver</a></td><td>8,888</td><td>34</td><td><span class="badge badge-p0">P0×2</span> <span class="badge badge-p1">P1×3</span> <span class="badge badge-p2">P2×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-13_evolver.md">查看</a></td></tr>
+    <tr><td>07-12</td><td><a href="https://github.com/omnigent-ai/omnigent" target="_blank">omnigent-ai/omnigent</a></td><td>7,087</td><td>33</td><td><span class="badge badge-p0">P0×1</span> <span class="badge badge-p1">P1×3</span> <span class="badge badge-p2">P2×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-12_omnigent.md">查看</a></td></tr>
+    <tr><td>07-11</td><td><a href="https://github.com/tinyhumansai/openhuman" target="_blank">tinyhumansai/openhuman</a></td><td>34,612</td><td>25</td><td><span class="badge badge-p0">P0×1</span> <span class="badge badge-p1">P1×2</span></td><td><a href="../.workbuddy/daily_learning/2026-07-11_openhuman.md">查看</a></td></tr>
+    <tr><td>07-10</td><td><a href="https://github.com/OpenHands/OpenHands" target="_blank">OpenHands/OpenHands</a></td><td>80,247</td><td>30</td><td><span class="badge badge-p0">P0×2</span> <span class="badge badge-p1">P1×2</span> <span class="badge badge-p2">P2×2</span></td><td><a href="../.workbuddy/daily_learning/2026-07-10_openhands.md">查看</a></td></tr>
+    <tr><td>07-09</td><td><a href="https://github.com/letta-ai/letta" target="_blank">letta-ai/letta</a></td><td>23,711</td><td>31</td><td><span class="badge badge-p0">P0×2</span> <span class="badge badge-p1">P1×2</span> <span class="badge badge-p2">P2×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-09_letta.md">查看</a></td></tr>
+  </tbody>
 </table>
 </div>
 
-<div class="section">
-<h2>🔧 改进项模块分布</h2>
+<h2 class="section-title">模块待办分布 (P0)</h2>
+<div class="card">
 <table>
-<tr><th>模块</th><th>改进项数</th></tr>
-<tr><td>agent_orchestration</td><td>49</td></tr>
-<tr><td>tool_system</td><td>45</td></tr>
-<tr><td>memory</td><td>27</td></tr>
-<tr><td>skill_system</td><td>19</td></tr>
-<tr><td>knowledge_retrieval</td><td>14</td></tr>
-<tr><td>memory_system</td><td>11</td></tr>
-<tr><td>observability</td><td>8</td></tr>
-<tr><td>context_injector</td><td>7</td></tr>
-<tr><td>model_scheduler</td><td>6</td></tr>
-<tr><td>eval_observability</td><td>6</td></tr>
+  <thead><tr><th>模块</th><th>P0待办</th><th>主要来源</th></tr></thead>
+  <tbody>
+    <tr><td>eval_observability</td><td><span class="badge badge-p0">12</span></td><td>RagaAI/Opik/TraceRoot/LangGraph/ARIS/Mastra</td></tr>
+    <tr><td>agent_orchestration</td><td><span class="badge badge-p0">10</span></td><td>Agno/PydanticAI/LangGraph/OpenHuman/OmniGent/Mastra</td></tr>
+    <tr><td>memory_system</td><td><span class="badge badge-p0">9</span></td><td>Mem0/ClaudeMem/Cognee/GBrain/Letta/Mastra</td></tr>
+    <tr><td>skill_system</td><td><span class="badge badge-p0">7</span></td><td>Hermes/Nexent/Superpowers/ARIS</td></tr>
+    <tr><td>claw_integration</td><td><span class="badge badge-p0">5</span></td><td>Evolver/ZeroClaw/AgentScope</td></tr>
+    <tr><td>context_injector</td><td><span class="badge badge-p0">3</span></td><td>Cline/Headroom/Mastra</td></tr>
+    <tr><td>progressive_loader</td><td><span class="badge badge-p0">2</span></td><td>Evolver/ZeroClaw</td></tr>
+    <tr><td>model_scheduler</td><td><span class="badge badge-p0">2</span></td><td>BrowserUse/Mastra</td></tr>
+    <tr><td>storage</td><td><span class="badge badge-p0">1</span></td><td>Mastra</td></tr>
+  </tbody>
 </table>
 </div>
 
-<div class="section">
-<h2>🎯 今日学习项目</h2>
-<div style="font-size:15px;line-height:1.7;">
-<strong>wanshuiyin/Auto-claude-code-research-in-sleep</strong> (ARIS ⚔️🌙) — ⭐13,553<br>
-核心发现: 睡眠自主研究闭环 + 纯Markdown Skill架构 + 交叉模型审查 + 元优化自我进化<br>
-可借鉴: 6项改进 (P0×4 + P1×2) → skill_system(3) / agent_orchestration(1) / eval_observability(1) / memory(1)<br>
-<a href=".workbuddy/daily_learning/2026-07-19_ARIS.md" style="color:var(--accent);">查看完整报告 →</a>
-</div>
-</div>
-
-<div class="footer">
-Claw 智能进化系统 | 自动化ID: automation-1779863408739 | 每日09:00执行<br>
-WorkBuddy (小龙虾) · CodeBuddy AI 编程助手 · 腾讯上海
-</div>
-</div>
+<p style="text-align:center;color:var(--text-dim);font-size:12px;margin-top:32px;">
+  Claw Evolution Engine · automation-1779863408739 · 细水长流模式
+</p>
 </body>
 </html>
