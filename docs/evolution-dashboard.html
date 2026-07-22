@@ -9,6 +9,7 @@
     --bg: #0d1117; --card: #161b22; --border: #30363d;
     --text: #c9d1d9; --text-dim: #8b949e; --accent: #58a6ff;
     --p0: #f85149; --p1: #d29922; --p2: #3fb950; --done: #238636;
+    --top: #bc8cff;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -44,62 +45,72 @@
   .badge-p1 { background: rgba(210,153,34,0.15); color: var(--p1); }
   .badge-p2 { background: rgba(63,185,80,0.15); color: var(--p2); }
   .badge-done { background: rgba(35,134,54,0.15); color: var(--done); }
+  .badge-top { background: rgba(188,140,255,0.15); color: var(--top); }
   .section-title { font-size: 18px; margin: 32px 0 16px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .progress-wrap { margin-top: 8px; }
   .progress-bar { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--done)); width: 43.1%; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--done)); transition: width 0.5s; }
   .latest-project {
-    background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(35,134,54,0.08));
-    border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(188,140,255,0.1), rgba(88,166,255,0.08));
+    border: 2px solid var(--top);
     border-radius: 12px; padding: 20px; margin-bottom: 24px;
   }
   .latest-project h2 { font-size: 16px; margin-bottom: 8px; }
   .latest-project p { color: var(--text-dim); font-size: 13px; }
   .kpis { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
   .kpi { text-align: center; }
-  .kpi-num { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .kpi-num { font-size: 22px; font-weight: 700; }
   .kpi-label { font-size: 11px; color: var(--text-dim); }
+  .highlight { color: var(--top); }
+  .innovation-list { font-size: 13px; color: var(--text-dim); margin-top: 8px; }
+  .innovation-list li { margin-bottom: 4px; }
 </style>
 </head>
 <body>
 <h1>Claw 智能进化仪表盘</h1>
-<p class="subtitle">最后更新: 2026-07-21 09:00 CST | 细水长流模式 · 每日1项目</p>
+<p class="subtitle">最后更新: 2026-07-22 09:00 CST | 细水长流模式 · 每日1项目 · 第50轮</p>
 
 <div class="latest-project">
-  <h2>今日学习: mastra-ai/mastra</h2>
-  <p>Modern TypeScript framework for AI-powered applications and agents</p>
+  <h2>🔥 今日学习: EverMind-AI/EverOS <span class="badge badge-top">相关度43 · 迄今最高</span></h2>
+  <p>One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving</p>
   <div class="kpis">
-    <div class="kpi"><div class="kpi-num">26,388</div><div class="kpi-label">Stars</div></div>
-    <div class="kpi"><div class="kpi-num">36</div><div class="kpi-label">相关度</div></div>
-    <div class="kpi"><div class="kpi-num">8</div><div class="kpi-label">新改进项</div></div>
-    <div class="kpi"><div class="kpi-num">P0×4</div><div class="kpi-label">高优先级</div></div>
+    <div class="kpi"><div class="kpi-num highlight">11,418</div><div class="kpi-label">Stars</div></div>
+    <div class="kpi"><div class="kpi-num highlight">43</div><div class="kpi-label">相关度(最高)</div></div>
+    <div class="kpi"><div class="kpi-num" style="color:var(--p0)">7</div><div class="kpi-label">新改进项</div></div>
+    <div class="kpi"><div class="kpi-num" style="color:var(--p0)">P0×4</div><div class="kpi-label">高优先级</div></div>
   </div>
+  <ul class="innovation-list">
+    <li><strong>Markdown-as-Truth</strong> — .md文件为唯一真相源，SQLite+LanceDB为可重建派生索引</li>
+    <li><strong>Cascade Daemon</strong> — 实时监视.md变更，自动级联索引同步</li>
+    <li><strong>OME离线反思</strong> — 会话间后台合并episode/提炼profile/skill自进化</li>
+    <li><strong>正交五维检索</strong> — user×agent×app×project×session五轴分区</li>
+  </ul>
 </div>
 
 <div class="grid">
   <div class="card">
     <h3>累计学习项目</h3>
-    <div class="value">98</div>
+    <div class="value">99</div>
     <div class="delta">+1 今日</div>
   </div>
   <div class="card">
     <h3>改进项总数</h3>
-    <div class="value">232</div>
-    <div class="delta">+8 今日</div>
+    <div class="value">239</div>
+    <div class="delta">+7 今日</div>
   </div>
   <div class="card">
     <h3>P0 待实施</h3>
-    <div class="value">51</div>
+    <div class="value">55</div>
     <div class="delta" style="color:var(--p0)">+4 今日</div>
   </div>
   <div class="card">
     <h3>已实施 / 实施率</h3>
-    <div class="value">104 / 43.1%</div>
+    <div class="value">104 / 43.5%</div>
     <div class="delta">+0 今日</div>
     <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill"></div></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:43.5%"></div></div>
     </div>
   </div>
 </div>
@@ -108,15 +119,15 @@
 <div class="card">
   <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;">
     <span><span style="color:var(--done)">已实施 104</span></span>
-    <span><span style="color:var(--p0)">P0 待办 51</span></span>
-    <span><span style="color:var(--p1)">P1 待办 51</span></span>
+    <span><span style="color:var(--p0)">P0 待办 55</span></span>
+    <span><span style="color:var(--p1)">P1 待办 54</span></span>
     <span><span style="color:var(--p2)">P2 待办 26</span></span>
   </div>
   <div class="bar">
-    <div class="bar-seg seg-done" style="width:44.8%"></div>
-    <div class="bar-seg seg-p0" style="width:22.0%"></div>
-    <div class="bar-seg seg-p1" style="width:22.0%"></div>
-    <div class="bar-seg seg-p2" style="width:11.2%"></div>
+    <div class="bar-seg seg-done" style="width:43.5%"></div>
+    <div class="bar-seg seg-p0" style="width:23.0%"></div>
+    <div class="bar-seg seg-p1" style="width:22.6%"></div>
+    <div class="bar-seg seg-p2" style="width:10.9%"></div>
   </div>
 </div>
 
@@ -127,6 +138,7 @@
     <tr><th>日期</th><th>项目</th><th>Stars</th><th>相关度</th><th>改进项</th><th>报告</th></tr>
   </thead>
   <tbody>
+    <tr style="background:rgba(188,140,255,0.06)"><td>07-22</td><td><a href="https://github.com/EverMind-AI/EverOS" target="_blank">EverMind-AI/EverOS</a></td><td>11,418</td><td><span class="badge badge-top">43</span></td><td><span class="badge badge-p0">P0×4</span> <span class="badge badge-p1">P1×3</span></td><td><a href="../.workbuddy/daily_learning/2026-07-22_everos.md">查看</a></td></tr>
     <tr><td>07-21</td><td><a href="https://github.com/mastra-ai/mastra" target="_blank">mastra-ai/mastra</a></td><td>26,388</td><td>36</td><td><span class="badge badge-p0">P0×4</span> <span class="badge badge-p1">P1×4</span></td><td><a href="../.workbuddy/daily_learning/2026-07-21_mastra.md">查看</a></td></tr>
     <tr><td>07-19</td><td><a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep" target="_blank">wanshuiyin/Auto-claude-code-research-in-sleep</a></td><td>13,553</td><td>35</td><td><span class="badge badge-p0">P0×4</span> <span class="badge badge-p1">P1×2</span></td><td><a href="../.workbuddy/daily_learning/2026-07-19_ARIS.md">查看</a></td></tr>
     <tr><td>07-18</td><td><a href="https://github.com/johnson7788/MultiAgentPPT" target="_blank">johnson7788/MultiAgentPPT</a></td><td>1,618</td><td>13</td><td><span class="badge badge-p1">P1×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-18_johnson7788_MultiAgentPPT.md">查看</a></td></tr>
@@ -136,7 +148,6 @@
     <tr><td>07-12</td><td><a href="https://github.com/omnigent-ai/omnigent" target="_blank">omnigent-ai/omnigent</a></td><td>7,087</td><td>33</td><td><span class="badge badge-p0">P0×1</span> <span class="badge badge-p1">P1×3</span> <span class="badge badge-p2">P2×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-12_omnigent.md">查看</a></td></tr>
     <tr><td>07-11</td><td><a href="https://github.com/tinyhumansai/openhuman" target="_blank">tinyhumansai/openhuman</a></td><td>34,612</td><td>25</td><td><span class="badge badge-p0">P0×1</span> <span class="badge badge-p1">P1×2</span></td><td><a href="../.workbuddy/daily_learning/2026-07-11_openhuman.md">查看</a></td></tr>
     <tr><td>07-10</td><td><a href="https://github.com/OpenHands/OpenHands" target="_blank">OpenHands/OpenHands</a></td><td>80,247</td><td>30</td><td><span class="badge badge-p0">P0×2</span> <span class="badge badge-p1">P1×2</span> <span class="badge badge-p2">P2×2</span></td><td><a href="../.workbuddy/daily_learning/2026-07-10_openhands.md">查看</a></td></tr>
-    <tr><td>07-09</td><td><a href="https://github.com/letta-ai/letta" target="_blank">letta-ai/letta</a></td><td>23,711</td><td>31</td><td><span class="badge badge-p0">P0×2</span> <span class="badge badge-p1">P1×2</span> <span class="badge badge-p2">P2×1</span></td><td><a href="../.workbuddy/daily_learning/2026-07-09_letta.md">查看</a></td></tr>
   </tbody>
 </table>
 </div>
@@ -147,20 +158,40 @@
   <thead><tr><th>模块</th><th>P0待办</th><th>主要来源</th></tr></thead>
   <tbody>
     <tr><td>eval_observability</td><td><span class="badge badge-p0">12</span></td><td>RagaAI/Opik/TraceRoot/LangGraph/ARIS/Mastra</td></tr>
+    <tr><td>memory_system</td><td><span class="badge badge-p0">11</span></td><td>Mem0/ClaudeMem/Cognee/GBrain/Letta/Mastra/EverOS(+2)</td></tr>
     <tr><td>agent_orchestration</td><td><span class="badge badge-p0">10</span></td><td>Agno/PydanticAI/LangGraph/OpenHuman/OmniGent/Mastra</td></tr>
-    <tr><td>memory_system</td><td><span class="badge badge-p0">9</span></td><td>Mem0/ClaudeMem/Cognee/GBrain/Letta/Mastra</td></tr>
     <tr><td>skill_system</td><td><span class="badge badge-p0">7</span></td><td>Hermes/Nexent/Superpowers/ARIS</td></tr>
-    <tr><td>claw_integration</td><td><span class="badge badge-p0">5</span></td><td>Evolver/ZeroClaw/AgentScope</td></tr>
+    <tr><td>claw_integration</td><td><span class="badge badge-p0">6</span></td><td>Evolver/ZeroClaw/AgentScope/EverOS(+1)</td></tr>
+    <tr><td>storage</td><td><span class="badge badge-p0">3</span></td><td>Mastra/EverOS(+2)</td></tr>
     <tr><td>context_injector</td><td><span class="badge badge-p0">3</span></td><td>Cline/Headroom/Mastra</td></tr>
     <tr><td>progressive_loader</td><td><span class="badge badge-p0">2</span></td><td>Evolver/ZeroClaw</td></tr>
     <tr><td>model_scheduler</td><td><span class="badge badge-p0">2</span></td><td>BrowserUse/Mastra</td></tr>
-    <tr><td>storage</td><td><span class="badge badge-p0">1</span></td><td>Mastra</td></tr>
+    <tr><td>rag_engine</td><td><span class="badge badge-p1">1</span></td><td>EverOS(P1 Wiki)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 class="section-title">相关度Top 10项目</h2>
+<div class="card" style="padding:0;overflow:hidden;">
+<table>
+  <thead><tr><th>排名</th><th>项目</th><th>相关度</th><th>Stars</th><th>P0改进</th></tr></thead>
+  <tbody>
+    <tr style="background:rgba(188,140,255,0.06)"><td>🥇 1</td><td><a href="https://github.com/EverMind-AI/EverOS" target="_blank">EverMind-AI/EverOS</a></td><td><span class="badge badge-top">43</span></td><td>11,418</td><td>4</td></tr>
+    <tr><td>🥈 2</td><td><a href="https://github.com/zeroclaw-labs/zeroclaw" target="_blank">zeroclaw-labs/zeroclaw</a></td><td>38</td><td>32,251</td><td>3</td></tr>
+    <tr><td>🥉 3</td><td><a href="https://github.com/mastra-ai/mastra" target="_blank">mastra-ai/mastra</a></td><td>36</td><td>26,388</td><td>4</td></tr>
+    <tr><td>4</td><td><a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep" target="_blank">ARIS</a></td><td>35</td><td>13,553</td><td>4</td></tr>
+    <tr><td>5</td><td><a href="https://github.com/EvoMap/evolver" target="_blank">EvoMap/evolver</a></td><td>34</td><td>8,888</td><td>2</td></tr>
+    <tr><td>6</td><td><a href="https://github.com/ModelEngine-Group/nexent" target="_blank">ModelEngine-Group/nexent</a></td><td>34</td><td>5,356</td><td>2</td></tr>
+    <tr><td>7</td><td><a href="https://github.com/omnigent-ai/omnigent" target="_blank">omnigent-ai/omnigent</a></td><td>33</td><td>7,087</td><td>1</td></tr>
+    <tr><td>8</td><td><a href="https://github.com/cline/cline" target="_blank">cline/cline</a></td><td>33</td><td>64,318</td><td>2</td></tr>
+    <tr><td>9</td><td><a href="https://github.com/shareAI-lab/learn-claude-code" target="_blank">shareAI-lab/learn-claude-code</a></td><td>35</td><td>70,074</td><td>2</td></tr>
+    <tr><td>10</td><td><a href="https://github.com/headroomlabs-ai/headroom" target="_blank">headroomlabs-ai/headroom</a></td><td>32</td><td>55,244</td><td>2</td></tr>
   </tbody>
 </table>
 </div>
 
 <p style="text-align:center;color:var(--text-dim);font-size:12px;margin-top:32px;">
-  Claw Evolution Engine · automation-1779863408739 · 细水长流模式
+  Claw Evolution Engine · automation-1779863408739 · 细水长流模式 · 第50轮
 </p>
 </body>
 </html>

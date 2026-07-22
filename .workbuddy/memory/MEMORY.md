@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 98项目 / 232改进项 / 实施率约44.8% (104/232)
-- **最新学习**: mastra-ai/mastra (⭐26,388, 相关度36) — 2026-07-21
+- **进度**: 99项目 / 239改进项 / 实施率约43.5% (104/239)
+- **最新学习**: EverMind-AI/EverOS (⭐11,418, 相关度43·迄今最高) — 2026-07-22
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -33,9 +33,11 @@
 - **状态**: 细水长流模式，每日1项目
 
 ### 高相关项目候选
-1. **mastra-ai/mastra** (⭐26K, 相关度36) - 统一存储抽象+14可观测集成+LLM-as-Judge+工作流持久化 ✅已学习
-2. **EvoMap/evolver** (⭐9K, 相关度34) - GEP基因编码+6阶段进化管道+ATP市场 ✅已学习
-3. **wanshuiyin/Auto-claude-code-research-in-sleep** (⭐13K, 相关度35) - 睡眠自主研究+Markdown Skill+交叉审查+元进化 ✅已学习
+1. **EverMind-AI/EverOS** (⭐11K, 相关度43·最高) - Markdown-as-Truth+Cascade Daemon+OME离线反思 ✅已学习
+2. **zeroclaw-labs/zeroclaw** (⭐32K, 相关度38) - 单二进制+SOP-Graph+工具回执审计 ✅已学习
+3. **mastra-ai/mastra** (⭐26K, 相关度36) - 统一存储抽象+14可观测集成+LLM-as-Judge+工作流持久化 ✅已学习
+4. **wanshuiyin/ARIS** (⭐13K, 相关度35) - 睡眠自主研究+Markdown Skill+交叉审查+元进化 ✅已学习
+5. **EvoMap/evolver** (⭐9K, 相关度34) - GEP基因编码+6阶段进化管道+ATP市场 ✅已学习
 4. **NousResearch/hermes-agent** (⭐200K, 相关度29) - 学习循环+轨迹压缩 ✅已学习
 5. **TheDotMack/claude-mem** (⭐84K, 相关度29) - 3层MCP搜索+记忆可视化 ✅已学习
 6. **agentscope-ai/agentscope** (⭐27K, 相关度30) - 中间件系统+三重记忆+零侵入追踪 ✅已学习
@@ -43,7 +45,11 @@
 8. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
 
 ### P0待实施
-- storage: StorageAdapter统一存储抽象层（来自Mastra）— **新增模块**
+- storage: Markdown-as-Truth存储架构（来自EverOS）— **新增**
+- memory_system: Cascade Daemon级联守护自动索引同步（来自EverOS）— **新增**
+- claw_integration: OME离线反思引擎episode合并+profile提炼（来自EverOS）— **新增**
+- memory_system: 正交五维分区检索（来自EverOS）— **新增**
+- storage: StorageAdapter统一存储抽象层（来自Mastra）
 - eval_observability: 14可观测性集成矩阵升级（来自Mastra）
 - eval_observability: LLM-as-Judge工具验证评估闭环（来自Mastra）
 - agent_orchestration: 工作流检查点断点续传（来自Mastra）
@@ -57,6 +63,11 @@
 - skill_system: Markdown Skill标准零锁定规范（来自ARIS）
 - agent_orchestration: 交叉模型审查机制（来自ARIS）
 - eval_observability: 反进化完整性审计61信号（来自ARIS）
+
+### P1待实施
+- memory_system: User+Agent双轨记忆表面（来自EverOS）
+- rag_engine: Knowledge Wiki知识百科系统（来自EverOS）
+- storage: 本地栈替代外部DB SQLite+LanceDB（来自EverOS）
 
 ---
 

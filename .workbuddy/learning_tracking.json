@@ -1370,6 +1370,30 @@
         "MCP Server原生创作",
         "Input/Output Processor管道"
       ]
+    },
+    {
+      "name": "EverMind-AI/EverOS",
+      "url": "https://github.com/EverMind-AI/EverOS",
+      "stars": 11418,
+      "relevance": 43,
+      "language": "Python",
+      "analyzed_at": "2026-07-22T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-22_everos.md",
+      "improvements_count": 7,
+      "priority_breakdown": {
+        "P0": 4,
+        "P1": 3,
+        "P2": 0
+      },
+      "key_innovations": [
+        "Markdown-as-Truth三层存储栈(MD+SQLite+LanceDB,可重建)",
+        "Cascade Daemon级联守护进程(实时索引同步)",
+        "OME离线反思引擎(会话间episode合并+profile提炼)",
+        "正交五维检索(user×agent×app×project×session)",
+        "User+Agent双轨记忆表面(episodes/profile vs cases/skills)",
+        "Knowledge Wiki知识百科(Markdown+分类+CRUD+主题搜索)",
+        "零外部依赖本地栈(无MongoDB/Elasticsearch/Redis)"
+      ]
     }
   ],
   "improvements": [
@@ -3933,6 +3957,76 @@
       "status": "pending",
       "created_at": "2026-07-21T09:00:00",
       "value": "减少用户多模型配置负担，提升model_scheduler可维护性"
+    },
+    {
+      "id": "everos-mdtruth-0722",
+      "source": "EverMind-AI/EverOS",
+      "priority": "P0",
+      "module": "storage",
+      "suggestion": "实施Markdown-as-Truth存储架构 — 记忆文件为规范.md,索引全部派生可重建",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-22T08:50:00"
+    },
+    {
+      "id": "everos-cascade-0722",
+      "source": "EverMind-AI/EverOS",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "引入Cascade Daemon级联守护 — 文件监视+自动索引重建",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-22T08:50:00"
+    },
+    {
+      "id": "everos-ome-0722",
+      "source": "EverMind-AI/EverOS",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "实现OME离线反思引擎 — 会话间episode合并+profile提炼+skill自进化",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-22T08:50:00"
+    },
+    {
+      "id": "everos-ortho-0722",
+      "source": "EverMind-AI/EverOS",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "正交五维分区检索 — user×agent×app×project×session五轴搜索",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-22T08:50:00"
+    },
+    {
+      "id": "everos-dualtrack-0722",
+      "source": "EverMind-AI/EverOS",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "User+Agent双轨记忆表面 — episodes/profile与cases/skills分离",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-22T08:50:00"
+    },
+    {
+      "id": "everos-wiki-0722",
+      "source": "EverMind-AI/EverOS",
+      "priority": "P1",
+      "module": "rag_engine",
+      "suggestion": "Knowledge Wiki知识百科系统 — Markdown知识页+分类+CRUD+主题搜索",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-22T08:50:00"
+    },
+    {
+      "id": "everos-localstack-0722",
+      "source": "EverMind-AI/EverOS",
+      "priority": "P1",
+      "module": "storage",
+      "suggestion": "本地栈替代外部DB — SQLite+LanceDB替代MongoDB/Elasticsearch/Redis",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-22T08:50:00"
     }
   ],
   "last_updated": "2026-07-18T08:55:30.978075",
