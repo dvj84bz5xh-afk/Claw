@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 99项目 / 239改进项 / 实施率约43.5% (104/239)
-- **最新学习**: EverMind-AI/EverOS (⭐11,418, 相关度43·迄今最高) — 2026-07-22
+- **进度**: 100项目 / 245改进项 / 实施率约39.2% (96/245) — 第100个项目里程碑!
+- **最新学习**: EverMind-AI/Raven (⭐2,512, 相关度40) — 2026-07-23
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -34,7 +34,8 @@
 
 ### 高相关项目候选
 1. **EverMind-AI/EverOS** (⭐11K, 相关度43·最高) - Markdown-as-Truth+Cascade Daemon+OME离线反思 ✅已学习
-2. **zeroclaw-labs/zeroclaw** (⭐32K, 相关度38) - 单二进制+SOP-Graph+工具回执审计 ✅已学习
+2. **EverMind-AI/Raven** (⭐2.5K, 相关度40) - Spine脊柱+Sentinel主动引擎+Evolver自进化+SkillForge ✅已学习
+3. **zeroclaw-labs/zeroclaw** (⭐32K, 相关度38) - 单二进制+SOP-Graph+工具回执审计 ✅已学习
 3. **mastra-ai/mastra** (⭐26K, 相关度36) - 统一存储抽象+14可观测集成+LLM-as-Judge+工作流持久化 ✅已学习
 4. **wanshuiyin/ARIS** (⭐13K, 相关度35) - 睡眠自主研究+Markdown Skill+交叉审查+元进化 ✅已学习
 5. **EvoMap/evolver** (⭐9K, 相关度34) - GEP基因编码+6阶段进化管道+ATP市场 ✅已学习
@@ -45,7 +46,10 @@
 8. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
 
 ### P0待实施
-- storage: Markdown-as-Truth存储架构（来自EverOS）— **新增**
+- agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
+- agent_orchestrator: Sentinel主动引擎 nudge策略+调度器+非被动响应（来自Raven）— **新增**
+- claw_integration: Evolver基准驱动自进化 线束内评估→参数优化循环（来自Raven）— **新增**
+- storage: Markdown-as-Truth存储架构（来自EverOS）
 - memory_system: Cascade Daemon级联守护自动索引同步（来自EverOS）— **新增**
 - claw_integration: OME离线反思引擎episode合并+profile提炼（来自EverOS）— **新增**
 - memory_system: 正交五维分区检索（来自EverOS）— **新增**
