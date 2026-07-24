@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 100项目 / 245改进项 / 实施率约39.2% (96/245) — 第100个项目里程碑!
-- **最新学习**: EverMind-AI/Raven (⭐2,512, 相关度40) — 2026-07-23
+- **进度**: 101项目 / 251改进项 / 实施率约38.2% (96/251)
+- **最新学习**: CopilotKit/CopilotKit (⭐36K, 相关度32) — 2026-07-24
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -43,6 +43,7 @@
 5. **TheDotMack/claude-mem** (⭐84K, 相关度29) - 3层MCP搜索+记忆可视化 ✅已学习
 6. **agentscope-ai/agentscope** (⭐27K, 相关度30) - 中间件系统+三重记忆+零侵入追踪 ✅已学习
 7. **langchain-ai/langchain** (⭐132K, 相关度28) - 分层抽象+全生命周期 ✅已学习
+9. **CopilotKit/CopilotKit** (⭐36K, 相关度32) - AG-UI Protocol+Generative UI+Shared State+CLHF自学习 ✅已学习
 8. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
 
 ### P0待实施
@@ -67,6 +68,8 @@
 - skill_system: Markdown Skill标准零锁定规范（来自ARIS）
 - agent_orchestration: 交叉模型审查机制（来自ARIS）
 - eval_observability: 反进化完整性审计61信号（来自ARIS）
+- agent_orchestration: AG-UI Protocol适配器 ~16种标准事件类型 Agent→UI通信层（来自CopilotKit）— **新增**
+- context_injector: Shared State双向状态同步 Agent+UI共享读写+增量delta推送（来自CopilotKit）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）

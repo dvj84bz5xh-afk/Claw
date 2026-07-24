@@ -1417,6 +1417,29 @@
         "SkillForge反馈驱动技能进化(工作流→skill→反馈→迭代)",
         "Agent Template模板化定义+分享+商业化"
       ]
+    },
+    {
+      "name": "CopilotKit/CopilotKit",
+      "url": "https://github.com/CopilotKit/CopilotKit",
+      "stars": 36237,
+      "relevance": 32,
+      "language": "TypeScript",
+      "analyzed_at": "2026-07-24T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-24_copilotkit.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "AG-UI Protocol(Agent-UI标准化事件协议,~16种事件类型)",
+        "Generative UI三层架构(Static/Declarative/Open-Ended)",
+        "Shared State双向状态同步(Agent+UI共享读写)",
+        "CLHF自学习引擎(人类反馈→prompt增强,无需微调)",
+        "多平台统一部署(Web/Mobile/Slack/Teams同一Agent)",
+        "useAgent Hook编程级Agent控制"
+      ]
     }
   ],
   "improvements": [
@@ -4110,6 +4133,66 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-07-23T08:50:00"
+    },
+    {
+      "id": "copilotkit-agui-0724",
+      "source": "CopilotKit/CopilotKit",
+      "priority": "P0",
+      "module": "agent_orchestration",
+      "suggestion": "AG-UI Protocol适配器: ~16种标准事件类型, Agent→UI标准化通信层, 补全MCP+A2A+AG-UI协议三角",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-24T08:50:00"
+    },
+    {
+      "id": "copilotkit-sharedstate-0724",
+      "source": "CopilotKit/CopilotKit",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "Shared State双向状态同步: Agent与UI共享实时读写状态层, 替代单向注入, 增量delta推送",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-24T08:50:00"
+    },
+    {
+      "id": "copilotkit-clhf-0724",
+      "source": "CopilotKit/CopilotKit",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "CLHF自学习引擎: 人类反馈→prompt增强闭环, 无需模型微调, 逐用户适配",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-24T08:50:00"
+    },
+    {
+      "id": "copilotkit-genui-0724",
+      "source": "CopilotKit/CopilotKit",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "Generative UI三层渲染: Static(结构化模板)/Declarative(组件声明)/Open-Ended(自由JSON)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-24T08:50:00"
+    },
+    {
+      "id": "copilotkit-multiplatform-0724",
+      "source": "CopilotKit/CopilotKit",
+      "priority": "P1",
+      "module": "agent_core",
+      "suggestion": "多平台Transport抽象: SSE/WebSocket/Webhook统一层, 同一Agent部署到Web/Chat/Mobile",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-24T08:50:00"
+    },
+    {
+      "id": "copilotkit-useagent-0724",
+      "source": "CopilotKit/CopilotKit",
+      "priority": "P2",
+      "module": "tool_registry",
+      "suggestion": "useAgent API: get_state()/set_state() 编程级Agent状态操控接口",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-24T08:50:00"
     }
   ],
   "last_updated": "2026-07-18T08:55:30.978075",
