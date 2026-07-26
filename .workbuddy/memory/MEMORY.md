@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 101项目 / 251改进项 / 实施率约38.2% (96/251)
-- **最新学习**: CopilotKit/CopilotKit (⭐36K, 相关度32) — 2026-07-24
+- **进度**: 102项目 / 257改进项 / 实施率约37.4% (96/257)
+- **最新学习**: musistudio/claude-code-router (⭐36K, 相关度35) — 2026-07-26
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -45,6 +45,7 @@
 7. **langchain-ai/langchain** (⭐132K, 相关度28) - 分层抽象+全生命周期 ✅已学习
 9. **CopilotKit/CopilotKit** (⭐36K, 相关度32) - AG-UI Protocol+Generative UI+Shared State+CLHF自学习 ✅已学习
 8. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
+10. **musistudio/claude-code-router** (⭐36K, 相关度35) - 声明式路由规则+凭证池轮转+Fusion能力注入+AgentClaw多渠道中继+ToolHub市场+成本可观测 ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -70,6 +71,8 @@
 - eval_observability: 反进化完整性审计61信号（来自ARIS）
 - agent_orchestration: AG-UI Protocol适配器 ~16种标准事件类型 Agent→UI通信层（来自CopilotKit）— **新增**
 - context_injector: Shared State双向状态同步 Agent+UI共享读写+增量delta推送（来自CopilotKit）— **新增**
+- model_scheduler: 声明式路由规则引擎 条件路由+前缀匹配+请求重写+自动重试+有序故障转移模型链（来自CCR）— **新增**
+- model_scheduler: 凭证池与密钥轮转 多API Key自动轮转+限流检测+Key级故障转移（来自CCR）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）

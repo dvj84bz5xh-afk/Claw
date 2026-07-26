@@ -5,116 +5,326 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claw 智能进化仪表盘</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; padding: 24px; }
-.header { text-align: center; margin-bottom: 32px; }
-.header h1 { font-size: 28px; color: #818cf8; margin-bottom: 8px; }
-.header .subtitle { color: #94a3b8; font-size: 14px; }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
-.stat-card { background: #1e293b; border-radius: 12px; padding: 24px; border: 1px solid #334155; text-align: center; }
-.stat-card .value { font-size: 36px; font-weight: 700; }
-.stat-card .label { color: #94a3b8; font-size: 13px; margin-top: 4px; }
-.stat-card.p0 .value { color: #f87171; }
-.stat-card.p1 .value { color: #fbbf24; }
-.stat-card.blue .value { color: #60a5fa; }
-.stat-card.purple .value { color: #a78bfa; }
-.section { margin-bottom: 32px; }
-.section h2 { color: #818cf8; font-size: 20px; margin-bottom: 16px; border-bottom: 1px solid #334155; padding-bottom: 8px; }
-table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; }
-th { background: #334155; padding: 12px 16px; text-align: left; font-size: 13px; color: #cbd5e1; }
-td { padding: 10px 16px; border-bottom: 1px solid #334155; font-size: 13px; }
-tr:hover { background: #2d3a4e; }
-.progress-bar { height: 8px; background: #334155; border-radius: 4px; overflow: hidden; margin-top: 8px; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #818cf8); border-radius: 4px; }
-.protocol-stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
-.protocol-card { background: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155; text-align: center; }
-.protocol-card .icon { font-size: 32px; margin-bottom: 8px; }
-.protocol-card .name { color: #818cf8; font-weight: 600; margin-bottom: 4px; }
-.protocol-card .desc { color: #94a3b8; font-size: 12px; }
-.footer { text-align: center; color: #475569; font-size: 12px; margin-top: 32px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #0f172a; color: #e2e8f0; padding: 20px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 28px; margin-bottom: 8px; background: linear-gradient(135deg, #f97316, #eab308); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { text-align: center; color: #94a3b8; margin-bottom: 30px; font-size: 14px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 30px; }
+  .stat-card { background: #1e293b; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #334155; transition: transform 0.2s; }
+  .stat-card:hover { transform: translateY(-3px); border-color: #475569; }
+  .stat-value { font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+  .stat-label { font-size: 13px; color: #94a3b8; }
+  .stat-card.green .stat-value { color: #4ade80; }
+  .stat-card.orange .stat-value { color: #f97316; }
+  .stat-card.blue .stat-value { color: #60a5fa; }
+  .stat-card.red .stat-value { color: #f87171; }
+  .stat-card.purple .stat-value { color: #c084fc; }
+  .section { background: #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #334155; }
+  .section h2 { font-size: 18px; margin-bottom: 16px; color: #f1f5f9; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+  .progress-bar { width: 100%; height: 24px; background: #334155; border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
+  .progress-fill { height: 100%; border-radius: 12px; transition: width 0.5s ease; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+  .priority-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .priority-card { background: #0f172a; border-radius: 8px; padding: 16px; text-align: center; }
+  .priority-card .p-label { font-size: 14px; margin-bottom: 8px; }
+  .priority-card .p-value { font-size: 24px; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #334155; font-size: 13px; }
+  th { color: #94a3b8; font-weight: 600; }
+  tr:hover { background: #1e293b; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .badge-p0 { background: #7f1d1d; color: #fca5a5; }
+  .badge-p1 { background: #78350f; color: #fcd34d; }
+  .badge-p2 { background: #1e3a5f; color: #93c5fd; }
+  .badge-done { background: #14532d; color: #86efac; }
+  .badge-pending { background: #374151; color: #d1d5db; }
+  .module-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .module-name { width: 180px; font-size: 13px; color: #cbd5e1; }
+  .module-progress { flex: 1; height: 20px; background: #334155; border-radius: 10px; overflow: hidden; }
+  .module-fill { height: 100%; border-radius: 10px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 11px; font-weight: 600; color: #0f172a; }
+  .footer { text-align: center; color: #475569; font-size: 12px; margin-top: 20px; }
+  .highlight { background: #1e293b; border-left: 3px solid #f97316; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 12px; }
 </style>
 </head>
 <body>
-<div class="header">
-<h1>Claw 智能进化仪表盘</h1>
-<div class="subtitle">自动学习 GitHub 高星 AI/Agent 项目 | 最后更新: 2026-07-24 08:50</div>
-</div>
+<div class="container">
+  <h1>Claw 智能进化仪表盘</h1>
+  <p class="subtitle">通过 GitHub 高星项目迭代 CodeBuddy 能力 | 更新: 2026-07-26 08:55</p>
 
-<div class="stats-grid">
-<div class="stat-card purple"><div class="value">101</div><div class="label">学习项目总数</div></div>
-<div class="stat-card blue"><div class="value">251</div><div class="label">改进项总数</div></div>
-<div class="stat-card" style="border-color:#064e3b"><div class="value" style="color:#34d399">96</div><div class="label">已实施</div></div>
-<div class="stat-card" style="border-color:#1e3a5f"><div class="value" style="color:#60a5fa">155</div><div class="label">待实施</div></div>
-<div class="stat-card p0"><div class="value">60</div><div class="label">P0 待实施</div></div>
-<div class="stat-card p1"><div class="value">70</div><div class="label">P1 待实施</div></div>
-</div>
+  <div class="stats-grid">
 
-<div class="stat-card" style="margin-bottom:32px">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<span style="color:#94a3b8;font-size:14px">实施率</span>
-<span style="font-size:24px;font-weight:700;color:#818cf8">38.2%</span>
-</div>
-<div class="progress-bar"><div class="progress-fill" style="width:38.2%"></div></div>
-</div>
+  <div class="stat-card blue"><div class="stat-value">102</div><div class="stat-label">学习项目总数</div></div>
+  <div class="stat-card orange"><div class="stat-value">257</div><div class="stat-label">改进项总数</div></div>
+  <div class="stat-card green"><div class="stat-value">96</div><div class="stat-label">已实施</div></div>
+  <div class="stat-card red"><div class="stat-value">161</div><div class="stat-label">待实施</div></div>
+  <div class="stat-card purple"><div class="stat-value">37.4%</div><div class="stat-label">实施率</div></div>
 
-<div class="section">
-<h2>协议栈三角 (今日新增: AG-UI)</h2>
-<div class="protocol-stack">
-<div class="protocol-card">
-<div class="icon">🔧</div>
-<div class="name">MCP</div>
-<div class="desc">Agent → Tools<br>工具标准化协议<br>✅ 已学习</div>
-</div>
-<div class="protocol-card">
-<div class="icon">🤝</div>
-<div class="name">A2A</div>
-<div class="desc">Agent ↔ Agent<br>跨Agent通信协议<br>✅ 已学习</div>
-</div>
-<div class="protocol-card" style="border-color:#6366f1">
-<div class="icon">🖥️</div>
-<div class="name">AG-UI</div>
-<div class="desc">Agent → UI<br>用户交互协议<br>🆕 今日新增</div>
-</div>
-</div>
-</div>
+  </div>
 
-<div class="section">
-<h2>模块改进分布</h2>
-<table>
-<thead><tr><th>模块</th><th>总计</th><th>已实施</th><th>待实施</th><th>实施率</th></tr></thead>
-<tbody>
-<tr><td>agent_orchestration</td><td>51</td><td style='color:#34d399'>24</td><td style='color:#60a5fa'>27</td><td>47%</td></tr><tr><td>tool_system</td><td>46</td><td style='color:#34d399'>39</td><td style='color:#60a5fa'>7</td><td>85%</td></tr><tr><td>memory</td><td>27</td><td style='color:#34d399'>13</td><td style='color:#60a5fa'>14</td><td>48%</td></tr><tr><td>skill_system</td><td>20</td><td style='color:#34d399'>2</td><td style='color:#60a5fa'>18</td><td>10%</td></tr><tr><td>memory_system</td><td>15</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>15</td><td>0%</td></tr><tr><td>knowledge_retrieval</td><td>14</td><td style='color:#34d399'>13</td><td style='color:#60a5fa'>1</td><td>93%</td></tr><tr><td>claw_integration</td><td>10</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>10</td><td>0%</td></tr><tr><td>context_injector</td><td>9</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>9</td><td>0%</td></tr><tr><td>observability</td><td>8</td><td style='color:#34d399'>3</td><td style='color:#60a5fa'>5</td><td>38%</td></tr><tr><td>model_scheduler</td><td>8</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>8</td><td>0%</td></tr><tr><td>eval_observability</td><td>8</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>8</td><td>0%</td></tr><tr><td>agent_core</td><td>8</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>8</td><td>0%</td></tr><tr><td>agent_orchestrator</td><td>5</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>5</td><td>0%</td></tr><tr><td>rag_engine</td><td>4</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>4</td><td>0%</td></tr><tr><td>evaluation</td><td>3</td><td style='color:#34d399'>2</td><td style='color:#60a5fa'>1</td><td>67%</td></tr><tr><td>evolution</td><td>3</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>3</td><td>0%</td></tr><tr><td>storage</td><td>3</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>3</td><td>0%</td></tr><tr><td>workflow_engine</td><td>2</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>2</td><td>0%</td></tr><tr><td>tool_registry</td><td>2</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>2</td><td>0%</td></tr><tr><td>progressive_loader</td><td>2</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>2</td><td>0%</td></tr><tr><td>automation</td><td>1</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>1</td><td>0%</td></tr><tr><td>platform</td><td>1</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>1</td><td>0%</td></tr><tr><td>quality_gate</td><td>1</td><td style='color:#34d399'>0</td><td style='color:#60a5fa'>1</td><td>0%</td></tr>
-</tbody></table>
-</div>
+  <div class="section">
+    <h2>实施进度</h2>
 
-<div class="section">
-<h2>最近学习项目 (Top 15)</h2>
-<table>
-<thead><tr><th>#</th><th>项目</th><th>Stars</th><th>相关度</th><th>语言</th><th>日期</th><th>改进数</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>CopilotKit/CopilotKit</td><td>36,237</td><td>32</td><td>TypeScript</td><td>2026-07-24</td><td>6</td></tr><tr><td>2</td><td>EverMind-AI/Raven</td><td>2,512</td><td>40</td><td>Python</td><td>2026-07-23</td><td>6</td></tr><tr><td>3</td><td>EverMind-AI/EverOS</td><td>11,418</td><td>43</td><td>Python</td><td>2026-07-22</td><td>7</td></tr><tr><td>4</td><td>mastra-ai/mastra</td><td>26,388</td><td>36</td><td>TypeScript</td><td>2026-07-21</td><td>6</td></tr><tr><td>5</td><td>wanshuiyin/Auto-claude-code-rese...</td><td>13,553</td><td>35</td><td>Python</td><td>2026-07-19</td><td>6</td></tr><tr><td>6</td><td>johnson7788/MultiAgentPPT</td><td>1,618</td><td>13</td><td>Python</td><td>2026-07-18</td><td>1</td></tr><tr><td>7</td><td>agentscope-ai/agentscope</td><td>27,857</td><td>30</td><td>Python</td><td>2026-07-15</td><td>5</td></tr><tr><td>8</td><td>zeroclaw-labs/zeroclaw</td><td>32,251</td><td>38</td><td>Rust</td><td>2026-07-14</td><td>6</td></tr><tr><td>9</td><td>EvoMap/evolver</td><td>8,888</td><td>34</td><td>JavaScript</td><td>2026-07-13</td><td>6</td></tr><tr><td>10</td><td>omnigent-ai/omnigent</td><td>7,087</td><td>33</td><td>Python</td><td>2026-07-12</td><td>5</td></tr><tr><td>11</td><td>tinyhumansai/openhuman</td><td>34,612</td><td>25</td><td>Rust</td><td>2026-07-11</td><td>0</td></tr><tr><td>12</td><td>OpenHands/OpenHands</td><td>80,247</td><td>30</td><td>Python</td><td>2026-07-10</td><td>6</td></tr><tr><td>13</td><td>letta-ai/letta</td><td>23,711</td><td>31</td><td>Python</td><td>2026-07-09</td><td>5</td></tr><tr><td>14</td><td>NevaMind-AI/memU</td><td>13,993</td><td>30</td><td>Python</td><td>2026-07-08</td><td>5</td></tr><tr><td>15</td><td>shareAI-lab/learn-claude-code</td><td>70,074</td><td>35</td><td>Python</td><td>2026-07-07</td><td>5</td></tr>
-</tbody></table>
-</div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 37.4%; background: linear-gradient(90deg, #4ade80, #22c55e);">96/257 (37.4%)</div>
+    </div>
+    <div class="priority-grid" style="margin-top: 16px;">
+      <div class="priority-card">
+        <div class="p-label" style="color: #fca5a5;">P0 (Critical)</div>
+        <div class="p-value" style="color: #f87171;">26/88</div>
+        <div style="font-size: 12px; color: #64748b;">已实施/总数</div>
+      </div>
+      <div class="priority-card">
+        <div class="p-label" style="color: #fcd34d;">P1 (High)</div>
+        <div class="p-value" style="color: #fbbf24;">70/143</div>
+        <div style="font-size: 12px; color: #64748b;">已实施/总数</div>
+      </div>
+      <div class="priority-card">
+        <div class="p-label" style="color: #93c5fd;">P2 (Medium)</div>
+        <div class="p-value" style="color: #60a5fa;">0/26</div>
+        <div style="font-size: 12px; color: #64748b;">已实施/总数</div>
+      </div>
+    </div>
 
-<div class="section">
-<h2>今日学习详情: CopilotKit/CopilotKit</h2>
-<div class="stat-card" style="text-align:left;padding:20px">
-<p style="color:#818cf8;font-size:16px;font-weight:600;margin-bottom:12px">CopilotKit/CopilotKit (⭐ 36,237 | TypeScript | 相关度 32)</p>
-<p style="color:#cbd5e1;font-size:13px;line-height:1.8">
-<b>核心创新:</b><br>
-1. AG-UI Protocol — Agent→UI标准化事件协议(~16种事件类型), 补全MCP+A2A+AG-UI协议三角<br>
-2. Generative UI三层架构 — Static/Declarative/Open-Ended三模式<br>
-3. Shared State双向状态同步 — Agent与UI共享实时读写<br>
-4. CLHF自学习引擎 — 人类反馈→prompt增强, 无需微调<br>
-5. 多平台统一部署 — Web/Mobile/Slack/Teams同一Agent<br>
-6. useAgent Hook — 编程级Agent状态操控
-</p>
-<p style="color:#f87171;font-size:13px;margin-top:12px"><b>P0改进:</b> AG-UI Protocol适配器 + Shared State双向状态同步</p>
-</div>
-</div>
+  </div>
 
-<div class="footer">
-Claw Intelligent Evolution System v2.1.0 | Automation ID: automation-1779863408739 | 2026-07-24
+  <div class="section">
+    <h2>模块改进统计</h2>
+    <div class="module-bar">
+      <div class="module-name">agent_orchestration</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 47%; background: #fbbf24;">24/51</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">tool_system</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 85%; background: #4ade80;">39/46</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">memory</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 48%; background: #fbbf24;">13/27</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">skill_system</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 10%; background: #f87171;">2/20</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">memory_system</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/15</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">knowledge_retrieval</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 93%; background: #4ade80;">13/14</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">claw_integration</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/11</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">model_scheduler</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/10</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">context_injector</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/9</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">eval_observability</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/9</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">observability</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 38%; background: #fbbf24;">3/8</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">agent_core</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/8</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">agent_orchestrator</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/5</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">rag_engine</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/4</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">tool_registry</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/4</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">evaluation</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 67%; background: #4ade80;">2/3</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">evolution</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/3</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">storage</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/3</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">workflow_engine</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/2</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">progressive_loader</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/2</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">automation</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/1</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">platform</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/1</div>
+      </div>
+    </div>
+    <div class="module-bar">
+      <div class="module-name">quality_gate</div>
+      <div class="module-progress">
+        <div class="module-fill" style="width: 0%; background: #f87171;">0/1</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <h2>最新学习项目</h2>
+    <table>
+      <thead>
+        <tr><th>#</th><th>项目</th><th>Stars</th><th>相关度</th><th>改进数</th><th>日期</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>musistudio/claude-code-router</td><td>36,184</td><td>35</td><td>6</td><td>2026-07-26</td></tr>
+        <tr><td>2</td><td>CopilotKit/CopilotKit</td><td>36,237</td><td>32</td><td>6</td><td>2026-07-24</td></tr>
+        <tr><td>3</td><td>EverMind-AI/Raven</td><td>2,512</td><td>40</td><td>6</td><td>2026-07-23</td></tr>
+        <tr><td>4</td><td>EverMind-AI/EverOS</td><td>11,418</td><td>43</td><td>7</td><td>2026-07-22</td></tr>
+        <tr><td>5</td><td>mastra-ai/mastra</td><td>26,388</td><td>36</td><td>6</td><td>2026-07-21</td></tr>
+        <tr><td>6</td><td>wanshuiyin/Auto-claude-code-research-in-sleep</td><td>13,553</td><td>35</td><td>6</td><td>2026-07-19</td></tr>
+        <tr><td>7</td><td>johnson7788/MultiAgentPPT</td><td>1,618</td><td>13</td><td>1</td><td>2026-07-18</td></tr>
+        <tr><td>8</td><td>agentscope-ai/agentscope</td><td>27,857</td><td>30</td><td>5</td><td>2026-07-15</td></tr>
+        <tr><td>9</td><td>zeroclaw-labs/zeroclaw</td><td>32,251</td><td>38</td><td>6</td><td>2026-07-14</td></tr>
+        <tr><td>10</td><td>EvoMap/evolver</td><td>8,888</td><td>34</td><td>6</td><td>2026-07-13</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>最新改进项 (CCR - Claude Code Router)</h2>
+    <div class="highlight">
+      <span class="badge badge-p0">P0</span>
+      <span class="badge badge-pending">pending</span>
+      <span style="margin-left: 8px; color: #94a3b8; font-size: 12px;">[model_scheduler]</span>
+      <div style="margin-top: 6px; font-size: 13px; color: #cbd5e1;">声明式路由规则引擎: 条件路由+前缀匹配+请求重写+自动重试+有序故障转移模型链</div>
+    </div>
+    <div class="highlight">
+      <span class="badge badge-p0">P0</span>
+      <span class="badge badge-pending">pending</span>
+      <span style="margin-left: 8px; color: #94a3b8; font-size: 12px;">[model_scheduler]</span>
+      <div style="margin-top: 6px; font-size: 13px; color: #cbd5e1;">凭证池与密钥轮转: 多API Key自动轮转+限流检测+Key级故障转移</div>
+    </div>
+    <div class="highlight">
+      <span class="badge badge-p1">P1</span>
+      <span class="badge badge-pending">pending</span>
+      <span style="margin-left: 8px; color: #94a3b8; font-size: 12px;">[tool_registry]</span>
+      <div style="margin-top: 6px; font-size: 13px; color: #cbd5e1;">Fusion Models能力注入: 为现有模型添加视觉/Web搜索/MCP工具的包装器层</div>
+    </div>
+    <div class="highlight">
+      <span class="badge badge-p1">P1</span>
+      <span class="badge badge-pending">pending</span>
+      <span style="margin-left: 8px; color: #94a3b8; font-size: 12px;">[claw_integration]</span>
+      <div style="margin-top: 6px; font-size: 13px; color: #cbd5e1;">AgentClaw多渠道中继: Agent通过8+消息平台(飞书/企微/钉钉/Slack等)中继分发</div>
+    </div>
+    <div class="highlight">
+      <span class="badge badge-p1">P1</span>
+      <span class="badge badge-pending">pending</span>
+      <span style="margin-left: 8px; color: #94a3b8; font-size: 12px;">[tool_registry]</span>
+      <div style="margin-top: 6px; font-size: 13px; color: #cbd5e1;">ToolHub工具扩展市场: 工具插件+包装器+虚拟模型注册,内置浏览器自动化+登录态管理</div>
+    </div>
+    <div class="highlight">
+      <span class="badge badge-p2">P2</span>
+      <span class="badge badge-pending">pending</span>
+      <span style="margin-left: 8px; color: #94a3b8; font-size: 12px;">[eval_observability]</span>
+      <div style="margin-top: 6px; font-size: 13px; color: #cbd5e1;">成本预估与Token全维度可观测: 每请求级成本预估+按Provider/模型/Agent聚合分析</div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <h2>P0 待实施清单</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">agno-team-state-0610</td><td style="font-size: 12px;">agno-agi/agno</td><td style="font-size: 12px; color: #94a3b8;">agent_orchestration</td><td style="font-size: 12px;">借鉴agno的session_state+share_member_interactions机制，为Claw多Agent添加团队级共享上下文层，消除Agent间</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">agno-autoplan-0610</td><td style="font-size: 12px;">agno-agi/agno</td><td style="font-size: 12px; color: #94a3b8;">agent_orchestration</td><td style="font-size: 12px;">借鉴agno的TeamMode.tasks自主任务规划循环，Agent自主拆解复杂任务+迭代执行(max_iterations可配置)</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">pai-ctx-visibility-0613</td><td style="font-size: 12px;">pydantic/pydantic-ai</td><td style="font-size: 12px; color: #94a3b8;">skill_system</td><td style="font-size: 12px;">参考pydantic-ai的RunContext泛型+available_tool_names/available_capability_ids，为Claw c</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">pai-deferred-approval-0613</td><td style="font-size: 12px;">pydantic/pydantic-ai</td><td style="font-size: 12px; color: #94a3b8;">agent_orchestration</td><td style="font-size: 12px;">参考pydantic-ai的Deferred Tool Approval机制(ToolApproved/ToolDenied/override_args)，为C</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">bu-rust-core-0614</td><td style="font-size: 12px;">browser-use/browser-use</td><td style="font-size: 12px; color: #94a3b8;">agent_orchestration</td><td style="font-size: 12px;">借鉴browser-use的Rust Core高性能运行时思路(0.13版提速3-5x)，评估用Rust/Go重写Claw热点模块(HTTP代理/事件循环)，初</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">lc-checkpoint-0616</td><td style="font-size: 12px;">langchain-ai/langchain</td><td style="font-size: 12px; color: #94a3b8;">agent_orchestration</td><td style="font-size: 12px;">借鉴LangGraph的Checkpointer节点级状态快照+断点恢复，为Claw workflow_graph.py添加跨会话Resume机制，进化引擎中断</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">gbrain-kg-0617</td><td style="font-size: 12px;">garrytan/gbrain</td><td style="font-size: 12px; color: #94a3b8;">memory</td><td style="font-size: 12px;">借鉴GBrain零LLM自连线知识图谱—从MEMORY.md的[SECTION]/wiki链接/表格自动提取实体+类型化关系(attended/works_at</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">gbrain-gap-0617</td><td style="font-size: 12px;">garrytan/gbrain</td><td style="font-size: 12px; color: #94a3b8;">memory</td><td style="font-size: 12px;">借鉴GBrain缺口分析(GapAnalysis)—查询时自动标注信息陈旧度(&gt;30天)、缺失领域、页面间矛盾，输出答案+NOTICE标注而非返回原文</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">opik-judge-0619</td><td style="font-size: 12px;">comet-ml/opik</td><td style="font-size: 12px; color: #94a3b8;">observability</td><td style="font-size: 12px;">借鉴Opik LLM-as-Judge评估指标，为eval_observability_skill添加幻觉检测(hallucination_score)、内容审</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">opik-prod-trace-0619</td><td style="font-size: 12px;">comet-ml/opik</td><td style="font-size: 12px; color: #94a3b8;">observability</td><td style="font-size: 12px;">借鉴Opik生产级Trace(40M+/day)+实时仪表盘，升级Claw eval_observability_skill为生产级追踪：trace/span结</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">cmem-progressive-0623</td><td style="font-size: 12px;">TheDotMack/claude-mem</td><td style="font-size: 12px; color: #94a3b8;">memory</td><td style="font-size: 12px;">实现Progressive Disclosure 3层记忆检索(search→timeline→get_observations)，减少记忆注入token 70</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">cmem-hybrid-0623</td><td style="font-size: 12px;">TheDotMack/claude-mem</td><td style="font-size: 12px; color: #94a3b8;">memory</td><td style="font-size: 12px;">引入Chroma向量数据库+SQLite FTS5混合搜索，替换纯文件glob查找</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">ha-learn-0624</td><td style="font-size: 12px;">NousResearch/hermes-agent</td><td style="font-size: 12px; color: #94a3b8;">skill_system</td><td style="font-size: 12px;">借鉴Hermes /learn命令(零引擎纯prompt驱动)，为Claw实现对话内自动Skill提取，支持目录/URL/对话流/粘贴笔记→标准化SKILL.m</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">ha-ongoing-loop-0624</td><td style="font-size: 12px;">NousResearch/hermes-agent</td><td style="font-size: 12px; color: #94a3b8;">agent_orchestration</td><td style="font-size: 12px;">借鉴Hermes内置持续学习循环(create→improve→nudge)，将Claw夜间批处理进化引擎升级为在线持续进化：每次对话后自动检查是否生成新Ski</td></tr>
+        <tr><td style="font-family: monospace; font-size: 11px; color: #64748b;">cognee-4op-api</td><td style="font-size: 12px;">topoteretes/cognee</td><td style="font-size: 12px; color: #94a3b8;">memory</td><td style="font-size: 12px;">为Claw记忆系统实现remember/recall/forget/improve四操作API，替代纯文件读写</td></tr>
+
+      </tbody>
+    </table>
+    <p style="margin-top: 8px; color: #64748b; font-size: 12px;">显示前15条，共 62 条P0待实施</p>
+  </div>
+
+  <div class="footer">
+    Claw 智能进化学习系统 v2.1.0 | 自动化ID: automation-1779863408739 | 细水长流模式<br>
+    每日1项目 | GitHub API urllib直连 | 数据源: learning_tracking.json
+  </div>
 </div>
 </body>
 </html>
