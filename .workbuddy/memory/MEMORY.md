@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 102项目 / 257改进项 / 实施率约37.4% (96/257)
-- **最新学习**: musistudio/claude-code-router (⭐36K, 相关度35) — 2026-07-26
+- **进度**: 103项目 / 263改进项 / 实施率约36.5% (96/263)
+- **最新学习**: TencentCloud/TencentDB-Agent-Memory (⭐9.3K, 相关度40) — 2026-07-27
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -46,6 +46,7 @@
 9. **CopilotKit/CopilotKit** (⭐36K, 相关度32) - AG-UI Protocol+Generative UI+Shared State+CLHF自学习 ✅已学习
 8. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
 10. **musistudio/claude-code-router** (⭐36K, 相关度35) - 声明式路由规则+凭证池轮转+Fusion能力注入+AgentClaw多渠道中继+ToolHub市场+成本可观测 ✅已学习
+11. **TencentCloud/TencentDB-Agent-Memory** (⭐9.3K, 相关度40) - Mermaid符号化记忆+L0-L3分层管道+全可追溯链+白盒可调试+RRF混合检索+预热退避 ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -73,11 +74,17 @@
 - context_injector: Shared State双向状态同步 Agent+UI共享读写+增量delta推送（来自CopilotKit）— **新增**
 - model_scheduler: 声明式路由规则引擎 条件路由+前缀匹配+请求重写+自动重试+有序故障转移模型链（来自CCR）— **新增**
 - model_scheduler: 凭证池与密钥轮转 多API Key自动轮转+限流检测+Key级故障转移（来自CCR）— **新增**
+- context_injector: Mermaid符号化上下文压缩 冗长日志卸载至refs/*.md+Mermaid画布+node_id按需回溯（来自TencentDB-Agent-Memory）— **新增**
+- memory_system: L0-L3分层记忆管道 Conversation-Atom-Scenario-Persona渐进式提取+向量去重+冲突检测（来自TencentDB-Agent-Memory）— **新增**
+- memory_system: 全可追溯链 Persona-Scenario-Atom-Conversation确定性路径+避免不可逆压缩+无损恢复（来自TencentDB-Agent-Memory）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）
 - rag_engine: Knowledge Wiki知识百科系统（来自EverOS）
 - storage: 本地栈替代外部DB SQLite+LanceDB（来自EverOS）
+- eval_observability: 白盒记忆可调试 Markdown/Mermaid中间产物+记忆可视化调试界面（来自TencentDB-Agent-Memory）— **新增**
+- rag_engine: BM25+Vector+RRF混合检索+jieba中文分词+召回安全控制（来自TencentDB-Agent-Memory）— **新增**
+- memory_system: 预热指数退避 新会话1→2→4翻倍触发+空闲超时+L2聚合间隔（来自TencentDB-Agent-Memory）— **新增**
 
 ---
 

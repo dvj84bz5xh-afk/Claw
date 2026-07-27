@@ -1463,6 +1463,29 @@
         "ToolHub工具扩展市场(工具+插件+虚拟模型)",
         "成本预估与Token全维度可观测"
       ]
+    },
+    {
+      "name": "TencentCloud/TencentDB-Agent-Memory",
+      "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+      "stars": 9312,
+      "relevance": 40,
+      "language": "TypeScript",
+      "analyzed_at": "2026-07-27T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-27_tencentdb_agent_memory.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 3,
+        "P1": 3,
+        "P2": 0
+      },
+      "key_innovations": [
+        "Mermaid符号化记忆(node_id追溯的上下文压缩,Token降低61%)",
+        "L0-L3分层长期记忆管道(Conversation-Atom-Scenario-Persona渐进式提取)",
+        "全可追溯无损恢复链(高层抽象->地面证据确定性路径)",
+        "白盒可调试性(Markdown/Mermaid中间产物非黑盒)",
+        "BM25+Vector+RRF混合检索+jieba中文分词+召回安全控制",
+        "预热指数退避(1->2->4翻倍触发)+本地SQLite+sqlite-vec零依赖"
+      ]
     }
   ],
   "improvements": [
@@ -4276,6 +4299,66 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-07-26T08:50:00"
+    },
+    {
+      "id": "1126d53e",
+      "source": "TencentCloud/TencentDB-Agent-Memory",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "Mermaid符号化上下文压缩: 冗长日志卸载至refs/*.md,仅保留Mermaid画布+node_id注入,Agent按需grep回溯",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-27T21:28:20.439928"
+    },
+    {
+      "id": "a1bfe3d5",
+      "source": "TencentCloud/TencentDB-Agent-Memory",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "L0-L3分层记忆管道: Conversation-Atom-Scenario-Persona渐进式提取+向量去重+冲突检测",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-27T21:28:20.440064"
+    },
+    {
+      "id": "f02c6b48",
+      "source": "TencentCloud/TencentDB-Agent-Memory",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "全可追溯链: Persona-Scenario-Atom-Conversation确定性路径,避免不可逆压缩,支持无损恢复",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-27T21:28:20.440067"
+    },
+    {
+      "id": "9abefe86",
+      "source": "TencentCloud/TencentDB-Agent-Memory",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "白盒记忆可调试: Markdown/Mermaid中间产物+记忆可视化调试界面+召回问题定位",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-27T21:28:20.440070"
+    },
+    {
+      "id": "d59ada2c",
+      "source": "TencentCloud/TencentDB-Agent-Memory",
+      "priority": "P1",
+      "module": "rag_engine",
+      "suggestion": "BM25+Vector+RRF混合检索+jieba中文分词+召回安全控制(数量/预算/超时三重限制)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-27T21:28:20.440072"
+    },
+    {
+      "id": "c9e20e12",
+      "source": "TencentCloud/TencentDB-Agent-Memory",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "预热指数退避: 新会话1->2->4翻倍触发记忆提取+空闲超时触发+L2聚合间隔",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-27T21:28:20.440074"
     }
   ],
   "last_updated": "2026-07-18T08:55:30.978075",
