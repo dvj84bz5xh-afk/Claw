@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 103项目 / 263改进项 / 实施率约36.5% (96/263)
-- **最新学习**: TencentCloud/TencentDB-Agent-Memory (⭐9.3K, 相关度40) — 2026-07-27
+- **进度**: 104项目 / 273改进项 / 实施率约35.2% (96/273)
+- **最新学习**: code-yeongyu/oh-my-openagent (⭐66.7K, 相关度37) — 2026-07-28
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -47,6 +47,7 @@
 8. **pydantic/pydantic-ai** (⭐18K, 相关度28) - 依赖注入+Graph+A2A ✅已学习
 10. **musistudio/claude-code-router** (⭐36K, 相关度35) - 声明式路由规则+凭证池轮转+Fusion能力注入+AgentClaw多渠道中继+ToolHub市场+成本可观测 ✅已学习
 11. **TencentCloud/TencentDB-Agent-Memory** (⭐9.3K, 相关度40) - Mermaid符号化记忆+L0-L3分层管道+全可追溯链+白盒可调试+RRF混合检索+预热退避 ✅已学习
+12. **code-yeongyu/oh-my-openagent** (⭐66.7K, 相关度37) - Hash-Anchored Edit+Category-Based Delegation+IntentGate+Skill-Embedded MCPs+Goal Continuation+Hierarchical AGENTS.md+Team Mode+Multi-Harness Adapter ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -77,6 +78,12 @@
 - context_injector: Mermaid符号化上下文压缩 冗长日志卸载至refs/*.md+Mermaid画布+node_id按需回溯（来自TencentDB-Agent-Memory）— **新增**
 - memory_system: L0-L3分层记忆管道 Conversation-Atom-Scenario-Persona渐进式提取+向量去重+冲突检测（来自TencentDB-Agent-Memory）— **新增**
 - memory_system: 全可追溯链 Persona-Scenario-Atom-Conversation确定性路径+避免不可逆压缩+无损恢复（来自TencentDB-Agent-Memory）— **新增**
+- context_injector: Hash-Anchored Edit (Hashline) LINE#ID内容哈希行标签+编辑前校验+消除stale-line错误（来自OmO）— **新增**
+- model_scheduler: Category-Based Agent Delegation 工作类别枚举+类别→模型自动映射（来自OmO）— **新增**
+- agent_orchestrator: IntentGate 任务分发前意图分析层+真实意图提取+字面误解校正（来自OmO）— **新增**
+- tool_registry: Skill-Embedded MCPs Skill自带MCP+按需启动+作用域限定+自动销毁（来自OmO）— **新增**
+- agent_orchestrator: Goal Continuation+Todo Enforcer 持久目标+空闲强制拉回+完成证据审计（来自OmO）— **新增**
+- context_injector: Hierarchical AGENTS.md /init-deep自动生成分层上下文+自动加载相关层（来自OmO）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）

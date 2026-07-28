@@ -1486,6 +1486,33 @@
         "BM25+Vector+RRF混合检索+jieba中文分词+召回安全控制",
         "预热指数退避(1->2->4翻倍触发)+本地SQLite+sqlite-vec零依赖"
       ]
+    },
+    {
+      "name": "code-yeongyu/oh-my-openagent",
+      "url": "https://github.com/code-yeongyu/oh-my-openagent",
+      "stars": 66677,
+      "relevance": 37,
+      "language": "TypeScript",
+      "analyzed_at": "2026-07-28T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-28_oh_my_openagent.md",
+      "improvements_count": 10,
+      "priority_breakdown": {
+        "P0": 6,
+        "P1": 4,
+        "P2": 0
+      },
+      "key_innovations": [
+        "Hash-Anchored Edit (Hashline) LINE#ID content hash per line, zero stale-line errors, 6.7%->68.3% success rate",
+        "Category-Based Agent Delegation (visual-engineering/deep/quick/ultrabrain) auto-maps to optimal model",
+        "IntentGate true user intent analysis before classification/action, anti-literal misinterpretation",
+        "Skill-Embedded MCPs skills carry own MCP servers, on-demand spin-up, scoped to task, auto-destroy",
+        "Goal Continuation + Todo Enforcer persistent per-session objective, idle re-injection until completion audit",
+        "Hierarchical AGENTS.md (/init-deep) auto-generated layered context files, agents auto-read relevant layer",
+        "Ulw Loop durable multi-goal orchestration with evidence audit (.omo/ulw-loop/)",
+        "Team Mode v4.0 lead+8 parallel members, tmux visualization, team_* tools, hyperplan(5 hostile critics)",
+        "Multi-Harness Adapter Layering package separation: core/MCP/skills/adapter shims for cross-harness reuse",
+        "Discipline Agents named specialist system: Sisyphus/Hephaestus/Prometheus/Oracle/Librarian/Explore"
+      ]
     }
   ],
   "improvements": [
@@ -4359,6 +4386,116 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-07-27T21:28:20.440074"
+    },
+    {
+      "id": "omo-hashline-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "Hash-Anchored Edit (Hashline): LINE#ID content hash per line, edit by referencing tags, stale-line rejected, 6.7%->68.3% success rate",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "GateGuard from Read-before-Edit to Hash-Verify-on-Edit"
+    },
+    {
+      "id": "omo-category-delegation-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P0",
+      "module": "model_scheduler",
+      "suggestion": "Category-Based Agent Delegation: work category enum (visual-engineering/deep/quick/ultrabrain/analysis/security), agent declares category not model name",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Higher abstraction than declarative routing rules"
+    },
+    {
+      "id": "omo-intentgate-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "IntentGate: intent analysis layer before task dispatch, parse input->extract true intent->correct literal misinterpretation->pass to execution agent",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Reduce execution deviation from literal understanding"
+    },
+    {
+      "id": "omo-skill-mcp-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "Skill-Embedded MCPs: each Skill declares own MCP server config, load Skill->start MCP, unload Skill->stop MCP, MCP scoped to task context",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Avoid global MCP eating token budget, MCP lifecycle bound to Skill"
+    },
+    {
+      "id": "omo-goal-continuation-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "Goal Continuation+Todo Enforcer: persistent per-session goal, idle timeout auto-inject continuation prompt, force agent back to incomplete tasks, completion requires evidence audit",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Task completion guarantee, no mid-task abandonment"
+    },
+    {
+      "id": "omo-hierarchical-context-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "Hierarchical AGENTS.md: /init-deep auto-generates layered AGENTS.md (project->dir->component), agent auto-loads relevant layer based on work path",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Token efficiency + zero manual context management"
+    },
+    {
+      "id": "omo-ulw-loop-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "Ulw Loop: durable multi-goal orchestration with evidence audit (.omo/ulw-loop/), each goal completion requires evidence verification",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Multi-goal orchestration + evidence-driven completion"
+    },
+    {
+      "id": "omo-team-mode-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P1",
+      "module": "agent_orchestration",
+      "suggestion": "Team Mode: Lead+8 parallel members, team_* tools (team_create/team_send_message/team_task_create/team_status), hyperplan(5 hostile critics)+security-research(3 hunters+2 PoC)",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "True parallel multi-agent team with tmux visualization"
+    },
+    {
+      "id": "omo-adapter-layering-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P1",
+      "module": "agent_core",
+      "suggestion": "Multi-Harness Adapter Layering: package separation, pure core/MCP/skills/adapter shims as independent layers, same logic reusable across harnesses",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Claw core logic reusable across different agent harnesses"
+    },
+    {
+      "id": "omo-background-agents-0728",
+      "source": "code-yeongyu/oh-my-openagent",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "Background Agents: fire 5+ specialists in parallel, context stays lean, results when ready, async result aggregation",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-28T08:50:00",
+      "value": "Parallel specialist execution + lean context"
     }
   ],
   "last_updated": "2026-07-18T08:55:30.978075",
