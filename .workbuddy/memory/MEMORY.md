@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v2.0 | 最后更新: 2026-07-19
+# 格式版本: v2.0 | 最后更新: 2026-07-30
 
 ---
 
@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 104项目 / 273改进项 / 实施率约35.2% (96/273)
-- **最新学习**: code-yeongyu/oh-my-openagent (⭐66.7K, 相关度37) — 2026-07-28
+- **进度**: 105项目 / 283改进项 / 实施率约33.9% (96/283)
+- **最新学习**: humanlayer/12-factor-agents (⭐24.9K, 相关度38) — 2026-07-30
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -48,6 +48,7 @@
 10. **musistudio/claude-code-router** (⭐36K, 相关度35) - 声明式路由规则+凭证池轮转+Fusion能力注入+AgentClaw多渠道中继+ToolHub市场+成本可观测 ✅已学习
 11. **TencentCloud/TencentDB-Agent-Memory** (⭐9.3K, 相关度40) - Mermaid符号化记忆+L0-L3分层管道+全可追溯链+白盒可调试+RRF混合检索+预热退避 ✅已学习
 12. **code-yeongyu/oh-my-openagent** (⭐66.7K, 相关度37) - Hash-Anchored Edit+Category-Based Delegation+IntentGate+Skill-Embedded MCPs+Goal Continuation+Hierarchical AGENTS.md+Team Mode+Multi-Harness Adapter ✅已学习
+13. **humanlayer/12-factor-agents** (⭐24.9K, 相关度38) - 12因子Agent方法论+Prompt一等代码+拥有上下文窗口+工具结构化输出+统一执行状态+小而专注Agent ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -84,6 +85,10 @@
 - tool_registry: Skill-Embedded MCPs Skill自带MCP+按需启动+作用域限定+自动销毁（来自OmO）— **新增**
 - agent_orchestrator: Goal Continuation+Todo Enforcer 持久目标+空闲强制拉回+完成证据审计（来自OmO）— **新增**
 - context_injector: Hierarchical AGENTS.md /init-deep自动生成分层上下文+自动加载相关层（来自OmO）— **新增**
+- agent_orchestrator: ExecutionState统一模型 执行态与业务态分离，支持检查点/恢复/迁移（来自12-factor-agents）— **新增**
+- tool_registry: 工具输出Schema标准化 统一success/result/error/context schema（来自12-factor-agents）— **新增**
+- agent_orchestrator: lane级小Agent架构 拆解monolithic为submit/emit/handoff单职责lane（来自12-factor-agents）— **新增**
+- context_injector: Prompt版本化管理 提取为独立.prompt.md文件，纳入版本控制（来自12-factor-agents）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）
@@ -92,6 +97,10 @@
 - eval_observability: 白盒记忆可调试 Markdown/Mermaid中间产物+记忆可视化调试界面（来自TencentDB-Agent-Memory）— **新增**
 - rag_engine: BM25+Vector+RRF混合检索+jieba中文分词+召回安全控制（来自TencentDB-Agent-Memory）— **新增**
 - memory_system: 预热指数退避 新会话1→2→4翻倍触发+空闲超时+L2聚合间隔（来自TencentDB-Agent-Memory）— **新增**
+- tool_registry: human_contact工具化 将human-in-the-loop重构为标准tool(contact_human/approve/reject)（来自12-factor-agents）— **新增**
+- eval_observability: 错误压缩+自愈策略 错误摘要器(stack trace→LLM简洁错误)+内置重试/降级（来自12-factor-agents）— **新增**
+- memory_system: 无状态Reducer 纯函数状态转换，便于测试和回滚（来自12-factor-agents）— **新增**
+- context_injector: 拥有上下文窗口 自定义上下文格式，非强制标准消息列表（来自12-factor-agents）— **新增**
 
 ---
 

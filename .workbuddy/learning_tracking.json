@@ -1513,6 +1513,33 @@
         "Multi-Harness Adapter Layering package separation: core/MCP/skills/adapter shims for cross-harness reuse",
         "Discipline Agents named specialist system: Sisyphus/Hephaestus/Prometheus/Oracle/Librarian/Explore"
       ]
+    },
+    {
+      "name": "humanlayer/12-factor-agents",
+      "url": "https://github.com/humanlayer/12-factor-agents",
+      "stars": 24952,
+      "relevance": 38,
+      "language": "TypeScript",
+      "analyzed_at": "2026-07-30T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-07-30_12_factor_agents.md",
+      "improvements_count": 10,
+      "priority_breakdown": {
+        "P0": 4,
+        "P1": 4,
+        "P2": 2
+      },
+      "key_innovations": [
+        "12因子Agent方法论(类比12-Factor App)",
+        "Prompt作为一等代码(版本控制+审查)",
+        "拥有上下文窗口(自定义格式非强制消息列表)",
+        "工具=结构化输出标准化",
+        "统一执行状态(执行态与业务态分离)",
+        "启动/暂停/恢复生命周期",
+        "人机交互工具化(human-as-tool)",
+        "小而专注Agent架构(反对单体)",
+        "紧凑错误+自愈策略",
+        "无状态Reducer纯函数状态转换"
+      ]
     }
   ],
   "improvements": [
@@ -4496,6 +4523,106 @@
       "status": "pending",
       "created_at": "2026-07-28T08:50:00",
       "value": "Parallel specialist execution + lean context"
+    },
+    {
+      "id": "12fa-exec-state-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "引入ExecutionState统一模型—执行态与业务态分离，支持检查点/恢复/迁移",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-tool-schema-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "工具输出Schema标准化—所有工具返回统一schema(success/result/error/context)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-small-agents-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "重构orchestrator为lane级小Agent—拆解monolithic为submit/emit/handoff单职责lane",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-prompt-vcs-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "Prompt版本化管理—提取为独立.prompt.md文件，纳入版本控制，支持A/B测试",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-human-tool-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "human_contact工具化—将human-in-the-loop重构为标准tool(contact_human/approve/reject)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-compact-error-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "错误压缩+自愈策略—错误摘要器(stack trace→LLM简洁错误)+内置重试/降级",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-stateless-reducer-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "无状态Reducer—纯函数状态转换，便于测试和回滚",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-own-context-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "拥有上下文窗口—自定义上下文格式，非强制标准消息列表",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-lifecycle-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P2",
+      "module": "agent_orchestrator",
+      "suggestion": "启动/暂停/恢复生命周期—Agent生命周期管理标准化",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "12fa-trigger-0730",
+      "source": "humanlayer/12-factor-agents",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "从任意触发—支持Slack/Email/Webhook等多入口触发Agent",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-07-30T08:50:00"
     }
   ],
   "last_updated": "2026-07-18T08:55:30.978075",
