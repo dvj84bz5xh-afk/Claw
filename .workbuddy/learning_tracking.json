@@ -1562,6 +1562,29 @@
       "p1_count": 4,
       "p2_count": 2,
       "report_path": ".workbuddy/daily_learning/2026-08-02_fastmcp.md"
+    },
+    {
+      "name": "HKUDS/nanobot",
+      "url": "https://github.com/HKUDS/nanobot",
+      "stars": 46520,
+      "relevance": 42,
+      "language": "Python",
+      "analyzed_at": "2026-08-03T08:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-08-03_nanobot.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 3,
+        "P1": 3,
+        "P2": 0
+      },
+      "key_innovations": [
+        "Dream两阶段记忆整合(Consolidator实时压缩+Dream定期整合)",
+        "AgentLoop/AgentRunner双循环分离架构",
+        "Heartbeat主动任务执行系统",
+        "Model Presets命名配置+fallback链",
+        "AgentHook三层生命周期钩子系统",
+        "Auto Compact空闲主动压缩"
+      ]
     }
   ],
   "improvements": [
@@ -4645,6 +4668,66 @@
       "effort": "high",
       "status": "pending",
       "created_at": "2026-07-30T08:50:00"
+    },
+    {
+      "id": "nb-dream-0803",
+      "source": "HKUDS/nanobot",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "实现Dream两阶段记忆整合：Consolidator实时压缩会话到history.jsonl(cursor-based, append-only) → Dream定期整合到MEMORY.md/SOUL.md/USER.md",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-08-03T08:50:00"
+    },
+    {
+      "id": "nb-loop-runner-0803",
+      "source": "HKUDS/nanobot",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "AgentLoop/AgentRunner分离：Loop负责turn编排+hook+channel路由(何时调用)，Runner负责provider+stream+tool execution(如何调用)",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-08-03T08:50:00"
+    },
+    {
+      "id": "nb-heartbeat-0803",
+      "source": "HKUDS/nanobot",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "Heartbeat主动任务执行：读取HEARTBEAT.md中的Active Tasks，定时触发执行，抑制无用结果，从被动响应进化到主动执行",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-08-03T08:50:00"
+    },
+    {
+      "id": "nb-presets-0803",
+      "source": "HKUDS/nanobot",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "Model Presets命名配置：定义fast/smart/vision等preset，支持fallback链和per-session切换，简化用户配置",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-08-03T08:50:00"
+    },
+    {
+      "id": "nb-hooks-0803",
+      "source": "HKUDS/nanobot",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "AgentHook三层生命周期：per-iteration(AgentHookContext) / run级(AgentRunHookContext) / turn级(AgentTurnHookContext)，支持before_run/after_run/before_iteration/on_stream",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-08-03T08:50:00"
+    },
+    {
+      "id": "nb-autocompact-0803",
+      "source": "HKUDS/nanobot",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "Auto Compact空闲主动压缩：检测空闲状态时自动压缩旧会话上下文，缓解长期运行Agent的上下文膨胀",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-08-03T08:50:00"
     }
   ],
   "last_updated": "2026-08-02T22:39:56.095869",

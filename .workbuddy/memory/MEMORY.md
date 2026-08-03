@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 105项目 / 283改进项 / 实施率约33.9% (96/283)
-- **最新学习**: humanlayer/12-factor-agents (⭐24.9K, 相关度38) — 2026-07-30
+- **进度**: 107项目 / 289改进项 / 实施率约33.2% (96/289)
+- **最新学习**: HKUDS/nanobot (⭐46.5K, 相关度42) — 2026-08-03
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -49,6 +49,8 @@
 11. **TencentCloud/TencentDB-Agent-Memory** (⭐9.3K, 相关度40) - Mermaid符号化记忆+L0-L3分层管道+全可追溯链+白盒可调试+RRF混合检索+预热退避 ✅已学习
 12. **code-yeongyu/oh-my-openagent** (⭐66.7K, 相关度37) - Hash-Anchored Edit+Category-Based Delegation+IntentGate+Skill-Embedded MCPs+Goal Continuation+Hierarchical AGENTS.md+Team Mode+Multi-Harness Adapter ✅已学习
 13. **humanlayer/12-factor-agents** (⭐24.9K, 相关度38) - 12因子Agent方法论+Prompt一等代码+拥有上下文窗口+工具结构化输出+统一执行状态+小而专注Agent ✅已学习
+14. **PrefectHQ/fastmcp** (⭐27K, 相关度41) - @tool装饰器自动Schema+MCP Server Composition+FastAPI自动生成MCP+Proxy+llms.txt ✅已学习
+15. **HKUDS/nanobot** (⭐46.5K, 相关度42·最高) - Dream两阶段记忆整合+AgentLoop/Runner分离+Heartbeat主动任务+Model Presets+AgentHook三层+Auto Compact ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -89,6 +91,12 @@
 - tool_registry: 工具输出Schema标准化 统一success/result/error/context schema（来自12-factor-agents）— **新增**
 - agent_orchestrator: lane级小Agent架构 拆解monolithic为submit/emit/handoff单职责lane（来自12-factor-agents）— **新增**
 - context_injector: Prompt版本化管理 提取为独立.prompt.md文件，纳入版本控制（来自12-factor-agents）— **新增**
+- memory_system: Dream两阶段记忆整合 Consolidator实时压缩→Dream定期整合MEMORY.md/SOUL.md/USER.md（来自nanobot）— **新增**
+- agent_orchestrator: AgentLoop/AgentRunner分离 Loop负责turn编排+hook，Runner负责provider+stream+tool（来自nanobot）— **新增**
+- claw_integration: Heartbeat主动任务执行 读取Active Tasks定时触发，抑制无用结果（来自nanobot）— **新增**
+- model_scheduler: Model Presets命名配置 fast/smart/vision preset+fallback链+per-session切换（来自nanobot）— **新增**
+- agent_orchestrator: AgentHook三层生命周期 per-iteration/run/turn级hook+before_run/after_run/on_stream（来自nanobot）— **新增**
+- context_injector: Auto Compact空闲主动压缩 检测空闲状态时自动压缩旧会话上下文（来自nanobot）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）
