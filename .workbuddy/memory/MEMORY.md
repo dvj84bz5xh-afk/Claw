@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v2.0 | 最后更新: 2026-07-30
+# 格式版本: v2.0 | 最后更新: 2026-08-06
 
 ---
 
@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 107项目 / 289改进项 / 实施率约33.2% (96/289)
-- **最新学习**: HKUDS/nanobot (⭐46.5K, 相关度42) — 2026-08-03
+- **进度**: 108项目 / 295改进项 / 实施率约32.5% (96/295)
+- **最新学习**: mksglu/context-mode (⭐19.6K, 相关度43) — 2026-08-06
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -51,6 +51,7 @@
 13. **humanlayer/12-factor-agents** (⭐24.9K, 相关度38) - 12因子Agent方法论+Prompt一等代码+拥有上下文窗口+工具结构化输出+统一执行状态+小而专注Agent ✅已学习
 14. **PrefectHQ/fastmcp** (⭐27K, 相关度41) - @tool装饰器自动Schema+MCP Server Composition+FastAPI自动生成MCP+Proxy+llms.txt ✅已学习
 15. **HKUDS/nanobot** (⭐46.5K, 相关度42·最高) - Dream两阶段记忆整合+AgentLoop/Runner分离+Heartbeat主动任务+Model Presets+AgentHook三层+Auto Compact ✅已学习
+16. **mksglu/context-mode** (⭐19.6K, 相关度43·最高) - Tool Output Sandbox+Think-in-Code+Session Continuity+Intent-Driven Filtering+Batch Execute+6-Hook Lifecycle ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -97,6 +98,9 @@
 - model_scheduler: Model Presets命名配置 fast/smart/vision preset+fallback链+per-session切换（来自nanobot）— **新增**
 - agent_orchestrator: AgentHook三层生命周期 per-iteration/run/turn级hook+before_run/after_run/on_stream（来自nanobot）— **新增**
 - context_injector: Auto Compact空闲主动压缩 检测空闲状态时自动压缩旧会话上下文（来自nanobot）— **新增**
+- context_injector: Tool Output Sandbox 工具输出隔离子进程+仅stdout入上下文(98%减少)（来自context-mode）— **新增**
+- context_injector: Think-in-Code范式 Agent写代码分析数据而非读入原始数据(100x节省)（来自context-mode）— **新增**
+- memory_system: Session Continuity Engine SQLite+FTS5+BM25事件追踪+压缩后按需检索恢复（来自context-mode）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）
@@ -109,6 +113,9 @@
 - eval_observability: 错误压缩+自愈策略 错误摘要器(stack trace→LLM简洁错误)+内置重试/降级（来自12-factor-agents）— **新增**
 - memory_system: 无状态Reducer 纯函数状态转换，便于测试和回滚（来自12-factor-agents）— **新增**
 - context_injector: 拥有上下文窗口 自定义上下文格式，非强制标准消息列表（来自12-factor-agents）— **新增**
+- context_injector: Intent-Driven Output Filter 输出超阈值时按意图过滤保留相关行（来自context-mode）— **新增**
+- tool_registry: Batch Execute Tool 多命令/查询一次调用+可选并发（来自context-mode）— **新增**
+- agent_orchestrator: 6-Hook生命周期协作 补全PreCompact和Stop Hook（来自context-mode）— **新增**
 
 ---
 
