@@ -1608,6 +1608,29 @@
         "Batch Execute+Concurrency (多命令一次调用+I/O并行)",
         "6-Hook生命周期协作 (PreToolUse/PostToolUse/UserPromptSubmit/PreCompact/SessionStart/Stop)"
       ]
+    },
+    {
+      "name": "refly-ai/refly",
+      "url": "https://github.com/refly-ai/refly",
+      "stars": 7503,
+      "relevance": 34,
+      "language": "TypeScript",
+      "analyzed_at": "2026-09-03T09:01:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-03_refly.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Skills are infrastructure not prompts (确定性Skill替代提示词, SOP 3分钟编译)",
+        "Vibe DSL编译器 (自然语言意图→Model-Native DSL→高性能确定性Skill)",
+        "Intervenable Runtime (执行中暂停/审计/改向+Hot-fix热修不重跑)",
+        "Universal Export (单源导出Claude Code/MCP/API/Webhook/多框架)",
+        "Central Skill Registry (版本控制+审计日志+团队共享资产治理)",
+        "Refly CLI技能一键安装/发布 (refly skill install/publish + npx)"
+      ]
     }
   ],
   "improvements": [
@@ -4811,6 +4834,56 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-08-06T08:50:00"
+    },
+    {
+      "id": "ref-vibe-0903",
+      "source": "refly-ai/refly",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "Vibe DSL Skill编译器 — 自然语言SOP/意图自动编译为标准SKILL.md, 3分钟上线",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-03T09:01:00"
+    },
+    {
+      "id": "ref-runtime-0903",
+      "source": "refly-ai/refly",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "Intervenable Runtime — 执行中暂停/审计/改向 + hot-fix热修(修复当前运行而非整链重启)",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-03T09:01:00"
+    },
+    {
+      "id": "ref-registry-0903",
+      "source": "refly-ai/refly",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "Skill资产化注册表 — 版本控制+变更审计+团队共享+回滚(SkillsHub升级)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-03T09:01:00"
+    },
+    {
+      "id": "ref-export-0903",
+      "source": "refly-ai/refly",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "Universal Export — SKILL.md单源定义导出MCP/API/Webhook/多IDE",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-03T09:01:00"
+    },
+    {
+      "id": "ref-schema-0903",
+      "source": "refly-ai/refly",
+      "priority": "P2",
+      "module": "tool_registry",
+      "suggestion": "Skill确定性Schema — input/output校验+失败恢复内置于Skill元数据(非自由文本prompt)",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-09-03T09:01:00"
     }
   ],
   "last_updated": "2026-08-02T22:39:56.095869",

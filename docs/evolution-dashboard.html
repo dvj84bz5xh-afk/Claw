@@ -6,71 +6,320 @@
 <title>Claw 智能进化仪表盘</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; padding: 20px; }
-.container { max-width: 1200px; margin: 0 auto; }
-h1 { color: #58a6ff; margin-bottom: 20px; font-size: 28px; }
-.subtitle { color: #8b949e; margin-bottom: 30px; font-size: 14px; }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 30px; }
-.stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; }
-.stat-value { font-size: 36px; font-weight: bold; color: #58a6ff; }
-.stat-label { color: #8b949e; font-size: 13px; margin-top: 4px; }
-.section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-.section h2 { color: #58a6ff; font-size: 18px; margin-bottom: 16px; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e4e6eb; min-height: 100vh; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; background: linear-gradient(135deg, #4fc3f7, #ab47bc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { color: #8b9099; font-size: 14px; margin-bottom: 24px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.stat-card { background: #1a1d28; border: 1px solid #2a2d3a; border-radius: 12px; padding: 20px; transition: transform 0.2s; }
+.stat-card:hover { transform: translateY(-2px); border-color: #4fc3f7; }
+.stat-label { font-size: 13px; color: #8b9099; margin-bottom: 8px; }
+.stat-value { font-size: 32px; font-weight: 700; }
+.stat-value.green { color: #4caf50; }
+.stat-value.blue { color: #4fc3f7; }
+.stat-value.red { color: #f44336; }
+.stat-value.purple { color: #ab47bc; }
+.stat-sub { font-size: 12px; color: #8b9099; margin-top: 4px; }
+.section { margin-bottom: 32px; }
+.section-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #2a2d3a; }
+.priority-bar { display: flex; gap: 4px; height: 24px; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
+.priority-bar div { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+.bar-p0 { background: #f44336; }
+.bar-p1 { background: #ff9800; }
+.bar-p2 { background: #4caf50; }
 table { width: 100%; border-collapse: collapse; }
-th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #21262d; font-size: 13px; }
-th { color: #8b949e; font-weight: 600; }
-tr:hover { background: #1c2128; }
-.priority-p0 { color: #f85149; font-weight: bold; }
-.priority-p1 { color: #d29922; }
-.bar-container { background: #21262d; border-radius: 4px; height: 8px; margin-top: 8px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, #58a6ff, #3fb950); border-radius: 4px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #2a2d3a; font-size: 13px; }
+th { color: #8b9099; font-weight: 600; text-transform: uppercase; font-size: 11px; }
+tr:hover { background: #1a1d28; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.badge-p0 { background: rgba(244,67,54,0.15); color: #f44336; }
+.badge-p1 { background: rgba(255,152,0,0.15); color: #ff9800; }
+.lang-bar { display: flex; flex-wrap: wrap; gap: 8px; }
+.lang-tag { background: #1a1d28; border: 1px solid #2a2d3a; padding: 4px 12px; border-radius: 16px; font-size: 12px; }
+.lang-tag span { color: #4fc3f7; font-weight: 600; }
 .module-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.module-name { width: 160px; font-size: 13px; color: #c9d1d9; }
-.module-bar { flex: 1; background: #21262d; border-radius: 4px; height: 20px; overflow: hidden; }
-.module-bar-done { height: 100%; background: #3fb950; border-radius: 4px; }
-.module-stat { width: 80px; text-align: right; font-size: 12px; color: #8b949e; }
-.footer { text-align: center; color: #484f58; font-size: 12px; margin-top: 30px; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
-.badge-p0 { background: rgba(248,81,73,0.15); color: #f85149; }
-.badge-p1 { background: rgba(210,153,34,0.15); color: #d29922; }
-.status-pending { color: #8b949e; }
+.module-name { width: 180px; font-size: 13px; }
+.module-bar { flex: 1; height: 20px; background: #1a1d28; border-radius: 4px; overflow: hidden; }
+.module-fill { height: 100%; background: linear-gradient(90deg, #4fc3f7, #ab47bc); transition: width 0.5s; }
+.module-stats { width: 80px; text-align: right; font-size: 12px; color: #8b9099; }
+.update-time { text-align: center; color: #8b9099; font-size: 12px; margin-top: 32px; }
 </style>
 </head>
 <body>
 <div class="container">
 <h1>Claw 智能进化仪表盘</h1>
-<p class="subtitle">最后更新: 2026-08-06 08:55 | 自动化ID: automation-1779863408739 | 细水长流模式</p>
+<p class="subtitle">通过 GitHub 高星项目迭代 CodeBuddy 能力 | 细水长流模式 | 每日1项目</p>
+
 <div class="stats-grid">
-<div class="stat-card"><div class="stat-value">108</div><div class="stat-label">已学习项目</div></div>
-<div class="stat-card"><div class="stat-value">295</div><div class="stat-label">改进项总数</div></div>
-<div class="stat-card"><div class="stat-value">96</div><div class="stat-label">已实施</div></div>
-<div class="stat-card"><div class="stat-value">32.5%</div><div class="stat-label">实施率</div><div class="bar-container"><div class="bar-fill" style="width:32.5%"></div></div></div>
-<div class="stat-card"><div class="stat-value" style="color:#f85149">81</div><div class="stat-label">P0 待实施</div></div>
-<div class="stat-card"><div class="stat-value" style="color:#d29922">90</div><div class="stat-label">P1 待实施</div></div>
+<div class="stat-card"><div class="stat-label">学习项目总数</div><div class="stat-value blue">109</div><div class="stat-sub">累计分析GitHub项目</div></div>
+<div class="stat-card"><div class="stat-label">改进项总数</div><div class="stat-value purple">300</div><div class="stat-sub">已识别可借鉴改进点</div></div>
+<div class="stat-card"><div class="stat-label">已实施</div><div class="stat-value green">96</div><div class="stat-sub">实施率 32.0%</div></div>
+<div class="stat-card"><div class="stat-label">P0 待实施</div><div class="stat-value red">83</div><div class="stat-sub">高优先级待处理</div></div>
 </div>
+
 <div class="section">
-<h2>模块改进统计</h2>
-<div class="module-row"><div class="module-name">agent_orchestration</div><div class="module-bar"><div class="module-bar-done" style="width:46.15384615384615%"></div></div><div class="module-stat">24/52 (46%)</div></div><div class="module-row"><div class="module-name">tool_system</div><div class="module-bar"><div class="module-bar-done" style="width:84.78260869565217%"></div></div><div class="module-stat">39/46 (85%)</div></div><div class="module-row"><div class="module-name">memory</div><div class="module-bar"><div class="module-bar-done" style="width:48.148148148148145%"></div></div><div class="module-stat">13/27 (48%)</div></div><div class="module-row"><div class="module-name">memory_system</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/21 (0%)</div></div><div class="module-row"><div class="module-name">skill_system</div><div class="module-bar"><div class="module-bar-done" style="width:10.0%"></div></div><div class="module-stat">2/20 (10%)</div></div><div class="module-row"><div class="module-name">context_injector</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/18 (0%)</div></div><div class="module-row"><div class="module-name">agent_orchestrator</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/15 (0%)</div></div><div class="module-row"><div class="module-name">knowledge_retrieval</div><div class="module-bar"><div class="module-bar-done" style="width:92.85714285714286%"></div></div><div class="module-stat">13/14 (93%)</div></div><div class="module-row"><div class="module-name">claw_integration</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/13 (0%)</div></div><div class="module-row"><div class="module-name">model_scheduler</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/12 (0%)</div></div><div class="module-row"><div class="module-name">eval_observability</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/11 (0%)</div></div><div class="module-row"><div class="module-name">agent_core</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/9 (0%)</div></div><div class="module-row"><div class="module-name">observability</div><div class="module-bar"><div class="module-bar-done" style="width:37.5%"></div></div><div class="module-stat">3/8 (38%)</div></div><div class="module-row"><div class="module-name">tool_registry</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/8 (0%)</div></div><div class="module-row"><div class="module-name">rag_engine</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/5 (0%)</div></div><div class="module-row"><div class="module-name">evaluation</div><div class="module-bar"><div class="module-bar-done" style="width:66.66666666666666%"></div></div><div class="module-stat">2/3 (67%)</div></div><div class="module-row"><div class="module-name">evolution</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/3 (0%)</div></div><div class="module-row"><div class="module-name">storage</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/3 (0%)</div></div><div class="module-row"><div class="module-name">workflow_engine</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/2 (0%)</div></div><div class="module-row"><div class="module-name">progressive_loader</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/2 (0%)</div></div><div class="module-row"><div class="module-name">automation</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/1 (0%)</div></div><div class="module-row"><div class="module-name">platform</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/1 (0%)</div></div><div class="module-row"><div class="module-name">quality_gate</div><div class="module-bar"><div class="module-bar-done" style="width:0.0%"></div></div><div class="module-stat">0/1 (0%)</div></div>
+<div class="section-title">优先级分布</div>
+<div class="priority-bar">
+<div class="bar-p0" style="flex:109">P0: 109</div>
+<div class="bar-p1" style="flex:162">P1: 162</div>
+<div class="bar-p2" style="flex:29">P2: 29</div>
 </div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px;">
+<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P0 (高优先级)</div><div style="font-size:20px;font-weight:600;color:#f44336;">26/109</div><div class="stat-sub">实施率 23.9%</div></div>
+<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P1 (中优先级)</div><div style="font-size:20px;font-weight:600;color:#ff9800;">70/162</div><div class="stat-sub">实施率 43.2%</div></div>
+<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P2 (低优先级)</div><div style="font-size:20px;font-weight:600;color:#4caf50;">0/29</div><div class="stat-sub">实施率 0.0%</div></div>
+</div>
+</div>
+
 <div class="section">
-<h2>最近学习项目 (Top 10)</h2>
+<div class="section-title">模块改进分布</div>
+<div class="module-row">
+<div class="module-name">agent_orchestration</div>
+<div class="module-bar"><div class="module-fill" style="width:46%"></div></div>
+<div class="module-stats">24/52</div>
+</div>
+<div class="module-row">
+<div class="module-name">tool_system</div>
+<div class="module-bar"><div class="module-fill" style="width:85%"></div></div>
+<div class="module-stats">39/46</div>
+</div>
+<div class="module-row">
+<div class="module-name">memory</div>
+<div class="module-bar"><div class="module-fill" style="width:48%"></div></div>
+<div class="module-stats">13/27</div>
+</div>
+<div class="module-row">
+<div class="module-name">skill_system</div>
+<div class="module-bar"><div class="module-fill" style="width:9%"></div></div>
+<div class="module-stats">2/23</div>
+</div>
+<div class="module-row">
+<div class="module-name">memory_system</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/21</div>
+</div>
+<div class="module-row">
+<div class="module-name">context_injector</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/18</div>
+</div>
+<div class="module-row">
+<div class="module-name">agent_orchestrator</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/16</div>
+</div>
+<div class="module-row">
+<div class="module-name">knowledge_retrieval</div>
+<div class="module-bar"><div class="module-fill" style="width:93%"></div></div>
+<div class="module-stats">13/14</div>
+</div>
+<div class="module-row">
+<div class="module-name">claw_integration</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/13</div>
+</div>
+<div class="module-row">
+<div class="module-name">model_scheduler</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/12</div>
+</div>
+<div class="module-row">
+<div class="module-name">eval_observability</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/11</div>
+</div>
+<div class="module-row">
+<div class="module-name">tool_registry</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/9</div>
+</div>
+<div class="module-row">
+<div class="module-name">agent_core</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/9</div>
+</div>
+<div class="module-row">
+<div class="module-name">observability</div>
+<div class="module-bar"><div class="module-fill" style="width:38%"></div></div>
+<div class="module-stats">3/8</div>
+</div>
+<div class="module-row">
+<div class="module-name">rag_engine</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/5</div>
+</div>
+<div class="module-row">
+<div class="module-name">evaluation</div>
+<div class="module-bar"><div class="module-fill" style="width:67%"></div></div>
+<div class="module-stats">2/3</div>
+</div>
+<div class="module-row">
+<div class="module-name">evolution</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/3</div>
+</div>
+<div class="module-row">
+<div class="module-name">storage</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/3</div>
+</div>
+<div class="module-row">
+<div class="module-name">workflow_engine</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/2</div>
+</div>
+<div class="module-row">
+<div class="module-name">progressive_loader</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/2</div>
+</div>
+<div class="module-row">
+<div class="module-name">automation</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/1</div>
+</div>
+<div class="module-row">
+<div class="module-name">platform</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/1</div>
+</div>
+<div class="module-row">
+<div class="module-name">quality_gate</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/1</div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">最近学习项目 (Top 10)</div>
 <table>
-<tr><th>项目</th><th>Stars</th><th>相关度</th><th>语言</th><th>改进项</th><th>P0</th><th>P1</th><th>日期</th></tr>
-<tr><td><a href="https://github.com/mksglu/context-mode" target="_blank" style="color:#58a6ff;text-decoration:none">mksglu/context-mode</a></td><td>19,647</td><td><span class="badge badge-p0">43</span></td><td>TypeScript</td><td>6</td><td><span class="priority-p0">3</span></td><td><span class="priority-p1">3</span></td><td>2026-08-06</td></tr><tr><td><a href="https://github.com/HKUDS/nanobot" target="_blank" style="color:#58a6ff;text-decoration:none">HKUDS/nanobot</a></td><td>46,520</td><td><span class="badge badge-p0">42</span></td><td>Python</td><td>6</td><td><span class="priority-p0">3</span></td><td><span class="priority-p1">3</span></td><td>2026-08-03</td></tr><tr><td><a href="https://github.com/PrefectHQ/fastmcp" target="_blank" style="color:#58a6ff;text-decoration:none">PrefectHQ/fastmcp</a></td><td>27,019</td><td><span class="badge badge-p0">41</span></td><td>N/A</td><td>0</td><td><span class="priority-p0">0</span></td><td><span class="priority-p1">0</span></td><td>2026-08-02</td></tr><tr><td><a href="https://github.com/humanlayer/12-factor-agents" target="_blank" style="color:#58a6ff;text-decoration:none">humanlayer/12-factor-agents</a></td><td>24,952</td><td><span class="badge badge-p0">38</span></td><td>TypeScript</td><td>10</td><td><span class="priority-p0">4</span></td><td><span class="priority-p1">4</span></td><td>2026-07-30</td></tr><tr><td><a href="https://github.com/code-yeongyu/oh-my-openagent" target="_blank" style="color:#58a6ff;text-decoration:none">code-yeongyu/oh-my-openagent</a></td><td>66,677</td><td><span class="badge badge-p0">37</span></td><td>TypeScript</td><td>10</td><td><span class="priority-p0">6</span></td><td><span class="priority-p1">4</span></td><td>2026-07-28</td></tr><tr><td><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" style="color:#58a6ff;text-decoration:none">TencentCloud/TencentDB-Agent-Memory</a></td><td>9,312</td><td><span class="badge badge-p0">40</span></td><td>TypeScript</td><td>6</td><td><span class="priority-p0">3</span></td><td><span class="priority-p1">3</span></td><td>2026-07-27</td></tr><tr><td><a href="https://github.com/musistudio/claude-code-router" target="_blank" style="color:#58a6ff;text-decoration:none">musistudio/claude-code-router</a></td><td>36,184</td><td><span class="badge badge-p0">35</span></td><td>TypeScript</td><td>6</td><td><span class="priority-p0">2</span></td><td><span class="priority-p1">3</span></td><td>2026-07-26</td></tr><tr><td><a href="https://github.com/CopilotKit/CopilotKit" target="_blank" style="color:#58a6ff;text-decoration:none">CopilotKit/CopilotKit</a></td><td>36,237</td><td><span class="badge badge-p1">32</span></td><td>TypeScript</td><td>6</td><td><span class="priority-p0">2</span></td><td><span class="priority-p1">3</span></td><td>2026-07-24</td></tr><tr><td><a href="https://github.com/EverMind-AI/Raven" target="_blank" style="color:#58a6ff;text-decoration:none">EverMind-AI/Raven</a></td><td>2,512</td><td><span class="badge badge-p0">40</span></td><td>Python</td><td>6</td><td><span class="priority-p0">3</span></td><td><span class="priority-p1">3</span></td><td>2026-07-23</td></tr><tr><td><a href="https://github.com/EverMind-AI/EverOS" target="_blank" style="color:#58a6ff;text-decoration:none">EverMind-AI/EverOS</a></td><td>11,418</td><td><span class="badge badge-p0">43</span></td><td>Python</td><td>7</td><td><span class="priority-p0">4</span></td><td><span class="priority-p1">3</span></td><td>2026-07-22</td></tr>
+<thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>语言</th><th>日期</th><th>改进项</th><th>P0</th><th>P1</th></tr></thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/refly-ai/refly" target="_blank" style="color:#4fc3f7;text-decoration:none;">refly-ai/refly</a></td>
+<td>&#11088;7,503</td>
+<td>34</td>
+<td>TypeScript</td>
+<td>2026-09-03</td>
+<td>5</td>
+<td><span class="badge badge-p0">2</span></td>
+<td><span class="badge badge-p1">2</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mksglu/context-mode" target="_blank" style="color:#4fc3f7;text-decoration:none;">mksglu/context-mode</a></td>
+<td>&#11088;19,647</td>
+<td>43</td>
+<td>TypeScript</td>
+<td>2026-08-06</td>
+<td>6</td>
+<td><span class="badge badge-p0">3</span></td>
+<td><span class="badge badge-p1">3</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/HKUDS/nanobot" target="_blank" style="color:#4fc3f7;text-decoration:none;">HKUDS/nanobot</a></td>
+<td>&#11088;46,520</td>
+<td>42</td>
+<td>Python</td>
+<td>2026-08-03</td>
+<td>6</td>
+<td><span class="badge badge-p0">3</span></td>
+<td><span class="badge badge-p1">3</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/PrefectHQ/fastmcp" target="_blank" style="color:#4fc3f7;text-decoration:none;">PrefectHQ/fastmcp</a></td>
+<td>&#11088;27,019</td>
+<td>41</td>
+<td>N/A</td>
+<td>2026-08-02</td>
+<td>0</td>
+<td><span class="badge badge-p0">0</span></td>
+<td><span class="badge badge-p1">0</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/humanlayer/12-factor-agents" target="_blank" style="color:#4fc3f7;text-decoration:none;">humanlayer/12-factor-agents</a></td>
+<td>&#11088;24,952</td>
+<td>38</td>
+<td>TypeScript</td>
+<td>2026-07-30</td>
+<td>10</td>
+<td><span class="badge badge-p0">4</span></td>
+<td><span class="badge badge-p1">4</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/code-yeongyu/oh-my-openagent" target="_blank" style="color:#4fc3f7;text-decoration:none;">code-yeongyu/oh-my-openagent</a></td>
+<td>&#11088;66,677</td>
+<td>37</td>
+<td>TypeScript</td>
+<td>2026-07-28</td>
+<td>10</td>
+<td><span class="badge badge-p0">6</span></td>
+<td><span class="badge badge-p1">4</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" style="color:#4fc3f7;text-decoration:none;">TencentCloud/TencentDB-Agent-Memory</a></td>
+<td>&#11088;9,312</td>
+<td>40</td>
+<td>TypeScript</td>
+<td>2026-07-27</td>
+<td>6</td>
+<td><span class="badge badge-p0">3</span></td>
+<td><span class="badge badge-p1">3</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/musistudio/claude-code-router" target="_blank" style="color:#4fc3f7;text-decoration:none;">musistudio/claude-code-router</a></td>
+<td>&#11088;36,184</td>
+<td>35</td>
+<td>TypeScript</td>
+<td>2026-07-26</td>
+<td>6</td>
+<td><span class="badge badge-p0">2</span></td>
+<td><span class="badge badge-p1">3</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/CopilotKit/CopilotKit" target="_blank" style="color:#4fc3f7;text-decoration:none;">CopilotKit/CopilotKit</a></td>
+<td>&#11088;36,237</td>
+<td>32</td>
+<td>TypeScript</td>
+<td>2026-07-24</td>
+<td>6</td>
+<td><span class="badge badge-p0">2</span></td>
+<td><span class="badge badge-p1">3</span></td>
+</tr>
+<tr>
+<td><a href="https://github.com/EverMind-AI/Raven" target="_blank" style="color:#4fc3f7;text-decoration:none;">EverMind-AI/Raven</a></td>
+<td>&#11088;2,512</td>
+<td>40</td>
+<td>Python</td>
+<td>2026-07-23</td>
+<td>6</td>
+<td><span class="badge badge-p0">3</span></td>
+<td><span class="badge badge-p1">3</span></td>
+</tr>
+</tbody>
 </table>
 </div>
+
 <div class="section">
-<h2>P0 待实施改进项 (高优先级)</h2>
-<table>
-<tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr>
-<tr><td style="font-family:monospace;font-size:11px">omo-category-delegation-0728</td><td style="font-size:12px">code-yeongyu/oh-my-openagent</td><td style="font-size:12px">model_scheduler</td><td style="font-size:12px">Category-Based Agent Delegation: work category enum (visual-engineering/deep/qui</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">omo-intentgate-0728</td><td style="font-size:12px">code-yeongyu/oh-my-openagent</td><td style="font-size:12px">agent_orchestrator</td><td style="font-size:12px">IntentGate: intent analysis layer before task dispatch, parse input->extract tru</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">omo-skill-mcp-0728</td><td style="font-size:12px">code-yeongyu/oh-my-openagent</td><td style="font-size:12px">tool_registry</td><td style="font-size:12px">Skill-Embedded MCPs: each Skill declares own MCP server config, load Skill->star</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">omo-goal-continuation-0728</td><td style="font-size:12px">code-yeongyu/oh-my-openagent</td><td style="font-size:12px">agent_orchestrator</td><td style="font-size:12px">Goal Continuation+Todo Enforcer: persistent per-session goal, idle timeout auto-</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">omo-hierarchical-context-0728</td><td style="font-size:12px">code-yeongyu/oh-my-openagent</td><td style="font-size:12px">context_injector</td><td style="font-size:12px">Hierarchical AGENTS.md: /init-deep auto-generates layered AGENTS.md (project->di</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">12fa-exec-state-0730</td><td style="font-size:12px">humanlayer/12-factor-agents</td><td style="font-size:12px">agent_orchestrator</td><td style="font-size:12px">引入ExecutionState统一模型—执行态与业务态分离，支持检查点/恢复/迁移</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">12fa-tool-schema-0730</td><td style="font-size:12px">humanlayer/12-factor-agents</td><td style="font-size:12px">tool_registry</td><td style="font-size:12px">工具输出Schema标准化—所有工具返回统一schema(success/result/error/context)</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">12fa-small-agents-0730</td><td style="font-size:12px">humanlayer/12-factor-agents</td><td style="font-size:12px">agent_orchestrator</td><td style="font-size:12px">重构orchestrator为lane级小Agent—拆解monolithic为submit/emit/handoff单职责lane</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">12fa-prompt-vcs-0730</td><td style="font-size:12px">humanlayer/12-factor-agents</td><td style="font-size:12px">context_injector</td><td style="font-size:12px">Prompt版本化管理—提取为独立.prompt.md文件，纳入版本控制，支持A/B测试</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">nb-dream-0803</td><td style="font-size:12px">HKUDS/nanobot</td><td style="font-size:12px">memory_system</td><td style="font-size:12px">实现Dream两阶段记忆整合：Consolidator实时压缩会话到history.jsonl(cursor-based, append-only) → Dre</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">nb-loop-runner-0803</td><td style="font-size:12px">HKUDS/nanobot</td><td style="font-size:12px">agent_orchestrator</td><td style="font-size:12px">AgentLoop/AgentRunner分离：Loop负责turn编排+hook+channel路由(何时调用)，Runner负责provider+strea</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">nb-heartbeat-0803</td><td style="font-size:12px">HKUDS/nanobot</td><td style="font-size:12px">claw_integration</td><td style="font-size:12px">Heartbeat主动任务执行：读取HEARTBEAT.md中的Active Tasks，定时触发执行，抑制无用结果，从被动响应进化到主动执行</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">cm-sandbox-0806</td><td style="font-size:12px">mksglu/context-mode</td><td style="font-size:12px">context_injector</td><td style="font-size:12px">Tool Output Sandbox — 工具输出隔离子进程, 仅stdout入上下文(98%减少)</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">cm-thinkcode-0806</td><td style="font-size:12px">mksglu/context-mode</td><td style="font-size:12px">context_injector</td><td style="font-size:12px">Think-in-Code范式 — Agent写代码分析数据而非读入原始数据(100x节省)</td><td><span class="status-pending">pending</span></td></tr><tr><td style="font-family:monospace;font-size:11px">cm-session-0806</td><td style="font-size:12px">mksglu/context-mode</td><td style="font-size:12px">memory_system</td><td style="font-size:12px">Session Continuity Engine — SQLite+FTS5+BM25事件追踪, 压缩后按需检索恢复</td><td><span class="status-pending">pending</span></td></tr>
-</table>
-<p style="color:#8b949e;font-size:12px;margin-top:8px">共 81 个P0待实施项 (显示最近15个)</p>
+<div class="section-title">语言分布</div>
+<div class="lang-bar">
+<div class="lang-tag">N/A <span>52</span></div><div class="lang-tag">Python <span>32</span></div><div class="lang-tag">TypeScript <span>16</span></div><div class="lang-tag">Rust <span>3</span></div><div class="lang-tag">JavaScript <span>2</span></div><div class="lang-tag">HTML <span>1</span></div><div class="lang-tag">Clojure <span>1</span></div><div class="lang-tag">Protocol (protobuf + multi-SDK) <span>1</span></div><div class="lang-tag">Shell/Marketdown <span>1</span></div></div>
 </div>
-<div class="footer">
-<p>Claw 智能进化学习系统 | 细水长流模式 - 每日1项目 | 自动化ID: automation-1779863408739</p>
-<p>运行时间: 2026-08-06 08:55</p>
+
+<div class="section">
+<div class="section-title">最新学习: <a href="https://github.com/refly-ai/refly" target="_blank" style="color:#4fc3f7;text-decoration:none;">refly-ai/refly</a> (2026-09-03 | &#11088;7,503 | 相关度34)</div>
+<div class="stat-card" style="padding:16px;">
+<div style="font-size:14px;line-height:1.8;">
+<strong>核心创新:</strong><br>
+1. Skills are infrastructure not prompts (确定性Skill替代提示词, SOP 3分钟编译)<br>
+2. Vibe DSL编译器 (自然语言意图→Model-Native DSL→高性能确定性Skill)<br>
+3. Intervenable Runtime (执行中暂停/审计/改向+Hot-fix热修不重跑)<br>
+4. Universal Export (单源导出Claude Code/MCP/API/Webhook/多框架)<br>
+5. Central Skill Registry (版本控制+审计日志+团队共享资产治理)<br>
+6. Refly CLI技能一键安装/发布 (refly skill install/publish + npx)<br>
 </div>
+</div>
+</div>
+<div class="update-time">最后更新: 2026-09-03 09:05 | 自动化ID: automation-1779863408739 | 细水长流模式</div>
 </div>
 </body>
 </html>

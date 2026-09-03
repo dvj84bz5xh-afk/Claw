@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 108项目 / 295改进项 / 实施率约32.5% (96/295)
-- **最新学习**: mksglu/context-mode (⭐19.6K, 相关度43) — 2026-08-06
+- **进度**: 109项目 / 300改进项 / 实施率约32.0% (96/300)
+- **最新学习**: refly-ai/refly (⭐7.5K, 相关度34) — 2026-09-03
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -52,6 +52,7 @@
 14. **PrefectHQ/fastmcp** (⭐27K, 相关度41) - @tool装饰器自动Schema+MCP Server Composition+FastAPI自动生成MCP+Proxy+llms.txt ✅已学习
 15. **HKUDS/nanobot** (⭐46.5K, 相关度42·最高) - Dream两阶段记忆整合+AgentLoop/Runner分离+Heartbeat主动任务+Model Presets+AgentHook三层+Auto Compact ✅已学习
 16. **mksglu/context-mode** (⭐19.6K, 相关度43·最高) - Tool Output Sandbox+Think-in-Code+Session Continuity+Intent-Driven Filtering+Batch Execute+6-Hook Lifecycle ✅已学习
+17. **refly-ai/refly** (⭐7.5K, 相关度34) - Vibe DSL Skill编译器+SOP 3分钟上线+Intervenable Runtime可介入热修+Universal Export单源多形态+Central Skill Registry资产治理 ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -101,6 +102,8 @@
 - context_injector: Tool Output Sandbox 工具输出隔离子进程+仅stdout入上下文(98%减少)（来自context-mode）— **新增**
 - context_injector: Think-in-Code范式 Agent写代码分析数据而非读入原始数据(100x节省)（来自context-mode）— **新增**
 - memory_system: Session Continuity Engine SQLite+FTS5+BM25事件追踪+压缩后按需检索恢复（来自context-mode）— **新增**
+- skill_system: Vibe DSL Skill编译器 自然语言SOP/意图→自动编译标准SKILL.md+3分钟上线（来自refly）— **新增**
+- agent_orchestrator: Intervenable Runtime 执行中暂停/审计/改向+hot-fix热修不整链重启（来自refly）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）
@@ -116,6 +119,11 @@
 - context_injector: Intent-Driven Output Filter 输出超阈值时按意图过滤保留相关行（来自context-mode）— **新增**
 - tool_registry: Batch Execute Tool 多命令/查询一次调用+可选并发（来自context-mode）— **新增**
 - agent_orchestrator: 6-Hook生命周期协作 补全PreCompact和Stop Hook（来自context-mode）— **新增**
+- skill_system: Skill资产化注册表 版本控制+变更审计+团队共享+回滚（SkillsHub升级）（来自refly）— **新增**
+- skill_system: Universal Export SKILL.md单源定义→导出MCP/API/Webhook/多IDE（来自refly）— **新增**
+
+### P2待实施
+- tool_registry: Skill确定性Schema input/output校验+失败恢复内置于Skill元数据(非自由文本prompt)（来自refly）— **新增**
 
 ---
 

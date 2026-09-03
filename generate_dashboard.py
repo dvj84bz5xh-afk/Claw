@@ -174,22 +174,29 @@ html += """</div>
 </div>
 
 <div class="section">
-<div class="section-title">最新学习: TencentCloud/TencentDB-Agent-Memory (2026-07-27)</div>
-<div class="stat-card" style="padding:16px;">
-<div style="font-size:14px;line-height:1.8;">
-<strong>核心发现:</strong><br>
-1. Mermaid符号化记忆 - node_id追溯的上下文压缩, Token降低61%<br>
-2. L0-L3分层记忆管道 - Conversation-Atom-Scenario-Persona渐进式提取<br>
-3. 全可追溯无损恢复链 - 高层抽象到地面证据的确定性路径<br>
-4. 白盒可调试性 - Markdown/Mermaid中间产物非黑盒<br>
-5. BM25+Vector+RRF混合检索 + jieba中文分词 + 召回安全控制<br>
-6. 预热指数退避 - 新会话1->2->4翻倍触发 + 本地SQLite零依赖
-</div>
-</div>
-</div>
+"""
 
-<div class="update-time">最后更新: 2026-07-27 09:00 | 自动化ID: automation-1779863408739 | 细水长流模式</div>
-</div>
+# 动态"最新学习"区块: 取最近学习的项目
+if recent:
+    latest = recent[0]
+    lname = latest['name']
+    ldate = latest.get('analyzed_at', '')[:10]
+    lurl = latest.get('url', '#')
+    lstars = latest.get('stars', 0)
+    lrel = latest.get('relevance', 0)
+    innovs = latest.get('key_innovations', [])
+    html += f'<div class="section-title">最新学习: <a href="{lurl}" target="_blank" style="color:#4fc3f7;text-decoration:none;">{lname}</a> ({ldate} | &#11088;{lstars:,} | 相关度{lrel})</div>\n'
+    html += '<div class="stat-card" style="padding:16px;">\n<div style="font-size:14px;line-height:1.8;">\n<strong>核心创新:</strong><br>\n'
+    if innovs:
+        for j, inv in enumerate(innovs, 1):
+            html += f'{j}. {inv}<br>\n'
+    else:
+        html += '（无详细记录）<br>\n'
+    html += '</div>\n</div>\n</div>\n'
+
+now_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+html += f'<div class="update-time">最后更新: {now_str} | 自动化ID: automation-1779863408739 | 细水长流模式</div>\n'
+html += """</div>
 </body>
 </html>"""
 
