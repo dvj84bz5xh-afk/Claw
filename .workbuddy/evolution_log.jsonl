@@ -1103,3 +1103,4 @@
 {"timestamp": "2026-08-03T08:50:00", "level": "INFO", "message": "========================================"}
 {"timestamp":"2026-08-06T08:50:00","project":"mksglu/context-mode","stars":19647,"relevance":43,"improvements":6,"p0":3,"p1":3,"p2":0,"key_innovations":["Tool Output Sandbox","Think-in-Code","Session Continuity","Intent-Driven Filtering","Batch Execute","6-Hook Lifecycle"]}
 {"timestamp":"2026-09-03T09:01:00","project":"refly-ai/refly","stars":7503,"relevance":34,"improvements":5,"p0":2,"p1":2,"p2":1,"key_innovations":["Skills are infrastructure not prompts","Vibe DSL编译器","Intervenable Runtime+Hot-fix","Universal Export","Central Skill Registry","Refly CLI"]}
+{\"timestamp\":\"2026-09-04T09:05:00\",\"project\":\"katanemo/plano\",\"stars\":7036,\"relevance\":36,\"improvements\":5,\"p0\":2,\"p1\":2,\"p2\":1,\"key_innovations\":[\"进程外数据平面\",\"YAML声明式Agent编排\",\"轻量4B路由模型\",\"Model Agility统一路由\",\"零代码Signals+OTEL\",\"Filter Chain护栏\"]}

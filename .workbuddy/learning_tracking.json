@@ -1631,6 +1631,29 @@
         "Central Skill Registry (版本控制+审计日志+团队共享资产治理)",
         "Refly CLI技能一键安装/发布 (refly skill install/publish + npx)"
       ]
+    },
+    {
+      "name": "katanemo/plano",
+      "url": "https://github.com/katanemo/plano",
+      "stars": 7036,
+      "relevance": 36,
+      "language": "Rust",
+      "analyzed_at": "2026-09-04T09:05:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-04_plano.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "进程外数据平面 (Envoy内核, 路由/护栏/追踪/模型适配全部下沉)",
+        "YAML声明式Agent编排 (NL描述自动生成意图分类与路由, 配置即扩展)",
+        "轻量专用路由模型 (4B参数编排模型替代GPT-4级大模型, 成本延迟降一个量级)",
+        "Model Agility统一路由API (按名/别名/语义偏好路由+provider quirk吸收)",
+        "零代码Agentic Signals+OTEL (代理层自动捕获+random_sampling采样)",
+        "Filter Chain模块化护栏 (guardrail/moderation/memory钩子链)"
+      ]
     }
   ],
   "improvements": [
@@ -4884,6 +4907,56 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-09-03T09:01:00"
+    },
+    {
+      "id": "plano-agentroute-0904",
+      "source": "katanemo/plano",
+      "priority": "P0",
+      "module": "model_scheduler",
+      "suggestion": "Agent声明式路由 — YAML声明Agent端点+NL描述, 自动生成语义意图分类路由(区别于CCR规则匹配)",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-04T09:05:00"
+    },
+    {
+      "id": "plano-dataplane-0904",
+      "source": "katanemo/plano",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "编排数据面解耦 — Orchestrator独立为进程外服务, 业务Agent注册即接入, 扩容不改代码",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-04T09:05:00"
+    },
+    {
+      "id": "plano-litequery-0904",
+      "source": "katanemo/plano",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "轻量意图路由模型 — 本地小模型(≤4B)做任务→Agent映射, 替代大模型判定降成本延迟",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-04T09:05:00"
+    },
+    {
+      "id": "plano-signals-0904",
+      "source": "katanemo/plano",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "零代码信号采集 — 调度层自动捕获Agent调用追踪与信号+采样率配置, 供评估管道消费",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-04T09:05:00"
+    },
+    {
+      "id": "plano-filterchain-0904",
+      "source": "katanemo/plano",
+      "priority": "P2",
+      "module": "agent_orchestrator",
+      "suggestion": "Filter Chain护栏链 — 入口模块化过滤器(安全审核/敏感词/记忆注入), 全Agent统一挂载",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-09-04T09:05:00"
     }
   ],
   "last_updated": "2026-08-02T22:39:56.095869",
