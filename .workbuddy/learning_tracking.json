@@ -1654,6 +1654,29 @@
         "零代码Agentic Signals+OTEL (代理层自动捕获+random_sampling采样)",
         "Filter Chain模块化护栏 (guardrail/moderation/memory钩子链)"
       ]
+    },
+    {
+      "name": "ComposioHQ/composio",
+      "url": "https://github.com/ComposioHQ/composio",
+      "stars": 30054,
+      "relevance": 18,
+      "language": "TypeScript",
+      "analyzed_at": "2026-09-05T09:05:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-05_composio.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Meta-tools按需工具发现 (discover/auth/execute元工具替代全量Schema预载)",
+        "工具语义搜索 (意图→工具运行时匹配1000+工具)",
+        "Per-user Session作用域 (工具集/凭证/账号按会话隔离+session_id跨轮复用)",
+        "认证托管 (OAuth/APIKey集中管理, Agent零密钥)",
+        "Provider Adapter层 (单源工具适配15+框架)",
+        "每会话hosted MCP端点 (mcp:true即变MCP服务器)"
+      ]
     }
   ],
   "improvements": [
@@ -4957,6 +4980,56 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-09-04T09:05:00"
+    },
+    {
+      "id": "composio-meta-0905",
+      "source": "ComposioHQ/composio",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "Meta-tools按需工具发现 — 提供工具发现/执行元工具替代全量Schema预注入, 大幅节省上下文",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-05T09:05:00"
+    },
+    {
+      "id": "composio-search-0905",
+      "source": "ComposioHQ/composio",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "工具语义搜索 — 按任务意图检索注册表中相关工具子集(与OmO类别枚举互补)",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-05T09:05:00"
+    },
+    {
+      "id": "composio-scope-0905",
+      "source": "ComposioHQ/composio",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "Per-session工具作用域 — 会话级限定可用工具与凭证, 防越权与上下文污染",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-05T09:05:00"
+    },
+    {
+      "id": "composio-auth-0905",
+      "source": "ComposioHQ/composio",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "统一认证托管 — 凭证集中管理+调用时自动注入, Agent侧零密钥",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-05T09:05:00"
+    },
+    {
+      "id": "composio-adapter-0905",
+      "source": "ComposioHQ/composio",
+      "priority": "P2",
+      "module": "tool_registry",
+      "suggestion": "Provider Adapter层 — 工具定义单源适配OpenAI/Claude/MCP等多格式",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-09-05T09:05:00"
     }
   ],
   "last_updated": "2026-08-02T22:39:56.095869",
