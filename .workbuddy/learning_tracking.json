@@ -1677,6 +1677,29 @@
         "Provider Adapter层 (单源工具适配15+框架)",
         "每会话hosted MCP端点 (mcp:true即变MCP服务器)"
       ]
+    },
+    {
+      "name": "deepset-ai/haystack",
+      "url": "https://github.com/deepset-ai/haystack",
+      "stars": 26425,
+      "relevance": 24,
+      "language": "Python",
+      "analyzed_at": "2026-09-06T09:05:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-06_haystack.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "SkillToolset渐进式技能发现 (技能描述按需入上下文)",
+        "Agent生命周期钩子+step_count/token_usage内建追踪 (监控成本开箱即用)",
+        "上下文工程显式化 (检索/排序/过滤/组合/结构化/路由全显式建模)",
+        "单一Pipeline同步/异步双模+逐token流式+Agent并发工具调用",
+        "透明控制流 (循环/分支/条件显式定义)",
+        "Hayhooks部署层 (Pipeline一键暴露REST API/MCP Server/OpenAI兼容端点)"
+      ]
     }
   ],
   "improvements": [
@@ -5030,6 +5053,56 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-09-05T09:05:00"
+    },
+    {
+      "id": "hay-skilltool-0906",
+      "source": "deepset-ai/haystack",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "渐进式技能发现(SkillToolset) — Skill描述不预载, 运行时按任务意图按需注入上下文",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-06T09:05:00"
+    },
+    {
+      "id": "hay-tokentrack-0906",
+      "source": "deepset-ai/haystack",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "Agent内建token_usage/step_count追踪 — 每次运行自动产出成本与步骤指标, 无需外部埋点",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-06T09:05:00"
+    },
+    {
+      "id": "hay-hooks-0906",
+      "source": "deepset-ai/haystack",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "生命周期钩子补齐before_llm/before_tool/on_exit级别(对齐nanobot+haystack实践)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-06T09:05:00"
+    },
+    {
+      "id": "hay-ctxroute-0906",
+      "source": "deepset-ai/haystack",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "显式上下文路由管道 检索→排序→过滤→组合→结构化→路由六阶段显式建模",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-09-06T09:05:00"
+    },
+    {
+      "id": "hay-deploy-0906",
+      "source": "deepset-ai/haystack",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "Pipeline部署层 工作流一键暴露REST API/MCP Server/OpenAI兼容端点",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-06T09:05:00"
     }
   ],
   "last_updated": "2026-08-02T22:39:56.095869",

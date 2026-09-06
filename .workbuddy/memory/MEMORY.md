@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v2.0 | 最后更新: 2026-09-05
+# 格式版本: v2.0 | 最后更新: 2026-09-06
 
 ---
 
@@ -16,8 +16,8 @@
 ## [PROJECT] Claw 学习追踪系统
 
 - **目的**: 通过GitHub高星项目迭代CodeBuddy能力
-- **进度**: 111项目 / 310改进项 / 实施率约31.0% (96/310)
-- **最新学习**: ComposioHQ/composio (⭐30K, 相关度18) — 2026-09-05
+- **进度**: 112项目 / 315改进项 / 实施率约30.5% (96/315)
+- **最新学习**: deepset-ai/haystack (⭐26K, 相关度24) — 2026-09-06
 - **agent_core版本**: v2.1.0-p1-complete
 - **模块**: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration
 - **下一步**: 处理P0 pending项
@@ -55,6 +55,7 @@
 17. **refly-ai/refly** (⭐7.5K, 相关度34) - Vibe DSL Skill编译器+SOP 3分钟上线+Intervenable Runtime可介入热修+Universal Export单源多形态+Central Skill Registry资产治理 ✅已学习
 18. **katanemo/plano** (⭐7K, 相关度36) - 进程外数据平面(Envoy)+YAML声明式Agent编排+轻量4B路由模型+Model Agility统一路由+零代码Signals+OTEL+Filter Chain护栏 ✅已学习
 19. **ComposioHQ/composio** (⭐30K, 相关度18) - Meta-tools按需工具发现+工具语义搜索+Per-session工具作用域+认证托管+Provider Adapter层+会话级MCP端点 ✅已学习
+20. **deepset-ai/haystack** (⭐26K, 相关度24) - SkillToolset渐进式技能发现+Agent生命周期钩子+token_usage内建追踪+上下文工程显式化+Pipeline同步异步双模+Hayhooks部署层 ✅已学习
 
 ### P0待实施
 - agent_orchestrator: Spine脊柱架构 submit/emit单入单出+per-session lane（来自Raven）— **新增**
@@ -110,6 +111,8 @@
 - agent_orchestrator: 编排数据面解耦 Orchestrator独立为进程外服务+业务Agent注册即接入+扩容不改代码（来自plano）— **新增**
 - tool_registry: Meta-tools按需工具发现 discover/auth/execute元工具替代全量Schema预注入（来自composio）— **新增**
 - tool_registry: 工具语义搜索 按任务意图检索注册表中相关工具子集（来自composio）— **新增**
+- skill_system: 渐进式技能发现 SkillToolset模式 Skill描述不预载+运行时按任务意图按需注入上下文（来自haystack）— **新增**
+- eval_observability: Agent内建token_usage/step_count追踪 每次运行自动产出成本与步骤指标+无需外部埋点（来自haystack）— **新增**
 
 ### P1待实施
 - memory_system: User+Agent双轨记忆表面（来自EverOS）
@@ -131,11 +134,14 @@
 - eval_observability: 零代码信号采集 调度层自动捕获Agent调用追踪与信号+采样率配置（来自plano）— **新增**
 - tool_registry: Per-session工具作用域 会话级限定可用工具与凭证+防越权与上下文污染（来自composio）— **新增**
 - tool_registry: 统一认证托管 凭证集中管理+调用时自动注入+Agent侧零密钥（来自composio）— **新增**
+- agent_orchestrator: 生命周期钩子补齐before_llm/before_tool/on_exit级别（对齐nanobot+haystack实践）（来自haystack）— **新增**
+- context_injector: 显式上下文路由管道 检索→排序→过滤→组合→结构化→路由六阶段显式建模（来自haystack）— **新增**
 
 ### P2待实施
 - tool_registry: Skill确定性Schema input/output校验+失败恢复内置于Skill元数据(非自由文本prompt)（来自refly）— **新增**
 - agent_orchestrator: Filter Chain护栏链 入口模块化过滤器(安全审核/敏感词/记忆注入)+全Agent统一挂载（来自plano）— **新增**
 - tool_registry: Provider Adapter层 工具定义单源适配OpenAI/Claude/MCP等多格式（来自composio）— **新增**
+- claw_integration: Pipeline部署层 工作流一键暴露REST API/MCP Server/OpenAI兼容端点（来自haystack）— **新增**
 
 ---
 
