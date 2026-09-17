@@ -1700,6 +1700,29 @@
         "透明控制流 (循环/分支/条件显式定义)",
         "Hayhooks部署层 (Pipeline一键暴露REST API/MCP Server/OpenAI兼容端点)"
       ]
+    },
+    {
+      "name": "titanwings/distilly",
+      "url": "https://github.com/titanwings/distilly",
+      "stars": 24769,
+      "relevance": 38,
+      "language": "Python",
+      "analyzed_at": "2026-09-16T09:05:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-16_distilly.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "专家知识蒸馏 (从消息/文档蒸馏人物工作风格+知识+人格为可复用Skill)",
+        "双层Skill架构 (Work Skill + Persona, 执行时态度/能力/原声分离)",
+        "5层人格模型 (hard rules->identity->expression->decisions->interpersonal)",
+        "增量合并 (delta分析分区合并, 永不覆盖已有结论)",
+        "纠正层 (对话纠正立即生效无需重建)",
+        "版本控制+回滚 (每次更新自动归档, 可回滚任意历史版本)"
+      ]
     }
   ],
   "improvements": [
