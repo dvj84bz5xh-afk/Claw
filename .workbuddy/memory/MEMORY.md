@@ -9,8 +9,8 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 113项目 / 320改进项 / 实施率约30%
-- 最新学习: titanwings/distilly (⭐24.8K, 相关度38) — 2026-09-16
+- 进度: 114项目 / 325改进项 / 实施率约30%
+- 最新学习: Panniantong/Agent-Reach (⭐82.5K, 相关度35) — 2026-09-17
 - agent_core: v2.1.0-p1-complete
 - 模块: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration, storage, skill_system
 
@@ -25,7 +25,7 @@
 - memory_system: Cascade Daemon、正交五维分区、L0-L3分层管道、全可追溯链、Dream两阶段、Session Continuity、增量合并(delta分区不覆盖)、纠正层(立即生效)
 - context_injector: Shared State、Mermaid符号化压缩、Hash-Anchored Edit、Hierarchical AGENTS.md、Prompt版本化、Auto Compact、Tool Output Sandbox、Think-in-Code
 - model_scheduler: 声明式路由、凭证池轮转、Category-Based Delegation、Model Presets、Agent声明式路由
-- tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索
+- tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索、后端多路冗余(首选+备选降级路由)、真实探测健康检查
 - skill_system: SkillsHub市场、/meta-optimize、Markdown零锁定、Vibe DSL编译器、渐进式技能发现
 - storage: Markdown-as-Truth、StorageAdapter统一抽象
 - claw_integration: Evolver自进化、OME离线反思、6阶段进化管道、Heartbeat主动任务
@@ -36,16 +36,17 @@
 - memory_system: User+Agent双轨、预热指数退避、无状态Reducer
 - rag_engine: Knowledge Wiki、BM25+Vector+RRF混合检索 | storage: SQLite+LanceDB本地栈
 - eval_observability: 白盒记忆可调试、错误压缩+自愈、零代码信号采集
-- tool_registry: human_contact工具化、Batch Execute、Per-session作用域、统一认证托管
+- tool_registry: human_contact工具化、Batch Execute、Per-session作用域、统一认证托管、可插拔channel架构(按能力域组织)
 - context_injector: 拥有上下文窗口、Intent-Driven Filter、显式上下文路由
 - agent_orchestrator: 6-Hook补齐、before_llm/tool/on_exit钩子
 - skill_system: Skill资产化注册表、Universal Export、版本控制+回滚、双层结构(Work+Persona)
 - model_scheduler: 轻量意图路由模型(≤4B)
+- claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)
 
 **P2**
 - tool_registry: Skill确定性Schema、Provider Adapter层
 - agent_orchestrator: Filter Chain护栏链
-- claw_integration: Pipeline部署层、专家知识蒸馏管道
+- claw_integration: Pipeline部署层、专家知识蒸馏管道、能力层与实现层分离
 
 ## [TECH] 关键环境
 - Python 3.13.13 / Node 24.16.0 / Git 2.54.0
