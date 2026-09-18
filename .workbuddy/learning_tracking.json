@@ -1746,6 +1746,28 @@
         "默认安全dry-run (默认只检查, 显式授权才写入)",
         "Agent通用兼容 (注册SKILL.md即可用)"
       ]
+    },
+    {
+      "name": "feder-cr/AIHawk",
+      "url": "https://github.com/feder-cr/AIHawk",
+      "stars": 31625,
+      "relevance": 31,
+      "language": "Python",
+      "analyzed_at": "2026-09-18T09:09:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-18_aihawk.md",
+      "improvements_count": 4,
+      "priority_breakdown": {
+        "P0": 1,
+        "P1": 3,
+        "P2": 0
+      },
+      "key_innovations": [
+        "反检测浏览器引擎 (seed→fingerprint确定性指纹, 规避验证码封禁)",
+        "确定性身份 (--seed相同生成相同浏览器身份, 防指纹漂移)",
+        "代理与地理定位联动 (timezone/locale/egress跟随proxy)",
+        "MCP server一键接入 (uvx单命令接Claude Code/Codex/Gemini)",
+        "配置优先级链+密钥脱敏日志 (flag>env>.env>default, 日志不打印密钥值)"
+      ]
     }
   ],
   "improvements": [

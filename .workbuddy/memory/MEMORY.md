@@ -9,8 +9,8 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 114项目 / 325改进项 / 实施率约30%
-- 最新学习: Panniantong/Agent-Reach (⭐82.5K, 相关度35) — 2026-09-17
+- 进度: 115项目 / 329改进项 / 实施率约29%
+- 最新学习: feder-cr/AIHawk (⭐31.6K, 相关度31) — 2026-09-18
 - agent_core: v2.1.0-p1-complete
 - 模块: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration, storage, skill_system
 
@@ -25,7 +25,7 @@
 - memory_system: Cascade Daemon、正交五维分区、L0-L3分层管道、全可追溯链、Dream两阶段、Session Continuity、增量合并(delta分区不覆盖)、纠正层(立即生效)
 - context_injector: Shared State、Mermaid符号化压缩、Hash-Anchored Edit、Hierarchical AGENTS.md、Prompt版本化、Auto Compact、Tool Output Sandbox、Think-in-Code
 - model_scheduler: 声明式路由、凭证池轮转、Category-Based Delegation、Model Presets、Agent声明式路由
-- tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索、后端多路冗余(首选+备选降级路由)、真实探测健康检查
+- tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索、后端多路冗余(首选+备选降级路由)、真实探测健康检查、MCP工具一键接入(uvx打包)、确定性指纹身份(seed→fingerprint)
 - skill_system: SkillsHub市场、/meta-optimize、Markdown零锁定、Vibe DSL编译器、渐进式技能发现
 - storage: Markdown-as-Truth、StorageAdapter统一抽象
 - claw_integration: Evolver自进化、OME离线反思、6阶段进化管道、Heartbeat主动任务
@@ -41,7 +41,7 @@
 - agent_orchestrator: 6-Hook补齐、before_llm/tool/on_exit钩子
 - skill_system: Skill资产化注册表、Universal Export、版本控制+回滚、双层结构(Work+Persona)
 - model_scheduler: 轻量意图路由模型(≤4B)
-- claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)
+- claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)、代理与地理定位联动(timezone/locale/egress跟随)、密钥脱敏日志(日志不打印密钥值)+配置优先级链(flag>env>.env>default)
 
 **P2**
 - tool_registry: Skill确定性Schema、Provider Adapter层
