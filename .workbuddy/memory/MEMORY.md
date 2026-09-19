@@ -26,7 +26,7 @@
 - context_injector: Shared State、Mermaid符号化压缩、Hash-Anchored Edit、Hierarchical AGENTS.md、Prompt版本化、Auto Compact、Tool Output Sandbox、Think-in-Code
 - model_scheduler: 声明式路由、凭证池轮转、Category-Based Delegation、Model Presets、Agent声明式路由
 - tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索、后端多路冗余(首选+备选降级路由)、真实探测健康检查、MCP工具一键接入(uvx打包)、确定性指纹身份(seed→fingerprint)
-- skill_system: SkillsHub市场、/meta-optimize、Markdown零锁定、Vibe DSL编译器、渐进式技能发现
+- skill_system: SkillsHub市场、/meta-optimize、Markdown零锁定、Vibe DSL编译器、渐进式技能发现、自动学习管道(threads→Insights→reviewed Skills)
 - storage: Markdown-as-Truth、StorageAdapter统一抽象
 - claw_integration: Evolver自进化、OME离线反思、6阶段进化管道、Heartbeat主动任务
 - eval_observability: 14可观测矩阵、LLM-as-Judge、TracingMiddleware、反进化审计、token_usage追踪
@@ -41,7 +41,7 @@
 - agent_orchestrator: 6-Hook补齐、before_llm/tool/on_exit钩子
 - skill_system: Skill资产化注册表、Universal Export、版本控制+回滚、双层结构(Work+Persona)
 - model_scheduler: 轻量意图路由模型(≤4B)
-- claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)、代理与地理定位联动(timezone/locale/egress跟随)、密钥脱敏日志(日志不打印密钥值)+配置优先级链(flag>env>.env>default)
+- claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)、代理与地理定位联动(timezone/locale/egress跟随)、密钥脱敏日志(日志不打印密钥值)+配置优先级链(flag>env>.env>default)、BYO Agent Any Channel(编排层与前端/channel解耦)
 
 **P2**
 - tool_registry: Skill确定性Schema、Provider Adapter层
