@@ -1792,6 +1792,53 @@
         "自动学习管道 (threads->evidence-backed Insights->reviewed Skills, 无微调)",
         "Backend Tool Rendering (后端工具返回UI组件客户端渲染)"
       ]
+    },
+    {
+      "name": "1jehuang/jcode",
+      "url": "https://github.com/1jehuang/jcode",
+      "stars": 19907,
+      "relevance": 36,
+      "language": "Rust",
+      "analyzed_at": "2026-09-20T09:16:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-20_jcode.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "极致RAM效率harness (Rust, 1会话27.8MB/10会话117MB, 首帧14ms)",
+        "语义记忆图 (每turn向量化, cosine召回, memory sideagent被动提取+自动整合)",
+        "Swarm多Agent协作 (code shifting under feet检测+编辑冲突通知)",
+        "自主spawn swarm (coordinator/worker分离, root/worker effort分层)",
+        "mermaid-rs-renderer (1800x faster, 无浏览器依赖)",
+        "多provider统一接入 (OAuth+统一OpenAI-compatible+WebSocket预预热)"
+      ]
+    },
+    {
+      "name": "shareAI-lab/learn-claude-code",
+      "url": "https://github.com/shareAI-lab/learn-claude-code",
+      "stars": 77815,
+      "relevance": 42,
+      "language": "Python",
+      "analyzed_at": "2026-09-30T09:08:00",
+      "report_path": ".workbuddy/daily_learning/2026-09-30_learn-claude-code.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Harness工程化17课 (把Claude Code拆成17个可隔离机制)",
+        "Agency来自模型+harness是载体 (模型是司机, harness是车)",
+        "Permission先设边界再给自由 (三级权限: 能跑/必须停/需审批)",
+        "Hooks环绕loop加钩子永不重写loop",
+        "Context Compact先压tool results再总结历史 (四步压缩顺序)",
+        "Memory三子系统 (selection/extraction/consolidation)",
+        "Goal Loop独立评估器 (evaluator审核stop提议, 失败目标回退用户)"
+      ]
     }
   ],
   "improvements": [
@@ -5245,9 +5292,109 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-09-19T09:04:00"
+    },
+    {
+      "id": "jc-semmem-0920",
+      "source": "1jehuang/jcode",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "语义记忆图 — 每turn向量化+cosine召回, memory sideagent被动提取(semantic drift/K-turn/session-end触发)+自动整合(去重/查stale/查conflict)",
+      "effort": "large",
+      "status": "pending",
+      "created_at": "2026-09-20T09:16:00"
+    },
+    {
+      "id": "jc-conflict-0920",
+      "source": "1jehuang/jcode",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "Swarm编辑冲突通知 — 多agent并发检测已读文件被他人修改并通知受影响方",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-20T09:16:00"
+    },
+    {
+      "id": "jc-swarm-0920",
+      "source": "1jehuang/jcode",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "自主spawn swarm + root/worker effort分离(coordinator低effort+worker高effort)",
+      "effort": "large",
+      "status": "pending",
+      "created_at": "2026-09-20T09:16:00"
+    },
+    {
+      "id": "jc-provider-0920",
+      "source": "1jehuang/jcode",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "统一OpenAI-compatible provider + WebSocket传输预预热 + HTTPS回退",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-20T09:16:00"
+    },
+    {
+      "id": "jc-bench-0920",
+      "source": "1jehuang/jcode",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "资源效率公开基准 (RAM/首帧时间横向对比)",
+      "effort": "small",
+      "status": "pending",
+      "created_at": "2026-09-20T09:16:00"
+    },
+    {
+      "id": "lcc-goalloop-0930",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "Goal Loop独立评估器 — evaluator审核每次stop提议, impossible/failed/over-limit目标优雅回退用户",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-30T09:08:00"
+    },
+    {
+      "id": "lcc-compact-0930",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "Context Compact四步压缩顺序 — 先压缩tool results再总结历史, 仍超限才继续降级",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-30T09:08:00"
+    },
+    {
+      "id": "lcc-subagent-0930",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "Subagent上下文隔离 — 子任务拿fresh messages[], 最终文本作单一tool_result返回",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-30T09:08:00"
+    },
+    {
+      "id": "lcc-memory3-0930",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "记忆三子系统 — selection(选择)/extraction(提取)/consolidation(整合)三阶段分离",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-09-30T09:08:00"
+    },
+    {
+      "id": "lcc-worktree-0930",
+      "source": "shareAI-lab/learn-claude-code",
+      "priority": "P2",
+      "module": "agent_orchestrator",
+      "suggestion": "task-bound worktrees — 每任务独立工作目录, 并行编辑互不干扰",
+      "effort": "small",
+      "status": "pending",
+      "created_at": "2026-09-30T09:08:00"
     }
   ],
-  "last_updated": "2026-09-19T09:04:00",
+  "last_updated": "2026-09-30T09:08:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -5392,14 +5539,26 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-09-20T09:16:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-09-30T09:08:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 116,
-  "last_update": "2026-09-19T09:04:00",
-  "total_improvements": 320,
-  "total_p0": 117,
-  "total_p1": 170,
-  "total_p2": 33,
+  "total_projects": 118,
+  "last_update": "2026-09-30T09:08:00",
+  "total_improvements": 330,
+  "total_p0": 121,
+  "total_p1": 174,
+  "total_p2": 35,
   "historical_total": 283,
   "new_improvements_this_round": 10,
   "p0_new_this_round": 4,
