@@ -1839,6 +1839,29 @@
         "Memory三子系统 (selection/extraction/consolidation)",
         "Goal Loop独立评估器 (evaluator审核stop提议, 失败目标回退用户)"
       ]
+    },
+    {
+      "name": "browser-use/browser-harness",
+      "url": "https://github.com/browser-use/browser-harness",
+      "stars": 18247,
+      "relevance": 33,
+      "language": "Python",
+      "analyzed_at": "2026-10-01T09:07:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-01_browser-harness.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Self-healing harness (agent遇缺失能力即时写reusable helper, 随任务自我改进)",
+        "Protected core + agent-writable workspace分离 (核心受保护, 扩展区agent安全自扩展)",
+        "CDP websocket单层直连 (无中间包装层)",
+        "工具选择纪律+升级阶梯 (工具声明何时不用, fetch失败升级browser)",
+        "MCP stdio单层暴露 (单一CDP层, 任意MCP client驱动)",
+        "Daemon状态保持 (跨调用保持tab, 避免重复建连接)"
+      ]
     }
   ],
   "improvements": [
@@ -5392,9 +5415,59 @@
       "effort": "small",
       "status": "pending",
       "created_at": "2026-09-30T09:08:00"
+    },
+    {
+      "id": "bh-selfheal-1001",
+      "source": "browser-use/browser-harness",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "自愈harness — agent遇缺失能力即时写reusable helper持久化, harness随任务持续改进",
+      "effort": "large",
+      "status": "pending",
+      "created_at": "2026-10-01T09:07:00"
+    },
+    {
+      "id": "bh-protectcore-1001",
+      "source": "browser-use/browser-harness",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "Protected core + agent-writable workspace — 核心实现受保护不可变, 扩展区供agent安全自扩展",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-01T09:07:00"
+    },
+    {
+      "id": "bh-toolselect-1001",
+      "source": "browser-use/browser-harness",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "工具选择纪律+升级阶梯 — 每个工具声明何时不用, 轻量方案失败才升级重工具",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-01T09:07:00"
+    },
+    {
+      "id": "bh-mcpstdio-1001",
+      "source": "browser-use/browser-harness",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "MCP stdio单层暴露 — 能力用单一协议层暴露, 任意MCP client驱动, 避免重复写适配层",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-01T09:07:00"
+    },
+    {
+      "id": "bh-daemon-1001",
+      "source": "browser-use/browser-harness",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "Daemon状态保持 — 跨调用保持会话状态, 避免重复建连接/重复操作",
+      "effort": "small",
+      "status": "pending",
+      "created_at": "2026-10-01T09:07:00"
     }
   ],
-  "last_updated": "2026-09-30T09:08:00",
+  "last_updated": "2026-10-01T09:07:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -5551,14 +5624,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-01T09:07:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 118,
-  "last_update": "2026-09-30T09:08:00",
-  "total_improvements": 330,
-  "total_p0": 121,
-  "total_p1": 174,
-  "total_p2": 35,
+  "total_projects": 119,
+  "last_update": "2026-10-01T09:07:00",
+  "total_improvements": 335,
+  "total_p0": 123,
+  "total_p1": 176,
+  "total_p2": 36,
   "historical_total": 283,
   "new_improvements_this_round": 10,
   "p0_new_this_round": 4,
