@@ -1862,6 +1862,30 @@
         "MCP stdio单层暴露 (单一CDP层, 任意MCP client驱动)",
         "Daemon状态保持 (跨调用保持tab, 避免重复建连接)"
       ]
+    },
+    {
+      "name": "zhayujie/CowAgent",
+      "url": "https://github.com/zhayujie/CowAgent",
+      "stars": 47205,
+      "relevance": 44,
+      "language": "Python",
+      "analyzed_at": "2026-10-02T09:06:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-02_cowagent.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "记忆三轨互补双系统(时间序+主题序)",
+        "按主题知识库+可视化知识图谱",
+        "Deep Dream蒸馏",
+        "Self-Evolution主动跟进未完成任务",
+        "多模态能力路由矩阵(六能力独立路由)",
+        "MCP单文件接入+按需检索+热重载",
+        "Tools/Skills原子能力vs高阶工作流分层"
+      ]
     }
   ],
   "improvements": [
@@ -5465,9 +5489,59 @@
       "effort": "small",
       "status": "pending",
       "created_at": "2026-10-01T09:07:00"
+    },
+    {
+      "id": "cow-kbgraph-1002",
+      "source": "zhayujie/CowAgent",
+      "priority": "P0",
+      "module": "rag_engine",
+      "suggestion": "按主题知识库+可视化知识图谱 — 自动策展Markdown wiki按主题组织, 维护交叉引用, Web控制台交互式图谱浏览",
+      "effort": "large",
+      "status": "pending",
+      "created_at": "2026-10-02T09:06:00"
+    },
+    {
+      "id": "cow-dualsys-1002",
+      "source": "zhayujie/CowAgent",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "时间序+主题序双系统互补 — 何时发生走时间序记忆, 关于什么走主题知识库, 两套索引互补",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-02T09:06:00"
+    },
+    {
+      "id": "cow-mmroute-1002",
+      "source": "zhayujie/CowAgent",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "多模态能力路由矩阵 — chat/vision/image/ASR/TTS/embedding 六能力独立路由不同厂商, 能力×厂商矩阵",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-02T09:06:00"
+    },
+    {
+      "id": "cow-mcp-demand-1002",
+      "source": "zhayujie/CowAgent",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "MCP按需检索+热重载 — 运行时按需检索MCP工具避免全量注入, mcp.json改动热重载",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-02T09:06:00"
+    },
+    {
+      "id": "cow-teamctx-1002",
+      "source": "zhayujie/CowAgent",
+      "priority": "P2",
+      "module": "agent_orchestrator",
+      "suggestion": "多Agent团队独立上下文 — 每Agent独立role/model/skills/knowledge, 共享会话内协作",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-02T09:06:00"
     }
   ],
-  "last_updated": "2026-10-01T09:07:00",
+  "last_updated": "2026-10-02T09:06:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -5630,14 +5704,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-02T09:06:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 119,
-  "last_update": "2026-10-01T09:07:00",
-  "total_improvements": 335,
-  "total_p0": 123,
-  "total_p1": 176,
-  "total_p2": 36,
+  "total_projects": 120,
+  "last_update": "2026-10-02T09:06:00",
+  "total_improvements": 340,
+  "total_p0": 125,
+  "total_p1": 178,
+  "total_p2": 37,
   "historical_total": 283,
   "new_improvements_this_round": 10,
   "p0_new_this_round": 4,
