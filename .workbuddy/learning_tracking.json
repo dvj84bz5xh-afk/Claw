@@ -1886,6 +1886,29 @@
         "MCP单文件接入+按需检索+热重载",
         "Tools/Skills原子能力vs高阶工作流分层"
       ]
+    },
+    {
+      "name": "bojieli/ai-agent-book",
+      "url": "https://github.com/bojieli/ai-agent-book",
+      "stars": 52112,
+      "relevance": 45,
+      "language": "Python",
+      "analyzed_at": "2026-10-03T09:07:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-03_ai-agent-book.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "核心公式Agent=LLM+上下文+工具, Harness工程才是竞争力",
+        "上下文工程四支柱(KV Cache/提示工程/Agent Skills/上下文压缩)",
+        "工具三分类(感知/执行/协作)+主动工具发现",
+        "观察与动作空间扩展(异步事件驱动/语音/Computer Use/机器人)",
+        "评估统计显著性+评估驱动选型",
+        "持续进化四层面(知识/指令/程序/参数)"
+      ]
     }
   ],
   "improvements": [
@@ -5539,9 +5562,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-02T09:06:00"
+    },
+    {
+      "id": "aab-tool3-1003",
+      "source": "bojieli/ai-agent-book",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "工具三分类+主动工具发现 — 按感知/执行/协作能力域组织, agent主动检索发现可用工具而非被动全量注入",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-03T09:07:00"
+    },
+    {
+      "id": "aab-evalsig-1003",
+      "source": "bojieli/ai-agent-book",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "评估统计显著性+评估驱动选型 — 用统计显著性判断改进真实有效, 评估结果驱动模型/工具选型",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-03T09:07:00"
+    },
+    {
+      "id": "aab-async-1003",
+      "source": "bojieli/ai-agent-book",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "异步与事件驱动交互 — 从请求-响应扩展到事件驱动, 观察与动作空间按模态+时序两维扩展",
+      "effort": "large",
+      "status": "pending",
+      "created_at": "2026-10-03T09:07:00"
+    },
+    {
+      "id": "aab-ctx4-1003",
+      "source": "bojieli/ai-agent-book",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "上下文工程四支柱 — KV Cache管理+提示工程+Agent Skills+上下文压缩统一框架",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-03T09:07:00"
+    },
+    {
+      "id": "aab-evo4-1003",
+      "source": "bojieli/ai-agent-book",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "持续进化四层面 — 从运行轨迹取学习信号, 按知识/指令/程序/参数分层更新",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-03T09:07:00"
     }
   ],
-  "last_updated": "2026-10-02T09:06:00",
+  "last_updated": "2026-10-03T09:07:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -5710,14 +5783,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-03T09:07:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 120,
-  "last_update": "2026-10-02T09:06:00",
-  "total_improvements": 340,
-  "total_p0": 125,
-  "total_p1": 178,
-  "total_p2": 37,
+  "total_projects": 121,
+  "last_update": "2026-10-03T09:07:00",
+  "total_improvements": 345,
+  "total_p0": 127,
+  "total_p1": 180,
+  "total_p2": 38,
   "historical_total": 283,
   "new_improvements_this_round": 10,
   "p0_new_this_round": 4,

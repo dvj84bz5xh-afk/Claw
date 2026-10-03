@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v2.0 | 最后更新: 2026-10-02
+# 格式版本: v2.0 | 最后更新: 2026-10-03
 
 ## [USER] 用户偏好
 - 职业: 执法培训 + 诈骗园区调查 + CodeBuddy产品经理
@@ -9,8 +9,8 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 120项目 / 340改进项 / 实施率约29%
-- 最新学习: zhayujie/CowAgent (⭐47.2K, 相关度44) — 2026-10-02
+- 进度: 121项目 / 345改进项 / 实施率约29%
+- 最新学习: bojieli/ai-agent-book (⭐52.1K, 相关度45) — 2026-10-03
 - agent_core: v2.1.0-p1-complete
 - 模块: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration, storage, skill_system
 
@@ -26,11 +26,11 @@
 - rag_engine: 按主题知识库+可视化知识图谱(自动策展Markdown wiki按主题组织, 维护交叉引用, 交互式图谱浏览)
 - context_injector: Shared State、Mermaid符号化压缩、Hash-Anchored Edit、Hierarchical AGENTS.md、Prompt版本化、Auto Compact、Tool Output Sandbox、Think-in-Code、Context Compact四步压缩顺序(先压tool results再总结历史)
 - model_scheduler: 声明式路由、凭证池轮转、Category-Based Delegation、Model Presets、Agent声明式路由
-- tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索、后端多路冗余(首选+备选降级路由)、真实探测健康检查、MCP工具一键接入(uvx打包)、确定性指纹身份(seed→fingerprint)、Protected core+agent-writable workspace(核心受保护不可变, 扩展区agent安全自扩展)
+- tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索、后端多路冗余(首选+备选降级路由)、真实探测健康检查、MCP工具一键接入(uvx打包)、确定性指纹身份(seed→fingerprint)、Protected core+agent-writable workspace(核心受保护不可变, 扩展区agent安全自扩展)、工具三分类(感知/执行/协作)+主动工具发现(agent主动检索发现可用工具而非被动全量注入)
 - skill_system: SkillsHub市场、/meta-optimize、Markdown零锁定、Vibe DSL编译器、渐进式技能发现、自动学习管道(threads→Insights→reviewed Skills)
 - storage: Markdown-as-Truth、StorageAdapter统一抽象
 - claw_integration: Evolver自进化、OME离线反思、6阶段进化管道、Heartbeat主动任务、自愈harness(agent遇缺失能力即时写reusable helper随任务改进)
-- eval_observability: 14可观测矩阵、LLM-as-Judge、TracingMiddleware、反进化审计、token_usage追踪
+- eval_observability: 14可观测矩阵、LLM-as-Judge、TracingMiddleware、反进化审计、token_usage追踪、评估统计显著性+评估驱动选型(用统计显著性判断改进真实有效, 评估结果驱动模型/工具选型)
 - agent_core: MiddlewareBase | progressive_loader: GEP基因编码
 
 **P1**
@@ -38,16 +38,16 @@
 - rag_engine: Knowledge Wiki、BM25+Vector+RRF混合检索 | storage: SQLite+LanceDB本地栈
 - eval_observability: 白盒记忆可调试、错误压缩+自愈、零代码信号采集
 - tool_registry: human_contact工具化、Batch Execute、Per-session作用域、统一认证托管、可插拔channel架构(按能力域组织)、Backend Tool Rendering(工具返回UI组件)、工具选择纪律+升级阶梯(工具声明何时不用, 轻量失败升级重工具)、MCP stdio单层暴露(单一协议层, 任意MCP client驱动)、MCP按需检索+热重载(运行时按需检索MCP工具避免全量注入, mcp.json改动热重载)
-- context_injector: 拥有上下文窗口、Intent-Driven Filter、显式上下文路由
+- context_injector: 拥有上下文窗口、Intent-Driven Filter、显式上下文路由、上下文工程四支柱(KV Cache管理+提示工程+Agent Skills+上下文压缩统一框架)
 - agent_orchestrator: 6-Hook补齐、before_llm/tool/on_exit钩子、自主spawn swarm+root/worker effort分离、Subagent上下文隔离(fresh messages[]+单一tool_result)
 - skill_system: Skill资产化注册表、Universal Export、版本控制+回滚、双层结构(Work+Persona)
 - model_scheduler: 轻量意图路由模型(≤4B)、统一OpenAI-compatible provider+WebSocket预预热+HTTPS回退、多模态能力路由矩阵(chat/vision/image/ASR/TTS/embedding六能力独立路由不同厂商)
-- claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)、代理与地理定位联动(timezone/locale/egress跟随)、密钥脱敏日志(日志不打印密钥值)+配置优先级链(flag>env>.env>default)、BYO Agent Any Channel(编排层与前端/channel解耦)
+- claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)、代理与地理定位联动(timezone/locale/egress跟随)、密钥脱敏日志(日志不打印密钥值)+配置优先级链(flag>env>.env>default)、BYO Agent Any Channel(编排层与前端/channel解耦)、异步与事件驱动交互(从请求-响应扩展到事件驱动, 观察与动作空间按模态+时序两维扩展)
 
 **P2**
 - tool_registry: Skill确定性Schema、Provider Adapter层
 - agent_orchestrator: Filter Chain护栏链、task-bound worktrees(每任务独立工作目录并行编辑)、多Agent团队独立上下文(每Agent独立role/model/skills/knowledge, 共享会话内协作)
-- claw_integration: Pipeline部署层、专家知识蒸馏管道、能力层与实现层分离、Daemon状态保持(跨调用保持会话状态, 避免重复建连接)
+- claw_integration: Pipeline部署层、专家知识蒸馏管道、能力层与实现层分离、Daemon状态保持(跨调用保持会话状态, 避免重复建连接)、持续进化四层面(从运行轨迹取学习信号, 按知识/指令/程序/参数分层更新)
 - eval_observability: Product Analytics(从交互数据洞察agent行为与价值分布)、资源效率公开基准(RAM/首帧时间对比)
 
 ## [TECH] 关键环境

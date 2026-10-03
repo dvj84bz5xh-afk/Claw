@@ -51,10 +51,10 @@ tr:hover { background: #1a1d28; }
 <p class="subtitle">通过 GitHub 高星项目迭代 CodeBuddy 能力 | 细水长流模式 | 每日1项目</p>
 
 <div class="stats-grid">
-<div class="stat-card"><div class="stat-label">学习项目总数</div><div class="stat-value blue">120</div><div class="stat-sub">累计分析GitHub项目</div></div>
-<div class="stat-card"><div class="stat-label">改进项总数</div><div class="stat-value purple">340</div><div class="stat-sub">已识别可借鉴改进点</div></div>
-<div class="stat-card"><div class="stat-label">已实施</div><div class="stat-value green">96</div><div class="stat-sub">实施率 28.2%</div></div>
-<div class="stat-card"><div class="stat-label">P0 待实施</div><div class="stat-value red">99</div><div class="stat-sub">高优先级待处理</div></div>
+<div class="stat-card"><div class="stat-label">学习项目总数</div><div class="stat-value blue">121</div><div class="stat-sub">累计分析GitHub项目</div></div>
+<div class="stat-card"><div class="stat-label">改进项总数</div><div class="stat-value purple">345</div><div class="stat-sub">已识别可借鉴改进点</div></div>
+<div class="stat-card"><div class="stat-label">已实施</div><div class="stat-value green">96</div><div class="stat-sub">实施率 27.8%</div></div>
+<div class="stat-card"><div class="stat-label">P0 待实施</div><div class="stat-value red">101</div><div class="stat-sub">高优先级待处理</div></div>
 </div>
 
 <div class="section">
@@ -195,6 +195,16 @@ tr:hover { background: #1a1d28; }
 <table>
 <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>语言</th><th>日期</th><th>改进项</th><th>P0</th><th>P1</th></tr></thead>
 <tbody>
+<tr>
+<td><a href="https://github.com/bojieli/ai-agent-book" target="_blank" style="color:#4fc3f7;text-decoration:none;">bojieli/ai-agent-book</a></td>
+<td>&#11088;52,112</td>
+<td>45</td>
+<td>Python</td>
+<td>2026-10-03</td>
+<td>5</td>
+<td><span class="badge badge-p0">2</span></td>
+<td><span class="badge badge-p1">2</span></td>
+</tr>
 <tr>
 <td><a href="https://github.com/zhayujie/CowAgent" target="_blank" style="color:#4fc3f7;text-decoration:none;">zhayujie/CowAgent</a></td>
 <td>&#11088;47,205</td>
@@ -382,26 +392,25 @@ tr:hover { background: #1a1d28; }
 <div class="section">
 <div class="section-title">语言分布</div>
 <div class="lang-bar">
-<div class="lang-tag">N/A <span>52</span></div><div class="lang-tag">Python <span>39</span></div><div class="lang-tag">TypeScript <span>18</span></div><div class="lang-tag">Rust <span>5</span></div><div class="lang-tag">JavaScript <span>2</span></div><div class="lang-tag">HTML <span>1</span></div><div class="lang-tag">Clojure <span>1</span></div><div class="lang-tag">Protocol (protobuf + multi-SDK) <span>1</span></div><div class="lang-tag">Shell/Marketdown <span>1</span></div></div>
+<div class="lang-tag">N/A <span>52</span></div><div class="lang-tag">Python <span>40</span></div><div class="lang-tag">TypeScript <span>18</span></div><div class="lang-tag">Rust <span>5</span></div><div class="lang-tag">JavaScript <span>2</span></div><div class="lang-tag">HTML <span>1</span></div><div class="lang-tag">Clojure <span>1</span></div><div class="lang-tag">Protocol (protobuf + multi-SDK) <span>1</span></div><div class="lang-tag">Shell/Marketdown <span>1</span></div></div>
 </div>
 
 <div class="section">
-<div class="section-title">最新学习: <a href="https://github.com/zhayujie/CowAgent" target="_blank" style="color:#4fc3f7;text-decoration:none;">zhayujie/CowAgent</a> (2026-10-02 | &#11088;47,205 | 相关度44)</div>
+<div class="section-title">最新学习: <a href="https://github.com/bojieli/ai-agent-book" target="_blank" style="color:#4fc3f7;text-decoration:none;">bojieli/ai-agent-book</a> (2026-10-03 | &#11088;52,112 | 相关度45)</div>
 <div class="stat-card" style="padding:16px;">
 <div style="font-size:14px;line-height:1.8;">
 <strong>核心创新:</strong><br>
-1. 记忆三轨互补双系统 (time-ordered记忆 + 按主题知识库, 时间序与主题序互补)<br>
-2. 按主题知识库 + 可视化知识图谱 (自动策展Markdown wiki + 交互式图谱浏览)<br>
-3. Deep Dream蒸馏 (每晚把零散记忆蒸馏为精炼长期条目+叙事日志)<br>
-4. Self-Evolution主动跟进 (自动审查对话改进技能+跟进未完成任务)<br>
-5. 多模态能力路由矩阵 (chat/vision/image/ASR/TTS/embedding六能力独立路由不同厂商)<br>
-6. MCP单文件接入+按需检索+热重载 (一个mcp.json, stdio/SSE, on-demand工具检索)<br>
-7. Tools/Skills分层 (工具=原子能力, 技能=高阶工作流manifest)<br>
-8. 多Agent团队 (每Agent独立role/model/skills/knowledge, 共享会话协作)<br>
+1. 核心公式 Agent=LLM+上下文+工具 (Harness工程才是竞争力)<br>
+2. 上下文工程四支柱 (KV Cache管理 + 提示工程 + Agent Skills + 上下文压缩)<br>
+3. 工具三分类 + 主动工具发现 (感知/执行/协作, agent主动检索发现)<br>
+4. 观察与动作空间扩展 (异步事件驱动 + 语音 + Computer Use + 机器人)<br>
+5. 评估统计显著性 + 评估驱动选型 (统计显著性判断改进真实有效)<br>
+6. 持续进化四层面 (从运行轨迹取信号, 知识/指令/程序/参数分层更新)<br>
+7. 多Agent协作 (群体智能高于个体, 上下文共享/隔离权衡)<br>
 </div>
 </div>
 </div>
-<div class="update-time">最后更新: 2026-10-02 09:06 | 自动化ID: automation-1779863408739 | 细水长流模式</div>
+<div class="update-time">最后更新: 2026-10-03 09:07 | 自动化ID: automation-1779863408739 | 细水长流模式</div>
 </div>
 </body>
 </html>
