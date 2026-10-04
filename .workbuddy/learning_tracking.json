@@ -1909,6 +1909,29 @@
         "评估统计显著性+评估驱动选型",
         "持续进化四层面(知识/指令/程序/参数)"
       ]
+    },
+    {
+      "name": "QwenLM/qwen-code",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "stars": 28288,
+      "relevance": 40,
+      "language": "TypeScript",
+      "analyzed_at": "2026-10-04T09:08:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-04_qwen-code.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Agent Arena多模型同任务对抗评估(评估驱动选型)",
+        "Daemon Mode qwen serve多客户端共享Agent(常驻服务)",
+        "Auto-Memory+Auto-Skills零配置开箱即用",
+        "Built-in Skills内置原子技能集(/review /batch /loop /bugfix)",
+        "Self-iterating dogfooding(Agent自举维护自身仓库)",
+        "SWE-bench工程化评估(500例3trials7版本, 77.8%均分)"
+      ]
     }
   ],
   "improvements": [
@@ -5612,9 +5635,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-03T09:07:00"
+    },
+    {
+      "id": "b86b49a6",
+      "source": "QwenLM/qwen-code",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "Agent Arena多模型同任务对抗评估: 同一任务并发派发多模型head-to-head对比, 统计显著性判断, 评估结果直接驱动模型/工具选型",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-04T09:08:00"
+    },
+    {
+      "id": "134a22ff",
+      "source": "QwenLM/qwen-code",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "Daemon Mode常驻服务(claw serve): Agent作为守护进程, 多客户端共享同一会话状态与上下文, 避免重复建连接",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-04T09:08:00"
+    },
+    {
+      "id": "85baf48a",
+      "source": "QwenLM/qwen-code",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "Auto-Memory零配置: 会话级记忆自动捕获与持久化, 无需用户显式配置/命令",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-04T09:08:00"
+    },
+    {
+      "id": "10f4c430",
+      "source": "QwenLM/qwen-code",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "Built-in Skills内置原子技能集: 预置/review /batch /loop /bugfix等高频命令开箱即用",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-04T09:08:00"
+    },
+    {
+      "id": "a1d37990",
+      "source": "QwenLM/qwen-code",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "Self-iterating dogfooding: 让Claw自身agent维护Claw仓库(提交issue/PR/审查/测试), 形成自举进化闭环",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-04T09:08:00"
     }
   ],
-  "last_updated": "2026-10-03T09:07:00",
+  "last_updated": "2026-10-04T09:08:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -5789,17 +5862,28 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "round": 30,
+      "date": "2026-10-04",
+      "project": "QwenLM/qwen-code",
+      "stars": 28288,
+      "relevance": 40,
+      "improvements": 5,
+      "p0": 2,
+      "p1": 2,
+      "p2": 1
     }
   ],
-  "total_projects": 121,
-  "last_update": "2026-10-03T09:07:00",
-  "total_improvements": 345,
-  "total_p0": 127,
-  "total_p1": 180,
-  "total_p2": 38,
+  "total_projects": 122,
+  "last_update": "2026-10-04T09:08:00",
+  "total_improvements": 350,
+  "total_p0": 129,
+  "total_p1": 182,
+  "total_p2": 39,
   "historical_total": 283,
-  "new_improvements_this_round": 10,
-  "p0_new_this_round": 4,
-  "p1_new_this_round": 4,
-  "p2_new_this_round": 2
+  "new_improvements_this_round": 5,
+  "p0_new_this_round": 2,
+  "p1_new_this_round": 2,
+  "p2_new_this_round": 1
 }
