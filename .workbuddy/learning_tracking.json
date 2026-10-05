@@ -1932,6 +1932,29 @@
         "Self-iterating dogfooding(Agent自举维护自身仓库)",
         "SWE-bench工程化评估(500例3trials7版本, 77.8%均分)"
       ]
+    },
+    {
+      "name": "TauricResearch/TradingAgents",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "stars": 109782,
+      "relevance": 38,
+      "language": "Python",
+      "analyzed_at": "2026-10-05T09:07:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-05_tradingagents.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "多Agent角色分工+动态辩论决策(风险团队制衡)",
+        "provider per model tier分层模型路由(决策层强模型+分析层轻模型)",
+        "point-in-time integrity时间点完整性(杜绝look-ahead未来信息泄漏)",
+        "checkpoint resume断点续跑(graph-shape-aware)",
+        "decision-log memory决策日志记忆(回溯审计+模式学习)",
+        "structured-output agents结构化输出"
+      ]
     }
   ],
   "improvements": [
@@ -5685,9 +5708,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-04T09:08:00"
+    },
+    {
+      "id": "1a55342c",
+      "source": "TauricResearch/TradingAgents",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "多Agent辩论式决策+风险团队制衡: 子Agent产出后由审核方交叉制衡、动态辩论后定案, 提升复杂决策质量",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-05T09:07:00"
+    },
+    {
+      "id": "cd1bceb0",
+      "source": "TauricResearch/TradingAgents",
+      "priority": "P0",
+      "module": "model_scheduler",
+      "suggestion": "provider per model tier: 按Agent角色层级路由不同模型(决策层强模型+执行/分析层轻量模型), 成本与能力分层匹配",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-05T09:07:00"
+    },
+    {
+      "id": "439cf948",
+      "source": "TauricResearch/TradingAgents",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "point-in-time integrity时间点完整性: 评估/回测严格按时间点取数, 只看当时已发布数据, 杜绝look-ahead未来信息泄漏虚高指标",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-05T09:07:00"
+    },
+    {
+      "id": "4d2e4e37",
+      "source": "TauricResearch/TradingAgents",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "checkpoint resume断点续跑(graph-shape-aware): 工作流任意节点中断后从检查点恢复, 避免重复计算与状态丢失",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-05T09:07:00"
+    },
+    {
+      "id": "fbd60516",
+      "source": "TauricResearch/TradingAgents",
+      "priority": "P2",
+      "module": "memory_system",
+      "suggestion": "decision-log memory决策日志记忆: 持久化决策轨迹(输入/推理/结论), 支持回溯审计与模式学习",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-05T09:07:00"
     }
   ],
-  "last_updated": "2026-10-04T09:08:00",
+  "last_updated": "2026-10-05T09:07:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -5873,14 +5946,25 @@
       "p0": 2,
       "p1": 2,
       "p2": 1
+    },
+    {
+      "round": 31,
+      "date": "2026-10-05",
+      "project": "TauricResearch/TradingAgents",
+      "stars": 109782,
+      "relevance": 38,
+      "improvements": 5,
+      "p0": 2,
+      "p1": 2,
+      "p2": 1
     }
   ],
-  "total_projects": 122,
-  "last_update": "2026-10-04T09:08:00",
-  "total_improvements": 350,
-  "total_p0": 129,
-  "total_p1": 182,
-  "total_p2": 39,
+  "total_projects": 123,
+  "last_update": "2026-10-05T09:07:00",
+  "total_improvements": 355,
+  "total_p0": 131,
+  "total_p1": 184,
+  "total_p2": 40,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,

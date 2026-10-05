@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v2.0 | 最后更新: 2026-10-04
+# 格式版本: v2.0 | 最后更新: 2026-10-05
 
 ## [USER] 用户偏好
 - 职业: 执法培训 + 诈骗园区调查 + CodeBuddy产品经理
@@ -9,8 +9,8 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 122项目 / 350改进项 / 实施率约27%
-- 最新学习: QwenLM/qwen-code (⭐28.3K, 相关度40) — 2026-10-04
+- 进度: 123项目 / 355改进项 / 实施率约27%
+- 最新学习: TauricResearch/TradingAgents (⭐109.8K, 相关度38) — 2026-10-05
 - agent_core: v2.1.0-p1-complete
 - 模块: model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration, storage, skill_system
 
@@ -21,11 +21,11 @@
 
 ### 待实施改进(按模块分组)
 **P0**
-- agent_orchestrator: Spine脊柱、Sentinel主动引擎、IntentGate、Goal Continuation、ExecutionState、lane级小Agent、AgentLoop/Runner分离、AgentHook三层、Intervenable Runtime、编排数据面解耦、ACP适配器、AG-UI Protocol、工作流检查点、Human-in-the-Loop(暂停/确认机制)、Swarm编辑冲突通知(code shifting under feet检测)、Goal Loop独立评估器(evaluator审核stop提议+失败目标回退用户)
+- agent_orchestrator: Spine脊柱、Sentinel主动引擎、IntentGate、Goal Continuation、ExecutionState、lane级小Agent、AgentLoop/Runner分离、AgentHook三层、Intervenable Runtime、编排数据面解耦、ACP适配器、AG-UI Protocol、工作流检查点、Human-in-the-Loop(暂停/确认机制)、Swarm编辑冲突通知(code shifting under feet检测)、Goal Loop独立评估器(evaluator审核stop提议+失败目标回退用户)、多Agent辩论式决策+风险团队制衡(子Agent产出后由审核方交叉制衡、动态辩论后定案)
 - memory_system: Cascade Daemon、正交五维分区、L0-L3分层管道、全可追溯链、Dream两阶段、Session Continuity、增量合并(delta分区不覆盖)、纠正层(立即生效)、语义记忆图(每turn向量化+cosine召回+被动提取+自动整合)、时间序+主题序双系统互补(何时发生走时间序记忆, 关于什么走主题知识库)
 - rag_engine: 按主题知识库+可视化知识图谱(自动策展Markdown wiki按主题组织, 维护交叉引用, 交互式图谱浏览)
 - context_injector: Shared State、Mermaid符号化压缩、Hash-Anchored Edit、Hierarchical AGENTS.md、Prompt版本化、Auto Compact、Tool Output Sandbox、Think-in-Code、Context Compact四步压缩顺序(先压tool results再总结历史)
-- model_scheduler: 声明式路由、凭证池轮转、Category-Based Delegation、Model Presets、Agent声明式路由
+- model_scheduler: 声明式路由、凭证池轮转、Category-Based Delegation、Model Presets、Agent声明式路由、provider per model tier(按Agent角色层级路由不同模型: 决策层强模型+执行/分析层轻量模型)
 - tool_registry: Skill-Embedded MCPs、输出Schema标准化、Meta-tools、工具语义搜索、后端多路冗余(首选+备选降级路由)、真实探测健康检查、MCP工具一键接入(uvx打包)、确定性指纹身份(seed→fingerprint)、Protected core+agent-writable workspace(核心受保护不可变, 扩展区agent安全自扩展)、工具三分类(感知/执行/协作)+主动工具发现(agent主动检索发现可用工具而非被动全量注入)
 - skill_system: SkillsHub市场、/meta-optimize、Markdown零锁定、Vibe DSL编译器、渐进式技能发现、自动学习管道(threads→Insights→reviewed Skills)
 - storage: Markdown-as-Truth、StorageAdapter统一抽象
@@ -34,12 +34,12 @@
 - agent_core: MiddlewareBase | progressive_loader: GEP基因编码
 
 **P1**
-- memory_system: User+Agent双轨、预热指数退避、无状态Reducer、记忆三子系统(selection/extraction/consolidation)、Auto-Memory零配置(会话记忆自动捕获无需显式配置)
+- memory_system: User+Agent双轨、预热指数退避、无状态Reducer、记忆三子系统(selection/extraction/consolidation)、Auto-Memory零配置(会话记忆自动捕获无需显式配置)、decision-log memory决策日志记忆(持久化决策轨迹输入/推理/结论, 支持回溯审计+模式学习)
 - rag_engine: Knowledge Wiki、BM25+Vector+RRF混合检索 | storage: SQLite+LanceDB本地栈
-- eval_observability: 白盒记忆可调试、错误压缩+自愈、零代码信号采集
+- eval_observability: 白盒记忆可调试、错误压缩+自愈、零代码信号采集、point-in-time integrity时间点完整性(评估/回测严格按时间点取数, 只看当时已发布数据, 杜绝look-ahead未来信息泄漏虚高指标)
 - tool_registry: human_contact工具化、Batch Execute、Per-session作用域、统一认证托管、可插拔channel架构(按能力域组织)、Backend Tool Rendering(工具返回UI组件)、工具选择纪律+升级阶梯(工具声明何时不用, 轻量失败升级重工具)、MCP stdio单层暴露(单一协议层, 任意MCP client驱动)、MCP按需检索+热重载(运行时按需检索MCP工具避免全量注入, mcp.json改动热重载)
 - context_injector: 拥有上下文窗口、Intent-Driven Filter、显式上下文路由、上下文工程四支柱(KV Cache管理+提示工程+Agent Skills+上下文压缩统一框架)
-- agent_orchestrator: 6-Hook补齐、before_llm/tool/on_exit钩子、自主spawn swarm+root/worker effort分离、Subagent上下文隔离(fresh messages[]+单一tool_result)
+- agent_orchestrator: 6-Hook补齐、before_llm/tool/on_exit钩子、自主spawn swarm+root/worker effort分离、Subagent上下文隔离(fresh messages[]+单一tool_result)、checkpoint resume断点续跑(graph-shape-aware, 任意节点中断后从检查点恢复避免重复计算)
 - skill_system: Skill资产化注册表、Universal Export、版本控制+回滚、双层结构(Work+Persona)、Built-in Skills内置原子技能集(/review /batch /loop /bugfix)
 - model_scheduler: 轻量意图路由模型(≤4B)、统一OpenAI-compatible provider+WebSocket预预热+HTTPS回退、多模态能力路由矩阵(chat/vision/image/ASR/TTS/embedding六能力独立路由不同厂商)
 - claw_integration: 默认安全dry-run(安装/配置默认只读预览, 显式授权才写入)、代理与地理定位联动(timezone/locale/egress跟随)、密钥脱敏日志(日志不打印密钥值)+配置优先级链(flag>env>.env>default)、BYO Agent Any Channel(编排层与前端/channel解耦)、异步与事件驱动交互(从请求-响应扩展到事件驱动, 观察与动作空间按模态+时序两维扩展)
