@@ -1979,6 +1979,29 @@
         "MCP集成+LSP抽象层(40+语言双后端)",
         "交互式调试(REPL断点/变量/表达式)"
       ]
+    },
+    {
+      "name": "assafelovic/gpt-researcher",
+      "url": "https://github.com/assafelovic/gpt-researcher",
+      "stars": 29930,
+      "relevance": 38,
+      "language": "Python",
+      "analyzed_at": "2026-10-07T09:01:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-07_gpt-researcher.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Planner-Executor-Publisher三段式编排(规划/执行/发布分离)",
+        "source-tracking来源追踪+引用(事实准确可追溯)",
+        "并行化executor agent采集",
+        "Plan-and-Solve+RAG结合(突破token限制)",
+        "任务特定agent动态创建(领域定制)",
+        "反幻觉设计(过时知识/token限制/单一信源偏见)"
+      ]
     }
   ],
   "improvements": [
@@ -5832,9 +5855,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-06T09:05:00"
+    },
+    {
+      "id": "32858a8d",
+      "source": "assafelovic/gpt-researcher",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "Planner-Executor-Publisher三段式编排: 规划Agent拆解任务、执行Agent并行采集、发布Agent聚合, 用于研究报告/长文档生成流水线",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-07T09:01:00"
+    },
+    {
+      "id": "2f6c93f8",
+      "source": "assafelovic/gpt-researcher",
+      "priority": "P0",
+      "module": "rag_engine",
+      "suggestion": "source-tracking来源追踪: 每个检索结果摘要强制带引用来源, 过滤聚合后保证事实准确、可追溯、无偏见",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-07T09:01:00"
+    },
+    {
+      "id": "2d5fc0d5",
+      "source": "assafelovic/gpt-researcher",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "并行化executor agent采集: 多个执行Agent并行工作收集信息, 显著提高吞吐与稳定性",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-07T09:01:00"
+    },
+    {
+      "id": "83ce7127",
+      "source": "assafelovic/gpt-researcher",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "Plan-and-Solve规划分解: 先规划子问题再逐个检索求解, 突破单次上下文token限制生成超长内容",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-07T09:01:00"
+    },
+    {
+      "id": "aa30578e",
+      "source": "assafelovic/gpt-researcher",
+      "priority": "P2",
+      "module": "skill_system",
+      "suggestion": "任务特定agent动态创建: 基于查询动态生成领域定制agent, 支持领域专属研究",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-07T09:01:00"
     }
   ],
-  "last_updated": "2026-10-06T09:05:00",
+  "last_updated": "2026-10-07T09:01:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -6042,14 +6115,25 @@
       "p0": 2,
       "p1": 2,
       "p2": 1
+    },
+    {
+      "round": 33,
+      "date": "2026-10-07",
+      "project": "assafelovic/gpt-researcher",
+      "stars": 29930,
+      "relevance": 38,
+      "improvements": 5,
+      "p0": 2,
+      "p1": 2,
+      "p2": 1
     }
   ],
-  "total_projects": 124,
-  "last_update": "2026-10-06T09:05:00",
-  "total_improvements": 360,
-  "total_p0": 133,
-  "total_p1": 186,
-  "total_p2": 41,
+  "total_projects": 125,
+  "last_update": "2026-10-07T09:01:00",
+  "total_improvements": 365,
+  "total_p0": 135,
+  "total_p1": 188,
+  "total_p2": 42,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,
