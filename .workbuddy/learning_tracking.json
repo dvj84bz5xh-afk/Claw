@@ -2002,6 +2002,29 @@
         "任务特定agent动态创建(领域定制)",
         "反幻觉设计(过时知识/token限制/单一信源偏见)"
       ]
+    },
+    {
+      "name": "All-Hands-AI/OpenHands",
+      "url": "https://github.com/All-Hands-AI/OpenHands",
+      "stars": 90207,
+      "relevance": 42,
+      "language": "TypeScript",
+      "analyzed_at": "2026-10-08T09:06:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-08_openhands.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "ACP统一协议+多agent后端路由(编排层与agent实现解耦)",
+        "Automations事件驱动自动化(定时/Webhook触发)",
+        "多Docker Sandbox会话隔离+workspace持久化挂载",
+        "可插拔后端切换(local/Docker/VM/cloud)",
+        "frontend/backend分离部署(前端静态+agent server拆分)",
+        "BYO model+BYO agent开放生态"
+      ]
     }
   ],
   "improvements": [
@@ -5905,9 +5928,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-07T09:01:00"
+    },
+    {
+      "id": "e63d82a9",
+      "source": "All-Hands-AI/OpenHands",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "ACP统一协议抽象层: 用ACP(Agent-Client Protocol)统一接入第三方agent(Claude Code/Codex等)作为Claw执行后端, 编排层与agent实现彻底解耦, 任意ACP兼容agent即插即用",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-08T09:06:00"
+    },
+    {
+      "id": "7f6d2a3d",
+      "source": "All-Hands-AI/OpenHands",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "Automations事件驱动自动化: 定时(schedule)+Webhook事件触发的工作流引擎, 对接Slack/GitHub/Linear/Notion等第三方服务, 对应Claw的Heartbeat主动任务扩展",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-08T09:06:00"
+    },
+    {
+      "id": "4fc27b2e",
+      "source": "All-Hands-AI/OpenHands",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "多Docker Sandbox会话隔离: 每会话独立容器运行, workspace文件与持久化状态挂载, 会话历史跨容器替换存活, 实现安全隔离+状态保持",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-08T09:06:00"
+    },
+    {
+      "id": "bebf66b3",
+      "source": "All-Hands-AI/OpenHands",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "可插拔后端切换: 同一前端在local/Docker/VM/cloud多agent-server后端间无缝切换, 团队共享服务器与个人本机并存",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-08T09:06:00"
+    },
+    {
+      "id": "94118fcc",
+      "source": "All-Hands-AI/OpenHands",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "frontend/backend分离部署: 前端静态层(--frontend-only)+agent server+automation backend(--backend-only)可拆分独立运行, 便于分布式部署与扩展",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-08T09:06:00"
     }
   ],
-  "last_updated": "2026-10-07T09:01:00",
+  "last_updated": "2026-10-08T09:06:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -6126,14 +6199,25 @@
       "p0": 2,
       "p1": 2,
       "p2": 1
+    },
+    {
+      "round": 34,
+      "date": "2026-10-08",
+      "project": "All-Hands-AI/OpenHands",
+      "stars": 90207,
+      "relevance": 42,
+      "improvements": 5,
+      "p0": 2,
+      "p1": 2,
+      "p2": 1
     }
   ],
-  "total_projects": 125,
-  "last_update": "2026-10-07T09:01:00",
-  "total_improvements": 365,
-  "total_p0": 135,
-  "total_p1": 188,
-  "total_p2": 42,
+  "total_projects": 126,
+  "last_update": "2026-10-08T09:06:00",
+  "total_improvements": 370,
+  "total_p0": 137,
+  "total_p1": 190,
+  "total_p2": 43,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,
