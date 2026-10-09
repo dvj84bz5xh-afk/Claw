@@ -2025,6 +2025,30 @@
         "frontend/backend分离部署(前端静态+agent server拆分)",
         "BYO model+BYO agent开放生态"
       ]
+    },
+    {
+      "name": "memodb-io/Acontext",
+      "url": "https://github.com/memodb-io/Acontext",
+      "stars": 3696,
+      "relevance": 40,
+      "language": "TypeScript",
+      "analyzed_at": "2026-10-09T09:42:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-09_acontext.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Skill is Memory, Memory is Skill(记忆即技能文件)",
+        "任务结果触发蒸馏学习(complete/failed→Distillation→Skill Agent路由)",
+        "渐进式披露召回(get_skill/get_skill_file, agent in the loop, 替代embedding top-k)",
+        "Plain file any framework(Markdown记忆, 无embedding/无API锁定, Git/grep/mount)",
+        "用户设计结构(SKILL.md定义schema/命名/文件布局)",
+        "Context Engineering摘要压缩+editing strategies",
+        "Sandbox隔离执行+mountable skills"
+      ]
     }
   ],
   "improvements": [
@@ -5978,9 +6002,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-08T09:06:00"
+    },
+    {
+      "id": "ac409d1a",
+      "source": "memodb-io/Acontext",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "Skill-as-Memory统一记忆层: 记忆以agent skill Markdown文件格式存储(Memory is Skill, Skill is Memory), 人类可读可编辑可分享, 用SKILL.md定义schema/命名/文件布局, 系统自动做extraction/routing/writing, 统一Claw当前分离的memory_system与skill_system",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-09T09:42:00"
+    },
+    {
+      "id": "ac52e7b3",
+      "source": "memodb-io/Acontext",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "任务结果触发蒸馏学习: 任务完成/失败作为学习触发器, LLM蒸馏'什么work了/失败了/用户偏好', 由Skill Agent决定路由到已有skill或新建skill, 强化Claw自动学习管道",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-09T09:42:00"
+    },
+    {
+      "id": "ac6f1c04",
+      "source": "memodb-io/Acontext",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "Skill Content Tools工具化召回(get_skill/get_skill_file): 渐进式披露+agent in the loop, 用工具调用+推理按需获取技能内容, 替代语义embedding top-k召回",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-09T09:42:00"
+    },
+    {
+      "id": "ac8032de",
+      "source": "memodb-io/Acontext",
+      "priority": "P1",
+      "module": "storage",
+      "suggestion": "Skill文件挂载进sandbox(mountable skills): skill Markdown文件可直接mount到隔离sandbox, agent用bash/python直接读写操作",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-09T09:42:00"
+    },
+    {
+      "id": "ac9145f7",
+      "source": "memodb-io/Acontext",
+      "priority": "P2",
+      "module": "context_injector",
+      "suggestion": "Context Engineering摘要压缩+编辑策略: 用summaries压缩上下文+editing strategies编辑策略, 强化Claw的Auto Compact",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-09T09:42:00"
     }
   ],
-  "last_updated": "2026-10-08T09:06:00",
+  "last_updated": "2026-10-09T09:42:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -6210,6 +6284,12 @@
       "p0": 2,
       "p1": 2,
       "p2": 1
+    },
+    {
+      "time": "2026-10-09T09:42:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
   "total_projects": 126,
