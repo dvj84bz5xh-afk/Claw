@@ -2097,6 +2097,29 @@
         "混合后端(SQLite本地5ms+Cloudflare云同步+Milvus), ONNX本地embedding",
         "实体抽取自动链接(@mentions/#tags/URL/文件路径)"
       ]
+    },
+    {
+      "name": "Deuz-AI/Deuz-SDK",
+      "url": "https://github.com/Deuz-AI/Deuz-SDK",
+      "stars": 682,
+      "relevance": 33,
+      "language": "TypeScript",
+      "analyzed_at": "2026-10-12T09:07:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-12_deuz-sdk.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Durable Execution双机制(Lease存活心跳续租+Revision围栏拒陈旧写, 跨进程接管/cancel/drain/恢复)",
+        "持久化预算BudgetStore(reserve-then-settle准入, user/thread/org维度token+USD跨进程共享)",
+        "Guardrails四钩子三判决(onInput/onToolCall/onToolResult/onOutput × pass/block/rewrite, 纯函数edge-safe+判决审计留痕)",
+        "Evolve进化式程序搜索(EVOLVE-BLOCK标记+SEARCH/REPLACE diff+评估级联+islands+模型bandit+强制预算+zero-call resume)",
+        "Swarm固定DAG+事务化持久化(先持久化dispatch再执行+结果与控制事件原子提交)",
+        "零运行时依赖core+optional peers(未引用不进bundle), 六provider统一流式API, edge/serverless可跑"
+      ]
     }
   ],
   "improvements": [
@@ -6190,9 +6213,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-11T09:07:00"
+    },
+    {
+      "id": "dz12a3b4",
+      "source": "Deuz-AI/Deuz-SDK",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "Durable Execution双机制: 以Lease(心跳续租决定当前驱动进程)+Revision(每次提交声明期望版本号, store拒绝陈旧写)实现跨进程run接管、僵尸执行器防护、cancel(针对run跨持有人保留)/drain(针对当前持有人随lease丢弃)信号投递与恢复, 远超当前单进程checkpoint resume",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-12T09:07:00"
+    },
+    {
+      "id": "dz23b4c5",
+      "source": "Deuz-AI/Deuz-SDK",
+      "priority": "P0",
+      "module": "model_scheduler",
+      "suggestion": "持久化预算层BudgetStore: 以user/thread/org维度记账token+USD预算, 跨所有run和进程共享; 准入先预留估算值(reserve)调用后结算实际(settle), 超额在任何模型调用前拒绝; 支持滚动窗口+告警; 作为ledger之后的第二道闸门",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-12T09:07:00"
+    },
+    {
+      "id": "dz34c5d6",
+      "source": "Deuz-AI/Deuz-SDK",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "Guardrails四钩子三判决: onInput/onToolCall/onToolResult/onOutput四个边界为普通函数, 各返回pass/block/rewrite; 纯函数无时钟/随机/IO(edge-safe), 非pass判决按序记录供审计; 与请求体校验(request validation, 循环前拒绝)明确分层",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-12T09:07:00"
+    },
+    {
+      "id": "dz45d6e7",
+      "source": "Deuz-AI/Deuz-SDK",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "Evolve进化式程序搜索: EVOLVE-BLOCK-START/END标记可进化区段+模型产SEARCH/REPLACE diff+评估级联(evaluation cascade)打分+islands分区+模型bandit分配算力+强制预算+zero-call resume(断点不重复调模型), 直接强化Claw自进化引擎",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-12T09:07:00"
+    },
+    {
+      "id": "dz56e7f8",
+      "source": "Deuz-AI/Deuz-SDK",
+      "priority": "P2",
+      "module": "agent_orchestrator",
+      "suggestion": "Swarm事务化调度: 调度器先持久化task dispatch再开始工作, task结果与控制事件原子提交, 无事件订阅者也能继续执行; 记录definitionVersion与各agent的version便于追踪",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-12T09:07:00"
     }
   ],
-  "last_updated": "2026-10-11T09:07:00",
+  "last_updated": "2026-10-12T09:07:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -6439,6 +6512,12 @@
       "time": "2026-10-11T09:07:00",
       "new_projects": 1,
       "new_improvements": 4,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-12T09:07:00",
+      "new_projects": 1,
+      "new_improvements": 5,
       "skipped_improvements": 0
     }
   ],
