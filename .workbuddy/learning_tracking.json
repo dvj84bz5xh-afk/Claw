@@ -2120,6 +2120,31 @@
         "Swarm固定DAG+事务化持久化(先持久化dispatch再执行+结果与控制事件原子提交)",
         "零运行时依赖core+optional peers(未引用不进bundle), 六provider统一流式API, edge/serverless可跑"
       ]
+    },
+    {
+      "name": "agentic-community/mcp-gateway-registry",
+      "url": "https://github.com/agentic-community/mcp-gateway-registry",
+      "stars": 972,
+      "relevance": 18,
+      "language": "Python",
+      "analyzed_at": "2026-10-13T12:11:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-13_mcp-gateway-registry.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "Gateway数据面/Registry控制面分离(单一受治理入口, 集中发现/治理/审计)",
+        "统一AI资产注册表(MCP servers/A2A agents/skills/自定义schema实体同控制面)",
+        "动态工具发现(自然语言语义搜索运行时发现, 非硬编码)",
+        "Virtual MCP servers(多后端工具聚合到一端点+per-tool访问控制)",
+        "Per-user egress auth凭证代理(3LO/OBO/PAT三层resolver, token不落用户机器, purpose绑定AEAD)",
+        "fail-closed准入闸门+工具级block(注册即扫描, 一个误报不连累全服务器)",
+        "A2A默认peer-to-peer(registry只做发现/鉴权/ACL)",
+        "外部注册表联邦+审计留痕+OpenTelemetry"
+      ]
     }
   ],
   "improvements": [
@@ -6263,9 +6288,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-12T09:07:00"
+    },
+    {
+      "id": "mg13a4b5",
+      "source": "agentic-community/mcp-gateway-registry",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "Gateway/Registry控制面-数据面分离: 数据面(反向代理TLS+auth_request校验+路由)与数据面(资产清单/访问模型/审计轨迹, 决定可路由范围)分离, 所有工具调用经单一受治理入口+auth校验+审计留痕",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-13T12:11:00"
+    },
+    {
+      "id": "mg24b5c6",
+      "source": "agentic-community/mcp-gateway-registry",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "动态工具发现+Virtual MCP servers: agent运行时按自然语言语义搜索发现工具(替代全量注入/硬编码配置), 并把多个后端MCP server工具聚合为单一虚拟端点带per-tool访问控制",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-13T12:11:00"
+    },
+    {
+      "id": "mg35c6d7",
+      "source": "agentic-community/mcp-gateway-registry",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "fail-closed准入闸门+工具级安全block: 工具/skill注册即扫描, 不安全项挂起待审; 扫描标记落到工具级独立block(胜过admin/wildcard授权, 从所有读取投影隐藏, rescan可清除)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-13T12:11:00"
+    },
+    {
+      "id": "mg46d7e8",
+      "source": "agentic-community/mcp-gateway-registry",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "Per-user egress auth凭证代理: 三层resolver(machine client_credentials/per-user OAuth借用身份/app-only token)统一托管第三方凭证, token存vault并在egress注入永不落用户端; 借用身份只能列不能调",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-13T12:11:00"
+    },
+    {
+      "id": "mg57e8f9",
+      "source": "agentic-community/mcp-gateway-registry",
+      "priority": "P2",
+      "module": "skill_system",
+      "suggestion": "统一AI资产注册表: MCP server/agent/skill/自定义schema实体共用同一控制面与访问模型, 支持外部注册表联邦(Anthropic MCP Registry/AWS Agent Registry)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-13T12:11:00"
     }
   ],
-  "last_updated": "2026-10-12T09:07:00",
+  "last_updated": "2026-10-13T12:11:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -6516,6 +6591,12 @@
     },
     {
       "time": "2026-10-12T09:07:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-13T12:11:00",
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
