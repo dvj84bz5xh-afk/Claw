@@ -5,6 +5,63 @@
 
 ## 执行历史
 
+### 2026-10-16 (第84轮)
+- 学习项目: foryourhealth111-pixel/Vibe-Skills (⭐3,704, 相关度23, Python, v4.1.0) — 通用Skill: 自动路由本地Skills并智能编排harness工作流
+- 核心创新: 四步编排(明确目标→拆可验证子任务→从大池只挑极少相关能力→依赖序执行→交付前逐项验收) / 两阶段技能选择记录(agent_skill_organization规划 vs module_assignments执行, 区分"找到≠已参与") / 三级token控制(本地紧凑索引→候选短名单→按需读完整SKILL.md) / 任务分级L(顺序)XL(最多并行2互不冲突部分) / 多技能根目录skill-roots.json + install-receipt.json完整性校验 / SkillsBench量化(195技能池: +21.12pp/-29.6%token/-33.1%工具调用)
+- 改进建议: 5项 (P0×2: skill_system 技能路由两阶段记录+依赖序编排 / context_injector 技能索引三级token控制; P1×2: agent_orchestrator 任务分级+交付前验收闸门 / skill_system 多技能根目录; P2×1: eval_observability 技能路由量化基准)
+- 输出: daily_learning/2026-10-16_vibe-skills.md, 更新 tracking(132项目/399改进项)/MEMORY.md/evolution_log.jsonl/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push 成功 (commit 6fe6956)
+
+### 2026-10-13 (第83轮)
+- 学习项目: agentic-community/mcp-gateway-registry (⭐972, 相关度18, Python) — 企业级MCP网关与注册中心(统一治理MCP server/agent/skill/自定义资产)
+- 核心创新: Gateway数据面/Registry控制面分离(单一受治理入口) / 统一AI资产注册表(servers/A2A agents/skills/自定义schema实体同控制面) / 动态工具发现(自然语言语义搜索)+Virtual MCP servers(多后端工具聚合一端点+per-tool ACL) / Per-user egress auth凭证代理(3LO/OBO/PAT三层resolver, token不落用户机器, purpose绑定AEAD) / fail-closed准入闸门+工具级安全block(注册即扫描, 一误报不连累全服务器) / A2A默认peer-to-peer+外部注册表联邦+审计留痕+OpenTelemetry
+- 改进建议: 5项 (P0×2: tool_registry Gateway/Registry控制面分离 / tool_registry 动态工具发现+Virtual MCP; P1×2: tool_registry fail-closed准入闸门+工具级block / claw_integration Per-user egress auth凭证代理; P2×1: skill_system 统一AI资产注册表+外部联邦)
+- 输出: daily_learning/2026-10-13_mcp-gateway-registry.md, 更新 tracking(131项目/394改进项)/MEMORY.md/evolution_log.jsonl/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push 成功 (commit 6cb970b)
+
+### 2026-10-12 (第82轮)
+- 学习项目: Deuz-AI/Deuz-SDK (⭐682, 相关度33, TypeScript) — 零运行时依赖的生产级AI Agent框架(durable execution/memory/RAG/MCP/HITL/swarm/evolve)
+- 核心创新: Durable Execution双机制(Lease心跳续租决定驱动进程+Revision提交版本围栏拒陈旧写, 跨进程接管/僵尸防护/cancel跨持有人投递/drain随lease丢弃) / 持久化预算BudgetStore(user/thread/org维度token+USD, reserve-then-settle准入) / Guardrails四钩子三判决(onInput/onToolCall/onToolResult/onOutput × pass/block/rewrite, 纯函数+审计留痕) / Evolve进化式程序搜索(EVOLVE-BLOCK+SEARCH/REPLACE diff+评估级联+islands+模型bandit+强制预算+zero-call resume) / Swarm事务化调度(先持久化dispatch再执行+原子提交) / 零运行时依赖core+optional peers+edge可跑
+- 改进建议: 5项 (P0×2: claw_integration Durable Execution双机制 / model_scheduler 持久化预算层; P1×2: agent_orchestrator Guardrails四钩子三判决 / eval_observability Evolve进化式程序搜索; P2×1: agent_orchestrator Swarm事务化调度)
+- 输出: daily_learning/2026-10-12_deuz-sdk.md, 更新 tracking(130项目/389改进项)/MEMORY.md/evolution_log.jsonl/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push 成功 (commit 24d74a9)
+
+### 2026-10-11 (第81轮)
+- 学习项目: doobidoo/mcp-memory-service (⭐2,007, 相关度27, Python) — AI Agent管线(LangGraph/CrewAI/AutoGen/Claude)的开源持久化共享记忆后端
+- 核心创新: 多传输统一记忆服务(REST+MCP+Remote MCP/OAuth一体) / Agent身份作用域记忆(X-Agent-ID自动tag+按作用域检索隔离) / 因果类型化知识图谱(causes/fixes/contradicts) / SSE事件总线(记忆变更实时通知) / 自主整理+Insight Cards(旧记忆压缩为模式/趋势/缺口洞察) / 混合后端(SQLite本地5ms+Cloudflare云同步+Milvus, ONNX本地embedding)
+- 改进建议: 4项 (P0×1: memory_system Agent身份作用域记忆; P1×2: memory_system 因果类型化图谱边 / claw_integration SSE事件总线; P2×1: memory_system 自主整理守护+Insight Cards)
+- 输出: daily_learning/2026-10-11_mcp-memory-service.md, 更新 tracking(129项目/384改进项)/MEMORY.md/evolution_log.jsonl/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push 成功 (commit 29f0084)
+
+### 2026-10-10 (第80轮)
+- 学习项目: Dataojitori/nocturne_memory (⭐1,388, 相关度40, Python) — MCP 长期记忆服务器(Say goodbye to Vector RAG)
+- 核心创新: 条件触发路由(Disclosure Routing按情境精准注入替代cosine盲盒) / Node-Memory-Edge-Path四实体图模型(身份/内容/关系/路由四层分离) / 记忆版本快照+一键回滚 / URI路径化寻址(domain://path+Alias别名) / System Boot身份协议+按需调取(96.9万字库首条仅7.2K字) / 豆辞典Aho-Corasick自动超链接自织网
+- 改进建议: 5项 (P0×2: memory_system 条件触发路由 / memory_system 四实体图模型含版本回滚; P1×2: storage URI路径寻址+Alias / context_injector Boot身份协议按需调取; P2×1: memory_system 豆辞典自动超链接)
+- 输出: daily_learning/2026-10-10_nocturne_memory.md, 更新 tracking(128项目/380改进项)/MEMORY.md/evolution_log.jsonl/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push 成功 (commit 3d284cc)
+
+### 2026-10-09 (第79轮)
+- 学习项目: memodb-io/Acontext (⭐3,696, 相关度40, TypeScript/Python) — Skill-as-Memory 记忆层
+- 核心理念: "Skill is Memory, Memory is Skill" — 记忆即 agent skill Markdown 文件
+- 核心创新: 任务结果触发蒸馏学习(complete/failed→Distillation→Skill Agent路由) / 渐进式披露召回(get_skill/get_skill_file, agent in the loop, 替代embedding top-k) / Plain file any framework(无embedding/无API锁定, 可Git/grep/mount) / 用户设计结构(SKILL.md定义schema) / Context Engineering摘要压缩+editing strategies
+- 改进建议: 5项 (P0×2: memory_system Skill-as-Memory统一记忆层 / skill_system 任务结果触发蒸馏学习; P1×2: tool_registry Skill Content Tools工具化召回 / storage mountable skills挂载sandbox; P2×1: context_injector Context Engineering摘要压缩)
+- 输出: daily_learning/2026-10-09_acontext.md, 更新 tracking(127项目/375改进项)/MEMORY.md/evolution_log.jsonl/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push 成功 (commit 1613102, 同时补齐了 10-08 OpenHands 提交 862291e)
+
+### 2026-10-08 (第78轮)
+- 学习项目: All-Hands-AI/OpenHands (⭐90,207, 相关度42, TypeScript) — Agent Canvas自托管编码Agent控制中心
+- 核心创新: ACP统一协议+多agent后端路由 / Automations事件驱动自动化 / 多Docker Sandbox会话隔离 / 可插拔后端切换 / frontend/backend分离部署
+- 改进建议: 5项 (P0×2: agent_orchestrator ACP统一协议抽象层 / claw_integration Automations事件驱动自动化; P1×2: agent_orchestrator 多Docker Sandbox会话隔离+可插拔后端切换; P2×1: claw_integration frontend/backend分离部署)
+- 输出: daily_learning/2026-10-08_openhands.md, 更新 tracking(126项目/370改进项)/MEMORY.md/evolution_log.jsonl/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git commit 成功, git push 失败(网络无法连接 github.com:443, 连续3次失败) — 待下次运行重试
+
 ### 2026-10-07 (第77轮)
 - 学习项目: assafelovic/gpt-researcher (⭐29,930, 相关度38, Python) — 自主深度研究Agent
 - 核心创新: Planner-Executor-Publisher三段式编排 / source-tracking来源追踪+引用 / 并行化executor agent采集 / Plan-and-Solve+RAG结合 / 任务特定agent动态创建 / 反幻觉设计
