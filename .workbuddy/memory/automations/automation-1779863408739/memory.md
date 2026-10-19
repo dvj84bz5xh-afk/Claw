@@ -173,3 +173,4 @@
 - 已学高相关项目(勿重复): EverOS, context-mode, nanobot, fastmcp, Raven, TencentDB-Agent-Memory, hermes-agent, claude-mem, haystack, distilly, Agent-Reach 等 60+ 项目
 - 通知双通道: QQ邮箱 smtp.qq.com:465 (1012701669@qq.com) + 飞书 (App cli_aa9ccbc13c789cc7, Chat oc_a21fbaa09500d12e205c1769403d13f1)
 - evolution_log.jsonl 采用双转义 JSON 格式 (引号前加反斜杠), 追加时保持一致
+- 15:16 重复触发: 今日轮次已完成, 按每日1项目去重跳过, 未产生新提交
