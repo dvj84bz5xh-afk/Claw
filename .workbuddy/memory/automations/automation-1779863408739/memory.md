@@ -5,6 +5,15 @@
 
 ## 执行历史
 
+### 2026-10-19 (第85轮)
+- 学习项目: rohitg00/pro-workflow (⭐2,918, 相关度27, JavaScript, MIT) — 把"每次会话重教一遍"做成基础设施: 单一SQLite store承载自我纠错记忆+FTS5研究wiki+质量门禁hooks
+- 核心创新: 纠错即规则(纠正→存SQLite FTS5→SessionStart自动加载, /insights纠正率趋势作唯一KPI) / 免命令捕获(Stop hook解析[LEARN]块) / 知识面Markdown落盘+FTS5影子索引+UserPromptSubmit命中注入top-3 / 自主研究环治理(预算封顶BFS+收敛检测+原子seed认领+try/finally+全局STOP) / PreCompact存摘要→PostCompact回注 / 运维三件套mcp-audit+permission-tuner+token-efficiency / Command→Agent→Skill共用单一store
+- 改进建议: 5项 (P0×2: memory_system 纠错规则库+纠正率度量 / context_injector PreCompact-PostCompact双钩子; P1×2: tool_registry MCP开销审计 / claw_integration 权限拒绝模式分析器; P2×1: eval_observability 自主循环治理模板)
+- 判断: Claw 记忆/技能体系表达力已超该项目, 差距在闭环验证与运维面(缺可下降量化指标)
+- 输出: daily_learning/2026-10-19_pro-workflow.md, 更新 tracking(133项目/404改进项)/MEMORY.md/memory日志/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main
+
 ### 2026-10-16 (第84轮)
 - 学习项目: foryourhealth111-pixel/Vibe-Skills (⭐3,704, 相关度23, Python, v4.1.0) — 通用Skill: 自动路由本地Skills并智能编排harness工作流
 - 核心创新: 四步编排(明确目标→拆可验证子任务→从大池只挑极少相关能力→依赖序执行→交付前逐项验收) / 两阶段技能选择记录(agent_skill_organization规划 vs module_assignments执行, 区分"找到≠已参与") / 三级token控制(本地紧凑索引→候选短名单→按需读完整SKILL.md) / 任务分级L(顺序)XL(最多并行2互不冲突部分) / 多技能根目录skill-roots.json + install-receipt.json完整性校验 / SkillsBench量化(195技能池: +21.12pp/-29.6%token/-33.1%工具调用)

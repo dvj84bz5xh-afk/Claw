@@ -2169,6 +2169,30 @@
         "多技能根目录skill-roots.json+install-receipt.json完整性校验",
         "SkillsBench量化(195技能池: +21.12pp, -29.6% token, -33.1%工具调用)"
       ]
+    },
+    {
+      "name": "rohitg00/pro-workflow",
+      "url": "https://github.com/rohitg00/pro-workflow",
+      "stars": 2918,
+      "relevance": 27,
+      "language": "JavaScript",
+      "analyzed_at": "2026-10-19T15:09:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-19_pro-workflow.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "纠错即规则: correction→rule存SQLite+FTS5, SessionStart自动加载, /insights纠错热力图+纠正率趋势",
+        "免命令自动捕获: Stop hook解析输出[LEARN]块自动入库",
+        "知识面Knowledge Plane: wiki Markdown落盘+FTS5影子索引, UserPromptSubmit命中自动注入top-3",
+        "自主研究环治理: 预算封顶BFS+收敛检测+原子seed认领+try/finally状态守卫+STOP全局熔断",
+        "PreCompact/PostCompact状态保全(存摘要→回注)",
+        "运维三件套: mcp-audit(MCP token开销排行)/permission-tuner(拒绝模式→allow-deny规则)/token-efficiency",
+        "Command→Agent→Skill三层共用单一SQLite store"
+      ]
     }
   ],
   "improvements": [
@@ -6412,9 +6436,59 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-16T09:05:00"
+    },
+    {
+      "id": "pw19a6b7",
+      "source": "rohitg00/pro-workflow",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "纠错规则库+纠正率度量: Stop钩子解析[LEARN]块自动入库(无需用户显式命令), 规则带scope(全局/项目)+命中计数+最后命中时间, SessionStart按相关度注入top-N, /insights输出纠正率周趋势作为进化引擎北极星指标",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-19T15:09:00"
+    },
+    {
+      "id": "pw2ab7c8",
+      "source": "rohitg00/pro-workflow",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "压缩前后状态保全双钩子: PreCompact抽取当前目标/已确认约束/未完成项/关键文件存快照, PostCompact以固定块回注, 避免长任务压缩后丢失约束重复踩坑",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-19T15:09:00"
+    },
+    {
+      "id": "pw3bc8d9",
+      "source": "rohitg00/pro-workflow",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "MCP开销审计: 统计每个MCP server的工具数×schema token输出排行榜与精简建议(禁用/懒加载/合并), 把按需检索从策略变成可度量结果",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-19T15:09:00"
+    },
+    {
+      "id": "pw4cd9e0",
+      "source": "rohitg00/pro-workflow",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "权限拒绝模式分析器: 聚合PermissionDenied事件→聚类高频拒绝→生成候选allow/deny规则并附证据, 人工一键采纳, 降低审批疲劳",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-19T15:09:00"
+    },
+    {
+      "id": "pw5dea1",
+      "source": "rohitg00/pro-workflow",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "自主循环治理模板: 所有自主动作(研究/整理/学习)统一走预算封顶+收敛检测+原子任务认领+全局STOP文件熔断",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-19T15:09:00"
     }
   ],
-  "last_updated": "2026-10-16T09:05:00",
+  "last_updated": "2026-10-19T15:09:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -6677,6 +6751,12 @@
     },
     {
       "time": "2026-10-16T09:05:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-19T15:09:00",
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
