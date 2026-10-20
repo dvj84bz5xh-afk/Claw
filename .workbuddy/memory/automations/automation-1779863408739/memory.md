@@ -5,6 +5,15 @@
 
 ## 执行历史
 
+### 2026-10-20 (第86轮)
+- 学习项目: RinDig/Interpretable-Context-Methodology (⭐1,359, 相关度13, Python, 论文 arXiv 2603.16021) — 文件夹结构即Agent架构: 编号目录=执行序, Markdown=提示词/上下文, 单Agent按需读文件替代多Agent框架
+- 核心创新: 五层上下文加载(L0身份~800tok/L1任务路由~300tok/L2阶段契约200-500tok/L3稳定约束=工厂/L4本次产物, 单步2-8K vs 单体30-50K, 读够即停) / L3内化约束vs L4加工产物的本质区分 / Stage Contract三段式(Inputs表声明读哪一节/Process/Outputs表+checkpoint+audit) / 文件系统承担编排(编号=顺序, 层级=裁剪, 磁盘=状态) / output即人工编辑面(天然HITL) / 状态即文件系统=玻璃盒+git版本史 / workspace目录即可交付bundle / 明确边界(实时多Agent/高并发/自动分支仍需框架)
+- 改进建议: 5项 (P0×2: context_injector 五层分层加载 / agent_orchestrator Stage Contract线性流水线; P1×2: claw_integration 人工编辑面交接 / eval_observability 玻璃盒run+replay; P2×1: skill_system Workspace可移植打包)
+- 判断: ICM与Claw Markdown-as-Truth同源但推进到编排层, 二者互补; Claw短板在上下文注入粒度(技能维度有/阶段维度缺)与run级可回放
+- 输出: daily_learning/2026-10-20_icm.md, 更新 tracking(134项目/409改进项)/MEMORY.md/memory日志/dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main
+
 ### 2026-10-19 (第85轮)
 - 学习项目: rohitg00/pro-workflow (⭐2,918, 相关度27, JavaScript, MIT) — 把"每次会话重教一遍"做成基础设施: 单一SQLite store承载自我纠错记忆+FTS5研究wiki+质量门禁hooks
 - 核心创新: 纠错即规则(纠正→存SQLite FTS5→SessionStart自动加载, /insights纠正率趋势作唯一KPI) / 免命令捕获(Stop hook解析[LEARN]块) / 知识面Markdown落盘+FTS5影子索引+UserPromptSubmit命中注入top-3 / 自主研究环治理(预算封顶BFS+收敛检测+原子seed认领+try/finally+全局STOP) / PreCompact存摘要→PostCompact回注 / 运维三件套mcp-audit+permission-tuner+token-efficiency / Command→Agent→Skill共用单一store

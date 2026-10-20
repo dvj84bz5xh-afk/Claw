@@ -2193,6 +2193,29 @@
         "运维三件套: mcp-audit(MCP token开销排行)/permission-tuner(拒绝模式→allow-deny规则)/token-efficiency",
         "Command→Agent→Skill三层共用单一SQLite store"
       ]
+    },
+    {
+      "name": "RinDig/Interpretable-Context-Methodology",
+      "url": "https://github.com/RinDig/Interpretable-Context-Methodology",
+      "stars": 1359,
+      "relevance": 13,
+      "language": "Python",
+      "analyzed_at": "2026-10-20T09:05:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-20_icm.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "文件夹结构即Agent架构: 编号目录=执行序, Markdown=提示词与上下文, 单Agent按需读文件替代多Agent框架",
+        "五层上下文加载(L0身份常驻/L1任务路由/L2阶段契约/L3稳定约束=工厂/L4本次产物), 读够即停, 单步2-8K tok vs 单体30-50K",
+        "L3与L4本质区分: 稳定约束需内化为模式 vs 工作产物需作为输入被加工",
+        "Stage Contract三段式(Inputs表含'读哪一节'+Process+Outputs表)+可选checkpoint/audit",
+        "output/为人工编辑面: 人改完下一阶段直接读人的版本, 天然HITL",
+        "状态即文件系统: 玻璃盒可观测+git版本史+workspace目录即可交付物"
+      ]
     }
   ],
   "improvements": [
@@ -6486,6 +6509,56 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-10-19T15:09:00"
+    },
+    {
+      "id": "icmabad65",
+      "source": "RinDig/Interpretable-Context-Methodology",
+      "priority": "P0",
+      "module": "context_injector",
+      "suggestion": "五层上下文分层加载: L0身份常驻(≤800tok)/L1任务路由/L2阶段契约/L3稳定约束(项目profile+品牌+规范)/L4本次产物, 每run带Inputs表显式声明读哪些文件读哪一节为何读, 按层读够即停, 目标单步注入2-8K tok",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-20T09:05:00"
+    },
+    {
+      "id": "icmd37c59",
+      "source": "RinDig/Interpretable-Context-Methodology",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "Stage Contract线性流水线原语: stages/NN/CONTEXT.md规范(Inputs表/Process/Outputs表+可选checkpoint/audit), 编号目录即DAG线性特例, 复杂分支与高并发仍路由框架编排",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-20T09:05:00"
+    },
+    {
+      "id": "icmaa562f",
+      "source": "RinDig/Interpretable-Context-Methodology",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "人工编辑面交接: 每阶段产物强制落盘为带metadata的可读Markdown, 下一阶段读取磁盘现状而非内存快照, 编辑即介入无需审批API",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-20T09:05:00"
+    },
+    {
+      "id": "icm9f4ef3",
+      "source": "RinDig/Interpretable-Context-Methodology",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "玻璃盒run落盘: runs/<run_id>/stages/NN/{input,output}全量存盘 + claw replay按阶段回放与diff, 不新建日志系统直接用git存版本史",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-20T09:05:00"
+    },
+    {
+      "id": "icm0acb82",
+      "source": "RinDig/Interpretable-Context-Methodology",
+      "priority": "P2",
+      "module": "skill_system",
+      "suggestion": "Workspace可移植打包: skill+配置+阶段目录打成单一bundle(zip/git)支持外部交付与客户自改prompt, 并记录bundle版本",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-20T09:05:00"
     }
   ],
   "last_updated": "2026-10-19T15:09:00",
@@ -6760,14 +6833,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-20T09:05:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 126,
-  "last_update": "2026-10-08T09:06:00",
-  "total_improvements": 370,
-  "total_p0": 137,
-  "total_p1": 190,
-  "total_p2": 43,
+  "total_projects": 134,
+  "last_update": "2026-10-20T09:05:00",
+  "total_improvements": 409,
+  "total_p0": 152,
+  "total_p1": 206,
+  "total_p2": 51,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,
