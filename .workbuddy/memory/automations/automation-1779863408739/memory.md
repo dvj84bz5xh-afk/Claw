@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-10-24 (第88轮)
+- 学习项目: sandbaseai/sandbase-harness (⭐635, 相关度19, TypeScript, Apache-2.0, v0.3.8) — Agent runtime 层: 会话/沙箱工具/记忆/凭证/审计回放全在本机
+- 核心创新: 可恢复SSE事件流+会话replay(断线续跑/回放调试) / 沙箱四后端同一抽象(本地进程/Docker每会话/K8s/自托管worker) / 工具治理四件套(MCP toolsets+vault+策略+审批)+--tool-approval allow预授权 / 单一活动provider且配置仅启动生效 / 默认开放有key才鉴权 / 能力矩阵诚实声明(必写reason,无推迟档)+文档生成+漂移即测试失败 / 官方SDK一致性用例进CI
+- 改进建议: 5项 (P0×2: claw_integration Runtime契约层 / tool_registry 审批预授权+凭证vault; P1×2: eval_observability 能力矩阵+漂移测试 / storage Local-first+渐进鉴权; P2×1: model_scheduler 单provider+显式激活)
+- 判断: Claw 缺独立 runtime 层; 星数不高但工程诚实度值得抄
+- 输出: daily_learning/2026-10-24_sandbase-harness.md, tracking(136/419), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅(补发10-21轮亦成功)
+- 环境修复: 系统代理127.0.0.1:7890失效 → urllib用ProxyHandler({})绕过; git push 用 -c http.sslBackend=openssl (schannel CRYPT_E_REVOCATION_OFFLINE)
+- 同步: git push origin main
+
 ### 2026-10-21 (第87轮)
 - 学习项目: yvgude/lean-ctx (⭐3,894, 相关度8, Rust, Apache-2.0 Mixed) — Context Gateway: 不做Agent框架, 只做"模型前的那道关口"(Select/Control/Learn/Prove)
 - 核心创新: 16种读取模式+缓存引用(未变文件重复读取返回content hash引用, expand换回原文) / JIT披露(signatures带行号区间→lines:N-M定向展开) / density:0.4确定性预算压缩(最高熵行保留至40%, 可复现非LLM摘要) / shell输出85+模式+250+直通规则 / Tree-sitter AST 27语言 / 交付前控制面(PathJail+warn/redact/block+context budget) / CCP会话记忆压缩后可结构化恢复+时间有效窗事实 / ctx_proof证据链 / 反虚高指标方法论(撤回无工作负载基准, 估算-实测-质量三分, CPAO)
