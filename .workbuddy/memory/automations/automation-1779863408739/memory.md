@@ -5,6 +5,15 @@
 
 ## 执行历史
 
+### 2026-10-21 (第87轮)
+- 学习项目: yvgude/lean-ctx (⭐3,894, 相关度8, Rust, Apache-2.0 Mixed) — Context Gateway: 不做Agent框架, 只做"模型前的那道关口"(Select/Control/Learn/Prove)
+- 核心创新: 16种读取模式+缓存引用(未变文件重复读取返回content hash引用, expand换回原文) / JIT披露(signatures带行号区间→lines:N-M定向展开) / density:0.4确定性预算压缩(最高熵行保留至40%, 可复现非LLM摘要) / shell输出85+模式+250+直通规则 / Tree-sitter AST 27语言 / 交付前控制面(PathJail+warn/redact/block+context budget) / CCP会话记忆压缩后可结构化恢复+时间有效窗事实 / ctx_proof证据链 / 反虚高指标方法论(撤回无工作负载基准, 估算-实测-质量三分, CPAO)
+- 改进建议: 5项 (P0×2: context_injector 分级读取+JIT+缓存引用 / tool_registry 输出压缩规则库+预算; P1×2: eval_observability 证据分级报告法 / memory_system CCP结构化+时间有效窗; P2×1: claw_integration 交付前控制面)
+- 判断: Claw context_injector 只"注入"不"设关", 应补"读取-压缩-举证"三层
+- 输出: daily_learning/2026-10-21_lean-ctx.md, tracking(135/414), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ | 飞书❌ (WinError 10061, 重试2次失败)
+- 同步: git push origin main
+
 ### 2026-10-20 (第86轮)
 - 学习项目: RinDig/Interpretable-Context-Methodology (⭐1,359, 相关度13, Python, 论文 arXiv 2603.16021) — 文件夹结构即Agent架构: 编号目录=执行序, Markdown=提示词/上下文, 单Agent按需读文件替代多Agent框架
 - 核心创新: 五层上下文加载(L0身份~800tok/L1任务路由~300tok/L2阶段契约200-500tok/L3稳定约束=工厂/L4本次产物, 单步2-8K vs 单体30-50K, 读够即停) / L3内化约束vs L4加工产物的本质区分 / Stage Contract三段式(Inputs表声明读哪一节/Process/Outputs表+checkpoint+audit) / 文件系统承担编排(编号=顺序, 层级=裁剪, 磁盘=状态) / output即人工编辑面(天然HITL) / 状态即文件系统=玻璃盒+git版本史 / workspace目录即可交付bundle / 明确边界(实时多Agent/高并发/自动分支仍需框架)
