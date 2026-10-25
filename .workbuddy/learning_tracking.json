@@ -2266,6 +2266,29 @@
         "单一活动provider边界+配置仅启动时生效+agent绑定model id不匹配即报错",
         "默认开放按需加锁: 存在任一API key时认证自动激活"
       ]
+    },
+    {
+      "name": "ANative-Lab/EvoAgentX",
+      "url": "https://github.com/ANative-Lab/EvoAgentX",
+      "stars": 3402,
+      "relevance": 24,
+      "language": "Python",
+      "analyzed_at": "2026-10-25T09:10:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-25_evoagentx.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "工作流为一等可序列化对象: goal→WorkFlowGraph→按节点反推物化Agent(拓扑优先), save_module/from_file复用",
+        "进化=拟合函数: 固定数据集(50验证/100测试)+评估器打分+算子提候选择优, 验证集调优测试集报数严格分离",
+        "四类算子对应四类搜索空间且无通吃: TextGrad(prompt/推理链文本梯度, MATH 66→76) / AFlow(MCTS搜工作流结构, MBPP 69→79) / MIPRO(黑盒评估+候选重排, HotPotQA 63.58→69.16) / EvoPrompt(反馈演化)",
+        "HITL做成图内拦截器Agent(target_agent+target_action+PRE_EXECUTION+APPROVE_REJECT), 批准结果经hitl_input_output_mapping映射回工作流输入字段, 图结构不变",
+        "优化器可外挂第三方框架: 只调prompt即提升GAIA榜上Open Deep Research与OWL",
+        "边界诚实: 自进化是离线固定数据集优化而非运行时学习, 且不碰代码"
+      ]
     }
   ],
   "improvements": [
@@ -6709,6 +6732,56 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-10-24T09:12:00"
+    },
+    {
+      "id": "eaxfe8bf0",
+      "source": "ANative-Lab/EvoAgentX",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "进化fitness闭环: 定义fitness=w1·单测通过率+w2·任务成功率+w3·(-token成本), 固定留出集(20个历史任务), 每次进化跑一次且只在留出集判定采纳; 禁止用优化集自证, 报告val→test落差",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-25T09:10:00"
+    },
+    {
+      "id": "eax178082",
+      "source": "ANative-Lab/EvoAgentX",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "进化循环四段式(数据集→评估器→算子→候选池): 把'读README→写建议'单向管道补成'改→测→留优'回流, 增加mutation算子(改prompt/改编排图/改记忆策略)+islands候选池+淘汰规则",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-25T09:10:00"
+    },
+    {
+      "id": "eaxaeca0f",
+      "source": "ANative-Lab/EvoAgentX",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "HITL拦截器化: 暂停确认从编排层if-else改成可插拔InterceptorAgent(目标Agent,目标动作,PRE/POST,批准或收集输入,字段映射), 图结构不变, 默认关闭显式activate",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-25T09:10:00"
+    },
+    {
+      "id": "eax66af6c",
+      "source": "ANative-Lab/EvoAgentX",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "拓扑优先+workflow可移植: 支持goal→graph→按节点物化Agent, workflow存成带Agent规格的单一文件, 换模型配置即可复用",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-25T09:10:00"
+    },
+    {
+      "id": "eax1b3b6d",
+      "source": "ANative-Lab/EvoAgentX",
+      "priority": "P2",
+      "module": "model_scheduler",
+      "suggestion": "优化算子按任务类型路由: 不同优化器在不同任务胜出(prompt梯度/结构搜索/黑盒重排), 把'选哪个算子'交给bandit而非全局固定",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-25T09:10:00"
     }
   ],
   "last_updated": "2026-10-19T15:09:00",
@@ -7001,14 +7074,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-25T09:10:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 136,
-  "last_update": "2026-10-24T09:12:00",
-  "total_improvements": 419,
-  "total_p0": 156,
-  "total_p1": 210,
-  "total_p2": 53,
+  "total_projects": 137,
+  "last_update": "2026-10-25T09:10:00",
+  "total_improvements": 424,
+  "total_p0": 158,
+  "total_p1": 212,
+  "total_p2": 54,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,

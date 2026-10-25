@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-10-25 (第89轮)
+- 学习项目: ANative-Lab/EvoAgentX (⭐3,402, 相关度24, Python, 更新 2026-10-22, 论文 arXiv 2507.03616) — 给 Agent 工作流做自动优化的实验台(生成→评估→进化)
+- 核心创新: 工作流为可序列化对象(goal→WorkFlowGraph→按节点物化Agent, save/load复用) / 进化=数据集(50验证+100测试)+评估器+算子+候选择优, 验证调优测试报数 / 四类算子对应四类搜索空间且无通吃(TextGrad MATH 66→76, AFlow MCTS搜结构 MBPP 69→79, MIPRO 黑盒重排 HotPotQA 63.58→69.16, EvoPrompt) / HITL 做图内拦截器Agent(target_agent+target_action+PRE+APPROVE_REJECT+字段映射), 图结构不变 / 优化器可外挂第三方框架 / 边界诚实(离线固定数据集优化, 不碰代码)
+- 改进建议: 5项 (P0×2: eval_observability 进化fitness闭环+留出集 / claw_integration 进化循环四段式; P1×2: agent_orchestrator HITL拦截器化 / 拓扑优先+workflow可移植; P2×1: model_scheduler 算子按任务路由)
+- 判断: Claw 与该项目差一个闭环 — 424条建议无一被验证过; 建议挑3项P0配留出集做A/B拿真实delta
+- 附: MEMORY.md 由 18,111B 精简至 4,731B(完整清单归档 capabilities-full.md), 解决每轮注入被截断
+- 输出: daily_learning/2026-10-25_evoagentx.md, tracking(137/424), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅ (ProxyHandler({}) 绕过失效代理)
+- 同步: git push origin main (-c http.sslBackend=openssl)
+
 ### 2026-10-24 (第88轮)
 - 学习项目: sandbaseai/sandbase-harness (⭐635, 相关度19, TypeScript, Apache-2.0, v0.3.8) — Agent runtime 层: 会话/沙箱工具/记忆/凭证/审计回放全在本机
 - 核心创新: 可恢复SSE事件流+会话replay(断线续跑/回放调试) / 沙箱四后端同一抽象(本地进程/Docker每会话/K8s/自托管worker) / 工具治理四件套(MCP toolsets+vault+策略+审批)+--tool-approval allow预授权 / 单一活动provider且配置仅启动生效 / 默认开放有key才鉴权 / 能力矩阵诚实声明(必写reason,无推迟档)+文档生成+漂移即测试失败 / 官方SDK一致性用例进CI
