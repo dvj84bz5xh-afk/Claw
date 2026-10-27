@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-10-27 (第90轮)
+- 学习项目: trpc-group/trpc-agent-go (⭐1,877, 相关度36, Go, Apache-2.0, 更新 2026-10-26, Trendshift 当日 Go 榜#1) — 腾讯 tRPC 团队生产级 Go 原生 Agent 运行时
+- 核心创新: 13包各管一段(skill/evolution/evaluation/artifact 独立成包) / 三协议分工 AG-UI(前端)+A2A(互操作)+MCP(工具) 由单一Gateway出口 / 技能四件套(SKILL.md规范+HTTP归档拉取缓存+多根叠加+Refresh热更新+load与run分离) / 进化服务化(会话完成异步评审→质量门→发布回受管技能目录, 产物是SKILL.md) / 进化产物与手写技能物理隔离 / 双执行路径互斥 / 取消统一requestID / 自动prompt caching
+- 改进建议: 5项 (P0×2: skill_system managed_skills物理隔离 / claw_integration 进化服务化发布SKILL.md; P1×2: agent_orchestrator 三协议边界+单一Gateway / tool_registry 双执行路径互斥; P2×1: eval_observability 缓存计量单列)
+- 判断: 与10-25 EvoAgentX互补(前者量化fitness/本作沉淀资产); 后者更便宜, 建议先建 managed_skills/ 把3项已实施成果转SKILL.md
+- 输出: daily_learning/2026-10-27_trpc-agent-go.md, tracking(138/429), MEMORY.md(v3.1), dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main
+- 注: 2026-10-26 轮次因 502 网络故障未执行, 今日补齐为 10-27 正常轮次
+
 ### 2026-10-25 (第89轮)
 - 学习项目: ANative-Lab/EvoAgentX (⭐3,402, 相关度24, Python, 更新 2026-10-22, 论文 arXiv 2507.03616) — 给 Agent 工作流做自动优化的实验台(生成→评估→进化)
 - 核心创新: 工作流为可序列化对象(goal→WorkFlowGraph→按节点物化Agent, save/load复用) / 进化=数据集(50验证+100测试)+评估器+算子+候选择优, 验证调优测试报数 / 四类算子对应四类搜索空间且无通吃(TextGrad MATH 66→76, AFlow MCTS搜结构 MBPP 69→79, MIPRO 黑盒重排 HotPotQA 63.58→69.16, EvoPrompt) / HITL 做图内拦截器Agent(target_agent+target_action+PRE+APPROVE_REJECT+字段映射), 图结构不变 / 优化器可外挂第三方框架 / 边界诚实(离线固定数据集优化, 不碰代码)

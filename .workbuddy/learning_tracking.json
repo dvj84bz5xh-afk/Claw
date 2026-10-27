@@ -2289,6 +2289,30 @@
         "优化器可外挂第三方框架: 只调prompt即提升GAIA榜上Open Deep Research与OWL",
         "边界诚实: 自进化是离线固定数据集优化而非运行时学习, 且不碰代码"
       ]
+    },
+    {
+      "name": "trpc-group/trpc-agent-go",
+      "url": "https://github.com/trpc-group/trpc-agent-go",
+      "stars": 1877,
+      "relevance": 36,
+      "language": "Go",
+      "analyzed_at": "2026-10-27T09:10:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-27_trpc-agent-go.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "包即架构: 13包各管一段, skill/evolution/evaluation/artifact各自独立成包而非塞进orchestrator",
+        "三协议职责边界: AG-UI管agent↔前端 / A2A管agent↔agent / MCP管agent↔工具, 由单一Gateway Server统一出口",
+        "技能四件套: SKILL.md目录规范(遵循Anthropic Agent Skills) + HTTP(S) zip/tar.gz拉取并本地缓存 + 多根目录叠加(共享+私有) + 显式Refresh热更新 + load与run分离",
+        "进化服务化: evolution.NewService(reviewerModel, managedSkillsDir, skillRepo)挂runner, 会话完成异步评审→质量门→发布回受管技能目录, 发布物是SKILL.md而非建议条目",
+        "进化产物与手写技能物理隔离(managed_skills独立目录可整目录丢弃回滚)",
+        "双执行路径互斥: skill_run开启时须显式关闭markdown代码块自动执行(EnableCodeExecutionResponseProcessor(false))否则同段代码跑两遍",
+        "取消三路径统一requestID语义 + 自动prompt caching省90%成本 + evaluation多次run(WithNumRuns)再判OverallStatus"
+      ]
     }
   ],
   "improvements": [
@@ -6782,6 +6806,56 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-10-25T09:10:00"
+    },
+    {
+      "id": "tag46d8a2",
+      "source": "trpc-group/trpc-agent-go",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "进化产物与手写技能物理隔离: 新增独立managed_skills根目录, 自动生成技能只写这里, 加载时与手写库叠加但优先级更低, 支持整目录diff/回滚/丢弃且不污染人工资产",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-27T09:10:00"
+    },
+    {
+      "id": "tag6bf8e6",
+      "source": "trpc-group/trpc-agent-go",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "进化服务化且发布物是SKILL.md: 会话结束→异步评审→质量门(可读性/可执行性/是否重复)→通过则写SKILL.md落managed_skills, 下一轮可加载; 取代当前'写建议条目到tracking'的计数式进化",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-27T09:10:00"
+    },
+    {
+      "id": "taga08cae",
+      "source": "trpc-group/trpc-agent-go",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "三协议职责边界+单一Gateway出口: 能力矩阵式声明MCP管工具/ACP与A2A管Agent互操作/AG-UI管前端事件流, 收敛到一个Gateway避免每方向各开端口",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-27T09:10:00"
+    },
+    {
+      "id": "tag289074",
+      "source": "trpc-group/trpc-agent-go",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "双执行路径互斥开关: 同时存在技能执行与代码块自动执行时默认只留一个, 另一个显式关闭, 启动自检报冲突(避免同段代码跑两遍)",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-27T09:10:00"
+    },
+    {
+      "id": "tagf626c5",
+      "source": "trpc-group/trpc-agent-go",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "缓存计量单列: token成本拆成命中缓存/未命中两项分别统计, 否则prompt caching生效后成本曲线跳变被误判为优化有效",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-10-27T09:10:00"
     }
   ],
   "last_updated": "2026-10-19T15:09:00",
@@ -7080,14 +7154,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-27T09:10:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 137,
-  "last_update": "2026-10-25T09:10:00",
-  "total_improvements": 424,
-  "total_p0": 158,
-  "total_p1": 212,
-  "total_p2": 54,
+  "total_projects": 138,
+  "last_update": "2026-10-27T09:10:00",
+  "total_improvements": 429,
+  "total_p0": 160,
+  "total_p1": 214,
+  "total_p2": 55,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,

@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v3.0 (精简索引版) | 最后更新: 2026-10-25
+# 格式版本: v3.1 (精简索引版) | 最后更新: 2026-10-27
 
 ## [USER] 用户偏好
 - 职业: 执法培训 + 诈骗园区调查 + CodeBuddy产品经理
@@ -9,8 +9,8 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 137项目 / 424改进项 / 实施率约23% (已实施96 / P0待实施132)
-- 最新学习: ANative-Lab/EvoAgentX (⭐3.4K, 相关度24, 进化闭环) — 2026-10-25
+- 进度: 138项目 / 429改进项 / 实施率约22% (已实施96 / P0待实施134)
+- 最新学习: trpc-group/trpc-agent-go (⭐1.9K, 相关度36, 改进沉淀为资产) — 2026-10-27
 - agent_core: v2.1.0-p1-complete
 - 模块(12): model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration, storage, skill_system
 - **424项待实施改进的完整清单(P0/P1/P2×模块)存于 `.workbuddy/memory/capabilities-full.md`，需要逐条比对时再读，不要每轮全量载入**
@@ -19,7 +19,7 @@
 - 自动化ID: automation-1779863408739 | 每日09:00 | 细水长流1项目/日
 - 日志: .workbuddy/evolution_log.jsonl | 仪表盘: docs/evolution-dashboard.html
 - 环境铁律: Python 用完整路径 /c/Users/10127/AppData/Local/Programs/Python/Python313/python.exe + heredoc; 系统代理127.0.0.1:7890已失效, urllib 须 build_opener(ProxyHandler({})) 绕过; git push 用 -c http.sslBackend=openssl
-- **最大短板(2026-10-25 EvoAgentX 佐证)**: 无 fitness 闭环——改进项只计数不验证，"424项/23%"无法证明价值。P0 动作: 挑3项配留出集做A/B，拿第一组真实delta
+- **两大短板(10-25/10-27 佐证)**: ①缺 fitness 闭环——改进项只计数不验证；②缺产出沉淀——429项建议无一变成可复用技能。P0 动作: 建 `managed_skills/` 把3项已实施成果写成 SKILL.md，并挑3项配留出集做A/B拿真实delta
 
 ## [CAPABILITY] 各模块已具备能力(精简索引)
 - agent_orchestrator: Hook三/六层 · 子Agent上下文隔离 · 并行executor · checkpoint续跑 · Guardrails四钩三判 · 任务分级+交付验收闸门 · Spine · Sentinel · IntentGate · ACP适配器 · Stage Contract线性流水线 · swarm事务化 · 多Agent辩论制衡
