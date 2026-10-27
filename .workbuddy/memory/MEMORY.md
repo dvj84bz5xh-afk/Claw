@@ -18,7 +18,7 @@
 ## [EVOLUTION] 智能进化引擎
 - 自动化ID: automation-1779863408739 | 每日09:00 | 细水长流1项目/日
 - 日志: .workbuddy/evolution_log.jsonl | 仪表盘: docs/evolution-dashboard.html
-- 环境铁律: Python 用完整路径 /c/Users/10127/AppData/Local/Programs/Python/Python313/python.exe + heredoc; 系统代理127.0.0.1:7890已失效, urllib 须 build_opener(ProxyHandler({})) 绕过; git push 用 -c http.sslBackend=openssl
+- 环境铁律: Python 用完整路径 /c/Users/10127/AppData/Local/Programs/Python/Python313/python.exe + heredoc; 系统代理127.0.0.1:7890已失效, urllib 须 build_opener(ProxyHandler({})) 绕过; git push 用 `-c http.sslBackend=openssl -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=20`（HTTP/2 会挂在 fetch 阶段不动）
 - **两大短板(10-25/10-27 佐证)**: ①缺 fitness 闭环——改进项只计数不验证；②缺产出沉淀——429项建议无一变成可复用技能。P0 动作: 建 `managed_skills/` 把3项已实施成果写成 SKILL.md，并挑3项配留出集做A/B拿真实delta
 
 ## [CAPABILITY] 各模块已具备能力(精简索引)
