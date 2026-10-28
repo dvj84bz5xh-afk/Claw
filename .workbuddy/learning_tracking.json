@@ -2313,6 +2313,31 @@
         "双执行路径互斥: skill_run开启时须显式关闭markdown代码块自动执行(EnableCodeExecutionResponseProcessor(false))否则同段代码跑两遍",
         "取消三路径统一requestID语义 + 自动prompt caching省90%成本 + evaluation多次run(WithNumRuns)再判OverallStatus"
       ]
+    },
+    {
+      "name": "FrancyJGLisboa/agent-skills-platform",
+      "url": "https://github.com/FrancyJGLisboa/agent-skills-platform",
+      "stars": 2407,
+      "relevance": 15,
+      "language": "Python",
+      "analyzed_at": "2026-10-28T09:10:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-28_agent-skills-platform.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "技能包五件套: instructions+按需脚本+evals+安全检查+代表性run记录+纠错路径, 只写prompt不算技能",
+        "raw/wiki/executable三层分离: 运行证据分类落raw, 反复问题沉淀为证据链接的wiki草稿模式, 只有单独验证过的变更能改可执行技能; 官方定性为受治理维护记录而非自主自我修改",
+        "运行证据刻意不进入运行时prompt上下文",
+        "技能按图整体校验: 强制every_expected_is_reachable与deterministic_multistep_has_orchestrator两条结构不变量 + 四检查(spec/pipeline/security/eval schema)并行 + 代表性run",
+        "Semantic Recon+钉住数据契约: 涉及API/DB/MCP/代码库/结构化文件时实现前自动语义侦察并pin data contract, 跳过需显式--without-semantic-recon",
+        "三权分立: SME拥有业务含义与批准 / Creator构建验证 / Marketplace运营方治理发布, 无角色同时是提出者批准者验收者",
+        "Caliper按运行时认证: reliability在每个已安装runtime跑k次, 只认证agent实际发现并遵循的部分",
+        "边界三段: RAG供知识/MCP供能力/harness供执行/skill组织成通向已验证结果的治理路径"
+      ]
     }
   ],
   "improvements": [
@@ -6856,6 +6881,56 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-10-27T09:10:00"
+    },
+    {
+      "id": "aspa09c5d",
+      "source": "FrancyJGLisboa/agent-skills-platform",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "技能包五件套+发布门禁: SKILL.md+evals(至少3正例2反例)+security.md(能碰什么不能碰什么)+run-record.md(一次真实运行的输入/输出/判定)+纠错路径; 缺任一项只能是draft不得标published",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-28T09:10:00"
+    },
+    {
+      "id": "asp0414be",
+      "source": "FrancyJGLisboa/agent-skills-platform",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "三层分离raw→wiki→executable: 会话证据分类落raw/, 反复出现的问题写wiki/且必须链回证据, 可执行技能正文只能由单独验证过的变更更新(验证记录留run-record.md); 明确为受治理维护记录而非自主自我修改, 运行证据不进运行时上下文",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-28T09:10:00"
+    },
+    {
+      "id": "aspcd451c",
+      "source": "FrancyJGLisboa/agent-skills-platform",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "两条结构不变量当门禁: every_expected_is_reachable(每个声明预期都有eval覆盖)+deterministic_multistep_has_orchestrator(可预测多步流程必须有唯一入口), 四检查(规范/流水线/安全/评估schema)并行跑完再判",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-28T09:10:00"
+    },
+    {
+      "id": "aspcbc2c9",
+      "source": "FrancyJGLisboa/agent-skills-platform",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "Semantic Recon+pinned data contract: 新增工具接外部依赖(API/DB/MCP/代码库)前先语义侦察, 产出并钉住数据契约(字段名/类型/可空性/来源/变更策略), 契约变更须重新侦察禁止静默漂移",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-28T09:10:00"
+    },
+    {
+      "id": "asp5f3371",
+      "source": "FrancyJGLisboa/agent-skills-platform",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "按运行时认证: 同一技能在WorkBuddy/Claude Code/Codex各跑k次, 认证结论只覆盖被实际发现并遵循的部分, 未发现的功能标unsupported而非'应该可以'",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-28T09:10:00"
     }
   ],
   "last_updated": "2026-10-19T15:09:00",
@@ -7160,14 +7235,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-28T09:10:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 138,
-  "last_update": "2026-10-27T09:10:00",
-  "total_improvements": 429,
-  "total_p0": 160,
-  "total_p1": 214,
-  "total_p2": 55,
+  "total_projects": 139,
+  "last_update": "2026-10-28T09:10:00",
+  "total_improvements": 434,
+  "total_p0": 162,
+  "total_p1": 216,
+  "total_p2": 56,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,

@@ -5,6 +5,15 @@
 
 ## 执行历史
 
+### 2026-10-28 (第91轮)
+- 学习项目: FrancyJGLisboa/agent-skills-platform (⭐2,407, 相关度15, Python, MIT, v6.1.0) — 技能工厂+治理流水线(把人的工作变成经测试/可安装/可治理的技能包)
+- 核心创新: 技能包五件套(instructions+按需脚本+evals+安全检查+代表性run记录+纠错路径, 只写prompt不算技能) / raw→wiki→executable三层分离(证据→证据链接草稿模式→仅验证过的变更可改可执行层, 官方定性"受治理维护记录而非自主自我修改", 证据不进运行时prompt) / 技能按图校验+两条结构不变量(every_expected_is_reachable, deterministic_multistep_has_orchestrator)+四检查并行+代表性run / Semantic Recon+钉住data contract / 三权分立(SME批准-Creator验证-运营方发布) / Caliper按运行时认证(k次实跑只认证被实际发现的部分)
+- 改进建议: 5项 (P0×2: skill_system 五件套+发布门禁 / memory_system 三层分离; P1×2: eval_observability 结构不变量门禁 / tool_registry Semantic Recon+契约; P2×1: claw_integration 按运行时认证)
+- 判断: 与10-25 EvoAgentX、10-27 trpc-agent-go 连成链路(判断更好→沉淀成资产→证明可用); 新增第三条短板"进化≠自己改自己"
+- 输出: daily_learning/2026-10-28_agent-skills-platform.md, tracking(139/434), MEMORY.md(v3.2), dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main (含上次遗留本地提交 3075931)
+
 ### 2026-10-27 (第90轮)
 - 学习项目: trpc-group/trpc-agent-go (⭐1,877, 相关度36, Go, Apache-2.0, 更新 2026-10-26, Trendshift 当日 Go 榜#1) — 腾讯 tRPC 团队生产级 Go 原生 Agent 运行时
 - 核心创新: 13包各管一段(skill/evolution/evaluation/artifact 独立成包) / 三协议分工 AG-UI(前端)+A2A(互操作)+MCP(工具) 由单一Gateway出口 / 技能四件套(SKILL.md规范+HTTP归档拉取缓存+多根叠加+Refresh热更新+load与run分离) / 进化服务化(会话完成异步评审→质量门→发布回受管技能目录, 产物是SKILL.md) / 进化产物与手写技能物理隔离 / 双执行路径互斥 / 取消统一requestID / 自动prompt caching
