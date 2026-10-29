@@ -5,6 +5,15 @@
 
 ## 执行历史
 
+### 2026-10-29 (第92轮)
+- 学习项目: nolabs-ai/nono (⭐4,733, 相关度18, Rust, Apache-2.0, Sigstore 团队出品) — Agent 运行时安全层(把"Agent 能碰什么"从 prompt 约定变成内核强制)
+- 核心创新: 监督进程=能力代理(每次工具调用派生全新沙箱, 不继承会话授权, 四项能力从最小基线显式授予) / 工具间双向边授权(caller can_use + callee from.<caller>, 缺边不回退不合并, 按调用路径而非工具名授权) / 凭据出沙箱(local-socket/raw-file/proxy含SigV4与endpoint method-path策略/ambient phantom token可format塑形, 代理缺位 fail closed) / 技能来源证明(trust-policy includes glob 匹配即必须签名, Sigstore Bundle v0.3, blocklist 先于一切验证硬拒且 warn/audit 不放过) / 用户级策略是信任锚(三层并集+最严格enforcement, 项目不可削弱) / 验证时机两档且平台差异诚实(Linux seccomp-notify 运行时拦截 openat vs macOS 仅启动验+deny-write) / 可写可执行信任门防TOCTOU / broker侧审计+封闭decision词表+摘要可验篡改 / 原子回滚 / stdio字节上限
+- 改进建议: 5项 (P0×2: tool_registry 调用级能力派生+双向边授权 / skill_system 技能来源证明; P1×2: claw_integration 可写可执行信任门+fail closed / eval_observability 中介侧审计; P2×1: storage 内容寻址快照原子回滚)
+- 判断: Claw 是"信任行为+钩子兜住", nono 是"不信任只授予"; 差别在归属(钩子与策略同在Agent进程内)。可抄三个抽象(不依赖内核): 每次调用派生能力集 / 工具间双向边授权 / 策略凭据审计都在进程外。四轮连成"可托付"链(更好→沉淀→可用→可信), Claw 第四段空白 → MEMORY.md 新增第四条短板
+- 输出: daily_learning/2026-10-29_nono.md, tracking(140/439), MEMORY.md(v3.3), dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main
+
 ### 2026-10-28 (第91轮)
 - 学习项目: FrancyJGLisboa/agent-skills-platform (⭐2,407, 相关度15, Python, MIT, v6.1.0) — 技能工厂+治理流水线(把人的工作变成经测试/可安装/可治理的技能包)
 - 核心创新: 技能包五件套(instructions+按需脚本+evals+安全检查+代表性run记录+纠错路径, 只写prompt不算技能) / raw→wiki→executable三层分离(证据→证据链接草稿模式→仅验证过的变更可改可执行层, 官方定性"受治理维护记录而非自主自我修改", 证据不进运行时prompt) / 技能按图校验+两条结构不变量(every_expected_is_reachable, deterministic_multistep_has_orchestrator)+四检查并行+代表性run / Semantic Recon+钉住data contract / 三权分立(SME批准-Creator验证-运营方发布) / Caliper按运行时认证(k次实跑只认证被实际发现的部分)

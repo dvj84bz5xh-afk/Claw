@@ -2338,6 +2338,30 @@
         "Caliper按运行时认证: reliability在每个已安装runtime跑k次, 只认证agent实际发现并遵循的部分",
         "边界三段: RAG供知识/MCP供能力/harness供执行/skill组织成通向已验证结果的治理路径"
       ]
+    },
+    {
+      "name": "nolabs-ai/nono",
+      "url": "https://github.com/nolabs-ai/nono",
+      "stars": 4733,
+      "relevance": 18,
+      "language": "Rust",
+      "analyzed_at": "2026-10-29T10:50:00",
+      "report_path": ".workbuddy/daily_learning/2026-10-29_nono.md",
+      "improvements_count": 5,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "监督进程=能力代理: 每次工具调用按调用级policy派生全新沙箱, 不继承会话授权, 文件/网络/env/凭据从最小基线逐项显式授予",
+        "工具间双向边授权: caller的can_use + callee的from.<caller> 同时满足才放行, 缺边不回退不合并(同一条能力按调用路径而非工具名授权)",
+        "凭据出沙箱: local-socket/raw-file/proxy(SigV4与endpoint method-path策略)/ambient(phantom token可format塑形), 代理缺位fail closed",
+        "技能来源证明: trust-policy.json includes glob圈定必须签名文件(SKILL*/CLAUDE*/.claude/**/*.md), Sigstore Bundle v0.3 sidecar, blocklist摘要优先硬拒且warn/audit模式也不放过",
+        "用户级策略是信任锚: Embedded→User(信任谁)→Project(验什么)三层合并, 并集+最严格enforcement, 恶意项目不能降低信任阈值",
+        "验证时机两档且平台差异诚实: 启动扫描不遵守.gitignore; Linux seccomp-notify运行时拦截每次openat(新下载文件首开即验) vs macOS仅启动验并deny-write使其不可变",
+        "可写可执行信任门(文件或其父目录可写即拒, 防TOCTOU) + broker侧审计(工具不自证)+封闭decision词表+摘要覆盖可验篡改 + 原子回滚按文件恢复 + stdio字节上限"
+      ]
     }
   ],
   "improvements": [
@@ -6931,6 +6955,56 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-28T09:10:00"
+    },
+    {
+      "id": "nonoae1202",
+      "source": "nolabs-ai/nono",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "调用级能力派生+工具间双向边授权: 每次工具调用由broker按该次policy派生独立能力集(fs读写目录/域名白名单/env白名单/凭据句柄)且不继承会话授权; 工具间调用需caller can_use与callee from.<caller>双向前提, 缺边即拒且不回退不合并",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-29T10:50:00"
+    },
+    {
+      "id": "nono24ea2d",
+      "source": "nolabs-ai/nono",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "技能来源证明: skill-trust.json用includes glob圈定SKILL*/AGENTS*/钩子脚本, 匹配即必须带Sigstore bundle; 未签名默认拒载而非警告; blocklist摘要先于一切验证且不可被warn/audit降级; 用户级trust anchor定义信任谁, 项目级只能定义验什么不可削弱",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-10-29T10:50:00"
+    },
+    {
+      "id": "nono843fe7",
+      "source": "nolabs-ai/nono",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "可写可执行信任门+fail closed: 执行前若目标可执行文件或其父目录在本次能力集下可写则拒绝(防运行期替换); 依赖的代理/凭据/审计后端不可用时启动失败, 禁止静默降级为直连或跳过审计",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-29T10:50:00"
+    },
+    {
+      "id": "nonof6456a",
+      "source": "nolabs-ai/nono",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "审计由中介记录且可验篡改: 审计事件只能由执行中介写入(工具仅可请求不可记录结果), decision取自封闭词表, 会话汇总加摘要并提供audit verify一条命令验证; 解决工具自证问题",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-29T10:50:00"
+    },
+    {
+      "id": "nonoe6ec0e",
+      "source": "nolabs-ai/nono",
+      "priority": "P2",
+      "module": "storage",
+      "suggestion": "原子回滚: 运行前对声明可写路径做内容寻址快照(.claw/snapshots/<run>/)并给出变更清单, 误改可单文件恢复且快照可校验; 比git无commit语义包袱, 比全量备份轻",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-10-29T10:50:00"
     }
   ],
   "last_updated": "2026-10-19T15:09:00",
@@ -7241,14 +7315,20 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-10-29T10:50:00",
+      "new_projects": 1,
+      "new_improvements": 5,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 139,
-  "last_update": "2026-10-28T09:10:00",
-  "total_improvements": 434,
-  "total_p0": 162,
-  "total_p1": 216,
-  "total_p2": 56,
+  "total_projects": 140,
+  "last_update": "2026-10-29T10:50:00",
+  "total_improvements": 439,
+  "total_p0": 164,
+  "total_p1": 218,
+  "total_p2": 57,
   "historical_total": 283,
   "new_improvements_this_round": 5,
   "p0_new_this_round": 2,
