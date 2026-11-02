@@ -51,23 +51,23 @@ tr:hover { background: #1a1d28; }
 <p class="subtitle">通过 GitHub 高星项目迭代 CodeBuddy 能力 | 细水长流模式 | 每日1项目</p>
 
 <div class="stats-grid">
-<div class="stat-card"><div class="stat-label">学习项目总数</div><div class="stat-value blue">140</div><div class="stat-sub">累计分析GitHub项目</div></div>
-<div class="stat-card"><div class="stat-label">改进项总数</div><div class="stat-value purple">439</div><div class="stat-sub">已识别可借鉴改进点</div></div>
-<div class="stat-card"><div class="stat-label">已实施</div><div class="stat-value green">96</div><div class="stat-sub">实施率 21.9%</div></div>
-<div class="stat-card"><div class="stat-label">P0 待实施</div><div class="stat-value red">138</div><div class="stat-sub">高优先级待处理</div></div>
+<div class="stat-card"><div class="stat-label">学习项目总数</div><div class="stat-value blue">141</div><div class="stat-sub">累计分析GitHub项目</div></div>
+<div class="stat-card"><div class="stat-label">改进项总数</div><div class="stat-value purple">445</div><div class="stat-sub">已识别可借鉴改进点</div></div>
+<div class="stat-card"><div class="stat-label">已实施</div><div class="stat-value green">96</div><div class="stat-sub">实施率 21.6%</div></div>
+<div class="stat-card"><div class="stat-label">P0 待实施</div><div class="stat-value red">141</div><div class="stat-sub">高优先级待处理</div></div>
 </div>
 
 <div class="section">
 <div class="section-title">优先级分布</div>
 <div class="priority-bar">
-<div class="bar-p0" style="flex:164">P0: 164</div>
-<div class="bar-p1" style="flex:218">P1: 218</div>
-<div class="bar-p2" style="flex:57">P2: 57</div>
+<div class="bar-p0" style="flex:167">P0: 167</div>
+<div class="bar-p1" style="flex:220">P1: 220</div>
+<div class="bar-p2" style="flex:58">P2: 58</div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px;">
-<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P0 (高优先级)</div><div style="font-size:20px;font-weight:600;color:#f44336;">26/164</div><div class="stat-sub">实施率 15.9%</div></div>
-<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P1 (中优先级)</div><div style="font-size:20px;font-weight:600;color:#ff9800;">70/218</div><div class="stat-sub">实施率 32.1%</div></div>
-<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P2 (低优先级)</div><div style="font-size:20px;font-weight:600;color:#4caf50;">0/57</div><div class="stat-sub">实施率 0.0%</div></div>
+<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P0 (高优先级)</div><div style="font-size:20px;font-weight:600;color:#f44336;">26/167</div><div class="stat-sub">实施率 15.6%</div></div>
+<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P1 (中优先级)</div><div style="font-size:20px;font-weight:600;color:#ff9800;">70/220</div><div class="stat-sub">实施率 31.8%</div></div>
+<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P2 (低优先级)</div><div style="font-size:20px;font-weight:600;color:#4caf50;">0/58</div><div class="stat-sub">实施率 0.0%</div></div>
 </div>
 </div>
 
@@ -86,10 +86,15 @@ tr:hover { background: #1a1d28; }
 <div class="module-row">
 <div class="module-name">agent_orchestrator</div>
 <div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/40</div>
+<div class="module-stats">0/43</div>
 </div>
 <div class="module-row">
 <div class="module-name">memory_system</div>
+<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
+<div class="module-stats">0/36</div>
+</div>
+<div class="module-row">
+<div class="module-name">claw_integration</div>
 <div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
 <div class="module-stats">0/36</div>
 </div>
@@ -99,22 +104,17 @@ tr:hover { background: #1a1d28; }
 <div class="module-stats">2/35</div>
 </div>
 <div class="module-row">
-<div class="module-name">claw_integration</div>
+<div class="module-name">tool_registry</div>
 <div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
 <div class="module-stats">0/35</div>
 </div>
 <div class="module-row">
-<div class="module-name">tool_registry</div>
+<div class="module-name">eval_observability</div>
 <div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/34</div>
+<div class="module-stats">0/29</div>
 </div>
 <div class="module-row">
 <div class="module-name">context_injector</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/28</div>
-</div>
-<div class="module-row">
-<div class="module-name">eval_observability</div>
 <div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
 <div class="module-stats">0/28</div>
 </div>
@@ -195,6 +195,16 @@ tr:hover { background: #1a1d28; }
 <table>
 <thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>语言</th><th>日期</th><th>改进项</th><th>P0</th><th>P1</th></tr></thead>
 <tbody>
+<tr>
+<td><a href="https://github.com/ChesterRa/cccc" target="_blank" style="color:#4fc3f7;text-decoration:none;">ChesterRa/cccc</a></td>
+<td>&#11088;1,292</td>
+<td>20</td>
+<td>Rust</td>
+<td>2026-11-02</td>
+<td>6</td>
+<td><span class="badge badge-p0">3</span></td>
+<td><span class="badge badge-p1">2</span></td>
+</tr>
 <tr>
 <td><a href="https://github.com/nolabs-ai/nono" target="_blank" style="color:#4fc3f7;text-decoration:none;">nolabs-ai/nono</a></td>
 <td>&#11088;4,733</td>
@@ -285,16 +295,6 @@ tr:hover { background: #1a1d28; }
 <td><span class="badge badge-p0">2</span></td>
 <td><span class="badge badge-p1">2</span></td>
 </tr>
-<tr>
-<td><a href="https://github.com/agentic-community/mcp-gateway-registry" target="_blank" style="color:#4fc3f7;text-decoration:none;">agentic-community/mcp-gateway-registry</a></td>
-<td>&#11088;972</td>
-<td>18</td>
-<td>Python</td>
-<td>2026-10-13</td>
-<td>5</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">2</span></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -302,25 +302,28 @@ tr:hover { background: #1a1d28; }
 <div class="section">
 <div class="section-title">语言分布</div>
 <div class="lang-bar">
-<div class="lang-tag">N/A <span>52</span></div><div class="lang-tag">Python <span>50</span></div><div class="lang-tag">TypeScript <span>23</span></div><div class="lang-tag">Rust <span>7</span></div><div class="lang-tag">JavaScript <span>3</span></div><div class="lang-tag">HTML <span>1</span></div><div class="lang-tag">Clojure <span>1</span></div><div class="lang-tag">Protocol (protobuf + multi-SDK) <span>1</span></div><div class="lang-tag">Shell/Marketdown <span>1</span></div><div class="lang-tag">Go <span>1</span></div></div>
+<div class="lang-tag">N/A <span>52</span></div><div class="lang-tag">Python <span>50</span></div><div class="lang-tag">TypeScript <span>23</span></div><div class="lang-tag">Rust <span>8</span></div><div class="lang-tag">JavaScript <span>3</span></div><div class="lang-tag">HTML <span>1</span></div><div class="lang-tag">Clojure <span>1</span></div><div class="lang-tag">Protocol (protobuf + multi-SDK) <span>1</span></div><div class="lang-tag">Shell/Marketdown <span>1</span></div><div class="lang-tag">Go <span>1</span></div></div>
 </div>
 
 <div class="section">
-<div class="section-title">最新学习: <a href="https://github.com/nolabs-ai/nono" target="_blank" style="color:#4fc3f7;text-decoration:none;">nolabs-ai/nono</a> (2026-10-29 | &#11088;4,733 | 相关度18)</div>
+<div class="section-title">最新学习: <a href="https://github.com/ChesterRa/cccc" target="_blank" style="color:#4fc3f7;text-decoration:none;">ChesterRa/cccc</a> (2026-11-02 | &#11088;1,292 | 相关度20)</div>
 <div class="stat-card" style="padding:16px;">
 <div style="font-size:14px;line-height:1.8;">
 <strong>核心创新:</strong><br>
-1. 监督进程=能力代理: 每次工具调用按调用级policy派生全新沙箱, 不继承会话授权, 文件/网络/env/凭据从最小基线逐项显式授予<br>
-2. 工具间双向边授权: caller的can_use + callee的from.<caller> 同时满足才放行, 缺边不回退不合并(同一条能力按调用路径而非工具名授权)<br>
-3. 凭据出沙箱: local-socket/raw-file/proxy(SigV4与endpoint method-path策略)/ambient(phantom token可format塑形), 代理缺位fail closed<br>
-4. 技能来源证明: trust-policy.json includes glob圈定必须签名文件(SKILL*/CLAUDE*/.claude/**/*.md), Sigstore Bundle v0.3 sidecar, blocklist摘要优先硬拒且warn/audit模式也不放过<br>
-5. 用户级策略是信任锚: Embedded→User(信任谁)→Project(验什么)三层合并, 并集+最严格enforcement, 恶意项目不能降低信任阈值<br>
-6. 验证时机两档且平台差异诚实: 启动扫描不遵守.gitignore; Linux seccomp-notify运行时拦截每次openat(新下载文件首开即验) vs macOS仅启动验并deny-write使其不可变<br>
-7. 可写可执行信任门(文件或其父目录可写即拒, 防TOCTOU) + broker侧审计(工具不自证)+封闭decision词表+摘要覆盖可验篡改 + 原子回滚按文件恢复 + stdio字节上限<br>
+1. 协作内核定位: daemon单写者+append-only ledger, Web/CLI/MCP/IM四端口共用同一control plane, 运行时状态在CCCC_HOME与仓库物理分离<br>
+2. 消息四态事实分离: stored/runtime.delivery/read/reply/cancellation/task completion 各自独立记录互不冒充<br>
+3. 三模式投递+使用规则: Send(打断)/Send+Reply(跟踪到回复或取消)/Mail(不打断, 按ledger顺序消费, inbox_read原子推进游标); 能等的用Mail, @all只用于公告, Mail不能发人类用户, 一条消息不可同时面向user与agents<br>
+4. tracked-send委派单据: durable owner+outcome+evidence+handoff+acceptance trail, 而非一条普通消息<br>
+5. 生命周期边界: paused/stopped/disabled的actor不被投递静默唤醒; Foreman+peer角色与权限边界+@all/@peers/@foreman路由<br>
+6. 运维事件化策略: Mail notice(最多一次且无内容)/Reply notice/actor idle/keepalive/silence检测 + 自定义interval-cron-one-time(改状态与生命周期限admin且只能one-time)<br>
+7. MCP工具面按协议vs机械分级: 协作协议核心常驻, 其余经capability_use按需调<br>
+8. 多运行时且已存在会话可加入: 每个actor可用不同runtime, 0.4.46起用户自己开着的Codex/Claude Code/Pi/OpenCode会话可直接进组且不导入历史<br>
+9. 跨实例授权只到消息级: 同账号/成员确认Group对/Direct免账号三档, 跨成员只授予消息回复小文件不含终端与工作区浏览, 远程工作台需目标实例自己的admin token<br>
+10. 安全边界诚实: daemon IPC为可信本地接口无应用层认证, capability allowlist不是原生agent进程沙箱(与10-29 nono互补, 承认自己不是安全边界)<br>
 </div>
 </div>
 </div>
-<div class="update-time">最后更新: 2026-10-29 10:50 | 自动化ID: automation-1779863408739 | 细水长流模式</div>
+<div class="update-time">最后更新: 2026-11-02 09:04 | 自动化ID: automation-1779863408739 | 细水长流模式</div>
 </div>
 </body>
 </html>

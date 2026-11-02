@@ -2362,6 +2362,33 @@
         "验证时机两档且平台差异诚实: 启动扫描不遵守.gitignore; Linux seccomp-notify运行时拦截每次openat(新下载文件首开即验) vs macOS仅启动验并deny-write使其不可变",
         "可写可执行信任门(文件或其父目录可写即拒, 防TOCTOU) + broker侧审计(工具不自证)+封闭decision词表+摘要覆盖可验篡改 + 原子回滚按文件恢复 + stdio字节上限"
       ]
+    },
+    {
+      "name": "ChesterRa/cccc",
+      "url": "https://github.com/ChesterRa/cccc",
+      "stars": 1292,
+      "relevance": 20,
+      "language": "Rust",
+      "analyzed_at": "2026-11-02T09:05:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-02_cccc.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 3,
+        "P1": 2,
+        "P2": 1
+      },
+      "key_innovations": [
+        "协作内核定位: daemon单写者+append-only ledger, Web/CLI/MCP/IM四端口共用同一control plane, 运行时状态在CCCC_HOME与仓库物理分离",
+        "消息四态事实分离: stored/runtime.delivery/read/reply/cancellation/task completion 各自独立记录互不冒充",
+        "三模式投递+使用规则: Send(打断)/Send+Reply(跟踪到回复或取消)/Mail(不打断, 按ledger顺序消费, inbox_read原子推进游标); 能等的用Mail, @all只用于公告, Mail不能发人类用户, 一条消息不可同时面向user与agents",
+        "tracked-send委派单据: durable owner+outcome+evidence+handoff+acceptance trail, 而非一条普通消息",
+        "生命周期边界: paused/stopped/disabled的actor不被投递静默唤醒; Foreman+peer角色与权限边界+@all/@peers/@foreman路由",
+        "运维事件化策略: Mail notice(最多一次且无内容)/Reply notice/actor idle/keepalive/silence检测 + 自定义interval-cron-one-time(改状态与生命周期限admin且只能one-time)",
+        "MCP工具面按协议vs机械分级: 协作协议核心常驻, 其余经capability_use按需调",
+        "多运行时且已存在会话可加入: 每个actor可用不同runtime, 0.4.46起用户自己开着的Codex/Claude Code/Pi/OpenCode会话可直接进组且不导入历史",
+        "跨实例授权只到消息级: 同账号/成员确认Group对/Direct免账号三档, 跨成员只授予消息回复小文件不含终端与工作区浏览, 远程工作台需目标实例自己的admin token",
+        "安全边界诚实: daemon IPC为可信本地接口无应用层认证, capability allowlist不是原生agent进程沙箱(与10-29 nono互补, 承认自己不是安全边界)"
+      ]
     }
   ],
   "improvements": [
@@ -7005,6 +7032,66 @@
       "effort": "medium",
       "status": "pending",
       "created_at": "2026-10-29T10:50:00"
+    },
+    {
+      "id": "cccc7d4dcb",
+      "source": "ChesterRa/cccc",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "协作消息四态化: 子Agent/团队成员之间记录stored(落账)/delivered(对端进程确认)/read(读游标)/replied(答复)四个独立事实且任一不可由另一推断, 把'我以为它知道了'从事故变成可查字段",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-11-02T09:05:00"
+    },
+    {
+      "id": "ccccfb689f",
+      "source": "ChesterRa/cccc",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "三模式投递+原子游标: send(打断)/send_and_reply(跟踪到回复或取消)/mail(不打断, 按序消费, 读游标原子推进); 默认mail, 延迟成本大于打断才send, @all只用于公告, 一条消息不可同时面向user与agents",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-11-02T09:05:00"
+    },
+    {
+      "id": "ccccfc7be2",
+      "source": "ChesterRa/cccc",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "委派单据tracked-send: TaskCreate升级为带owner/outcome(完成的可观测定义)/evidence/handoff/acceptance的委派单; 未填outcome不得进in_progress, 未附evidence不得标completed",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-11-02T09:05:00"
+    },
+    {
+      "id": "cccc1c20e7",
+      "source": "ChesterRa/cccc",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "生命周期边界: paused/stopped/disabled的agent不得被投递唤醒, 投递方须收到'未投递:目标已停用'的明确失败而非静默排队; + Foreman/peer角色与@all/@peers/@foreman路由权限边界",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-02T09:05:00"
+    },
+    {
+      "id": "cccccdfabc",
+      "source": "ChesterRa/cccc",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "运维策略事件化: idle检测/整组静默/notice(最多一次且无内容)作为事件而非提示词注入; 自定义规则限interval-cron-one-time, 改组状态与生命周期动作限admin且只能one-time",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-02T09:05:00"
+    },
+    {
+      "id": "ccccb54759",
+      "source": "ChesterRa/cccc",
+      "priority": "P2",
+      "module": "tool_registry",
+      "suggestion": "工具面按'协作协议vs可选机械'分级: 常驻只留协作所需最小集, 记忆/同步/仓库/终端/演示等走capability_use按需调用",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-02T09:05:00"
     }
   ],
   "last_updated": "2026-10-19T15:09:00",
@@ -7321,17 +7408,23 @@
       "new_projects": 1,
       "new_improvements": 5,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-02T09:05:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 140,
-  "last_update": "2026-10-29T10:50:00",
-  "total_improvements": 439,
-  "total_p0": 164,
-  "total_p1": 218,
-  "total_p2": 57,
+  "total_projects": 141,
+  "last_update": "2026-11-02T09:05:00",
+  "total_improvements": 445,
+  "total_p0": 167,
+  "total_p1": 220,
+  "total_p2": 58,
   "historical_total": 283,
-  "new_improvements_this_round": 5,
-  "p0_new_this_round": 2,
+  "new_improvements_this_round": 6,
+  "p0_new_this_round": 3,
   "p1_new_this_round": 2,
   "p2_new_this_round": 1
 }

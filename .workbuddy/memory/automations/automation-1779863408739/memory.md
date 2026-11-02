@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-11-02 (第93轮)
+- 学习项目: ChesterRa/cccc (⭐1,292, 相关度20, Rust, Apache-2.0, v0.4.46) — 协作内核(跨厂商 Agent CLI 群聊式协作, IM 桥含飞书/钉钉/企微)
+- 核心创新: daemon 单写者+append-only ledger+四端口共用 control plane / 消息四态事实分离(stored/delivery/read/reply 互不冒充) / 三模式投递(Send 打断, Send+Reply 跟踪到回复或取消, Mail 不打断+原子读游标) / tracked-send 委派单据(owner+outcome+evidence+handoff+acceptance) / 生命周期边界(停用 actor 不被投递唤醒)+Foreman/peer 路由 / 运维事件化(notice 最多一次且无内容, 状态与生命周期动作限 admin 且 one-time) / MCP 工具面按"协作协议 vs 可选机械"分级 / 多运行时且已存在会话可加入 / 跨实例只授权到消息级 / 安全边界诚实(承认 daemon IPC 无应用层认证、allowlist 不是沙箱)
+- 改进建议: 6项 (P0×3: agent_orchestrator 消息四态化 / agent_orchestrator 三模式投递+原子游标 / claw_integration 委派单据; P1×2: agent_orchestrator 生命周期边界 / eval_observability 运维策略事件化; P2×1: tool_registry 工具面分级)
+- 判断: Claw swarm 是进程内并行、Team 靠人在飞书群转述, 中间缺协作层。不引入依赖, 抄三个语义(消息四态/委派单据/生命周期边界), 只改数据结构不改架构 → MEMORY.md 新增第五条短板"缺协作语义"
+- 输出: daily_learning/2026-11-02_cccc.md, tracking(141/445), MEMORY.md(v3.4), dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main
+- 注: GitHub API 遇 403 限流, 改用 raw.githubusercontent.com 直取 README(该经验已记入当日日志)
+
 ### 2026-10-29 (第92轮)
 - 学习项目: nolabs-ai/nono (⭐4,733, 相关度18, Rust, Apache-2.0, Sigstore 团队出品) — Agent 运行时安全层(把"Agent 能碰什么"从 prompt 约定变成内核强制)
 - 核心创新: 监督进程=能力代理(每次工具调用派生全新沙箱, 不继承会话授权, 四项能力从最小基线显式授予) / 工具间双向边授权(caller can_use + callee from.<caller>, 缺边不回退不合并, 按调用路径而非工具名授权) / 凭据出沙箱(local-socket/raw-file/proxy含SigV4与endpoint method-path策略/ambient phantom token可format塑形, 代理缺位 fail closed) / 技能来源证明(trust-policy includes glob 匹配即必须签名, Sigstore Bundle v0.3, blocklist 先于一切验证硬拒且 warn/audit 不放过) / 用户级策略是信任锚(三层并集+最严格enforcement, 项目不可削弱) / 验证时机两档且平台差异诚实(Linux seccomp-notify 运行时拦截 openat vs macOS 仅启动验+deny-write) / 可写可执行信任门防TOCTOU / broker侧审计+封闭decision词表+摘要可验篡改 / 原子回滚 / stdio字节上限
