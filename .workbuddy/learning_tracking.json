@@ -2389,6 +2389,30 @@
         "跨实例授权只到消息级: 同账号/成员确认Group对/Direct免账号三档, 跨成员只授予消息回复小文件不含终端与工作区浏览, 远程工作台需目标实例自己的admin token",
         "安全边界诚实: daemon IPC为可信本地接口无应用层认证, capability allowlist不是原生agent进程沙箱(与10-29 nono互补, 承认自己不是安全边界)"
       ]
+    },
+    {
+      "name": "open-multi-agent/open-multi-agent",
+      "url": "https://github.com/open-multi-agent/open-multi-agent",
+      "stars": 7043,
+      "relevance": 21,
+      "language": "TypeScript",
+      "analyzed_at": "2026-11-03T09:06:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-03_oma.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "合规结论与执行结果分离: 声明requiredRoles/requiredOrder, 跑完核对执行回执产出governanceConclusion(satisfied/unsatisfied/not-applicable); 成功≠合规, 应用必须单独检查; 拓扑靠声明不解析goal文本; 非法声明开跑前抛错",
+        "审批绑定快照: onPlanReady/onApproval/onTaskDispatch/onToolCall四闸门, 显式列出被评审内容(tool闸门含Zod校验后input+consequential), suspend后重启从同一快照继续且该边界不再二次征询; checkpoint拥有续跑, approval行拥有不可变请求+first-wins决定, telemetry丢失不影响决定",
+        "Run journal回答'模型为什么看到这个': append-only记录会话进入/模型可见block/工具返回/context替换/plan-task状态/checkpoint落点; enforceLineage下无法解释的可见block直接抛错; journal不是恢复机制(checkpoint才是), 默认关闭且关闭零成本; 只收实例不提供journal:true简写",
+        "协调者单次规划: 一次调用把goal拆成带assignee/dependency的任务图, 确定性调度器执行, coordinator运行中不再介入, 完成的run是可读回的数据; 配plan replay冻结已批准计划+consensus独立judge",
+        "出口策略: offline/allowlist在adapter建连前判定, 子策略只能收紧父策略, 不可执行的传输fail-closed, 并诚实标注process/ACP后端不在覆盖范围",
+        "证明力诚实: verifyRun只声称检查记录来源与内容一致性, 主动否认能证明日志未遭编辑"
+      ],
+      "notes": "与sandbase-harness/nono/agent-skills-platform互补: 那三者答能否跑/能否碰/算不算技能, OMA答跑完能否证明按规矩跑"
     }
   ],
   "improvements": [
@@ -7092,9 +7116,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-02T09:05:00"
+    },
+    {
+      "id": "b025dc0e5b",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "交付闸门拆成两个结论: 保留deliveryStatus, 另出governanceConclusion(satisfied/unsatisfied/not-applicable); 声明requiredSteps/requiredOrder并在执行后核对run记录; unsatisfied不改run成功状态但阻断'可发布'标记; 引用不存在步骤在开跑前抛错",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-03T09:06:00"
+    },
+    {
+      "id": "dc8515f2e4",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "审批记录独立不可变: request存一行不可变+decision first-wins+绑定plan/task/toolCall内容哈希, 恢复按该快照继续且不再二次征询; checkpoint只管续跑, approval行管决定",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-03T09:06:00"
+    },
+    {
+      "id": "8c9c24e86e",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "模型可见block的lineage校验: 每个进入上下文的block须能溯源, enforceLineage开启时无法解释来源即抛错而非静默注入",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-03T09:06:00"
+    },
+    {
+      "id": "d3393445a8",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "规划与执行分离: coordinator首轮产出任务图后锁定(plan id+内容哈希), 运行中不回调规划器, 事后runFromPlan复现同一计划",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-03T09:06:00"
+    },
+    {
+      "id": "a6e1bcbadb",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "出口策略收紧语义: 子作用域只能收紧父作用域, 无法执行的传输fail-closed, 文档标注不受策略约束的后端",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-03T09:06:00"
+    },
+    {
+      "id": "ff63254757",
+      "source": "open-multi-agent/open-multi-agent",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "审计结论分级: 区分'记录一致性可验证'与'未被篡改'两档, 工具不得越级声称证明力",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-03T09:06:00"
     }
   ],
-  "last_updated": "2026-10-19T15:09:00",
+  "last_updated": "2026-11-03T09:06:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -7414,17 +7498,23 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-03T09:06:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 141,
-  "last_update": "2026-11-02T09:05:00",
-  "total_improvements": 445,
-  "total_p0": 167,
-  "total_p1": 220,
-  "total_p2": 58,
+  "total_projects": 142,
+  "last_update": "2026-11-03T09:06:00",
+  "total_improvements": 451,
+  "total_p0": 169,
+  "total_p1": 223,
+  "total_p2": 59,
   "historical_total": 283,
   "new_improvements_this_round": 6,
-  "p0_new_this_round": 3,
-  "p1_new_this_round": 2,
+  "p0_new_this_round": 2,
+  "p1_new_this_round": 3,
   "p2_new_this_round": 1
 }
