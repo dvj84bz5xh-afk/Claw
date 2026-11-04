@@ -2413,6 +2413,33 @@
         "证明力诚实: verifyRun只声称检查记录来源与内容一致性, 主动否认能证明日志未遭编辑"
       ],
       "notes": "与sandbase-harness/nono/agent-skills-platform互补: 那三者答能否跑/能否碰/算不算技能, OMA答跑完能否证明按规矩跑"
+    },
+    {
+      "name": "tigerless-labs/agent-memory",
+      "url": "https://github.com/tigerless-labs/agent-memory",
+      "stars": 4301,
+      "relevance": 20,
+      "language": "Python",
+      "analyzed_at": "2026-11-04T09:11:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-04_agent-memory.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "两条路线合并: 检索引擎(不透明chunk/迁移不出去) vs 文件系统(可读可grep但不排序) — 索引索引的是agent也能直接读的markdown树, 关系是文件内链接, 每次命中落到完整文件, 读路径不调模型不过网络",
+        "按路径检索按层级阅读: 返回L0列表(一行摘要+路径+anchor+分数), 正文按 index line->abstract->full file->raw material 四级取, 每级贵一个数量级且每级可停; 长文件附anchor与读取时现算的outline",
+        "写覆盖是系统责任非agent判断: 边界触发蒸馏且不阻塞任务, 先复制完整trace, '蒸馏器漏掉'不等于'系统丢了'",
+        "文件是真相索引是可重建缓存, 用测试强制: rm -rf .index && rebuild 零知识丢失(enforced by a test); .index可删/.state不可删物理分开",
+        "独立Manage层+权限分层: 睡眠期整合, 无人值守只能add/update, 删除只出提案待确认; T0纯规则级(日期/权重/链接/目录); 每个操作可逆",
+        "更新不销毁: valid_from/invalid_at有效期+supersede保留前驱链+recall --as-of按日期回溯当时有效集合",
+        "核心里没有LLM client: 判断力借用宿主CLI(零key零计费面, 每次写入留在transcript可见); executor失败阻止投影且水位不前进",
+        "三条读轨一条miss不算miss: MEMORY.md确定性注入+BM25(FTS5, 可选RRF融合向量)+纯目录树ls/grep兜底; 同目录为免费邻域, frontmatter links承载图关系无需图数据库",
+        "实验诚实: LongMemEval-S有界haystack(12 sessions/episode), 声明绝对数不可与已发表分数横比(写策略研究非语料规模研究), paired p值+每臂两次replay"
+      ],
+      "notes": "与Claw高度同构(markdown真相+本地索引+睡眠整合+零key): 无引入价值, 只有校准价值 — 6条不变量可当验收清单"
     }
   ],
   "improvements": [
@@ -7176,9 +7203,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-03T09:06:00"
+    },
+    {
+      "id": "55c98bd131",
+      "source": "tigerless-labs/agent-memory",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "写入改为边界触发+先归档后蒸馏: 会话/任务结束时钩子触发, 原始trace先落archive/sessions, 再异步蒸馏成记忆; 蒸馏失败则水位不前进, 下次重跑同一段不跳段",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-04T09:11:00"
+    },
+    {
+      "id": "c715353513",
+      "source": "tigerless-labs/agent-memory",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "把'索引可重建'变成可跑测试: test_index_is_disposable — 删除索引目录后全量rebuild, 对记忆集合做名称/摘要/链接/有效期全等断言",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-04T09:11:00"
+    },
+    {
+      "id": "4cc22260ec",
+      "source": "tigerless-labs/agent-memory",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "检索结果路径优先: recall只回路径+一行摘要+anchor+分数, 正文按outline/abstract/full/raw-trace四级按需取, 每级独立计费可停",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-04T09:11:00"
+    },
+    {
+      "id": "9233a58702",
+      "source": "tigerless-labs/agent-memory",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "Dream权限分层: 无人值守通道仅允许add/update, delete只生成proposal(含证据指针)待人确认; 每次整合产出dream-report与可逆句柄",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-04T09:11:00"
+    },
+    {
+      "id": "9db34c2b37",
+      "source": "tigerless-labs/agent-memory",
+      "priority": "P1",
+      "module": "storage",
+      "suggestion": "有效期与历史查询: frontmatter加valid_from/invalid_at, supersede保留前驱链, 提供as-of查询取'当时有效'集合",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-04T09:11:00"
+    },
+    {
+      "id": "290dea153b",
+      "source": "tigerless-labs/agent-memory",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "评测报告强制写可比性边界: 声明语料/轮次/评委/重复次数, 显式标注不可与不同haystack的已发表分数横比",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-04T09:11:00"
     }
   ],
-  "last_updated": "2026-11-03T09:06:00",
+  "last_updated": "2026-11-04T09:11:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -7504,14 +7591,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-04T09:11:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 142,
-  "last_update": "2026-11-03T09:06:00",
-  "total_improvements": 451,
-  "total_p0": 169,
-  "total_p1": 223,
-  "total_p2": 59,
+  "total_projects": 143,
+  "last_update": "2026-11-04T09:11:00",
+  "total_improvements": 457,
+  "total_p0": 171,
+  "total_p1": 226,
+  "total_p2": 60,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,

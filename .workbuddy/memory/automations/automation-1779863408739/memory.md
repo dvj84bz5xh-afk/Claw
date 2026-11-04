@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-11-03 (第94轮)
+- 学习项目: open-multi-agent/open-multi-agent (OMA, ⭐7,043, 相关度21, TypeScript, MIT, 发布 2026-04-01) — 自托管 Agent 运行时(可拥有/可审批/可离线审计, 无 telemetry 无托管控制面)
+- 核心创新: 合规结论与执行结果分离(声明 requiredRoles/requiredOrder, 事后核对执行回执产出 governanceConclusion satisfied/unsatisfied/not-applicable; 成功≠合规; 拓扑靠声明不解析 goal 文本; 非法声明开跑前抛错) / 审批绑定快照(四闸门 planReady-round-dispatch-toolCall, 显式列出被评审内容, suspend 后重启跑的就是被评审那份且不再二次征询, checkpoint 管续跑-approval 行管不可变请求+first-wins 决定) / 日志与恢复分离(journal 回答"模型为什么看到这个", enforceLineage 无法解释即抛错, 默认关闭零成本, 只收实例不给 journal:true 简写) / coordinator 单次规划运行中不介入+plan replay 冻结已批计划+consensus 独立 judge / 出口策略子级只能收紧且不可执行 fail-closed(并标注 process 与 ACP 后端不在覆盖内) / verifyRun 主动否认能证明日志未被编辑
+- 改进建议: 6项 (P0×2: eval_observability 交付闸门拆 deliveryStatus+governanceConclusion / claw_integration 审批记录独立不可变绑定快照; P1×3: context_injector lineage 校验 / agent_orchestrator 规划锁定+runFromPlan / tool_registry 出口策略收紧; P2×1: 审计结论分级)
+- 判断: 前几轮分别答"能否跑/能否碰/算不算技能/能否协作", OMA 补最后一段"跑完能否证明按规矩跑"; 最值得抄的是三处分离(成功与合规/审批与续跑/日志与恢复), 不引依赖(TS 与 Python 核心不同栈) → MEMORY.md 新增第六条短板, 版本 v3.5
+- 输出: daily_learning/2026-11-03_oma.md, tracking(142/451, P0待143), MEMORY.md(v3.5), dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main (473d645, ahead=0)
+- 注: 候选池 53 个未学项目, 最高相关度即 OMA; 与 iflytek/skillhub(技能注册表)比较后选 OMA —— SkillHub 能力 Claw 已有, OMA 补的是验证层空缺
+
 ### 2026-11-02 (第93轮)
 - 学习项目: ChesterRa/cccc (⭐1,292, 相关度20, Rust, Apache-2.0, v0.4.46) — 协作内核(跨厂商 Agent CLI 群聊式协作, IM 桥含飞书/钉钉/企微)
 - 核心创新: daemon 单写者+append-only ledger+四端口共用 control plane / 消息四态事实分离(stored/delivery/read/reply 互不冒充) / 三模式投递(Send 打断, Send+Reply 跟踪到回复或取消, Mail 不打断+原子读游标) / tracked-send 委派单据(owner+outcome+evidence+handoff+acceptance) / 生命周期边界(停用 actor 不被投递唤醒)+Foreman/peer 路由 / 运维事件化(notice 最多一次且无内容, 状态与生命周期动作限 admin 且 one-time) / MCP 工具面按"协作协议 vs 可选机械"分级 / 多运行时且已存在会话可加入 / 跨实例只授权到消息级 / 安全边界诚实(承认 daemon IPC 无应用层认证、allowlist 不是沙箱)

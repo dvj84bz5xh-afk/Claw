@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-03
+# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-04
 
 ## [USER] 用户偏好
 - 职业: 执法培训 + 诈骗园区调查 + CodeBuddy产品经理
@@ -9,8 +9,9 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 142项目 / 451改进项 / 实施率约21.3% (已实施96 / P0待实施143)
-- 最新学习: open-multi-agent/OMA (⭐7.0K, 相关度21, 自托管Agent运行时/可审批可审计) — 2026-11-03
+- 进度: 143项目 / 457改进项 / 实施率约21% (已实施96 / P0待实施145)
+- 最新学习: tigerless-labs/agent-memory (⭐4.3K, 相关度20, 记忆运行时/路径优先四级读取+索引可重建) — 2026-11-04
+- 上轮学习: open-multi-agent/OMA (⭐7.0K, 相关度21, 自托管Agent运行时/可审批可审计) — 2026-11-03
 - 上轮学习: ChesterRa/cccc (⭐1.3K, 相关度20, 协作内核/消息四态+委派单据) — 2026-11-02
 - agent_core: v2.1.0-p1-complete
 - 模块(12): model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration, storage, skill_system
@@ -20,7 +21,7 @@
 - 自动化ID: automation-1779863408739 | 每日09:00 | 细水长流1项目/日
 - 日志: .workbuddy/evolution_log.jsonl | 仪表盘: docs/evolution-dashboard.html
 - 环境铁律: Python 用完整路径 /c/Users/10127/AppData/Local/Programs/Python/Python313/python.exe + heredoc; 系统代理127.0.0.1:7890已失效, urllib 须 build_opener(ProxyHandler({})) 绕过; git push 用 `-c http.sslBackend=openssl -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=20`（HTTP/2 会挂在 fetch 阶段不动）
-- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
+- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage）；⑦写记忆靠agent判断而非机制（会话边界无触发、索引可重建仅文档承诺无断言）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
 
 ## [CAPABILITY] 各模块已具备能力(精简索引)
 - agent_orchestrator: Hook三/六层 · 子Agent上下文隔离 · 并行executor · checkpoint续跑 · Guardrails四钩三判 · 任务分级+交付验收闸门 · Spine · Sentinel · IntentGate · ACP适配器 · Stage Contract线性流水线 · swarm事务化 · 多Agent辩论制衡 · 消息四态(stored/delivered/read/replied)+三模式投递(打断/待回/邮件)+原子读游标 · 生命周期边界(停用不唤醒) · Foreman/peer路由
