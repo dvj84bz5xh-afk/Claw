@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-11-04 (第95轮)
+- 学习项目: tigerless-labs/agent-memory (⭐4,301, 相关度20, Python 3.12+, v0.1.0, 零 API key, 更新 11-03) — 记忆运行时, 把检索引擎与文件系统合成一个仓库(索引的就是 agent 也能 ls/grep 的 markdown 树)
+- 核心创新: 路径优先四级读取(recall 只回 路径+L0摘要+anchor+分数, 正文按 index/abstract/outline/full/raw-trace 按需取, 每级贵一个数量级且可停) / 写覆盖是系统责任而非 agent 判断(边界触发蒸馏+先复制完整 trace, 漏蒸馏≠丢数据) / 文件是真相索引是可重建缓存且用测试强制(rm -rf .index && rebuild 零丢失, .index可删 vs .state水位写锁物理分开) / 独立 Manage 层+权限分层(无人值守只 add/update, 删除只出提案, T0纯规则级, 操作可逆) / valid_from+invalid_at+supersede保链+recall --as-of / 核心里没有 LLM client(判断借宿主 CLI, executor 失败则水位不前进) / 三条读轨一条 miss 不算 miss / 实验标注可比性边界(有界 haystack 不可与已发表分数横比, 给 paired p 值+每臂两次 replay)
+- 改进建议: 6项 (P0×2: memory_system 边界触发写入+先归档 / eval_observability 索引可重建断言; P1×3: context_injector 路径优先四级 / memory_system Dream 权限分层 / storage 有效期+as-of; P2×1: 评测可比性边界)
+- 判断: 与 Claw 高度同构(markdown真相+本地索引+睡眠整合+零key), 无引入价值只有校准价值 — 6条不变量可当验收清单, "索引可删"与"Manage可逆"今天就能测; MEMORY.md 升 v3.5+ 增第七条短板"写记忆靠 agent 判断而非机制"
+- 输出: daily_learning/2026-11-04_agent-memory.md, tracking(143/457, P0待145), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main (1a9dc6d, ahead=0)
+- 注: 候选 67 个未学项目; 与 semantica(图原生+决策溯源)/Trail-Code(共享记忆)比较后选 agent-memory —— 同栈(Python)、可立即校准、有可跑不变量
+
 ### 2026-11-03 (第94轮)
 - 学习项目: open-multi-agent/open-multi-agent (OMA, ⭐7,043, 相关度21, TypeScript, MIT, 发布 2026-04-01) — 自托管 Agent 运行时(可拥有/可审批/可离线审计, 无 telemetry 无托管控制面)
 - 核心创新: 合规结论与执行结果分离(声明 requiredRoles/requiredOrder, 事后核对执行回执产出 governanceConclusion satisfied/unsatisfied/not-applicable; 成功≠合规; 拓扑靠声明不解析 goal 文本; 非法声明开跑前抛错) / 审批绑定快照(四闸门 planReady-round-dispatch-toolCall, 显式列出被评审内容, suspend 后重启跑的就是被评审那份且不再二次征询, checkpoint 管续跑-approval 行管不可变请求+first-wins 决定) / 日志与恢复分离(journal 回答"模型为什么看到这个", enforceLineage 无法解释即抛错, 默认关闭零成本, 只收实例不给 journal:true 简写) / coordinator 单次规划运行中不介入+plan replay 冻结已批计划+consensus 独立 judge / 出口策略子级只能收紧且不可执行 fail-closed(并标注 process 与 ACP 后端不在覆盖内) / verifyRun 主动否认能证明日志未被编辑

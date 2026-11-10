@@ -2440,6 +2440,32 @@
         "实验诚实: LongMemEval-S有界haystack(12 sessions/episode), 声明绝对数不可与已发表分数横比(写策略研究非语料规模研究), paired p值+每臂两次replay"
       ],
       "notes": "与Claw高度同构(markdown真相+本地索引+睡眠整合+零key): 无引入价值, 只有校准价值 — 6条不变量可当验收清单"
+    },
+    {
+      "name": "agentic-os-org/ANOLISA",
+      "url": "https://github.com/agentic-os-org/ANOLISA",
+      "stars": 662,
+      "relevance": 30,
+      "language": "Rust",
+      "analyzed_at": "2026-11-10T11:16:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-10_anolisa.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "定位增强不替换: 现有Agent保留自己的模型/界面/权限, 系统栈只补上下文管理-技能发现-动作约束-执行记录; 三种接入(预装镜像/装到已有Linux/adapter+plugin挂已有Agent)",
+        "组件分层各答一问: 入口层cosh+OS Skills(系统手册当技能) / 统一层AW(Provider协议可扩展) / 语义层Tokenless+AgentMemory+SkillFS+ws-ckpt+AgentSecurityCore+AgentSight",
+        "SkillFS: 技能以稳定文件系统视图投递, Agent按需发现按需读(而非调注册表API); 物理布局可变而视图稳定(仓库同原则: 源码换目录时命令/包名/release tag不变)",
+        "ws-ckpt工作区快照: 文件级快照+差异对比+整批回滚, 与会话状态checkpoint分离(一个管能否续跑, 一个管磁盘改了什么能不能退)",
+        "Tokenless三个省钱手段: 工具输出压缩+工具schema精简+命令改写 — 后两者作用于'发出去的token'而非'回来的token'",
+        "AgentSight观测在Agent外采: 轨迹/LLM调用/token用量由AW-Provider层截获而非自报(度量的位置不能在被度量对象内部)",
+        "安全边界诚实: 明确自己不造隔离, 复用OS内核与沙箱; OWASP Agentic Top10对照标注7 Full/3 Partial + AARM注册表条目",
+        "工程组织: 每组件独立构建测试入口+Provider contract tests+specs贡献标准+根与组件级双AGENTS.md按需读+跨组件benchmark"
+      ],
+      "notes": "不引入(Rust+Linux内核态): 组件划分可当Claw模块自检清单; 两条被忽略的分界线 — 会话状态!=工作区状态, 回来的token!=发出去的token"
     }
   ],
   "improvements": [
@@ -7263,9 +7289,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-04T09:11:00"
+    },
+    {
+      "id": "15ca634ef7",
+      "source": "agentic-os-org/ANOLISA",
+      "priority": "P0",
+      "module": "storage",
+      "suggestion": "工作区快照(文件级diff+回滚): 任务开始打内容哈希清单, 结束或检查点出diff(增/改/删), 支持按文件或整批回滚; 与会话checkpoint职责分离",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-10T11:16:00"
+    },
+    {
+      "id": "fa299a2758",
+      "source": "agentic-os-org/ANOLISA",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "本地技能文件变更检测+重扫: 每技能目录存内容哈希ledger, 发现/加载前比对, 变更则标记需重扫并重跑安全检查, 未通过不进可用集",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-10T11:16:00"
+    },
+    {
+      "id": "60bfaf63be",
+      "source": "agentic-os-org/ANOLISA",
+      "priority": "P1",
+      "module": "tool_registry",
+      "suggestion": "补schema精简与命令改写: 按任务裁剪工具schema(去无关参数说明/合并同类), 对高频shell调用做等价改写并登记原命令以便审计",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-10T11:16:00"
+    },
+    {
+      "id": "0ded500ec8",
+      "source": "agentic-os-org/ANOLISA",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "技能稳定视图层: 对外只暴露逻辑路径->物理位置映射的稳定视图, 加载引用走逻辑路径, 物理搬迁只改映射表不改引用",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-10T11:16:00"
+    },
+    {
+      "id": "05df61cee5",
+      "source": "agentic-os-org/ANOLISA",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "关键指标改在编排层采集: orchestrator与模型/工具的边界统一截获调用与用量, Agent侧只作交叉校验来源",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-10T11:16:00"
+    },
+    {
+      "id": "cfa9951dd6",
+      "source": "agentic-os-org/ANOLISA",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "写清增强不替换的接入立场与能力边界: 与外部Agent CLI是挂载增强(保留其模型/界面/权限), 并标注不提供进程隔离与内核级约束",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-10T11:16:00"
     }
   ],
-  "last_updated": "2026-11-04T09:11:00",
+  "last_updated": "2026-11-10T11:16:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -7597,14 +7683,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-10T11:16:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 143,
-  "last_update": "2026-11-04T09:11:00",
-  "total_improvements": 457,
-  "total_p0": 171,
-  "total_p1": 226,
-  "total_p2": 60,
+  "total_projects": 144,
+  "last_update": "2026-11-10T11:16:00",
+  "total_improvements": 463,
+  "total_p0": 173,
+  "total_p1": 229,
+  "total_p2": 61,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,
