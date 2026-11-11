@@ -2466,6 +2466,31 @@
         "工程组织: 每组件独立构建测试入口+Provider contract tests+specs贡献标准+根与组件级双AGENTS.md按需读+跨组件benchmark"
       ],
       "notes": "不引入(Rust+Linux内核态): 组件划分可当Claw模块自检清单; 两条被忽略的分界线 — 会话状态!=工作区状态, 回来的token!=发出去的token"
+    },
+    {
+      "name": "ai-boost/awesome-harness-engineering",
+      "url": "https://github.com/ai-boost/awesome-harness-engineering",
+      "stars": 5118,
+      "relevance": 31,
+      "language": "Python",
+      "analyzed_at": "2026-11-11T09:06:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-11_harness-engineering.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "给出学科定义: harness engineering = 围绕agent的脚手架设计(context delivery/tool interfaces/planning artifacts/verification loops/memory systems/sandboxes), 决定真实任务成败; 聚焦harness非模型 — '每个组件都存在是因为模型独自做不到'",
+        "可靠性面在harness有硬证据: Ghostty需修正提交40%→3%(三个月把每次出错变成永久修复, 'error class never recurs'); LangChain不换模型只改harness(Terminal Bench 2.0 第30→前5), 杠杆为结构化验证循环+目录地图与时间预算注入+循环检测中间件+推理三明治",
+        "设计立场: 最好的harness被设计成将来会被删掉(组件随模型变强而多余) — Claw只有加没有减, 463条改进项无一写删除条件",
+        "失败多为接口失配而非推理不足: Life-Harness四层适配(环境契约/程序性技能/动作实现/轨迹调节)跨18个骨干迁移 → 换模型就崩说明问题在接口层",
+        "两个便宜杠杆: 循环检测(同动作重复/无状态推进则打断) + 预算感知注入(剩余token与时间+目录地图, 不只是给更多资料)",
+        "协议边界: Codex App Server另建Item/Turn/Thread协议, 因MCP工具导向模型撑不起审批流-流式diff-线程持久化",
+        "15格成熟度矩阵: Claw对应11格, 薄在Debugging&DX / Verification&CI / Production Ops"
+      ],
+      "notes": "索引仓库无代码可引; 价值=一个名字+一套验收矩阵+一条缺失的立场(脚手架应有删除条件). 最该抄的是纪律: 错误必须入账且每个错误类必须被永久修复"
     }
   ],
   "improvements": [
@@ -7349,9 +7374,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-10T11:16:00"
+    },
+    {
+      "id": "112bbb3f9b",
+      "source": "ai-boost/awesome-harness-engineering",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "错误类别台账+退役率主指标: error_classes.json 记{class_id,现象,触发条件,permanent_fix指针,retired_at,复发计数}; 失败必须先归类再修, 未归类不许关闭任务; 仪表盘主指标改为 已退役错误类/已观察错误类, 复发即重开",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-11T09:06:00"
+    },
+    {
+      "id": "c78cab97ef",
+      "source": "ai-boost/awesome-harness-engineering",
+      "priority": "P0",
+      "module": "agent_orchestrator",
+      "suggestion": "循环检测中间件: 工具边界统计(tool_name,args_hash)连续重复次数与状态是否推进; 超阈值(同调用重复3次/连续5轮无新文件无新结论)则中断当前策略并注入换法或上报, 记 error class loop-no-progress",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-11T09:06:00"
+    },
+    {
+      "id": "4f6f8e2c53",
+      "source": "ai-boost/awesome-harness-engineering",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "预算感知注入: 每K轮或每完成子任务时, 上下文附带 已用轮次/上限、剩余token估算、剩余时间、当前目录地图(一二级) — 让'别在最后20%上下文做大操作'从自觉变机制",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-11T09:06:00"
+    },
+    {
+      "id": "af0984aa0b",
+      "source": "ai-boost/awesome-harness-engineering",
+      "priority": "P1",
+      "module": "model_scheduler",
+      "suggestion": "分阶段思考预算(推理三明治): Stage Contract 增 thinking_budget, 规划段与验证段高、执行段低; 同任务内可不同但须在阶段开始前声明并记入run记录",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-11T09:06:00"
+    },
+    {
+      "id": "6f2630538d",
+      "source": "ai-boost/awesome-harness-engineering",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "失败二分诊断: 失败报告强制 interface_mismatch(契约/工具签名/上下文格式/权限) 与 reasoning_deficit 两栏, 默认先假设接口失配; 接口失配只许改harness不许归因模型",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-11T09:06:00"
+    },
+    {
+      "id": "de7acca8f4",
+      "source": "ai-boost/awesome-harness-engineering",
+      "priority": "P2",
+      "module": "skill_system",
+      "suggestion": "脚手架淘汰条款: 每个技能/钩子/改进项登记 sunset_when('模型原生支持X时可删')与 review_at 日期, 季度复审, 能删的删, 删不掉写明理由 — 给只增不减的改进项装出水口",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-11T09:06:00"
     }
   ],
-  "last_updated": "2026-11-10T11:16:00",
+  "last_updated": "2026-11-11T09:06:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -7689,14 +7774,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-11T09:06:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 144,
-  "last_update": "2026-11-10T11:16:00",
-  "total_improvements": 463,
-  "total_p0": 173,
-  "total_p1": 229,
-  "total_p2": 61,
+  "total_projects": 145,
+  "last_update": "2026-11-11T09:06:00",
+  "total_improvements": 469,
+  "total_p0": 175,
+  "total_p1": 232,
+  "total_p2": 62,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,

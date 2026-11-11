@@ -5,6 +5,17 @@
 
 ## 执行历史
 
+### 2026-11-10 (第96轮)
+- 缺口: 11-05 至 11-09 期间任务中断未执行, 今日恢复正常轮次(故第96轮对应 11-10)
+- 学习项目: agentic-os-org/ANOLISA (⭐662, 相关度30 今日最高, Rust, Apache-2.0, 更新 11-10) — 给 Agent 用的系统软件栈(非框架)
+- 核心创新: 定位"增强不替换"(宿主保留模型/界面/权限, 只补上下文管理-技能发现-动作约束-执行记录) / 组件分层各答一问(入口 cosh+OS Skills / 统一层 AW+Provider协议 / 语义层 Tokenless+Memory+SkillFS+ws-ckpt+SecCore+AgentSight) / SkillFS 技能以稳定文件系统视图投递(物理布局可变视图不变, 仓库同原则: 换目录不改命令-包名-tag) / ws-ckpt 工作区快照(文件级 diff+整批回滚, 与会话 checkpoint 分离) / Tokenless 三手段(输出压缩+schema精简+命令改写, 后两者管"发出去的 token") / AgentSight 指标在 Agent 外截获不自报 / 安全边界诚实(不造隔离复用内核, OWASP Top10 标注 7 Full 3 Partial) / 工程组织(组件独立构建测试+Provider contract tests+双 AGENTS.md 按需读)
+- 改进建议: 6项 (P0×2: storage 工作区快照 / skill_system 本地技能变更检测+重扫; P1×3: tool_registry schema精简+命令改写 / skill_system 技能稳定视图 / eval_observability 编排层采集; P2×1: 增强不替换的边界声明)
+- 判断: 两条被忽略的分界线 — 会话状态≠工作区状态、回来的token≠发出去的token; 不引依赖(Rust+Linux 内核态与 Windows+Python 不匹配), 组件划分当模块自检清单(六件都有, 缺工作区文件级实现) → MEMORY.md 增第八条短板
+- 输出: daily_learning/2026-11-10_anolisa.md, tracking(144/463, P0待147), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main (1e06ef0, ahead=0)
+- 注: 候选 59 个未学项目; 放弃 Ricky-7-Yan/intelligent-audit-system(虽相关度24, 但为常规 LangChain+Neo4j 架构, 无新抽象)
+
 ### 2026-11-04 (第95轮)
 - 学习项目: tigerless-labs/agent-memory (⭐4,301, 相关度20, Python 3.12+, v0.1.0, 零 API key, 更新 11-03) — 记忆运行时, 把检索引擎与文件系统合成一个仓库(索引的就是 agent 也能 ls/grep 的 markdown 树)
 - 核心创新: 路径优先四级读取(recall 只回 路径+L0摘要+anchor+分数, 正文按 index/abstract/outline/full/raw-trace 按需取, 每级贵一个数量级且可停) / 写覆盖是系统责任而非 agent 判断(边界触发蒸馏+先复制完整 trace, 漏蒸馏≠丢数据) / 文件是真相索引是可重建缓存且用测试强制(rm -rf .index && rebuild 零丢失, .index可删 vs .state水位写锁物理分开) / 独立 Manage 层+权限分层(无人值守只 add/update, 删除只出提案, T0纯规则级, 操作可逆) / valid_from+invalid_at+supersede保链+recall --as-of / 核心里没有 LLM client(判断借宿主 CLI, executor 失败则水位不前进) / 三条读轨一条 miss 不算 miss / 实验标注可比性边界(有界 haystack 不可与已发表分数横比, 给 paired p 值+每臂两次 replay)
