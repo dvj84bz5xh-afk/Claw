@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-11
+# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-12
 
 ## [USER] 用户偏好
 - 职业: 执法培训 + 诈骗园区调查 + CodeBuddy产品经理
@@ -9,8 +9,9 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 145项目 / 469改进项 / 实施率约20.5% (已实施96 / P0待实施149)
-- 最新学习: ai-boost/awesome-harness-engineering (⭐5.1K, 相关度31, 学科清单/错误类别入账+退役率+淘汰条款) — 2026-11-11
+- 进度: 146项目 / 475改进项 / 实施率约20.2% (已实施96 / P0待实施151)
+- 最新学习: FailproofAI/failproofai (⭐8.6K, 相关度28, 跨harness策略执行/元策略不可暂停+决策三态) — 2026-11-12
+- 上轮学习: ai-boost/awesome-harness-engineering (⭐5.1K, 相关度31, 学科清单/错误类别入账+退役率+淘汰条款) — 2026-11-11
 - 上轮学习: agentic-os-org/ANOLISA (⭐662, 相关度30, 系统软件栈/工作区快照+技能稳定视图+token三处节省) — 2026-11-10
 - 上轮学习: tigerless-labs/agent-memory (⭐4.3K, 相关度20, 记忆运行时/路径优先四级读取+索引可重建) — 2026-11-04
 - 上轮学习: open-multi-agent/OMA (⭐7.0K, 相关度21, 自托管Agent运行时/可审批可审计) — 2026-11-03
@@ -23,7 +24,7 @@
 - 自动化ID: automation-1779863408739 | 每日09:00 | 细水长流1项目/日
 - 日志: .workbuddy/evolution_log.jsonl | 仪表盘: docs/evolution-dashboard.html
 - 环境铁律: Python 用完整路径 /c/Users/10127/AppData/Local/Programs/Python/Python313/python.exe + heredoc; 系统代理127.0.0.1:7890已失效, urllib 须 build_opener(ProxyHandler({})) 绕过; git push 用 `-c http.sslBackend=openssl -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=20`（HTTP/2 会挂在 fetch 阶段不动）
-- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage）；⑦写记忆靠agent判断而非机制（会话边界无触发、索引可重建仅文档承诺无断言）；⑧工作区无快照（会话能续跑≠文件能回滚，改了什么不可审）；⑨错误不入账且脚手架只增不删（无 error-class 台账、无退役率、无 sunset 条款，469 项改进无一写删除条件）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
+- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage）；⑦写记忆靠agent判断而非机制（会话边界无触发、索引可重建仅文档承诺无断言）；⑧工作区无快照（会话能续跑≠文件能回滚，改了什么不可审）；⑨错误不入账且脚手架只增不删（无 error-class 台账、无退役率、无 sunset 条款，469 项改进无一写删除条件）；⑩守卫自身无保护（策略与审计配置可被 agent 改/停，无不可暂停的最小 deny 集；决策不落 trace，事后查不到"为什么放行"——"可被暂停的策略不是安全边界"）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
 
 ## [CAPABILITY] 各模块已具备能力(精简索引)
 - agent_orchestrator: Hook三/六层 · 子Agent上下文隔离 · 并行executor · checkpoint续跑 · Guardrails四钩三判 · 任务分级+交付验收闸门 · Spine · Sentinel · IntentGate · ACP适配器 · Stage Contract线性流水线 · swarm事务化 · 多Agent辩论制衡 · 消息四态(stored/delivered/read/replied)+三模式投递(打断/待回/邮件)+原子读游标 · 生命周期边界(停用不唤醒) · Foreman/peer路由

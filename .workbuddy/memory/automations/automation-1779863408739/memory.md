@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-11-11 (第97轮)
+- 学习项目: ai-boost/awesome-harness-engineering (⭐5,118, 相关度31 今日最高, 更新 11-10) — **学科索引仓库, 无代码可引**
+- 核心创新: 首次给我们做的事命名 harness engineering(脚手架设计决定真实成败, 聚焦harness非模型) / 硬证据(Ghostty 需修正提交40%→3%; LangChain 不换模型只改harness, Terminal Bench 2.0 第30→前5, 杠杆=结构化验证循环+目录地图与预算注入+循环检测+推理三明治) / 设计立场"最好的harness被设计成将来会被删掉"(我们只有加没有减) / 失败多为接口失配而非推理不足(Life-Harness 四层适配跨18骨干迁移) / 两个便宜杠杆(循环检测+预算感知注入) / 协议边界(MCP 撑不起审批流-流式diff-线程持久化, Codex 另建 Item/Turn/Thread) / 15格矩阵 Claw 占11格, 薄在 Debugging&DX / Verification&CI / Production Ops
+- 改进建议: 6项 (P0×2: eval_observability 错误类别台账+退役率主指标 / agent_orchestrator 循环检测中间件; P1×3: context_injector 预算感知注入 / model_scheduler 分阶段思考预算 / eval_observability 失败二分诊断; P2×1: skill_system 脚手架淘汰条款)
+- 判断: 最该抄的是纪律(错误必须入账, 每个错误类必须被永久修复)而非组件; 469条建议与真实失败之间缺这根线 → MEMORY.md 增第九条短板(错误不入账+脚手架只增不删)
+- 输出: daily_learning/2026-11-11_harness-engineering.md, tracking(145/469, P0待149), MEMORY.md(v3.5), dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: git push origin main (0f1ce2f, ahead=0)
+- 注: 候选 53 个(有 1 个查询 403 限流); 与 paperclipai/paperclip(⭐112K, 组织级Agent管理: 目标/预算/orgchart) 比较后选本项 —— paperclip 与 Claw 已有能力(委派单据/Foreman/BudgetStore)重叠更多, 索引的"命名+矩阵+淘汰立场"是空白; 另: `.workbuddy/_notify_*.py` 已被 .gitignore 忽略, 提交时勿加入(否则 git add 退出码1 导致 commit 不执行)
+
 ### 2026-11-10 (第96轮)
 - 缺口: 11-05 至 11-09 期间任务中断未执行, 今日恢复正常轮次(故第96轮对应 11-10)
 - 学习项目: agentic-os-org/ANOLISA (⭐662, 相关度30 今日最高, Rust, Apache-2.0, 更新 11-10) — 给 Agent 用的系统软件栈(非框架)
