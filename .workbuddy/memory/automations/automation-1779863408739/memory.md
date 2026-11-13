@@ -5,6 +5,17 @@
 
 ## 执行历史
 
+### 2026-11-12 (第98轮)
+- 学习项目: FailproofAI/failproofai (⭐8,618, 相关度28 今日最高, TypeScript, MIT+Commons Clause, 更新 11-12) — 跨 12 个 harness 的策略执行 + 观测("we see it — and we can say no")
+- 选题依据: 补第97轮 15 格矩阵里偏薄的三格 Verification&CI / Debugging&DX / Production Ops; 放弃 holaboss-ai/holaOS(rel29, agentic workspace 偏集成市场) 与 mvschwarz/openrig(rel23, 团队编排与 Claw 已有能力重叠)
+- 核心创新: 决策三态 allow/deny/instruct(instruct 放行但注入下一轮, 补"不该拦但该提醒"空档; deny 的 message 回给 agent) / 元策略不可暂停(block-failproofai-commands 永开不可关: "an agent that can pause enforcement can switch off every other policy") / fail-safe 安装默认(只接钩子不装策略, 显式 policies add; 非交互直接应用) / pre 与 post 分家族(block-* 调用前判定 12 个全成立; sanitize-* 返回后只能报告不能阻止) / 能力按接入点分级(12 个可拦工具调用, 8 个有 turn-end 闸门; 无钩子接入点明写只有 tracing) / audit→建议策略闭环(离线扫历史风险模式) / trace 含 hook 决策与"对 agent 说了什么" / 内置 40 策略含 warn-repeated-tool-calls
+- 改进建议: 6项 (P0×2: claw_integration 元策略不可暂停 / eval_observability 决策入 trace+审计产建议策略; P1×3: tool_registry instruct 三态 / tool_registry pre-post 分家族 / eval_observability 接入点能力矩阵; P2×1: claw_integration fail-safe 安装默认)
+- 判断: 判据"可被暂停的策略不是安全边界"值得刻进 memory; 把四钩三判往前推一格(加训示/不可自关/记决策与原话/按接入点分级) → MEMORY.md 增第十条短板(守卫自身无保护)
+- 输出: daily_learning/2026-11-12_failproofai.md, tracking(146/475, P0待151), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: **未完成** — commit 已生成(ba7f493), 但 git push 触发敏感操作审批且超时被拦, ahead=1; 按规则未重试, 需人工批准或下次运行补推
+- 环境注记: README 直取 raw.githubusercontent.com 连续超时, 改用 API `/repos/{repo}/readme` + base64 解码成功(建议后续优先用此路径)
+
 ### 2026-11-11 (第97轮)
 - 学习项目: ai-boost/awesome-harness-engineering (⭐5,118, 相关度31 今日最高, 更新 11-10) — **学科索引仓库, 无代码可引**
 - 核心创新: 首次给我们做的事命名 harness engineering(脚手架设计决定真实成败, 聚焦harness非模型) / 硬证据(Ghostty 需修正提交40%→3%; LangChain 不换模型只改harness, Terminal Bench 2.0 第30→前5, 杠杆=结构化验证循环+目录地图与预算注入+循环检测+推理三明治) / 设计立场"最好的harness被设计成将来会被删掉"(我们只有加没有减) / 失败多为接口失配而非推理不足(Life-Harness 四层适配跨18骨干迁移) / 两个便宜杠杆(循环检测+预算感知注入) / 协议边界(MCP 撑不起审批流-流式diff-线程持久化, Codex 另建 Item/Turn/Thread) / 15格矩阵 Claw 占11格, 薄在 Debugging&DX / Verification&CI / Production Ops

@@ -2516,6 +2516,32 @@
         "trace必须含hook决策: 记 model calls/tool calls/hook decisions 序列 + 被阻断什么 + 策略对agent说了什么; 40条内置策略含 warn-repeated-tool-calls(循环检测)"
       ],
       "notes": "不引入(Node守护进程+12个CLI适配, 栈不同; Commons Clause限制商用再分发). 价值=把四钩三判往前推一格: 允许-拒绝→加训示 / 可配→不可自关 / 记调用→记决策+原话 / 宣称支持→按接入点分级"
+    },
+    {
+      "name": "Jwuthri/Tracely-ai",
+      "url": "https://github.com/Jwuthri/Tracely-ai",
+      "stars": 1299,
+      "relevance": 36,
+      "language": "Python",
+      "analyzed_at": "2026-11-13T09:14:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-13_tracely.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "'录下的运行就是测试'(The recorded run IS the test): 手写数据集是对'可能出什么错'的猜测, 生产已给出真正失败那次的完整轨迹(输入/工具调用/模型响应) — 一切评分聚类建议与CI结论都从trace派生",
+        "fail-to-pass契约(抗作弊): 冻结用例必须'旧代码失败+修复后通过'两条记录都留档, 否则晋升不被信任 — 没有红过的用例不算修复证据",
+        "失败聚类: 结构签名+语义嵌入, 31次坏运行压成1个issue带计数, 并建议'哪个evaluator本可抓到它'",
+        "judge校准闸门: 人工标注对照统计漏报率与过报率, 达标前只给advisory不参与拦截; 配套advisory verdict先观察后拦截",
+        "零成本确定性重放: 重放靠录制fixtures不调模型不调工具, CI跑数百agent用例$0且确定性 — 这是agent回归测试能落地的前提",
+        "多轮行为用scenario: 脚本化对话 或 红队模型自主追求的对抗目标(goal achieved = FAIL), 把被引导走偏变成可判定失败",
+        "摄入blob-first: 原始先落S3再入队, 队列丢消息不丢证据; evaluator是trace表上的列而非独立tab, SSE流式写回",
+        "CI闸门: gate非零退出+commit status+PR评论; 告警为'何时+做什么'流程图(闸门失败/出现新失败模式/速率越线)"
+      ],
+      "notes": "不引入(完整服务栈 Postgres+ClickHouse+Redis+MinIO, 本地跑不动也无必要). 价值=接上fitness闭环: 错误入账的载体(冻结轨迹) + 验收抗作弊条件(fail-to-pass) + 闭环成本前提(fixtures离线重放$0)"
     }
   ],
   "improvements": [
@@ -7519,9 +7545,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-12T09:54:00"
+    },
+    {
+      "id": "cb9e6c1b82",
+      "source": "Jwuthri/Tracely-ai",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "失败轨迹冻结+fail-to-pass契约: 任务失败或返工时自动打包用例{输入,工具调用序列与返回,模型输出,期望判定}到 .workbuddy/regressions/<error_class>/<case_id>/; 晋升为'已修复'必须附两条记录(修复前失败/修复后通过), 没有红过的用例不算修复证据",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-13T09:14:00"
+    },
+    {
+      "id": "153e42c54e",
+      "source": "Jwuthri/Tracely-ai",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "judge校准闸门: judge_calibration.json 抽样人工标注统计每个judge的漏报率与过报率; 未达阈值(一致率>=0.85且漏报<=0.1)只能是advisory不得作为交付闸门; 换模型或改prompt后校准失效需重测",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-13T09:14:00"
+    },
+    {
+      "id": "09713837d0",
+      "source": "Jwuthri/Tracely-ai",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "失败聚类生成台账: 对失败用例做两级聚类(结构签名=错误类型+首个失败工具+关键参数形态; 语义相似度), 输出'同类N次'聚合条目与'哪个检查本可抓到它'建议, 直接喂 error_classes.json 避免人手归类",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-13T09:14:00"
+    },
+    {
+      "id": "3b4c57913a",
+      "source": "Jwuthri/Tracely-ai",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "多轮scenario作为一等用例: 增加脚本化多轮对话(预设每轮用户话术)与对抗目标(给定红队目标, 达成即判失败)两类, 复现'被一步步引导走偏'的单trace无法覆盖的失败",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-13T09:14:00"
+    },
+    {
+      "id": "4a6b9c2dc7",
+      "source": "Jwuthri/Tracely-ai",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": "回归套件进CI闸门: 改动钩子/提示/工具签名/策略的提交须先跑回归套件, 任一用例由通过转失败则非零退出+commit status+贴出失败用例与对应error class; 套件用录制fixtures离线跑不调模型",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-13T09:14:00"
+    },
+    {
+      "id": "690f98bab4",
+      "source": "Jwuthri/Tracely-ai",
+      "priority": "P2",
+      "module": "storage",
+      "suggestion": "摄入blob-first: run轨迹与工具输出先以原始blob落盘(按内容哈希命名)再进索引队列, 索引损坏或队列丢消息时可从blob全量重建 — 与'索引可删可重建'配套保证证据链",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-13T09:14:00"
     }
   ],
-  "last_updated": "2026-11-12T09:54:00",
+  "last_updated": "2026-11-13T09:14:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -7871,14 +7957,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-13T09:14:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 146,
-  "last_update": "2026-11-12T09:54:00",
-  "total_improvements": 475,
-  "total_p0": 177,
-  "total_p1": 235,
-  "total_p2": 63,
+  "total_projects": 147,
+  "last_update": "2026-11-13T09:14:00",
+  "total_improvements": 481,
+  "total_p0": 179,
+  "total_p1": 238,
+  "total_p2": 64,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,
