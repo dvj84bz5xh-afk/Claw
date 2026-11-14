@@ -5,6 +5,17 @@
 
 ## 执行历史
 
+### 2026-11-14 (第100轮)
+- 学习项目: trailhq/Trail-Code (⭐11,256, 相关度21, TypeScript, 更新11-13) — coding agent 的"自学上下文层"(代码地图 + learnings)
+- 选题依据: 与 OthmanAdi/planning-with-files(⭐28K, 文件化计划抗 /clear) 比较后选本项 — 后者与 Claw 已有 checkpoint/Stage Contract 重叠更多; Trail 补的是"决策记忆"这一维
+- 核心创新: 决策是文件(frontmatter author/date/cost/touches + 正文 Decided/Tried and ruled out/Watch out, touches 即检索键) / 交付前 trail check 做决策冲突检查(引用原文+作者+日期, 只给"改回去"或"写明覆盖理由"两条路) / 在途分支同符号反向改动即刻告警 / 三级作用域(个人/仓库/团队) / always-follow 硬标记(被要求也不违背) / 自动读但不自动写("never saves one on its own") / 永不改写历史 / 记忆成本账(saved ~27k tokens) / 冷启动用">=2个会话都说过"当信号 / 162次运行 工具调用-46% token-42% 耗时-60%
+- 改进建议: 6项 (P0×2: memory_system 决策型条目文件化+append-only / claw_integration 交付前决策冲突检查; P1×3: 三级作用域 / always-follow 硬标记 / context_injector 按触点定向注入; P2×1: 记忆成本核算)
+- 判断: 修正此前判断 — 不是"写记忆由机制触发", 而是"读自动、写需人确认"(写错记忆比不写更贵); 记忆缺三样元数据(归属/排除理由/触点) → MEMORY.md 增第十二条短板
+- 输出: daily_learning/2026-11-14_trail-code.md, tracking(148/487, P0待155), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: ❌ **未完成**, commit 4ed16d1 已生成, ahead=1 待补推。原因: git 传输层被重置 — `git ls-remote` 报 "Recv failure: Connection was reset", 换 sslBackend=schannel 报 21s 连不上; 但 `curl -I https://github.com` 返回 200/0.49s, 说明是 git 端点链路而非站点不可达。已尝试 4 次(含硬超时)后停止重试。下次运行会自动补推。
+- 环境注记: 本次 3 条 search 查询 + 6s 间隔未触发限流; README 走 api /readme + base64 稳定; 一条 git config 检查命令触发敏感审批并超时, 未重试。
+
 ### 2026-11-13 (第99轮)
 - 学习项目: Jwuthri/Tracely-ai (⭐1,299, 相关度36 **历轮最高**, Python 3.10+, MIT, 更新 11-08) — 轨迹原生 CI/CD("Production failures become regression tests")
 - 选题依据: 定向补 fitness 闭环; 与 Q00/ouroboros(⭐6.3K, rel24, 访谈门控的自我进化) 比较后选本项 —— ouroboros 的治理思路与 Claw 已有审批闸门重叠, 而"失败轨迹→回归用例"是空白
