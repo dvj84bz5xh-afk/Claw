@@ -5,6 +5,17 @@
 
 ## 执行历史
 
+### 2026-11-13 (第99轮)
+- 学习项目: Jwuthri/Tracely-ai (⭐1,299, 相关度36 **历轮最高**, Python 3.10+, MIT, 更新 11-08) — 轨迹原生 CI/CD("Production failures become regression tests")
+- 选题依据: 定向补 fitness 闭环; 与 Q00/ouroboros(⭐6.3K, rel24, 访谈门控的自我进化) 比较后选本项 —— ouroboros 的治理思路与 Claw 已有审批闸门重叠, 而"失败轨迹→回归用例"是空白
+- 核心创新: "录下的运行就是测试"("The recorded run IS the test", 手写数据集只是对可能出错的猜测, 生产已给出真正失败那次的完整轨迹) / fail-to-pass 契约(旧版必失败+修复后必通过两条记录留档, 没红过的不算修复证据) / 失败聚类(结构签名+语义嵌入, 31次坏运行=1个issue带计数+建议本可抓到它的检查) / judge 校准闸门(人工标注对照出漏报过报, 达标前只 advisory 不拦) / 零成本确定性重放(录制 fixtures 离线跑不调模型 $0 — agent回归测试能落地的前提) / 多轮用 scenario(脚本对话或红队目标 goal achieved=FAIL) / 摄入 blob-first
+- 改进建议: 6项 (P0×2: eval_observability 失败轨迹冻结+fail-to-pass / judge 校准闸门; P1×3: 失败聚类生成台账 / agent_orchestrator 多轮 scenario / claw_integration 回归套件进 CI; P2×1: storage blob-first)
+- 判断: 接上连续八轮记录的 fitness 断点 — 错误入账的载体(冻结轨迹) + 验收抗作弊(fail-to-pass) + 闭环成本前提(fixtures 离线$0) → MEMORY.md 增第十一条短板(验收无复现载体 + judge 未校准即判分)
+- 输出: daily_learning/2026-11-13_tracely.md, tracking(147/481, P0待153), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: ✅ git push origin main (aadd3ab, ahead=0) — 同时补推了 11-12 遗留的 ba7f493
+- 环境注记: GitHub search 10/min 限流(6条查询连打触发) → 查 /rate_limit 确认后降到 3 条+间隔 6s; README 走 API `/readme`+base64 稳定(直取 raw 仍易超时)
+
 ### 2026-11-12 (第98轮)
 - 学习项目: FailproofAI/failproofai (⭐8,618, 相关度28 今日最高, TypeScript, MIT+Commons Clause, 更新 11-12) — 跨 12 个 harness 的策略执行 + 观测("we see it — and we can say no")
 - 选题依据: 补第97轮 15 格矩阵里偏薄的三格 Verification&CI / Debugging&DX / Production Ops; 放弃 holaboss-ai/holaOS(rel29, agentic workspace 偏集成市场) 与 mvschwarz/openrig(rel23, 团队编排与 Claw 已有能力重叠)

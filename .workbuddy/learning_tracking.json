@@ -2542,6 +2542,34 @@
         "CI闸门: gate非零退出+commit status+PR评论; 告警为'何时+做什么'流程图(闸门失败/出现新失败模式/速率越线)"
       ],
       "notes": "不引入(完整服务栈 Postgres+ClickHouse+Redis+MinIO, 本地跑不动也无必要). 价值=接上fitness闭环: 错误入账的载体(冻结轨迹) + 验收抗作弊条件(fail-to-pass) + 闭环成本前提(fixtures离线重放$0)"
+    },
+    {
+      "name": "trailhq/Trail-Code",
+      "url": "https://github.com/trailhq/Trail-Code",
+      "stars": 11256,
+      "relevance": 21,
+      "language": "TypeScript",
+      "analyzed_at": "2026-11-14T09:18:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-14_trail-code.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "决策是文件: .trail/learnings/日期-slug-作者.md, frontmatter含title/author/date/cost{tokens}/touches[], 正文三段Decided/Tried and ruled out/Watch out; touches就是检索键, 不需要向量库或人工索引",
+        "交付前决策冲突检查: trail check把分支diff与仓库learnings比对, 输出引用原文+作者+日期, 只给两条出路(改回去 或 在commit/PR写明为何覆盖) — 沉默推翻不被允许",
+        "在途变更重叠提示: 刚编辑完即读队友未合并分支, 同一符号反向改动立刻提示冲突, 不等merge才发现",
+        "三级作用域物理分离: ~/.trail(个人, 永不提交) / repo/.trail(关于代码, 随代码提交) / team workspace(跨仓); agent自行判断归属",
+        "always-follow硬标记: 标了的条目即使被要求也不违背, 停下并指出条目与添加者 — 与failproofai元策略不可暂停同构, 对象从策略换成知识",
+        "自动读但不自动写: 'It never saves one on its own, and doesn't offer to' — 写入需人确认, 注入全自动; 写错记忆比不写更贵",
+        "永不改写历史: 从不编辑既有条目, 违背时在commit说明理由, 只有人要才新增",
+        "记忆自身有成本账: 每条记录得出成本(tokens/分钟), 复用时报'saved ~27k tokens'=得出成本-阅读成本 — 唯一让记忆条目可被淘汰的指标",
+        "冷启动用重复当信号: trail init只保留你在>=2个会话里说过的话, 剔除工具输出/粘贴文本/headless, 洗密钥",
+        "量化证据: 162次运行 工具调用-46% / 未缓存输入token-42% / 耗时-60%; SWE-bench Verified 27/50(54%)→33/50(66%)且token-23%"
+      ],
+      "notes": "不引入(Node CLI+tree-sitter, 栈不同; 且Claw无多分支协作面). 价值=给记忆加三样缺失的元数据: 归属(谁定的)、否决理由(排除过什么)、触点(何时该被想起) — 并给出记忆的成本可淘汰性"
     }
   ],
   "improvements": [
@@ -7605,9 +7633,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-13T09:14:00"
+    },
+    {
+      "id": "4e01a6c6d6",
+      "source": "trailhq/Trail-Code",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "决策型记忆条目落地为文件: .workbuddy/memory/decisions/YYYY-MM-DD-<slug>-<author>.md, frontmatter含 title/author/date/decided_by/cost/touches[]; 正文三段 Decided / Tried and ruled out / Watch out; append-only改主意不改旧条目, 新增一条并写 supersedes:<id> — 现在481条改进项与MEMORY.md全是无主事实, 事后答不出谁定的与当时排除了什么",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-14T09:18:00"
+    },
+    {
+      "id": "f0c36fbb44",
+      "source": "trailhq/Trail-Code",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "交付前决策冲突检查: 提交/交付前把本次改动文件与 decisions/*.md 的 touches 求交, 命中则打印条目原文+作者+日期, 要求'改回去'或'在提交说明里写明为何覆盖'; 未处理不得标记完成, 结论与 governanceConclusion 并列不合并",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-14T09:18:00"
+    },
+    {
+      "id": "8a87f07490",
+      "source": "trailhq/Trail-Code",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "三级作用域: memory/personal(跨项目偏好, 不随仓库) / memory/decisions(随项目) / 团队级(跨仓, 暂由SkillsHub汇总); 写入按'关于项目'还是'关于我'分流, 避免两类内容在MEMORY.md里互相污染",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-14T09:18:00"
+    },
+    {
+      "id": "5782421482",
+      "source": "trailhq/Trail-Code",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "always-follow 硬标记: 标了的条目即使当次请求要求也停下并指出条目与添加者; 标记只能由人添加, agent无权给自己解除 — 先标最小集(密钥不落盘/验收须留fail-to-pass证据/守卫配置不可自改)",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-14T09:18:00"
+    },
+    {
+      "id": "feb2167f1f",
+      "source": "trailhq/Trail-Code",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "按触点定向注入: 每条记忆声明触点(文件glob/模块名/关键词), 任务开始与每次编辑后按当前文件求交注入, 替代MEMORY.md全文加载 — 现MEMORY.md已5KB且每轮全量进上下文, 多数条目与当次任务无关",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-14T09:18:00"
+    },
+    {
+      "id": "4fd93ca2de",
+      "source": "trailhq/Trail-Code",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "记忆成本核算: 记录每条决策/改进项的得出成本(tokens与轮次)与复用次数, 输出'已回本/未回本'清单; 连续N轮未回本且无引用者进入淘汰候选 — 给只增不删的记忆装第一个出水口",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-14T09:18:00"
     }
   ],
-  "last_updated": "2026-11-13T09:14:00",
+  "last_updated": "2026-11-14T09:18:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -7963,14 +8051,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-14T09:18:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 147,
-  "last_update": "2026-11-13T09:14:00",
-  "total_improvements": 481,
-  "total_p0": 179,
-  "total_p1": 238,
-  "total_p2": 64,
+  "total_projects": 148,
+  "last_update": "2026-11-14T09:18:00",
+  "total_improvements": 487,
+  "total_p0": 181,
+  "total_p1": 241,
+  "total_p2": 65,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,
