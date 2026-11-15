@@ -5,6 +5,17 @@
 
 ## 执行历史
 
+### 2026-11-15 (第101轮)
+- 学习项目: letta-ai/letta-code (⭐3,838, 相关度19, 更新11-15) — 有状态 agent harness(MemGPT 与 sleep-time compute 作者团队)
+- 选题依据: 与 Ar9av/obsidian-wiki(rel22, 把学到的东西编译成互链 markdown) 比较后选本项 — wiki 的"编译+索引"Claw 已有雏形; "记忆的版本/体检/配额 + 技能作用域"是空白
+- 核心创新: 记忆即 git 仓库(每次编辑一 commit; 同时给出版本历史/冲突处理/"已保存vs未提交"边界) / 路径即策略(根文件每轮进系统提示, 有自己 MEMORY.md 的子目录按需读) / dreaming 触发条件写死(完成N步后 或 上下文压缩时) / "Agent reviews before applying"第二后台会话复核才落盘(提案与复核分离) / /doctor 体检放置-重复-token占用 / 整理前自动备份 / 并发写用 git worktree 不用全局锁 / 配额按最新快照计(5MiB) / 技能四级作用域(agent随身份走 vs device-bound) / skill-creator 把"刚做完的一件事"变技能 / 供应链与 Windows 降级诚实说明
+- 改进建议: 6项 (P0×2: memory_system 记忆git版本化+整理前tag备份 / eval_observability 记忆体检; P1×3: 触发式整合+提案复核分离 / skill_system 收尾"能否变技能"判断 / storage worktree 并发隔离; P2×1: 配额按最新快照计)
+- 判断: 记忆从"一堆文件"升级为"有版本/有体检/有配额/有并发策略"的资产; 技能缺的不是更多建议而是那个转换动作 → MEMORY.md 增第十三条短板
+- 输出: daily_learning/2026-11-15_letta-code.md, tracking(149/493, P0待157), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: ✅ git push 成功 (aadd3ab..7d8645e, ahead=0) — **同时补推了 11-14 遗留的 2 个提交(4ed16d1/8e01c4d)**。注: 11-14 那次失败是 git 传输层被重置(ls-remote 也 reset), 次日自动恢复
+- 环境注记: 3 条 search + 6s 间隔正常; README 走 api /readme; 项目细节优先读 docs 站点(WebFetch)比仓库 docs 目录全
+
 ### 2026-11-14 (第100轮)
 - 学习项目: trailhq/Trail-Code (⭐11,256, 相关度21, TypeScript, 更新11-13) — coding agent 的"自学上下文层"(代码地图 + learnings)
 - 选题依据: 与 OthmanAdi/planning-with-files(⭐28K, 文件化计划抗 /clear) 比较后选本项 — 后者与 Claw 已有 checkpoint/Stage Contract 重叠更多; Trail 补的是"决策记忆"这一维
