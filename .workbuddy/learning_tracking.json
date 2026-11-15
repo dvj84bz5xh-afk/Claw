@@ -2570,6 +2570,35 @@
         "量化证据: 162次运行 工具调用-46% / 未缓存输入token-42% / 耗时-60%; SWE-bench Verified 27/50(54%)→33/50(66%)且token-23%"
       ],
       "notes": "不引入(Node CLI+tree-sitter, 栈不同; 且Claw无多分支协作面). 价值=给记忆加三样缺失的元数据: 归属(谁定的)、否决理由(排除过什么)、触点(何时该被想起) — 并给出记忆的成本可淘汰性"
+    },
+    {
+      "name": "letta-ai/letta-code",
+      "url": "https://github.com/letta-ai/letta-code",
+      "stars": 3838,
+      "relevance": 19,
+      "language": "TypeScript",
+      "analyzed_at": "2026-11-15T09:20:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-15_letta-code.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "记忆即git仓库(MemFS): 每次编辑一次commit, 提交推送后才成为'它在任何机器上的记忆' — 同时给出版本历史/冲突处理(用git不用覆盖)/'已保存vs未提交'边界",
+        "路径即策略: 根目录文件每轮进系统提示, 带自己MEMORY.md的子目录不进上下文直到需要; 根MEMORY.md只列子目录, 目录名与文件名本身就是路标",
+        "dreaming触发条件写死: 完成N个agent step后 或 上下文窗口被压缩时; 后台subagent复盘合并, 不打断当前工作",
+        "'Agent reviews before applying': 第二后台会话复核并修订自己刚提的记忆更新再落盘 — 自我二审(非人工审批), 提案与复核分离",
+        "/doctor 记忆体检: 审计放置位置/重复条目/系统提示token占用三件最易腐化的事, 而非聊天",
+        "整理前自动备份: 拆分大文件/合并重复/重构层级前先备份当前仓库",
+        "并发写用git worktree: dreaming与memory doctor各在worktree改记忆, 不阻塞主agent(不用全局锁)",
+        "配额按最新快照计不按历史: 5MiB/50MiB只算分支或tag最新快照文件, 逼出'保留耐久知识+大文件外迁留摘要与指针'",
+        "技能四级作用域: agent(MEMORY_DIR/skills, 随身份走) / project(.agents/skills) / computer(~/.letta/skills) / bundled; 文档点明多数agent技能是device-bound换机就丢",
+        "skill-creator把'刚做完的一件事'转成技能: 判据是某些动作序列更适合表示成技能而非记忆(要被很多agent复用)",
+        "供应链诚实: 'Skills can contain malware and dangerous prompts'; Windows原生默认关闭自动dreaming需显式开环境变量"
+      ],
+      "notes": "不引入(Node harness + Letta Cloud, 栈与依赖面都不同). 价值=把记忆从'一堆文件'升级为'有版本/有体检/有配额/有并发策略'的资产; 以及技能作用域与被复用性判断"
     }
   ],
   "improvements": [
@@ -7693,9 +7722,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-14T09:18:00"
+    },
+    {
+      "id": "86475c1bdc",
+      "source": "letta-ai/letta-code",
+      "priority": "P0",
+      "module": "memory_system",
+      "suggestion": "记忆目录git版本化: .workbuddy/memory 独立git仓(或主仓子模块语义), 每次写入一条commit(message含触发原因与来源), 明确'已保存committed vs 未提交改动'边界; 任何批量整理前自动 git tag backup-<ts> — 现在就地覆盖, 改写历史不留痕也回不到上一版",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-15T09:20:00"
+    },
+    {
+      "id": "516f2ce373",
+      "source": "letta-ai/letta-code",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "新增记忆体检(memory doctor): 输出三项 — 错放(项目决策落在个人偏好/反之)、重复(同义条目聚类)、上下文占用(哪些文件每轮进系统提示各占多少token); 产出可执行重构提案(合并/迁移/降级为按需读取), 纳入每周质量门",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-15T09:20:00"
+    },
+    {
+      "id": "89ea4b968d",
+      "source": "letta-ai/letta-code",
+      "priority": "P1",
+      "module": "memory_system",
+      "suggestion": "整合改为触发式+提案复核分离: 触发条件写死为'每完成N个任务'或'上下文被压缩时'而非agent想起来; 先产出提案不落盘, 再由独立会话复核后才commit — 提出者与复核者不是同一个pass(对上短板③)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-15T09:20:00"
+    },
+    {
+      "id": "6d6f8c2bec",
+      "source": "letta-ai/letta-code",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "任务收尾加'能否变技能'显式判断: 一问这次动作序列是否会被复用, 若是用skill-creator落成技能(写明触发条件/步骤/验收), 产物落agent级作用域与项目级技能分开 — 487条改进项至今0条变技能, 缺的就是这个转换动作",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-15T09:20:00"
+    },
+    {
+      "id": "a2ec71dfb1",
+      "source": "letta-ai/letta-code",
+      "priority": "P1",
+      "module": "storage",
+      "suggestion": "记忆并发写用worktree/分支隔离: 后台整合/体检/批量重构各在自己分支改完再合并, 不用全局锁, 避免长任务阻塞日常写入",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-15T09:20:00"
+    },
+    {
+      "id": "7affc392ae",
+      "source": "letta-ai/letta-code",
+      "priority": "P2",
+      "module": "memory_system",
+      "suggestion": "记忆配额按最新快照计: 设上限(先2MiB), 超限先外迁大文件只留摘要与指针, 配额检查放进体检 — 唯一能让'只增不删'被迫收敛的机制",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-15T09:20:00"
     }
   ],
-  "last_updated": "2026-11-14T09:18:00",
+  "last_updated": "2026-11-15T09:20:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -8057,14 +8146,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-15T09:20:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 148,
-  "last_update": "2026-11-14T09:18:00",
-  "total_improvements": 487,
-  "total_p0": 181,
-  "total_p1": 241,
-  "total_p2": 65,
+  "total_projects": 149,
+  "last_update": "2026-11-15T09:20:00",
+  "total_improvements": 493,
+  "total_p0": 183,
+  "total_p1": 244,
+  "total_p2": 66,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,
