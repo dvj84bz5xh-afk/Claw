@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-15
+# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-16
 
 ## [USER] 用户偏好
 - 职业: 执法培训 + 诈骗园区调查 + CodeBuddy产品经理
@@ -9,8 +9,9 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 149项目 / 493改进项 / 实施率约19.5% (已实施96 / P0待实施157)
-- 最新学习: letta-ai/letta-code (⭐3.8K, 相关度19, 有状态harness/记忆git版本化+记忆体检+技能四级作用域) — 2026-11-15
+- 进度: 150项目 / 499改进项 / 实施率约19.2% (已实施96 / P0待实施159)
+- 最新学习: NVIDIA/OpenShell (⭐21.7K, 相关度27, 内核级sandbox runtime/强制点在进程之外+策略变更能力增量证明+凭证-端点绑定) — 2026-11-16
+- 上轮学习: letta-ai/letta-code (⭐3.8K, 相关度19, 有状态harness/记忆git版本化+记忆体检+技能四级作用域) — 2026-11-15
 - 上轮学习: trailhq/Trail-Code (⭐11.3K, 相关度21, 共享决策记忆/决策即文件+冲突检查+自动读不自动写) — 2026-11-14
 - 上轮学习: Jwuthri/Tracely-ai (⭐1.3K, 相关度36 历轮最高, 轨迹原生CI/录下的运行就是测试+fail-to-pass契约) — 2026-11-13
 - 上轮学习: FailproofAI/failproofai (⭐8.6K, 相关度28, 跨harness策略执行/元策略不可暂停+决策三态) — 2026-11-12
@@ -18,7 +19,6 @@
 - 上轮学习: agentic-os-org/ANOLISA (⭐662, 相关度30, 系统软件栈/工作区快照+技能稳定视图+token三处节省) — 2026-11-10
 - 上轮学习: tigerless-labs/agent-memory (⭐4.3K, 相关度20, 记忆运行时/路径优先四级读取+索引可重建) — 2026-11-04
 - 上轮学习: open-multi-agent/OMA (⭐7.0K, 相关度21, 自托管Agent运行时/可审批可审计) — 2026-11-03
-- 上轮学习: ChesterRa/cccc (⭐1.3K, 相关度20, 协作内核/消息四态+委派单据) — 2026-11-02
 - agent_core: v2.1.0-p1-complete
 - 模块(12): model_scheduler, unified_registry, progressive_loader, agent_orchestrator, context_injector, tool_registry, rag_engine, memory_system, eval_observability, claw_integration, storage, skill_system
 - **改进清单(P0/P1/P2×模块)权威来源是 `.workbuddy/learning_tracking.json` 的 improvements 数组；`.workbuddy/memory/capabilities-full.md` 为 2026-10-25 的人类可读归档快照，需要逐条比对时再读，不要每轮全量载入**
@@ -27,7 +27,7 @@
 - 自动化ID: automation-1779863408739 | 每日09:00 | 细水长流1项目/日
 - 日志: .workbuddy/evolution_log.jsonl | 仪表盘: docs/evolution-dashboard.html
 - 环境铁律: Python 用完整路径 /c/Users/10127/AppData/Local/Programs/Python/Python313/python.exe + heredoc; 系统代理127.0.0.1:7890已失效, urllib 须 build_opener(ProxyHandler({})) 绕过; git push 用 `-c http.sslBackend=openssl -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=20`（HTTP/2 会挂在 fetch 阶段不动）
-- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage）；⑦写记忆靠agent判断而非机制（会话边界无触发、索引可重建仅文档承诺无断言）；⑧工作区无快照（会话能续跑≠文件能回滚，改了什么不可审）；⑨错误不入账且脚手架只增不删（无 error-class 台账、无退役率、无 sunset 条款，469 项改进无一写删除条件）；⑩守卫自身无保护（策略与审计配置可被 agent 改/停，无不可暂停的最小 deny 集；决策不落 trace，事后查不到"为什么放行"——"可被暂停的策略不是安全边界"）；⑪验收无复现载体（改进项只有文字，无冻结的失败轨迹与 fail-to-pass 证据；judge 未校准即用于判分与闸门）；⑫记忆无归属无触点无淘汰（条目无"谁定的/排除了什么"，改写历史不留痕，无法按触点定向注入，也没有回本核算）；⑬记忆无版本无体检无配额（写入即覆盖不可回滚、重复与错放无人发现、无限增长无上限）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
+- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage）；⑦写记忆靠agent判断而非机制（会话边界无触发、索引可重建仅文档承诺无断言）；⑧工作区无快照（会话能续跑≠文件能回滚，改了什么不可审）；⑨错误不入账且脚手架只增不删（无 error-class 台账、无退役率、无 sunset 条款，469 项改进无一写删除条件）；⑩守卫自身无保护（策略与审计配置可被 agent 改/停，无不可暂停的最小 deny 集；决策不落 trace，事后查不到"为什么放行"——"可被暂停的策略不是安全边界"）；⑪验收无复现载体（改进项只有文字，无冻结的失败轨迹与 fail-to-pass 证据；judge 未校准即用于判分与闸门）；⑫记忆无归属无触点无淘汰（条目无"谁定的/排除了什么"，改写历史不留痕，无法按触点定向注入，也没有回本核算）；⑬记忆无版本无体检无配额（写入即覆盖不可回滚、重复与错放无人发现、无限增长无上限）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）；⑭策略变更无"能力增量证明"（批准对象是文字描述而非可枚举能力集合——新增了哪个主机/method/可写路径/exec 无人能算出；且强制点全在harness进程内，改配置或换条路径即绕过——**治理强度取决于强制点位置，不取决于策略写得多细**）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
 
 ## [CAPABILITY] 各模块已具备能力(精简索引)
 - agent_orchestrator: Hook三/六层 · 子Agent上下文隔离 · 并行executor · checkpoint续跑 · Guardrails四钩三判 · 任务分级+交付验收闸门 · Spine · Sentinel · IntentGate · ACP适配器 · Stage Contract线性流水线 · swarm事务化 · 多Agent辩论制衡 · 消息四态(stored/delivered/read/replied)+三模式投递(打断/待回/邮件)+原子读游标 · 生命周期边界(停用不唤醒) · Foreman/peer路由

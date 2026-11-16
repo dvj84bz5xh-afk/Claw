@@ -44,6 +44,29 @@ total_pct = round(done_count/total_improvements*100)
 total_pct_f = round(done_count/total_improvements*100, 1)
 
 latest = recent[0] if recent else {}
+# 轮次以 evolution_log.jsonl 里最大的 round 字段为准 (round_stats 被截断过, 行数含历史重复记录)
+_log = os.path.join(BASE, '.workbuddy', 'evolution_log.jsonl')
+round_num = 0
+try:
+    with open(_log, 'r', encoding='utf-8') as _f:
+        for _l in _f:
+            _l = _l.strip()
+            if not _l:
+                continue
+            try:
+                _r = json.loads(_l).get('round')
+            except ValueError:
+                continue
+            if isinstance(_r, int) and _r > round_num:
+                round_num = _r
+except OSError:
+    pass
+round_num = round_num or len(data.get('round_stats', [])) or 1
+latest_inns = ', '.join(latest.get('key_innovations', [])[:3]) if latest else 'N/A'
+latest_imps = latest.get('improvements_count', 0)
+latest_p0 = latest.get('priority_breakdown', {}).get('P0', 0)
+latest_p1 = latest.get('priority_breakdown', {}).get('P1', 0)
+latest_p2 = latest.get('priority_breakdown', {}).get('P2', 0)
 
 def row(p):
     return f'<tr><td>{p["name"]}</td><td>{p.get("stars",0)}</td><td><b>{p.get("relevance",0)}</b></td><td>{p.get("language","N/A")[:15]}</td><td>{p.get("analyzed_at","N/A")[:10]}</td></tr>\n'
@@ -96,10 +119,10 @@ td {{ padding: 10px; border-bottom: 1px solid #30363d; font-size: 13px; }}
 <body>
 <div class="container">
 <h1>Claw Evolution Dashboard</h1>
-<p class="subtitle">智能进化学习系统 - 第30轮更新 | {now}</p>
+<p class="subtitle">智能进化学习系统 - 第{round_num}轮更新 | {now}</p>
 <div class="highlight">
-<div class="highlight-title">本轮学习: {latest.get('name','N/A')} ({latest.get('stars',0)}K stars, 相关度{latest.get('relevance',0)})</div>
-<div class="highlight-desc">A2A Agent-to-Agent开放协议 - 传输无关设计 + AgentCard能力发现 + Task生命周期 + 不透明性原则 + A2A/MCP互补。新增5项改进(P0x2, P1x2, P2x1)</div>
+<div class="highlight-title">本轮学习: {latest.get('name','N/A')} ({latest.get('stars',0)} stars, 相关度{latest.get('relevance',0)})</div>
+<div class="highlight-desc">{latest_inns or '暂无摘要'}。新增{latest_imps}项改进(P0×{latest_p0}, P1×{latest_p1}, P2×{latest_p2})</div>
 </div>
 <div class="grid">
 <div class="card"><div class="card-title">项目总数</div><div class="stat">{total_projects}</div><div class="stat-label">已分析的GitHub项目</div></div>

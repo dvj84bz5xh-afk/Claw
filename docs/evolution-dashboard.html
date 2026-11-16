@@ -3,328 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claw 智能进化仪表盘</title>
+<title>Claw Evolution Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e4e6eb; min-height: 100vh; }
-.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
-h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; background: linear-gradient(135deg, #4fc3f7, #ab47bc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.subtitle { color: #8b9099; font-size: 14px; margin-bottom: 24px; }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
-.stat-card { background: #1a1d28; border: 1px solid #2a2d3a; border-radius: 12px; padding: 20px; transition: transform 0.2s; }
-.stat-card:hover { transform: translateY(-2px); border-color: #4fc3f7; }
-.stat-label { font-size: 13px; color: #8b9099; margin-bottom: 8px; }
-.stat-value { font-size: 32px; font-weight: 700; }
-.stat-value.green { color: #4caf50; }
-.stat-value.blue { color: #4fc3f7; }
-.stat-value.red { color: #f44336; }
-.stat-value.purple { color: #ab47bc; }
-.stat-sub { font-size: 12px; color: #8b9099; margin-top: 4px; }
-.section { margin-bottom: 32px; }
-.section-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #2a2d3a; }
-.priority-bar { display: flex; gap: 4px; height: 24px; border-radius: 6px; overflow: hidden; margin-bottom: 8px; }
-.priority-bar div { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
-.bar-p0 { background: #f44336; }
-.bar-p1 { background: #ff9800; }
-.bar-p2 { background: #4caf50; }
+body { font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+h1 { text-align: center; color: #58a6ff; margin-bottom: 10px; font-size: 24px; }
+.subtitle { text-align: center; color: #8b949e; margin-bottom: 30px; font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; }
+.card-title { color: #58a6ff; font-size: 16px; margin-bottom: 12px; }
+.stat { font-size: 28px; font-weight: bold; color: #f0f6fc; }
+.stat-label { font-size: 12px; color: #8b949e; }
+.progress-bar { background: #21262d; border-radius: 4px; height: 8px; margin-top: 8px; }
+.progress-fill { border-radius: 4px; height: 8px; }
+.p0-fill { background: #f85149; }
+.p1-fill { background: #d29922; }
+.p2-fill { background: #3fb950; }
+.total-fill { background: #58a6ff; }
+.chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.chart-container { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; }
 table { width: 100%; border-collapse: collapse; }
-th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #2a2d3a; font-size: 13px; }
-th { color: #8b9099; font-weight: 600; text-transform: uppercase; font-size: 11px; }
-tr:hover { background: #1a1d28; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-.badge-p0 { background: rgba(244,67,54,0.15); color: #f44336; }
-.badge-p1 { background: rgba(255,152,0,0.15); color: #ff9800; }
-.lang-bar { display: flex; flex-wrap: wrap; gap: 8px; }
-.lang-tag { background: #1a1d28; border: 1px solid #2a2d3a; padding: 4px 12px; border-radius: 16px; font-size: 12px; }
-.lang-tag span { color: #4fc3f7; font-weight: 600; }
-.module-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.module-name { width: 180px; font-size: 13px; }
-.module-bar { flex: 1; height: 20px; background: #1a1d28; border-radius: 4px; overflow: hidden; }
-.module-fill { height: 100%; background: linear-gradient(90deg, #4fc3f7, #ab47bc); transition: width 0.5s; }
-.module-stats { width: 80px; text-align: right; font-size: 12px; color: #8b9099; }
-.update-time { text-align: center; color: #8b9099; font-size: 12px; margin-top: 32px; }
+th { background: #21262d; color: #58a6ff; padding: 10px; text-align: left; font-size: 13px; }
+td { padding: 10px; border-bottom: 1px solid #30363d; font-size: 13px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+.tag-pending { background: #30363d; color: #8b949e; }
+.highlight { background: #161b22; border: 1px solid #58a6ff; border-radius: 8px; padding: 16px; margin-bottom: 24px; }
+.highlight-title { color: #58a6ff; font-size: 18px; margin-bottom: 8px; }
+.highlight-desc { color: #c9d1d9; font-size: 14px; line-height: 1.6; }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>Claw 智能进化仪表盘</h1>
-<p class="subtitle">通过 GitHub 高星项目迭代 CodeBuddy 能力 | 细水长流模式 | 每日1项目</p>
-
-<div class="stats-grid">
-<div class="stat-card"><div class="stat-label">学习项目总数</div><div class="stat-value blue">149</div><div class="stat-sub">累计分析GitHub项目</div></div>
-<div class="stat-card"><div class="stat-label">改进项总数</div><div class="stat-value purple">493</div><div class="stat-sub">已识别可借鉴改进点</div></div>
-<div class="stat-card"><div class="stat-label">已实施</div><div class="stat-value green">96</div><div class="stat-sub">实施率 19.5%</div></div>
-<div class="stat-card"><div class="stat-label">P0 待实施</div><div class="stat-value red">157</div><div class="stat-sub">高优先级待处理</div></div>
+<h1>Claw Evolution Dashboard</h1>
+<p class="subtitle">智能进化学习系统 - 第102轮更新 | 2026-11-16 09:08</p>
+<div class="highlight">
+<div class="highlight-title">本轮学习: NVIDIA/OpenShell (21650 stars, 相关度27)</div>
+<div class="highlight-desc">内核级强制: 每个agent独立sandbox, 内核控制可访问文件与可发系统调用, 网络连接出sandbox前必过策略检查 — 强制点在进程之外, 策略变更用形式化验证(prover)先算出'这条变更会新允许什么'(带凭证访问新主机/调用新API method), 命中风险则挂起等人工审 — 批准对象是可枚举能力集合而非文本diff, advisor(提建议)与prover(只判定)角色分离, 提议者≠判定者, 对上'进化≠自己改自己'。新增6项改进(P0×2, P1×3, P2×1)</div>
 </div>
-
-<div class="section">
-<div class="section-title">优先级分布</div>
-<div class="priority-bar">
-<div class="bar-p0" style="flex:183">P0: 183</div>
-<div class="bar-p1" style="flex:244">P1: 244</div>
-<div class="bar-p2" style="flex:66">P2: 66</div>
+<div class="grid">
+<div class="card"><div class="card-title">项目总数</div><div class="stat">150</div><div class="stat-label">已分析的GitHub项目</div></div>
+<div class="card"><div class="card-title">改进项总数</div><div class="stat">499</div><div class="stat-label">96 已实施 / 403 待实施</div><div class="progress-bar"><div class="progress-fill total-fill" style="width:19%"></div></div></div>
+<div class="card"><div class="card-title">总实施率</div><div class="stat">19.2%</div><div class="stat-label">96/499 已完成</div></div>
 </div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px;">
-<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P0 (高优先级)</div><div style="font-size:20px;font-weight:600;color:#f44336;">26/183</div><div class="stat-sub">实施率 14.2%</div></div>
-<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P1 (中优先级)</div><div style="font-size:20px;font-weight:600;color:#ff9800;">70/244</div><div class="stat-sub">实施率 28.7%</div></div>
-<div class="stat-card" style="text-align:center;padding:12px;"><div class="stat-label">P2 (低优先级)</div><div style="font-size:20px;font-weight:600;color:#4caf50;">0/66</div><div class="stat-sub">实施率 0.0%</div></div>
+<div class="grid">
+<div class="card"><div class="card-title">P0 (紧急)</div><div class="stat">26/185</div><div class="stat-label">159 项待实施</div><div class="progress-bar"><div class="progress-fill p0-fill" style="width:14%"></div></div></div>
+<div class="card"><div class="card-title">P1 (重要)</div><div class="stat">70/247</div><div class="stat-label">177 项待实施</div><div class="progress-bar"><div class="progress-fill p1-fill" style="width:28%"></div></div></div>
+<div class="card"><div class="card-title">P2 (优化)</div><div class="stat">0/67</div><div class="stat-label">67 项待实施</div><div class="progress-bar"><div class="progress-fill p2-fill" style="width:0%"></div></div></div>
 </div>
+<div class="chart-row">
+<div class="chart-container"><div class="card-title">模块分布</div><canvas id="moduleChart" height="300"></canvas></div>
+<div class="chart-container"><div class="card-title">相关度趋势</div><canvas id="trendChart" height="300"></canvas></div>
 </div>
-
-<div class="section">
-<div class="section-title">模块改进分布</div>
-<div class="module-row">
-<div class="module-name">agent_orchestration</div>
-<div class="module-bar"><div class="module-fill" style="width:46%"></div></div>
-<div class="module-stats">24/52</div>
+<div class="card"><div class="card-title">最高相关度项目 (Top 10)</div><table><tr><th>项目</th><th>星数</th><th>相关度</th><th>语言</th><th>分析日期</th></tr><tr><td>bojieli/ai-agent-book</td><td>52112</td><td><b>45</b></td><td>Python</td><td>2026-10-03</td></tr>
+<tr><td>zhayujie/CowAgent</td><td>47205</td><td><b>44</b></td><td>Python</td><td>2026-10-02</td></tr>
+<tr><td>EverMind-AI/EverOS</td><td>11418</td><td><b>43</b></td><td>Python</td><td>2026-07-22</td></tr>
+<tr><td>mksglu/context-mode</td><td>19647</td><td><b>43</b></td><td>TypeScript</td><td>2026-08-06</td></tr>
+<tr><td>HKUDS/nanobot</td><td>46520</td><td><b>42</b></td><td>Python</td><td>2026-08-03</td></tr>
+<tr><td>shareAI-lab/learn-claude-code</td><td>77815</td><td><b>42</b></td><td>Python</td><td>2026-09-30</td></tr>
+<tr><td>All-Hands-AI/OpenHands</td><td>90207</td><td><b>42</b></td><td>TypeScript</td><td>2026-10-08</td></tr>
+<tr><td>PrefectHQ/fastmcp</td><td>27019</td><td><b>41</b></td><td>N/A</td><td>2026-08-02</td></tr>
+<tr><td>EverMind-AI/Raven</td><td>2512</td><td><b>40</b></td><td>Python</td><td>2026-07-23</td></tr>
+<tr><td>TencentCloud/TencentDB-Agent-Memory</td><td>9312</td><td><b>40</b></td><td>TypeScript</td><td>2026-07-27</td></tr>
+</table></div>
+<div class="card"><div class="card-title">最近学习项目</div><table><tr><th>项目</th><th>星数</th><th>相关度</th><th>改进项</th><th>日期</th></tr><tr><td>NVIDIA/OpenShell</td><td>21650</td><td>27</td><td>6</td><td>2026-11-16</td></tr><tr><td>letta-ai/letta-code</td><td>3838</td><td>19</td><td>6</td><td>2026-11-15</td></tr><tr><td>trailhq/Trail-Code</td><td>11256</td><td>21</td><td>6</td><td>2026-11-14</td></tr><tr><td>Jwuthri/Tracely-ai</td><td>1299</td><td>36</td><td>6</td><td>2026-11-13</td></tr><tr><td>FailproofAI/failproofai</td><td>8618</td><td>28</td><td>6</td><td>2026-11-12</td></tr><tr><td>ai-boost/awesome-harness-engineering</td><td>5118</td><td>31</td><td>6</td><td>2026-11-11</td></tr><tr><td>agentic-os-org/ANOLISA</td><td>662</td><td>30</td><td>6</td><td>2026-11-10</td></tr><tr><td>tigerless-labs/agent-memory</td><td>4301</td><td>20</td><td>6</td><td>2026-11-04</td></tr><tr><td>open-multi-agent/open-multi-agent</td><td>7043</td><td>21</td><td>6</td><td>2026-11-03</td></tr><tr><td>ChesterRa/cccc</td><td>1292</td><td>20</td><td>6</td><td>2026-11-02</td></tr></table></div>
+<div class="card"><div class="card-title">P0 待实施改进项</div><table><tr><th>ID</th><th>来源</th><th>模块</th><th>建议</th><th>状态</th></tr><tr><td>986fa622df</td><td>NVIDIA/OpenShell</td><td>claw_integratio</td><td>策略变更'能力增量证明'门: 任何改进项落地变更在批准前先算 capability delta(新增</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>0280393e33</td><td>NVIDIA/OpenShell</td><td>tool_registry</td><td>凭证-端点绑定注入: vault每条凭证加 allowed_endpoints 字段, 由代理/网关</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>86475c1bdc</td><td>letta-ai/letta-code</td><td>memory_system</td><td>记忆目录git版本化: .workbuddy/memory 独立git仓(或主仓子模块语义), 每次</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>516f2ce373</td><td>letta-ai/letta-code</td><td>eval_observabil</td><td>新增记忆体检(memory doctor): 输出三项 — 错放(项目决策落在个人偏好/反之)、重复</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>4e01a6c6d6</td><td>trailhq/Trail-Code</td><td>memory_system</td><td>决策型记忆条目落地为文件: .workbuddy/memory/decisions/YYYY-MM-</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>f0c36fbb44</td><td>trailhq/Trail-Code</td><td>claw_integratio</td><td>交付前决策冲突检查: 提交/交付前把本次改动文件与 decisions/*.md 的 touches</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>cb9e6c1b82</td><td>Jwuthri/Tracely-ai</td><td>eval_observabil</td><td>失败轨迹冻结+fail-to-pass契约: 任务失败或返工时自动打包用例{输入,工具调用序列与返回</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>153e42c54e</td><td>Jwuthri/Tracely-ai</td><td>eval_observabil</td><td>judge校准闸门: judge_calibration.json 抽样人工标注统计每个judge的</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>61fbfb2dd3</td><td>FailproofAI/failproo</td><td>claw_integratio</td><td>元策略不可暂停(守卫自指防护): 最小硬编码deny集写在配置不可达层(进程外broker或编译进r</td><td><span class="tag tag-pending">pending</span></td></tr>
+<tr><td>ce3aa62634</td><td>FailproofAI/failproo</td><td>eval_observabil</td><td>决策入trace + 审计产建议策略: trace增 hook_decisions 段{时机(Pre</td><td><span class="tag tag-pending">pending</span></td></tr>
+</table></div>
 </div>
-<div class="module-row">
-<div class="module-name">tool_system</div>
-<div class="module-bar"><div class="module-fill" style="width:85%"></div></div>
-<div class="module-stats">39/46</div>
-</div>
-<div class="module-row">
-<div class="module-name">agent_orchestrator</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/46</div>
-</div>
-<div class="module-row">
-<div class="module-name">memory_system</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/44</div>
-</div>
-<div class="module-row">
-<div class="module-name">eval_observability</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/43</div>
-</div>
-<div class="module-row">
-<div class="module-name">claw_integration</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/42</div>
-</div>
-<div class="module-row">
-<div class="module-name">skill_system</div>
-<div class="module-bar"><div class="module-fill" style="width:5%"></div></div>
-<div class="module-stats">2/39</div>
-</div>
-<div class="module-row">
-<div class="module-name">tool_registry</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/39</div>
-</div>
-<div class="module-row">
-<div class="module-name">context_injector</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/32</div>
-</div>
-<div class="module-row">
-<div class="module-name">memory</div>
-<div class="module-bar"><div class="module-fill" style="width:48%"></div></div>
-<div class="module-stats">13/27</div>
-</div>
-<div class="module-row">
-<div class="module-name">model_scheduler</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/21</div>
-</div>
-<div class="module-row">
-<div class="module-name">knowledge_retrieval</div>
-<div class="module-bar"><div class="module-fill" style="width:93%"></div></div>
-<div class="module-stats">13/14</div>
-</div>
-<div class="module-row">
-<div class="module-name">storage</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/11</div>
-</div>
-<div class="module-row">
-<div class="module-name">agent_core</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/9</div>
-</div>
-<div class="module-row">
-<div class="module-name">observability</div>
-<div class="module-bar"><div class="module-fill" style="width:38%"></div></div>
-<div class="module-stats">3/8</div>
-</div>
-<div class="module-row">
-<div class="module-name">rag_engine</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/7</div>
-</div>
-<div class="module-row">
-<div class="module-name">evaluation</div>
-<div class="module-bar"><div class="module-fill" style="width:67%"></div></div>
-<div class="module-stats">2/3</div>
-</div>
-<div class="module-row">
-<div class="module-name">evolution</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/3</div>
-</div>
-<div class="module-row">
-<div class="module-name">workflow_engine</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/2</div>
-</div>
-<div class="module-row">
-<div class="module-name">progressive_loader</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/2</div>
-</div>
-<div class="module-row">
-<div class="module-name">automation</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/1</div>
-</div>
-<div class="module-row">
-<div class="module-name">platform</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/1</div>
-</div>
-<div class="module-row">
-<div class="module-name">quality_gate</div>
-<div class="module-bar"><div class="module-fill" style="width:0%"></div></div>
-<div class="module-stats">0/1</div>
-</div>
-</div>
-
-<div class="section">
-<div class="section-title">最近学习项目 (Top 10)</div>
-<table>
-<thead><tr><th>项目</th><th>Stars</th><th>相关度</th><th>语言</th><th>日期</th><th>改进项</th><th>P0</th><th>P1</th></tr></thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/letta-ai/letta-code" target="_blank" style="color:#4fc3f7;text-decoration:none;">letta-ai/letta-code</a></td>
-<td>&#11088;3,838</td>
-<td>19</td>
-<td>TypeScript</td>
-<td>2026-11-15</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/trailhq/Trail-Code" target="_blank" style="color:#4fc3f7;text-decoration:none;">trailhq/Trail-Code</a></td>
-<td>&#11088;11,256</td>
-<td>21</td>
-<td>TypeScript</td>
-<td>2026-11-14</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/Jwuthri/Tracely-ai" target="_blank" style="color:#4fc3f7;text-decoration:none;">Jwuthri/Tracely-ai</a></td>
-<td>&#11088;1,299</td>
-<td>36</td>
-<td>Python</td>
-<td>2026-11-13</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/FailproofAI/failproofai" target="_blank" style="color:#4fc3f7;text-decoration:none;">FailproofAI/failproofai</a></td>
-<td>&#11088;8,618</td>
-<td>28</td>
-<td>TypeScript</td>
-<td>2026-11-12</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/ai-boost/awesome-harness-engineering" target="_blank" style="color:#4fc3f7;text-decoration:none;">ai-boost/awesome-harness-engineering</a></td>
-<td>&#11088;5,118</td>
-<td>31</td>
-<td>Python</td>
-<td>2026-11-11</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/agentic-os-org/ANOLISA" target="_blank" style="color:#4fc3f7;text-decoration:none;">agentic-os-org/ANOLISA</a></td>
-<td>&#11088;662</td>
-<td>30</td>
-<td>Rust</td>
-<td>2026-11-10</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/tigerless-labs/agent-memory" target="_blank" style="color:#4fc3f7;text-decoration:none;">tigerless-labs/agent-memory</a></td>
-<td>&#11088;4,301</td>
-<td>20</td>
-<td>Python</td>
-<td>2026-11-04</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/open-multi-agent/open-multi-agent" target="_blank" style="color:#4fc3f7;text-decoration:none;">open-multi-agent/open-multi-agent</a></td>
-<td>&#11088;7,043</td>
-<td>21</td>
-<td>TypeScript</td>
-<td>2026-11-03</td>
-<td>6</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">3</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/ChesterRa/cccc" target="_blank" style="color:#4fc3f7;text-decoration:none;">ChesterRa/cccc</a></td>
-<td>&#11088;1,292</td>
-<td>20</td>
-<td>Rust</td>
-<td>2026-11-02</td>
-<td>6</td>
-<td><span class="badge badge-p0">3</span></td>
-<td><span class="badge badge-p1">2</span></td>
-</tr>
-<tr>
-<td><a href="https://github.com/nolabs-ai/nono" target="_blank" style="color:#4fc3f7;text-decoration:none;">nolabs-ai/nono</a></td>
-<td>&#11088;4,733</td>
-<td>18</td>
-<td>Rust</td>
-<td>2026-10-29</td>
-<td>5</td>
-<td><span class="badge badge-p0">2</span></td>
-<td><span class="badge badge-p1">2</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div class="section">
-<div class="section-title">语言分布</div>
-<div class="lang-bar">
-<div class="lang-tag">Python <span>53</span></div><div class="lang-tag">N/A <span>52</span></div><div class="lang-tag">TypeScript <span>27</span></div><div class="lang-tag">Rust <span>9</span></div><div class="lang-tag">JavaScript <span>3</span></div><div class="lang-tag">HTML <span>1</span></div><div class="lang-tag">Clojure <span>1</span></div><div class="lang-tag">Protocol (protobuf + multi-SDK) <span>1</span></div><div class="lang-tag">Shell/Marketdown <span>1</span></div><div class="lang-tag">Go <span>1</span></div></div>
-</div>
-
-<div class="section">
-<div class="section-title">最新学习: <a href="https://github.com/letta-ai/letta-code" target="_blank" style="color:#4fc3f7;text-decoration:none;">letta-ai/letta-code</a> (2026-11-15 | &#11088;3,838 | 相关度19)</div>
-<div class="stat-card" style="padding:16px;">
-<div style="font-size:14px;line-height:1.8;">
-<strong>核心创新:</strong><br>
-1. 记忆即git仓库(MemFS): 每次编辑一次commit, 提交推送后才成为'它在任何机器上的记忆' — 同时给出版本历史/冲突处理(用git不用覆盖)/'已保存vs未提交'边界<br>
-2. 路径即策略: 根目录文件每轮进系统提示, 带自己MEMORY.md的子目录不进上下文直到需要; 根MEMORY.md只列子目录, 目录名与文件名本身就是路标<br>
-3. dreaming触发条件写死: 完成N个agent step后 或 上下文窗口被压缩时; 后台subagent复盘合并, 不打断当前工作<br>
-4. 'Agent reviews before applying': 第二后台会话复核并修订自己刚提的记忆更新再落盘 — 自我二审(非人工审批), 提案与复核分离<br>
-5. /doctor 记忆体检: 审计放置位置/重复条目/系统提示token占用三件最易腐化的事, 而非聊天<br>
-6. 整理前自动备份: 拆分大文件/合并重复/重构层级前先备份当前仓库<br>
-7. 并发写用git worktree: dreaming与memory doctor各在worktree改记忆, 不阻塞主agent(不用全局锁)<br>
-8. 配额按最新快照计不按历史: 5MiB/50MiB只算分支或tag最新快照文件, 逼出'保留耐久知识+大文件外迁留摘要与指针'<br>
-9. 技能四级作用域: agent(MEMORY_DIR/skills, 随身份走) / project(.agents/skills) / computer(~/.letta/skills) / bundled; 文档点明多数agent技能是device-bound换机就丢<br>
-10. skill-creator把'刚做完的一件事'转成技能: 判据是某些动作序列更适合表示成技能而非记忆(要被很多agent复用)<br>
-11. 供应链诚实: 'Skills can contain malware and dangerous prompts'; Windows原生默认关闭自动dreaming需显式开环境变量<br>
-</div>
-</div>
-</div>
-<div class="update-time">最后更新: 2026-11-15 09:22 | 自动化ID: automation-1779863408739 | 细水长流模式</div>
-</div>
-</body>
-</html>
+<script>
+const md=[["tool_system", 46], ["knowledge_retrieval", 14], ["agent_orchestration", 52], ["memory", 27], ["evaluation", 3], ["observability", 8], ["skill_system", 39], ["model_scheduler", 21], ["evolution", 3], ["rag_engine", 7], ["memory_system", 44], ["workflow_engine", 2], ["context_injector", 32], ["eval_observability", 45], ["tool_registry", 40], ["agent_orchestrator", 46], ["agent_core", 9], ["automation", 1], ["platform", 1], ["quality_gate", 1], ["claw_integration", 44], ["progressive_loader", 2], ["storage", 12]]; const tp=[{"name": "NVIDIA/OpenShell", "relevance": 27}, {"name": "letta-ai/letta-code", "relevance": 19}, {"name": "trailhq/Trail-Code", "relevance": 21}, {"name": "Jwuthri/Tracely-ai", "relevance": 36}, {"name": "FailproofAI/failproo", "relevance": 28}, {"name": "ai-boost/awesome-har", "relevance": 31}, {"name": "agentic-os-org/ANOLI", "relevance": 30}, {"name": "tigerless-labs/agent", "relevance": 20}, {"name": "open-multi-agent/ope", "relevance": 21}, {"name": "ChesterRa/cccc", "relevance": 20}];
+new Chart(document.getElementById('moduleChart'),{type:'doughnut',data:{labels:md.map(d=>d[0]),datasets:[{data:md.map(d=>d[1]),backgroundColor:['#f85149','#d29922','#3fb950','#58a6ff','#bc8cff','#ff7b72','#79c0ff','#d2a8ff','#a5d6ff','#ffd33d']}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'#c9d1d9'}}}}});
+new Chart(document.getElementById('trendChart'),{type:'bar',data:{labels:tp.map(p=>p.name),datasets:[{label:'相关度',data:tp.map(p=>p.relevance),backgroundColor:'#58a6ff'}]},options:{responsive:true,scales:{y:{beginAtZero:true,grid:{color:'#30363d'},ticks:{color:'#c9d1d9'}},x:{ticks:{color:'#c9d1d9',font:{size:10}}}},plugins:{legend:{labels:{color:'#c9d1d9'}}}}});
+</script>
+</body></html>

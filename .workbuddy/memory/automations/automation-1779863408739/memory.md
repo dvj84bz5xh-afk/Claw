@@ -5,6 +5,16 @@
 
 ## 执行历史
 
+### 2026-11-16 (第102轮)
+- 学习项目: NVIDIA/OpenShell (⭐21,650, 相关度27, Rust, 更新11-16, 已转 CNCF) — fleets of agents 的安全运行时
+- 选题依据: 57 个候选中比掉 stablyai/orca(⭐125K, 多agent各worktree并行) 与 herdrdev/herdr(⭐51K, 终端会话不中断) — 二者补的并行编排/会话持久化与 Claw 已有 checkpoint续跑/并行executor/Durable Execution 重叠; OpenShell 补的是"执行点位置"这一维, 近8轮全未触及
+- 核心创新: 内核级强制(内核管文件访问与系统调用, 网络连接出沙箱前必过策略检查 → 强制点不在harness进程内) / 策略变更由 prover 先算"会新允许什么"(带凭证访问新主机、调新API method), 命中风险挂起等人工 → 批准对象是可枚举能力集合而非文本diff / advisor(提议)与prover(判定)分离 / 凭证-端点绑定(agent永不见明文, 仅发往已批准endpoint时注入) / 三层控制面 gateway-supervisor-sandbox, 策略与审计不在agent可写区 / 强制依赖诚实声明("CNI must enforce NetworkPolicy")
+- 改进建议: 6项 (P0×2: claw_integration 能力增量证明门 / tool_registry 凭证-端点绑定; P1×3: eval_observability prover三角分离 / claw_integration policy移出可写区 / storage 销毁前强制快照; P2×1: 强制覆盖矩阵 unguarded 标注)
+- 判断: 前8轮补语义层, 但所有强制都在被治理对象自己的进程里 → "治理强度取决于强制点位置, 不取决于策略写得多细"; MEMORY.md 增第十四条短板
+- 输出: daily_learning/2026-11-16_openshell.md, tracking(150/499, P0待159, 19.2%), MEMORY.md, dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: 见下条记录
+
 ### 2026-11-15 (第101轮)
 - 学习项目: letta-ai/letta-code (⭐3,838, 相关度19, 更新11-15) — 有状态 agent harness(MemGPT 与 sleep-time compute 作者团队)
 - 选题依据: 与 Ar9av/obsidian-wiki(rel22, 把学到的东西编译成互链 markdown) 比较后选本项 — wiki 的"编译+索引"Claw 已有雏形; "记忆的版本/体检/配额 + 技能作用域"是空白

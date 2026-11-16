@@ -2599,6 +2599,32 @@
         "供应链诚实: 'Skills can contain malware and dangerous prompts'; Windows原生默认关闭自动dreaming需显式开环境变量"
       ],
       "notes": "不引入(Node harness + Letta Cloud, 栈与依赖面都不同). 价值=把记忆从'一堆文件'升级为'有版本/有体检/有配额/有并发策略'的资产; 以及技能作用域与被复用性判断"
+    },
+    {
+      "name": "NVIDIA/OpenShell",
+      "url": "https://github.com/NVIDIA/OpenShell",
+      "stars": 21650,
+      "relevance": 27,
+      "language": "Rust",
+      "analyzed_at": "2026-11-16T09:10:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-16_openshell.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "内核级强制: 每个agent独立sandbox, 内核控制可访问文件与可发系统调用, 网络连接出sandbox前必过策略检查 — 强制点在进程之外",
+        "策略变更用形式化验证(prover)先算出'这条变更会新允许什么'(带凭证访问新主机/调用新API method), 命中风险则挂起等人工审 — 批准对象是可枚举能力集合而非文本diff",
+        "advisor(提建议)与prover(只判定)角色分离, 提议者≠判定者, 对上'进化≠自己改自己'",
+        "凭证-端点绑定: agent永不见真凭证, 只在发往已批准endpoint的请求上注入",
+        "三层控制面: gateway(控制面) / supervisor / sandbox(执行面), 策略与审计配置不在agent可写目录",
+        "强制依赖诚实声明: 'Your CNI must enforce NetworkPolicy' — 能力清单写明依赖下层X, 不满足即不成立",
+        "skills教agent驱动CLI与写沙箱策略: 自助写策略但仍须过prover",
+        "生命周期与GPU/镜像/多runtime: 沙箱image/runtime/GPU/lifecycle 显式建模"
+      ],
+      "notes": "不引入(Rust+eBPF/LSM+Docker/WSL2, 与Windows纯Python栈不兼容). 价值=揭示'治理强度取决于强制点位置而非策略描述粒度', 并给出'策略变更=可判定能力增量'这一验收载体; 据此增MEMORY.md第十四条短板"
     }
   ],
   "improvements": [
@@ -7782,9 +7808,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-15T09:20:00"
+    },
+    {
+      "id": "986fa622df",
+      "source": "NVIDIA/OpenShell",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "策略变更'能力增量证明'门: 任何改进项落地变更在批准前先算 capability delta(新增网络主机/新增API method/新增可写路径glob/新增工具权限), 命中敏感类别(带凭证新主机/新写路径/新exec)强制人工审; approval记录内嵌这份delta而非自然语言描述 — 现在只有文字, 风险靠人读 | 对上短板⑭",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-16T09:10:00"
+    },
+    {
+      "id": "0280393e33",
+      "source": "NVIDIA/OpenShell",
+      "priority": "P0",
+      "module": "tool_registry",
+      "suggestion": "凭证-端点绑定注入: vault每条凭证加 allowed_endpoints 字段, 由代理/网关注入且仅在目标匹配时注入, agent进程环境变量里永不出现明文 — 现在一旦取出即全域可用 | 对上短板④",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-16T09:10:00"
+    },
+    {
+      "id": "3a49c57bfd",
+      "source": "NVIDIA/OpenShell",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "提议/判定/批准三角分离: 新增 policy_prover 角色, 只接受策略或变更描述, 输出封闭词表风险项(new_host/new_method/new_path/new_exec/none)+证据; advisor只有提议权无判定权; 人只批prover给的清单 | 对上短板③",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-16T09:10:00"
+    },
+    {
+      "id": "8049a68d75",
+      "source": "NVIDIA/OpenShell",
+      "priority": "P1",
+      "module": "claw_integration",
+      "suggestion": ".workbuddy/policy/ 移出agent可写区: 改为只读拉取+签名校验, agent只能向 proposals/ 提交变更提案, 生效需gateway侧apply并留审批快照 — 对上短板⑩'可被暂停的策略不是安全边界'",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-16T09:10:00"
+    },
+    {
+      "id": "8168bf3268",
+      "source": "NVIDIA/OpenShell",
+      "priority": "P1",
+      "module": "storage",
+      "suggestion": "沙箱/会话销毁与工作区快照绑定: 会话或agent生命周期结束时强制执行内容寻址快照(能力已有), 把'会话能续跑'补齐为'文件能回滚' — 对上短板⑧",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-16T09:10:00"
+    },
+    {
+      "id": "e1e758344a",
+      "source": "NVIDIA/OpenShell",
+      "priority": "P2",
+      "module": "eval_observability",
+      "suggestion": "强制覆盖矩阵: 每条策略标注覆盖的执行点(file/syscall/net/env/proc), 未覆盖的显式列 unguarded 并置于报告顶部, 不假装全覆盖; 强制依赖下层机制时写明依赖项",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-16T09:10:00"
     }
   ],
-  "last_updated": "2026-11-15T09:20:00",
+  "last_updated": "2026-11-16T09:10:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -8152,14 +8238,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-16T09:10:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 149,
-  "last_update": "2026-11-15T09:20:00",
-  "total_improvements": 493,
-  "total_p0": 183,
-  "total_p1": 244,
-  "total_p2": 66,
+  "total_projects": 150,
+  "last_update": "2026-11-16T09:10:00",
+  "total_improvements": 499,
+  "total_p0": 185,
+  "total_p1": 247,
+  "total_p2": 67,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,
