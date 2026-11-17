@@ -2625,6 +2625,32 @@
         "生命周期与GPU/镜像/多runtime: 沙箱image/runtime/GPU/lifecycle 显式建模"
       ],
       "notes": "不引入(Rust+eBPF/LSM+Docker/WSL2, 与Windows纯Python栈不兼容). 价值=揭示'治理强度取决于强制点位置而非策略描述粒度', 并给出'策略变更=可判定能力增量'这一验收载体; 据此增MEMORY.md第十四条短板"
+    },
+    {
+      "name": "PrimeIntellect-ai/prime-agent",
+      "url": "https://github.com/PrimeIntellect-ai/prime-agent",
+      "stars": 22783,
+      "relevance": 38,
+      "language": "Rust",
+      "analyzed_at": "2026-11-17T09:20:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-17_prime-agent.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "RLM(递归语言模型): 上下文即变量(prompt-as-a-variable), 文件/shell/工具/子agent(rlm.spawn)/上下文管理全在一个持久Python REPL里通过代码完成",
+        "Continual Harness /refine: 审视轨迹产出evidence-backed小更新, 写入四类supplement(补充提示/记忆/技能描述/可复用子agent规格), 永不改写immutable base system prompt, 有refinement history+快照回滚, 默认session-local, 明确不替代打包审查真正可执行技能",
+        "quality gate语义纪律(本轮最强): 'A passed gate checks only what that gate verifies; reaching a limit does not imply task success' — 门通过只说明门验的那件事过了, 预算耗尽不等于成功",
+        "技能按来源分级执行权: 用户配置Python skill导入kernel可执行 / 仓库skill仅Markdown指令不自动执行代码",
+        "agent间直接通信: 运行中agent与保留subagent互发现/互发消息/互相引导, 不必一切路由经用户",
+        "诚实隔离声明: worker/kernel改善lifecycle isolation与recovery但'not a security sandbox', 不可信代码跑外部sandbox/clean worktree",
+        "长任务保持进展: 自动compaction/persistent goals(/goal)/heartbeats/schedules/daemon后台续跑重连",
+        "OSC 7501终端程序状态四态 working/done/error/idle, 退出不再上报保留最后记录, 只在终端询问后才写"
+      ],
+      "notes": "相关度38(关键词法,历轮次高). 与昨天OpenShell成对: 一个证明强制点须在进程外, 一个坦白自己的隔离不是sandbox. 独有价值=自我改进三条纪律(只改supplement不改base/每条更新有轨迹证据/gate通过≠成功). 短板⑥补注可抄范式. 不引入整套(Rust+持久REPL), 取三条纪律+gate三字段设计"
     }
   ],
   "improvements": [
@@ -7868,9 +7894,69 @@
       "effort": "low",
       "status": "pending",
       "created_at": "2026-11-16T09:10:00"
+    },
+    {
+      "id": "0f14158a3c",
+      "source": "PrimeIntellect-ai/prime-agent",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "quality gate语义分离: 交付验收闸门与bounded autonomous结论把 gate_passed/task_success/budget_exhausted 作互不等价三字段输出, 判定词表禁止由gate通过推导success, 超时/超预算只记budget_exhausted — 现在把'任务跑完'当'验收通过', 闸门失去意义 | 对上短板⑥⑪",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-17T09:20:00"
+    },
+    {
+      "id": "ae2ea89210",
+      "source": "PrimeIntellect-ai/prime-agent",
+      "priority": "P0",
+      "module": "skill_system",
+      "suggestion": "落地Continual Harness式/refine: 每轮结束把可复用经验精炼为四类supplement(补充提示/记忆/技能描述/子agent规格), 每条附触发它的轨迹证据, 写refinement history+快照; 永不改写SOUL.md/CLAUDE.md等不可变基线 — 把499条文字改进变可执行技能的具体通道 | 对上短板②③",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-17T09:20:00"
+    },
+    {
+      "id": "ece06309f2",
+      "source": "PrimeIntellect-ai/prime-agent",
+      "priority": "P1",
+      "module": "skill_system",
+      "suggestion": "技能按来源分级执行权: 用户级Python技能可导入执行, 仓库/Marketplace技能默认仅Markdown指令不自动执行, 来源即信任级别, 与已有includes-glob签名叠加 | 对上短板④",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-17T09:20:00"
+    },
+    {
+      "id": "48ef6e6cdc",
+      "source": "PrimeIntellect-ai/prime-agent",
+      "priority": "P1",
+      "module": "agent_orchestrator",
+      "suggestion": "运行中agent直接互发现互引导: 在消息四态+Foreman/peer路由之上补agent主动发现彼此并向'正在进行的工作'发steer消息, 去掉凡事经用户中转的瓶颈",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-17T09:20:00"
+    },
+    {
+      "id": "95f45cffba",
+      "source": "PrimeIntellect-ai/prime-agent",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "能力边界诚实声明: 所有隔离/沙箱类能力旁强制标注'lifecycle isolation vs 真sandbox', 不满足进程外强制的一律不得称sandbox — 与OpenShell一致口径",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-17T09:20:00"
+    },
+    {
+      "id": "13f4f9e1fb",
+      "source": "PrimeIntellect-ai/prime-agent",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "REPL式持久控制环境: 上下文管理从字符串拼接升级为可编程对象(变量化上下文+子agent作为函数), 配合已有daemon/Heartbeat/后台续跑",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-11-17T09:20:00"
     }
   ],
-  "last_updated": "2026-11-16T09:10:00",
+  "last_updated": "2026-11-17T09:20:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -8244,14 +8330,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "time": "2026-11-17T09:20:00",
+      "new_projects": 1,
+      "new_improvements": 6,
+      "skipped_improvements": 0
     }
   ],
-  "total_projects": 150,
-  "last_update": "2026-11-16T09:10:00",
-  "total_improvements": 499,
-  "total_p0": 185,
-  "total_p1": 247,
-  "total_p2": 67,
+  "total_projects": 151,
+  "last_update": "2026-11-17T09:20:00",
+  "total_improvements": 505,
+  "total_p0": 187,
+  "total_p1": 250,
+  "total_p2": 68,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,

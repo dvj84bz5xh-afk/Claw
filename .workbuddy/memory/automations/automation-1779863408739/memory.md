@@ -5,6 +5,17 @@
 
 ## 执行历史
 
+### 2026-11-17 (第103轮)
+- 学习项目: PrimeIntellect-ai/prime-agent (⭐22,783, 相关度38 历轮次高, Rust, MIT, 更新11-17) — 自进化 RLM harness
+- 选题依据: 17候选中比掉 reef(持续自进化基础设施, 正在重构main recipe可能跑不通) 与 agent-beacon(跨harness记忆层, 与已学重叠). prime-agent 关键词相关度38, 同时命中短板②产出沉淀/③进化≠自己改自己/⑥任务成功=验收通过且都有可抄机制; 与昨天OpenShell成对
+- 核心创新: RLM(上下文即变量prompt-as-a-variable+子agent即函数调用rlm.spawn+持久REPL) / Continual Harness /refine(轨迹经验→四类supplement, evidence-backed, 永不改immutable base, history+快照回滚, 默认session-local, 不替代打包审查真技能) / **gate语义纪律: 'A passed gate checks only what that gate verifies; reaching a limit does not imply task success'** / 技能按来源分级执行权(用户Python可执行vs仓库Markdown仅指令) / agent间直接发现通信引导 / 诚实隔离声明(lifecycle isolation≠security sandbox) / 长任务(compaction/goals/heartbeats/schedules/daemon) / OSC7501四态
+- 改进建议: 6项 (P0×2: eval_observability gate三字段分离 / skill_system /refine落地; P1×3: 技能分级执行权 / agent互引导 / 能力边界诚实声明; P2×1: REPL式持久控制环境)
+- 判断: 独有价值=自我改进三条纪律(只改supplement不改base/每条更新有轨迹证据/gate通过≠成功), 把短板②⑥从口号变成可落地字段和流程; 短板⑥补注可抄范式=gate三态分离. 不引入整套(Rust+持久REPL), 取三条纪律+gate三字段设计
+- 输出: daily_learning/2026-11-17_prime-agent.md, tracking(151/505, P0待161, 19.0%), MEMORY.md(短板⑥补注), dashboard
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: ✅ **本轮开头已补推昨天遗留的 commit 92105d2**(11-16 github.com连接重置失败), github.com恢复200/0.4s, ahead归0; 本轮新提交待push
+- 环境注记: 3条search查询(topic组合 self-improving/context-engineering/eval-benchmark)+README走api/readme 均未限流; github.com已恢复
+
 ### 2026-11-16 (第102轮)
 - 学习项目: NVIDIA/OpenShell (⭐21,650, 相关度27, Rust, 更新11-16, 已转 CNCF) — fleets of agents 的安全运行时
 - 选题依据: 57 个候选中比掉 stablyai/orca(⭐125K, 多agent各worktree并行) 与 herdrdev/herdr(⭐51K, 终端会话不中断) — 二者补的并行编排/会话持久化与 Claw 已有 checkpoint续跑/并行executor/Durable Execution 重叠; OpenShell 补的是"执行点位置"这一维, 近8轮全未触及
@@ -13,7 +24,8 @@
 - 判断: 前8轮补语义层, 但所有强制都在被治理对象自己的进程里 → "治理强度取决于强制点位置, 不取决于策略写得多细"; MEMORY.md 增第十四条短板
 - 输出: daily_learning/2026-11-16_openshell.md, tracking(150/499, P0待159, 19.2%), MEMORY.md, dashboard
 - 通知: QQ邮箱✅ + 飞书✅
-- 同步: 见下条记录
+- 同步: ❌ **未完成** — commit 92105d2 已生成, ahead=1 待补推。原因: `github.com:443` 不可达(curl -I https://github.com 15s 超时返回 000), 但 `api.github.com` 200/0.39s 正常; push 报 "Recv failure: Connection was reset"。试 2 次后停止(与 11-14 同一症状, 次日恢复)。另: 本文件"同步"行的这次补记本身未提交, 下轮会一并提交
+- 顺带修复: 仪表盘轮次显示取 evolution_log 的最大 round 字段(原取 round_stats 长度, 低报为"第58轮", 已修正为第102轮)
 
 ### 2026-11-15 (第101轮)
 - 学习项目: letta-ai/letta-code (⭐3,838, 相关度19, 更新11-15) — 有状态 agent harness(MemGPT 与 sleep-time compute 作者团队)
