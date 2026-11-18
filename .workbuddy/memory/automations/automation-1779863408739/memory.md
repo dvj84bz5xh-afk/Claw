@@ -5,6 +5,17 @@
 
 ## 执行历史
 
+### 2026-11-18 (第104轮)
+- 学习项目: traccia-ai/traccia-py (⭐134, 相关度34, Python, Apache-2.0, 更新11-15, 基于OpenTelemetry) — AI agent控制面 Observe/Evaluate/Govern/Prove 四合一
+- 选题依据: GitHub search API 403限流; 用户指定4个重点方向(autogen/python-sdk/claude-mem/genericagent)均已学; 从18候选中选定traccia-py, 补短板①fitness闭环/⑥验收等价/⑪验收复现载体, 纯Python栈可校准
+- 核心创新: 三维度CI闸门(质量/成本/延迟任一超标即fail PR, fitness是三条独立红线非单一分数) / @govern四态决策(allow/reshape自动降级便宜模型/deny时provider不被调用/hold挂起人工审批, 策略服务端热更新) / Observe→Warn→Block策略灰度三档 / prompt name+version写入span可溯源(+fallback) / fail-closed默认+覆盖面按接入点诚实分级(SDK看全run vs Gateway只看model call) / decision_id+reasons可审计+合规Hub(EU AI Act/HIPAA)
+- 改进建议: 6项 (P0×2: eval_observability fitness三维度红线 / claw_integration 四态决策; P1×3: context_injector prompt lineage / eval_observability 策略灰度+留痕 / eval_observability 覆盖分级; P2×1: claw_integration 合规证据Hub)
+- 判断: 独有价值=①fitness从单一分数拆成质量/成本/延迟三条独立红线做成PR闸门; ②reshape/hold补上Claw二态信任门缺失的自动降级与人工挂起中间地带。与昨天prime-agent的gate语义纪律连成一线。短板①补注可抄范式=三维度红线。不引入整套(商业control plane+OTLP基建), 取三设计
+- 输出: daily_learning/2026-11-18_traccia-py.md, tracking(152/511, P0待189, 18.8%), MEMORY.md(短板①补注+能力矩阵), dashboard(第104轮)
+- 通知: QQ邮箱✅ + 飞书✅
+- 同步: ✅ git push 成功 (bec22df, a72ab89..bec22df, PUSH_OK)
+- 环境注记: `git status`触发敏感审批超时(未重试), 改用 git add+commit+push 直连正常; push 沿用 openssl/HTTP1.1/lowSpeed 参数稳定
+
 ### 2026-11-17 (第103轮)
 - 学习项目: PrimeIntellect-ai/prime-agent (⭐22,783, 相关度38 历轮次高, Rust, MIT, 更新11-17) — 自进化 RLM harness
 - 选题依据: 17候选中比掉 reef(持续自进化基础设施, 正在重构main recipe可能跑不通) 与 agent-beacon(跨harness记忆层, 与已学重叠). prime-agent 关键词相关度38, 同时命中短板②产出沉淀/③进化≠自己改自己/⑥任务成功=验收通过且都有可抄机制; 与昨天OpenShell成对
