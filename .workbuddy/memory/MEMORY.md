@@ -1,5 +1,5 @@
 # MEMORY.md - Claw 项目记忆
-# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-17
+# 格式版本: v3.5 (精简索引版) | 最后更新: 2026-11-18
 
 ## [USER] 用户偏好
 - 职业: 执法培训 + 诈骗园区调查 + CodeBuddy产品经理
@@ -9,8 +9,9 @@
 
 ## [PROJECT] Claw 学习追踪系统
 - 目的: 通过GitHub高星项目迭代CodeBuddy能力
-- 进度: 151项目 / 505改进项 / 实施率约19.0% (已实施96 / P0待实施161)
-- 最新学习: PrimeIntellect-ai/prime-agent (⭐22.8K, 相关度38 历轮次高, 自进化RLM harness/上下文即变量+子agent即函数 + /refine只改supplement不改immutable base + gate通过≠任务成功) — 2026-11-17
+- 进度: 152项目 / 511改进项 / 实施率约18.8% (已实施96 / P0待实施189)
+- 最新学习: traccia-ai/traccia-py (⭐134, 相关度34, AI agent控制面Observe/Evaluate/Govern/Prove + 三维度CI闸门(质量/成本/延迟任一超标即fail) + @govern四态allow/reshape/deny/hold + prompt lineage入span) — 2026-11-18
+- 上轮学习: PrimeIntellect-ai/prime-agent (⭐22.8K, 相关度38 历轮次高, 自进化RLM harness/上下文即变量+子agent即函数 + /refine只改supplement不改immutable base + gate通过≠任务成功) — 2026-11-17
 - 上轮学习: NVIDIA/OpenShell (⭐21.7K, 相关度27, 内核级sandbox runtime/强制点在进程之外+策略变更能力增量证明+凭证-端点绑定) — 2026-11-16
 - 上轮学习: letta-ai/letta-code (⭐3.8K, 相关度19, 有状态harness/记忆git版本化+记忆体检+技能四级作用域) — 2026-11-15
 - 上轮学习: trailhq/Trail-Code (⭐11.3K, 相关度21, 共享决策记忆/决策即文件+冲突检查+自动读不自动写) — 2026-11-14
@@ -28,7 +29,7 @@
 - 自动化ID: automation-1779863408739 | 每日09:00 | 细水长流1项目/日
 - 日志: .workbuddy/evolution_log.jsonl | 仪表盘: docs/evolution-dashboard.html
 - 环境铁律: Python 用完整路径 /c/Users/10127/AppData/Local/Programs/Python/Python313/python.exe + heredoc; 系统代理127.0.0.1:7890已失效, urllib 须 build_opener(ProxyHandler({})) 绕过; git push 用 `-c http.sslBackend=openssl -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=20`（HTTP/2 会挂在 fetch 阶段不动）
-- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage；**已找到可抄范式=prime-agent的gate语义分离：gate_passed/task_success/budget_exhausted三态互不等价，门通过只说明门验的那件事过了**）；⑦写记忆靠agent判断而非机制（会话边界无触发、索引可重建仅文档承诺无断言）；⑧工作区无快照（会话能续跑≠文件能回滚，改了什么不可审）；⑨错误不入账且脚手架只增不删（无 error-class 台账、无退役率、无 sunset 条款，469 项改进无一写删除条件）；⑩守卫自身无保护（策略与审计配置可被 agent 改/停，无不可暂停的最小 deny 集；决策不落 trace，事后查不到"为什么放行"——"可被暂停的策略不是安全边界"）；⑪验收无复现载体（改进项只有文字，无冻结的失败轨迹与 fail-to-pass 证据；judge 未校准即用于判分与闸门）；⑫记忆无归属无触点无淘汰（条目无"谁定的/排除了什么"，改写历史不留痕，无法按触点定向注入，也没有回本核算）；⑬记忆无版本无体检无配额（写入即覆盖不可回滚、重复与错放无人发现、无限增长无上限）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）；⑭策略变更无"能力增量证明"（批准对象是文字描述而非可枚举能力集合——新增了哪个主机/method/可写路径/exec 无人能算出；且强制点全在harness进程内，改配置或换条路径即绕过——**治理强度取决于强制点位置，不取决于策略写得多细**）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
+- **四大短板(10-25/27/28/29 佐证)**: ①缺 fitness 闭环（改进项只计数不验证；**11-18 补注可抄范式=traccia-py三维度红线：fitness拆成quality_pass/cost_within_budget/latency_within_budget三条独立判定, CI任一不达标即fail, 非单一分数**）；②缺产出沉淀（439项建议无一变技能）；③缺"进化≠自己改自己"的边界（提出者=批准者=验收者）；④缺供应链信任（技能从远程拉取但不验签名，权限靠进程内钩子而非进程外broker，审计由工具自证）；⑥缺"证明按规矩跑"（任务成功=验收通过，无独立governanceConclusion；审批无不可变快照载体；上下文无溯源lineage；**已找到可抄范式=prime-agent的gate语义分离：gate_passed/task_success/budget_exhausted三态互不等价，门通过只说明门验的那件事过了**）；⑦写记忆靠agent判断而非机制（会话边界无触发、索引可重建仅文档承诺无断言）；⑧工作区无快照（会话能续跑≠文件能回滚，改了什么不可审）；⑨错误不入账且脚手架只增不删（无 error-class 台账、无退役率、无 sunset 条款，469 项改进无一写删除条件）；⑩守卫自身无保护（策略与审计配置可被 agent 改/停，无不可暂停的最小 deny 集；决策不落 trace，事后查不到"为什么放行"——"可被暂停的策略不是安全边界"）；⑪验收无复现载体（改进项只有文字，无冻结的失败轨迹与 fail-to-pass 证据；judge 未校准即用于判分与闸门）；⑫记忆无归属无触点无淘汰（条目无"谁定的/排除了什么"，改写历史不留痕，无法按触点定向注入，也没有回本核算）；⑬记忆无版本无体检无配额（写入即覆盖不可回滚、重复与错放无人发现、无限增长无上限）；⑤缺协作语义（消息只有'已发'一态，无送达/已读/已回之分，无委派单据，停用agent仍可被投递）；⑭策略变更无"能力增量证明"（批准对象是文字描述而非可枚举能力集合——新增了哪个主机/method/可写路径/exec 无人能算出；且强制点全在harness进程内，改配置或换条路径即绕过——**治理强度取决于强制点位置，不取决于策略写得多细**）。P0 动作: 建 `managed_skills/`，3项成果按**五件套**(SKILL.md+evals+security+run-record+纠错路径)写成技能包并跑一次代表性run；证据落 raw/、草稿落 wiki/，可执行层仅由验证过的变更更新
 
 ## [CAPABILITY] 各模块已具备能力(精简索引)
 - agent_orchestrator: Hook三/六层 · 子Agent上下文隔离 · 并行executor · checkpoint续跑 · Guardrails四钩三判 · 任务分级+交付验收闸门 · Spine · Sentinel · IntentGate · ACP适配器 · Stage Contract线性流水线 · swarm事务化 · 多Agent辩论制衡 · 消息四态(stored/delivered/read/replied)+三模式投递(打断/待回/邮件)+原子读游标 · 生命周期边界(停用不唤醒) · Foreman/peer路由
@@ -36,8 +37,8 @@
 - context_injector: Shared State · Mermaid压缩 · Hash-Anchored Edit · Hierarchical AGENTS.md · Auto Compact · 五层上下文分层加载(L0-L4)+Inputs表 · 三级技能token控制 · PreCompact/PostCompact双钩子 · 分级读取模式+JIT披露+缓存引用
 - tool_registry: Skill-Embedded MCPs · 工具语义搜索 · 多路冗余降级 · 真实探测健康检查 · 三分类+主动发现 · 符号级代码工具 · Gateway/Registry控制面分离 · Virtual MCP servers · 输出压缩规则库+输出预算 · fail-closed准入+工具级block · MCP开销审计 · 审批预授权+凭证vault · 调用级能力派生(每次调用独立能力集不继承会话) + 工具间双向边授权(can_use+from不合并) · 工具面按协议vs机械分级(协议核心常驻其余按需)
 - skill_system: SkillsHub市场 · Markdown零锁定 · Vibe DSL · 渐进发现 · 自动学习管道 · 路由两阶段记录 · 资产化注册表 · 双层Work+Persona · Built-in Skills · 统一AI资产注册表 · 多技能根目录 · Workspace可移植打包 · 技能来源证明(includes glob必签名+Sigstore bundle+blocklist优先硬拒+用户级trust anchor不可削弱)
-- eval_observability: 14可观测矩阵 · LLM-as-Judge · TracingMiddleware · 反进化审计 · 统计显著性选型 · Agent Arena · Evolve程序搜索(islands+bandit) · point-in-time integrity · 玻璃盒run落盘+replay · 证据分级报告法 · 能力矩阵+漂移测试 · 中介侧审计(工具不自证+封闭decision词表+摘要可验篡改) · 运维策略事件化(idle/静默/notice最多一次且无内容)
-- claw_integration: Evolver自进化 · OME离线反思 · Heartbeat · 自愈harness · Daemon Mode · Automations · SSE事件总线 · Durable Execution(Lease+Revision) · Runtime契约层(/v1+可续播SSE+replay) · 默认安全dry-run · 权限拒绝模式分析器 · 人工编辑面交接 · 交付前控制面(PathJail) · 可写可执行信任门+fail closed · 委派单据(owner/outcome/evidence/handoff/acceptance)
+- eval_observability: 14可观测矩阵 · LLM-as-Judge · TracingMiddleware · 反进化审计 · 统计显著性选型 · Agent Arena · Evolve程序搜索(islands+bandit) · point-in-time integrity · 玻璃盒run落盘+replay · 证据分级报告法 · 能力矩阵+漂移测试 · 中介侧审计(工具不自证+封闭decision词表+摘要可验篡改) · 运维策略事件化(idle/静默/notice最多一次且无内容) · [学习待实施]三维度CI闸门(quality/cost/latency红线) · 策略灰度Observe/Warn/Block+decision_id留痕 · 覆盖面按接入点分级
+- claw_integration: Evolver自进化 · OME离线反思 · Heartbeat · 自愈harness · Daemon Mode · Automations · SSE事件总线 · Durable Execution(Lease+Revision) · Runtime契约层(/v1+可续播SSE+replay) · 默认安全dry-run · 权限拒绝模式分析器 · 人工编辑面交接 · 交付前控制面(PathJail) · 可写可执行信任门+fail closed · 委派单据(owner/outcome/evidence/handoff/acceptance) · [学习待实施]四态决策(allow/reshape/deny/hold, reshape降级模型/hold挂起审批) · 合规证据Hub(EU AI Act/HIPAA存证)
 - model_scheduler: 声明式路由 · 凭证池轮转 · Model Presets · provider per tier · BudgetStore持久化预算 · 多模态能力路由矩阵 · 单一活动provider+显式激活
 - storage: Markdown-as-Truth · StorageAdapter抽象 · SQLite+LanceDB本地栈 · Skill挂载sandbox · URI路径化寻址 · Local-first+渐进鉴权 · 内容寻址快照原子回滚(按文件恢复)
 - rag_engine: 主题知识库+可视化图谱 · source-tracking来源追踪 · BM25+Vector+RRF混合检索

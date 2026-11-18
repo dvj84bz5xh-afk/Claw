@@ -2651,6 +2651,29 @@
         "OSC 7501终端程序状态四态 working/done/error/idle, 退出不再上报保留最后记录, 只在终端询问后才写"
       ],
       "notes": "相关度38(关键词法,历轮次高). 与昨天OpenShell成对: 一个证明强制点须在进程外, 一个坦白自己的隔离不是sandbox. 独有价值=自我改进三条纪律(只改supplement不改base/每条更新有轨迹证据/gate通过≠成功). 短板⑥补注可抄范式. 不引入整套(Rust+持久REPL), 取三条纪律+gate三字段设计"
+    },
+    {
+      "name": "traccia-ai/traccia-py",
+      "url": "https://github.com/traccia-ai/traccia-py",
+      "stars": 134,
+      "relevance": 34,
+      "language": "Python",
+      "analyzed_at": "2026-11-18T09:10:00",
+      "report_path": ".workbuddy/daily_learning/2026-11-18_traccia-py.md",
+      "improvements_count": 6,
+      "priority_breakdown": {
+        "P0": 2,
+        "P1": 3,
+        "P2": 1
+      },
+      "key_innovations": [
+        "四合一控制面 Observe/Evaluate/Govern/Prove: 单Python SDK覆盖追踪/评估/prompt管理/运行时治理, 全基于OpenTelemetry span, 可导出任意OTLP后端不锁定",
+        "三维度CI闸门(本轮最强): traccia eval在PR时 质量掉/成本超/延迟超 任一即fail job — fitness是三条独立红线而非单一分数",
+        "@govern四态决策 allow/reshape/deny/hold: reshape自动降级便宜模型, hold抛ApprovalPending排队人工审批, deny时底层provider根本不被调用; 策略服务端热更新免部署",
+        "Observe→Warn→Block策略灰度三档: 新策略先只记录命中→告警→真拦截, 先看会拦什么再上线",
+        "prompt lineage: load_prompt(label)+compile()把prompt名与版本写进当前span, 每条trace可溯源产出它的提示版本, 带fallback降级",
+        "fail-closed默认(治理不可达默认阻断)+覆盖面按接入点诚实分级(SDK看全run/Gateway只看model call)+decision_id与reasons可审计"
+      ]
     }
   ],
   "improvements": [
@@ -7954,9 +7977,69 @@
       "effort": "high",
       "status": "pending",
       "created_at": "2026-11-17T09:20:00"
+    },
+    {
+      "id": "d0970e60ea",
+      "source": "traccia-ai/traccia-py",
+      "priority": "P0",
+      "module": "eval_observability",
+      "suggestion": "fitness闭环升级为三维度红线: 每条改进项/eval增加quality_pass/cost_within_budget/latency_within_budget三个独立判定字段, CI任一不达标即fail, 不再只计数已实施。短板①从'缺闭环'推进到'闭环有三条可量化红线'",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-18T09:10:00"
+    },
+    {
+      "id": "532783c227",
+      "source": "traccia-ai/traccia-py",
+      "priority": "P0",
+      "module": "claw_integration",
+      "suggestion": "交付前控制面补四态决策: 现有可写可执行信任门(allow/deny二态)扩展为allow/reshape/deny/hold — reshape降级到便宜模型档, hold抛审批挂起等人工, deny确保工具/provider根本不被调用(强制点在调用前)",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-18T09:10:00"
+    },
+    {
+      "id": "30f0e326a3",
+      "source": "traccia-ai/traccia-py",
+      "priority": "P1",
+      "module": "context_injector",
+      "suggestion": "prompt lineage写入trace: load_prompt+compile式机制把注入提示模板名与版本记进当前run的trace, 每条记录可回答哪个提示版本产生此输出; 带fallback避免注册表故障停摆。补短板⑥溯源维度",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-18T09:10:00"
+    },
+    {
+      "id": "b0b9093b33",
+      "source": "traccia-ai/traccia-py",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "策略灰度三档+决策留痕: Guardrails/策略加Observe/Warn/Block三模式, 新策略默认Observe只记录命中, 人工确认后升Block; 每次命中写decision_id+reasons进trace, 与元策略不可暂停叠加",
+      "effort": "medium",
+      "status": "pending",
+      "created_at": "2026-11-18T09:10:00"
+    },
+    {
+      "id": "0c50a02f7e",
+      "source": "traccia-ai/traccia-py",
+      "priority": "P1",
+      "module": "eval_observability",
+      "suggestion": "能力覆盖面按接入点诚实分级: 能力矩阵为每条治理能力标注SDK内可强制/网关代理仅model call/不可见, 避免把部分覆盖说成全覆盖, 与15格矩阵对仗",
+      "effort": "low",
+      "status": "pending",
+      "created_at": "2026-11-18T09:10:00"
+    },
+    {
+      "id": "62c64301d4",
+      "source": "traccia-ai/traccia-py",
+      "priority": "P2",
+      "module": "claw_integration",
+      "suggestion": "合规证据Hub: 把拦截决策/prompt版本/成本延迟判定汇总成可导出证据链(对标EU AI Act/HIPAA存证), 供审计而非仅调试",
+      "effort": "high",
+      "status": "pending",
+      "created_at": "2026-11-18T09:10:00"
     }
   ],
-  "last_updated": "2026-11-17T09:20:00",
+  "last_updated": "2026-11-18T09:10:00",
   "round_stats": [
     {
       "time": "2026-06-14T08:50:00.000000",
@@ -8336,14 +8419,20 @@
       "new_projects": 1,
       "new_improvements": 6,
       "skipped_improvements": 0
+    },
+    {
+      "round": 104,
+      "date": "2026-11-18",
+      "project": "traccia-ai/traccia-py",
+      "improvements": 6
     }
   ],
-  "total_projects": 151,
-  "last_update": "2026-11-17T09:20:00",
-  "total_improvements": 505,
-  "total_p0": 187,
-  "total_p1": 250,
-  "total_p2": 68,
+  "total_projects": 152,
+  "last_update": "2026-11-18T09:10:00",
+  "total_improvements": 511,
+  "total_p0": 189,
+  "total_p1": 253,
+  "total_p2": 69,
   "historical_total": 283,
   "new_improvements_this_round": 6,
   "p0_new_this_round": 2,
